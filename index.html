@@ -337,18 +337,18 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,7vw,52px);lin
 .chs .chbig{text-align:left;font:inherit;display:flex;flex-direction:column;gap:4px;padding:14px;border:1px solid var(--line);background:var(--panel);color:var(--fg);border-radius:8px;cursor:pointer}
 .chs .chbig:hover{border-color:var(--accent)}
 .chs .chbig b{font-size:16px}.chs .chbig span{color:var(--muted);font-size:13.5px}
-.chs .chb{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));grid-template-rows:repeat(8,minmax(0,1fr));width:min(100%,480px);aspect-ratio:1;margin:8px auto;border:3px solid var(--line);border-radius:6px;overflow:hidden;container-type:inline-size;touch-action:manipulation;user-select:none}
+.chs .chb{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));grid-template-rows:repeat(8,minmax(0,1fr));width:min(100%,480px);aspect-ratio:1;margin:8px auto;border:3px solid var(--ch-edge,var(--line));border-radius:6px;overflow:hidden;container-type:inline-size;touch-action:manipulation;user-select:none}
 .chs .chsq{position:relative;border:0;padding:0;margin:0;display:flex;align-items:center;justify-content:center;font-size:9vw;font-size:9cqw;line-height:1;cursor:pointer;color:inherit;border-radius:0}
-.chs .chsq.lt{background:#ecd9b0}.chs .chsq.dk{background:#b58863}
+.chs .chsq.lt{background:var(--ch-lt,#ecd9b0)}.chs .chsq.dk{background:var(--ch-dk,#b58863)}
 .chs .chsq.last{box-shadow:inset 0 0 0 100px rgba(255,220,70,.42)}
 .chs .chsq.sel{box-shadow:inset 0 0 0 100px rgba(255,220,70,.6)}
-.chs .chsq.chk{background:radial-gradient(circle,#ff4a3a 0,#d63a2c 45%,transparent 75%),#b58863}
-.chs .chsq.mv::after{content:"";position:absolute;width:30%;height:30%;border-radius:50%;background:rgba(20,20,20,.35)}
-.chs .chsq.cap::after{content:"";position:absolute;inset:4%;border-radius:50%;border:.7cqw solid rgba(20,20,20,.4)}
+.chs .chsq.chk{background:radial-gradient(circle,#ff4a3a 0,#d63a2c 45%,transparent 75%),var(--ch-dk,#b58863)}
+.chs .chsq.mv::after{content:"";position:absolute;width:30%;height:30%;border-radius:50%;background:var(--ch-dot,rgba(20,20,20,.35))}
+.chs .chsq.cap::after{content:"";position:absolute;inset:4%;border-radius:50%;border:.7cqw solid var(--ch-dot,rgba(20,20,20,.4))}
 .chs .pc{pointer-events:none;position:relative;z-index:1}
-.chs .pc.w{color:#fff;text-shadow:0 0 1px #000,0 0 2px #000,0 1px 2px rgba(0,0,0,.8)}
-.chs .pc.b{color:#17171a;text-shadow:0 0 1px rgba(255,255,255,.5)}
-.chs .chsq .rk,.chs .chsq .fl{position:absolute;font-style:normal;font-size:2.3cqw;font-size:max(9px,2.3cqw);font-weight:700;pointer-events:none;opacity:.7;color:#5a4630}
+.chs .pc.w{color:var(--ch-pw,#fff);text-shadow:var(--ch-pws,0 0 1px #000,0 0 2px #000,0 1px 2px rgba(0,0,0,.8))}
+.chs .pc.b{color:var(--ch-pb,#17171a);text-shadow:var(--ch-pbs,0 0 1px rgba(255,255,255,.5))}
+.chs .chsq .rk,.chs .chsq .fl{position:absolute;font-style:normal;font-size:2.3cqw;font-size:max(9px,2.3cqw);font-weight:700;pointer-events:none;opacity:.7;color:var(--ch-lab,#5a4630)}
 .chs .chsq .rk{top:3%;left:4%}.chs .chsq .fl{bottom:2%;right:5%}
 .chs .chlab{display:flex;align-items:center;gap:8px;font-weight:600;font-size:14px;max-width:480px;margin:0 auto}
 .chs .chlab .dot{width:9px;height:9px;border-radius:50%;background:var(--line)}
@@ -358,7 +358,7 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,7vw,52px);lin
 .chs .chmenu .chst{text-align:left;margin:0;font-weight:500;color:var(--muted)}
 .chs .chmv{max-width:480px;margin:6px auto;font-family:var(--mono);font-size:12.5px;color:var(--muted);max-height:4.7em;overflow:auto;line-height:1.55}
 .chs .chact{max-width:480px;margin:8px auto;display:flex;gap:8px;flex-wrap:wrap;justify-content:center;align-items:center}
-.chs .chpb{padding:2px 14px;font-size:32px;line-height:1.1;background:#b58863}
+.chs .chpb{padding:2px 14px;font-size:32px;line-height:1.1;background:var(--ch-dk,#b58863)}
 .chs .chcodebig{font-family:var(--mono);font-size:clamp(26px,9vw,38px);font-weight:700;letter-spacing:.12em;text-align:center;padding:18px 8px;border:2px dashed var(--accent);border-radius:10px;background:var(--panel);user-select:all}
 .chs .chin{font-family:var(--mono);font-size:24px;letter-spacing:.12em;text-align:center;text-transform:uppercase;padding:12px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--fg);width:100%}
 .ds .dslogd{border-top:2px solid #22252d;padding-top:8px}
@@ -380,6 +380,23 @@ h1{font-family:var(--display);font-weight:800;font-size:clamp(30px,7vw,52px);lin
 .ds .dsopt.on{border-color:#ffd23f;color:#ffd23f}
 .ds .dsopt canvas{display:block;image-rendering:pixelated}
 .ds .dsprev{width:100%;max-width:480px;aspect-ratio:16/9;image-rendering:pixelated;border:2px solid #02060f;border-radius:4px;display:block;align-self:center}
+/* tambahan: skin catur + lobi online Buckshot */
+.chs .chskin{max-width:480px;margin:8px auto;border:1px solid var(--line);border-radius:8px;padding:8px 12px;background:var(--panel)}
+.chs .chskin summary{cursor:pointer;font-weight:600;font-size:14px}
+.chs .chskl{margin:10px 0 4px;font-size:12px;color:var(--muted);font-family:var(--mono);text-transform:uppercase;letter-spacing:.06em}
+.chs .chsko{display:flex;flex-wrap:wrap;gap:6px}
+.chs .chskb{display:flex;align-items:center;gap:6px;font:inherit;font-size:13px;padding:5px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);cursor:pointer}
+.chs .chskb.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.chs .chsw{display:inline-block;width:20px;height:20px;border-radius:4px;border:1px solid rgba(0,0,0,.35)}
+.chs .chpq{font-weight:600}
+.dsin{font-family:var(--body);font-size:16px;padding:10px 12px;border:3px solid #02060f;background:#16120d;color:#e9e4d6;border-radius:0;width:100%}
+.dsin.code{font-family:var(--mono);font-size:24px;letter-spacing:.12em;text-align:center;text-transform:uppercase}
+.dsseat{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:10px 12px;border:3px solid #02060f;background:#1a1510;color:#e9e4d6;font-size:14px}
+.dsseat.empty{color:#7a7566;border-style:dashed}
+.dsseat b{color:#ffd23f}
+.dscode{font-family:var(--mono);font-size:clamp(24px,8vw,36px);font-weight:700;letter-spacing:.12em;text-align:center;padding:16px 8px;border:2px dashed #ffd23f;background:#16120d;color:#ffd23f;user-select:all}
+.dsst{font-family:var(--body);font-size:13.5px;color:#a9a493;margin:0}
+.dsrow2{display:flex;gap:8px;flex-wrap:wrap}
 </style>
 </head>
 <body>
@@ -2506,22 +2523,30 @@ function dsDrawScene(c,P,now,withGun){
   if(withGun)dsGun(c,P);
 }
 let DS_BG=null;
-function DeadShell(box){
+function DeadShell(box,joinCode){
   const T=timers();let gen=0;
   const after=(fn,ms)=>{const g=gen;T.after(()=>{if(g===gen)fn()},ms)};
   const root=el('div','ds');box.appendChild(root);
   let S=null,cv=null,ctx=null,frameId=null;
+  /* online: RNG berbenih (semua pemain menjalankan simulasi yang sama), NET = koneksi room */
+  let RR=null,NET=null;
+  const rn=n=>RR?Math.floor(RR()*n):rnd(n);
+  const rf=()=>RR?RR():Math.random();
+  const shf=a=>{for(let i=a.length-1;i>0;i--){const j=rn(i+1);[a[i],a[j]]=[a[j],a[i]]}return a};
+  const skI=()=>{if(S&&S.online){const q=S.players[S.fx&&S.fx.holder>=0?S.fx.holder:S.turn];return q&&q.sk!=null?q.sk:0}return DS_LOOK.skin};
+  const gl=i=>S.players[i].seat;
+  const loc=seat=>S.players.findIndex(p=>p.seat===seat);
   let elBar,elMine,elMsg,elAct,elLog,elLab,elSc,elItems;
   const stats=()=>{const s=store.get('ds-stats',{});return s&&typeof s==='object'?s:{}};
   const spd=()=>S&&!S.players[0].alive?.45:1;
   const nOpp=()=>S.players.length-1;
-  const figX=k=>nOpp()===1?160:[58,160,262][k];
+  const figX=k=>nOpp()===1?160:nOpp()===2?[100,220][k]:[58,160,262][k];
   const figU=()=>nOpp()===1?2:1;
   const figTop=()=>nOpp()===1?8:56;
   const IDLE={Bx:108,By:153,Mx:212,My:147,t0:13,t1:10,ring:0,cx:160,cy:120,rx:14,ry:9,shaft:60};
 
   function menu(){
-    dsLoadLook();gen++;if(frameId){clearInterval(frameId);frameId=null}
+    nLeave(true);dsLoadLook();gen++;if(frameId){clearInterval(frameId);frameId=null}
     S=null;root.innerHTML='';
     const st=stats();
     const wrap=el('div','dsw');
@@ -2531,8 +2556,9 @@ function DeadShell(box){
     const m1=el('button','dsbig','<b>1 v 1</b><span>Satu lawan satu, berhadapan di meja.</span>');m1.type='button';m1.onclick=()=>start('1v1');
     const m2=el('button','dsbig','<b>Free for all</b><span>Kamu lawan 3 bot. Bebas pilih target.</span>');m2.type='button';m2.onclick=()=>start('ffa');
     row.append(m1,m2);wrap.append(row);
+    const ob=el('button','dsbig','<b>Main online</b><span>Bareng teman lewat link atau kode room. 1 v 1 atau free for all, bot bisa mengisi kursi kosong.</span>');ob.type='button';ob.style.width='100%';ob.onclick=()=>netMenu();
     const cb=el('button','dsbig','<b>Kustomisasi</b><span>Skin senapan, ruangan, aksesoris meja.</span>');cb.type='button';cb.onclick=customize;cb.style.width='100%';
-    wrap.append(cb);
+    wrap.append(ob,cb);
     const line=m=>{const x=st[m]||{p:0,w:0};return x.p?x.w+' menang dari '+x.p+' main':'belum pernah main'};
     wrap.append(el('div','dsstat','1v1: '+line('1v1')+'<br>Free for all: '+line('ffa')));
     wrap.append(rulesBox());
@@ -2596,11 +2622,11 @@ function DeadShell(box){
     return d;
   }
 
-  function start(mode){
+  function start(mode,onl){
     dsLoadLook();gen++;
     const bots=mode==='1v1'?[{name:'Rooney',face:4}]:[{name:'',face:1},{name:'',face:2},{name:'',face:3}];
-    const ps=[{name:'Kamu',face:0,human:true}].concat(bots).map(p=>Object.assign({hp:0,max:0,items:[],cuffed:false,alive:true,wins:0,k:null},p));
-    S={mode,players:ps,round:0,start:0,turn:0,chamber:[],sawed:false,lock:true,over:false,pick:null,sel:null,hit:-1,msg:'',log:[],
+    const ps=onl||[{name:'Kamu',face:0,human:true}].concat(bots).map(p=>Object.assign({hp:0,max:0,items:[],cuffed:false,alive:true,wins:0,k:null},p));
+    S={mode,online:!!onl,inbox:[],players:ps,round:0,start:0,turn:0,chamber:[],sawed:false,lock:true,over:false,pick:null,sel:null,hit:-1,msg:'',log:[],
       pL:0,pB:0,flipU:false,fx:{parts:[],ia:null,cyan:0,show:false,sawAnim:null,piece:null,cuffAnim:null,green:0,wob:0,aim:-1,holder:-1,flash:0,flashLive:false,white:0,red:0,shake:0,eject:null,reveal:null,pose:Object.assign({},IDLE),blink:0}};
     build();
     newRound();
@@ -2675,7 +2701,7 @@ function DeadShell(box){
   function frame(){
     if(!S||!ctx||document.hidden)return;
     const f=S.fx,now=Date.now();
-    if(DS_SKINS[DS_LOOK.skin].anim)DS_MAP=dsMapOf(DS_SKINS[DS_LOOK.skin],now);
+    {const sk=skI();if(DS_SKINS[sk].anim||f.skApplied!==sk){DS_MAP=dsMapOf(DS_SKINS[sk],now);f.skApplied=sk}}
     const tp=poseFor();
     for(const k in tp)if(k!=='len')f.pose[k]+=(tp[k]-f.pose[k])*(f.sv?1:.34);
     if(!(f.sawAnim&&f.sawAnim.stage===0))f.pose.len=S.sawed?.66:1;
@@ -2689,7 +2715,7 @@ function DeadShell(box){
     elSc.classList.toggle('selfv',!!f.sv);
     if(f.sv)svDraw(now);
     /* 1v1: redupkan tembok yang ramai dan beri cahaya tipis di belakang siluet Dealer */
-    if(S.players.length===2&&S.players[1].alive&&!f.sv){
+    if(S.players.length===2&&!S.online&&S.players[1].alive&&!f.sv){
       ctx.fillStyle='rgba(3,3,5,.55)';ctx.fillRect(0,0,DS_W,DS_TY);
       const g1=ctx.createRadialGradient(160,52,8,160,52,92);g1.addColorStop(0,'rgba(2,2,4,.9)');g1.addColorStop(1,'rgba(2,2,4,0)');
       ctx.fillStyle=g1;ctx.fillRect(40,0,240,DS_TY+10);
@@ -2698,7 +2724,7 @@ function DeadShell(box){
     }
     /* suasana horor 1v1: detak jantung saat giliran Dealer, dengung rendah acak */
     if(f.hzTurn!==S.turn){f.hzTurn=S.turn;f.hzT0=now}
-    if(S.players.length===2&&S.players[1].alive&&!S.over){
+    if(S.players.length===2&&!S.online&&S.players[1].alive&&!S.over){
       if(S.turn===1&&now>(f.hbT||0)){Music.sfx('beat');f.hbT=now+1100}
       if(now>(f.drT||0)){if(f.drT)Music.sfx('dread');f.drT=now+9000+Math.random()*8000}
     }
@@ -2792,7 +2818,7 @@ function DeadShell(box){
     }
     if(f.flash>0){
       const P=f.pose,mx=f.sv?Math.round(f.sv.mx):Math.round(P.ring>.5?P.cx:P.Mx),my=f.sv?Math.round(f.sv.my):Math.round(P.ring>.5?P.cy:P.My),r=f.flash*(f.flashLive?5:2)*(f.sv?1.7:1);
-      ctx.fillStyle=f.flashLive?(DS_SKINS[DS_LOOK.skin].flash||'#ffd23f'):'#c9ced8';ctx.fillRect(mx-r,my-1,r*2,3);ctx.fillRect(mx-1,my-r,3,r*2);
+      ctx.fillStyle=f.flashLive?(DS_SKINS[skI()].flash||'#ffd23f'):'#c9ced8';ctx.fillRect(mx-r,my-1,r*2,3);ctx.fillRect(mx-1,my-r,3,r*2);
       ctx.fillRect(mx-Math.round(r*.7),my-Math.round(r*.7),Math.round(r*1.4),Math.round(r*1.4));
       ctx.fillStyle='#fff';ctx.fillRect(mx-Math.round(r*.4),my-Math.round(r*.4),Math.round(r*.8),Math.round(r*.8));
       f.flash--;
@@ -2810,7 +2836,7 @@ function DeadShell(box){
     }
     dsTintData(D,DS_ROOMS[DS_LOOK.room]);
     const fl=((now%5200)<110?.82:1)*(1-(f.fade||0));
-    const hzm=(S.players.length===2&&S.players[1].alive&&!f.sv)?(DS_HZV||(DS_HZV=dsMakeHz())):null,hf=hzm?((now%9300)<130?.1:1)*(Math.random()<.06?.72:1)*(.94+.06*Math.sin(now/110)):1;
+    const hzm=(S.players.length===2&&!S.online&&S.players[1].alive&&!f.sv)?(DS_HZV||(DS_HZV=dsMakeHz())):null,hf=hzm?((now%9300)<130?.1:1)*(Math.random()<.06?.72:1)*(.94+.06*Math.sin(now/110)):1;
     const w=f.white*230,rd=f.red,gr=f.green,cy=f.cyan||0;
     for(let y=0;y<DS_H;y++){
       const sl=(y&1)?.93:1;
@@ -2894,6 +2920,9 @@ function DeadShell(box){
     if(!canAct()){
       const p=P[S.turn];
       elAct.append(el('div','dswait',P[0].alive?('Giliran '+(p?p.name:'')+'...'):'Kamu tumbang. Menonton sampai ronde selesai...'));
+      if(S.online&&NET&&NET.role==='host'&&p&&p.remote&&!p.gone&&!S.lock&&Date.now()-(S.waitAt||0)>20000){
+        const kb=el('button','dbtn ghost','Dia lama? Ganti dengan bot');kb.type='button';kb.onclick=()=>{nPost({t:'kick',g:p.uid},2);dropPlayer(p)};elAct.append(kb);
+      }
       return;
     }
     const mk=(txt,cls,fn)=>{const b=el('button','dbtn'+(cls?' '+cls:''),txt);b.type='button';b.onclick=fn;return b};
@@ -2929,9 +2958,9 @@ function DeadShell(box){
   function newRound(){
     S.round++;
     const mx=5;
-    if(S.mode==='ffa'){const nm=botNames(3);S.players.slice(1).forEach((p,i)=>{p.name=nm[i]})}
+    if(S.mode==='ffa'&&!S.online){const nm=botNames(3);S.players.slice(1).forEach((p,i)=>{p.name=nm[i]})}
     S.players.forEach(p=>{p.max=mx;p.hp=mx;p.items=[];p.cuffed=false;p.alive=true;p.k=null});
-    S.turn=S.start%S.players.length;S.start++;
+    S.turn=S.online?loc(S.start%S.players.length):S.start%S.players.length;S.start++;
     S.hit=-1;S.pick=null;S.sel=null;S.fx.aim=-1;S.fx.holder=-1;
     say('Ronde '+S.round+'. Tiap pemain punya '+mx+' nyawa.');
     banner('Ronde '+S.round);
@@ -2940,12 +2969,12 @@ function DeadShell(box){
     after(beginTurn,2800);
   }
   function reload(){Music.sfx('reload');
-    const n=2+rnd(7),live=1+rnd(n-1),blank=n-live;
-    S.chamber=shuffle(Array(live).fill('L').concat(Array(blank).fill('B')));S.pL=live;S.pB=blank;S.flipU=false;
+    const n=2+rn(7),live=1+rn(n-1),blank=n-live;
+    S.chamber=shf(Array(live).fill('L').concat(Array(blank).fill('B')));S.pL=live;S.pB=blank;S.flipU=false;
     S.sawed=false;S.players.forEach(p=>{p.k=null});
     S.fx.reveal={types:shuffle(S.chamber.slice()),until:Date.now()+2600};
-    const cnt=1+rnd(4);
-    S.players.forEach(p=>{if(!p.alive)return;for(let k=0;k<cnt&&p.items.length<8;k++)p.items.push(DS_ITEMS[rnd(DS_ITEMS.length)].id)});
+    const cnt=1+rn(4);
+    S.players.forEach(p=>{if(!p.alive)return;for(let k=0;k<cnt&&p.items.length<8;k++)p.items.push(DS_ITEMS[rn(DS_ITEMS.length)].id)});
     say('Isi ulang: '+live+' LIVE, '+blank+' BLANK. Dikocok. Tiap pemain dapat '+cnt+' item.');
   }
   function nextTurn(){
@@ -2969,6 +2998,7 @@ function DeadShell(box){
     const p=S.players[S.turn];
     S.fx.aim=-1;S.fx.holder=-1;
     if(p.human){S.lock=false;render()}
+    else if(p.remote&&!p.gone){S.lock=false;S.waitAt=Date.now();render();pump();after(()=>{if(S&&!S.over&&S.players[S.turn]===p&&!S.lock)render()},21000)}
     else{S.lock=true;render();after(botStep,900*spd())}
   }
   function nextAlive(i){
@@ -2979,6 +3009,7 @@ function DeadShell(box){
   /* ---------- aksi ---------- */
   function shoot(si,ti){
     const s=S.players[si],t=S.players[ti];
+    if(si===0&&S.online)netAct({k:'shoot',ti:gl(ti)});
     S.lock=true;S.pick=null;S.sel=null;S.fx.holder=si;S.fx.aim=ti;Music.sfx('aim');
     const selfShot=si===0&&ti===0;
     if(selfShot){S.fx.sv={mode:'aim',tm:Date.now(),die:false,splats:[],mx:170,my:119};S.fx.fade=1}
@@ -3013,6 +3044,7 @@ function DeadShell(box){
   }
   function useItem(pi,slot,ti){
     const p=S.players[pi],id=p.items[slot];
+    if(pi===0&&S.online)netAct({k:'item',slot,ti:ti==null?null:gl(ti)});
     p.items.splice(slot,1);S.lock=true;S.pick=null;S.sel=null;
     let delay=1400;
     const hum=pi===0;
@@ -3042,7 +3074,7 @@ function DeadShell(box){
         say(p.name+' membalik peluru di laras.');
       }break;
       case 'pill':{
-        const good=Math.random()<.5,A=S.fx.ia;
+        const good=rf()<.5,A=S.fx.ia;
         say(p.name+' menelan obat...');
         after(()=>{
           if(good){p.hp=Math.min(p.max,p.hp+2);say(p.name+' minum obat: +2 nyawa.');S.fx.green=1;dsBurst(S.fx,A.tx,A.ty,['#4cc58a','#ffffff','#9affc4'],18,5,-.05)}
@@ -3074,12 +3106,12 @@ function DeadShell(box){
   }
   function matchOver(w){
     S.over=true;S.lock=true;
-    const st=stats();const x=st[S.mode]||{p:0,w:0};x.p++;if(w.human)x.w++;st[S.mode]=x;store.set('ds-stats',st);
+    if(!S.online){const st=stats();const x=st[S.mode]||{p:0,w:0};x.p++;if(w.human)x.w++;st[S.mode]=x;store.set('ds-stats',st)}
     render();
     const ov=el('div','dsend');
     ov.append(el('div','dst',w.human?'Kamu menang':w.name+' menang'),el('p','dsp',w.human?'Pemain terakhir yang berdiri. Mau main lagi?':'Peluru tidak memihak siapa pun. Coba lagi?'));
     const row=el('div','dsmode');
-    const a=el('button','dbtn','Main lagi');a.type='button';a.onclick=()=>start(S.mode);
+    const a=el('button','dbtn','Main lagi');a.type='button';a.onclick=()=>S.online?rematch():start(S.mode);if(S.online&&NET&&NET.role!=='host'){a.disabled=true;a.textContent='Menunggu room master'}
     const b=el('button','dbtn ghost','Ganti mode');b.type='button';b.onclick=menu;
     row.append(a,b);ov.append(row);
     elAct.after(ov);
@@ -3123,23 +3155,284 @@ function DeadShell(box){
     if(known==null&&!S.flipU){if(L===0)known='B';else if(B===0)known='L'}
     if(known==='B'&&opps.length&&(i=has('flip'))>=0){p.k='B';return useItem(pi,i)}
     if(known==='L'&&!S.sawed&&(i=has('saw'))>=0)return useItem(pi,i);
-    if(known==null&&L>0&&B>0&&Math.random()<.45&&(i=has('soda'))>=0)return useItem(pi,i);
+    if(known==null&&L>0&&B>0&&rf()<.45&&(i=has('soda'))>=0)return useItem(pi,i);
     const nx=nextAlive(pi);
-    if(nx>=0&&nx!==pi&&!S.players[nx].cuffed&&(i=has('cuffs'))>=0&&Math.random()<.8)return useItem(pi,i,nx);
+    if(nx>=0&&nx!==pi&&!S.players[nx].cuffed&&(i=has('cuffs'))>=0&&rf()<.8)return useItem(pi,i,nx);
     const pick=()=>{
       let best=opps[0],bh=99;
-      opps.forEach(j=>{const h=S.players[j].hp-(Math.random()*.4);if(h<bh){bh=h;best=j}});
+      opps.forEach(j=>{const h=S.players[j].hp-(rf()*.4);if(h<bh){bh=h;best=j}});
       return best;
     };
     if(known==='L')return shoot(pi,pick());
     if(known==='B')return shoot(pi,pi);
     if(pl>.5)return shoot(pi,pick());
     if(pl<.5)return shoot(pi,(p.hp>1||pl<.34)?pi:pick());
-    return shoot(pi,Math.random()<.5&&p.hp>1?pi:pick());
+    return shoot(pi,rf()<.5&&p.hp>1?pi:pick());
   }
 
-  menu();
-  return{destroy(){T.clear();if(frameId)clearInterval(frameId)}};
+  /* ================= ONLINE (relay ntfy.sh, simulasi lockstep) ================= */
+  const cleanName=v=>(String(v==null?'':v).replace(/[^\p{L}\p{N} _.\-]/gu,'').trim().slice(0,12))||'Pemain';
+  const nick=()=>cleanName(store.get('nick',''));
+  const fmtCode=c=>c.slice(0,4)+'-'+c.slice(4);
+  const dsCopy=(text,b)=>{
+    const done=()=>{const t=b.textContent;b.textContent='Tersalin';T.after(()=>{b.textContent=t},1500)};
+    try{if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(text).then(done,()=>{});return}}catch(e){}
+    const ta=document.createElement('textarea');ta.value=text;document.body.append(ta);ta.select();try{document.execCommand('copy');done()}catch(e){}ta.remove();
+  };
+  const mkB=(t,cls,fn)=>{const b=el('button','dbtn'+(cls?' '+cls:''),t);b.type='button';b.onclick=fn;return b};
+  function nPost(o,tries,keep){
+    const n=NET;if(!n)return;
+    const body=JSON.stringify(Object.assign({u:n.uid},o));
+    const go=k=>fetch(CH_RELAY+n.topic,{method:'POST',body,keepalive:!!keep}).then(r=>{if(!r.ok)throw new Error(r.status)}).catch(()=>{if(NET===n&&k>0)T.after(()=>go(k-1),1500+(3-k)*1500)});
+    go(tries==null?3:tries);
+  }
+  function nOpen(onMsg,onEv){
+    const n=NET;if(!n)return;
+    nClose();
+    let e;try{e=new EventSource(CH_RELAY+n.topic+'/sse'+(n.lastT?'?since='+n.lastT:''))}catch(x){onEv('nosupport');return}
+    n.es=e;
+    e.onopen=()=>{n.esTry=0;onEv('open')};
+    e.onmessage=ev=>{
+      let d;try{d=JSON.parse(ev.data)}catch(x){return}
+      if(!d||d.event!=='message')return;
+      if(d.id){if(n.seen.has(d.id))return;n.seen.add(d.id);if(n.seen.size>400)n.seen=new Set([...n.seen].slice(-200))}
+      if(d.time)n.lastT=Math.max(n.lastT,d.time);
+      let m;try{m=JSON.parse(d.message)}catch(x){return}
+      if(!m||typeof m!=='object'||m.u===n.uid||typeof m.u!=='string')return;
+      if(m.q!=null){if(m.q<=(n.lastQ[m.u]||0))return;n.lastQ[m.u]=m.q}
+      if(NET===n)onMsg(m);
+    };
+    e.onerror=()=>{
+      if(NET!==n||n.es!==e)return;
+      e.close();n.es=null;n.esTry++;onEv('err');
+      T.after(()=>{if(NET===n)nOpen(onMsg,onEv)},Math.min(8000,1000*n.esTry));
+    };
+  }
+  function nClose(){const n=NET;if(n&&n.es){try{n.es.close()}catch(x){}n.es=null}}
+  function nLeave(bye){const n=NET;if(!n)return;if(bye)nPost({t:'bye'},0,true);nClose();NET=null;RR=null}
+  function netAct(o){if(NET)nPost(Object.assign({t:'act',q:++NET.q},o),3)}
+  function setSt(t){
+    if(!/^https?:$/.test(location.protocol))t='Online tidak jalan kalau dibuka dari file di HP. Upload dulu ke hosting (misalnya GitHub Pages), lalu buka lewat link https-nya.';
+    const e=root.querySelector('.dsconn');if(e)e.textContent=t;
+  }
+  const onNetEv=ev=>{
+    if(ev==='open'){setSt(NET&&NET.role==='guest'&&!NET.joined?'Mencari room…':'Terhubung ke server.')}
+    else if(ev==='err')setSt('Sulit menghubungi server. Mencoba lagi…');
+    else if(ev==='nosupport')setSt('Browser ini tidak mendukung koneksi online.');
+  };
+
+  function netMenu(note){
+    nLeave(true);gen++;if(frameId){clearInterval(frameId);frameId=null}S=null;root.innerHTML='';
+    const wrap=el('div','dsw');wrap.append(el('div','dst','Main online'));
+    if(typeof note==='string'&&note)wrap.append(el('p','dsp',note));
+    wrap.append(el('p','dsp','Satu orang jadi room master dan membagikan link atau kode room. Room master bisa mulai kapan saja, atau menambah bot di kursi yang kosong. Langkah dikirim lewat ntfy.sh, tanpa akun.'));
+    wrap.append(el('div','dscl','Namamu'));
+    const ni=el('input','dsin');ni.type='text';ni.maxLength=12;ni.placeholder='Nama kamu';ni.value=store.get('nick','')||'';ni.oninput=()=>store.set('nick',ni.value.trim());
+    wrap.append(ni);
+    const mkb=(t,d,fn)=>{const b=el('button','dsbig','<b>'+t+'</b><span>'+d+'</span>');b.type='button';b.onclick=fn;return b};
+    wrap.append(
+      mkb('Buat room 1 v 1','Kamu room master. 2 kursi.',()=>hostFlow('1v1',2)),
+      mkb('Buat room free for all','Kamu room master. 4 kursi. Kursi kosong bisa diisi bot.',()=>hostFlow('ffa',4)),
+      mkb('Gabung dengan kode','Masukkan kode 8 huruf dari room master.',()=>joinFlow(''))
+    );
+    wrap.append(mkB('Kembali','ghost',menu));
+    root.append(wrap);
+  }
+  function hostFlow(mode,cap){
+    nLeave(true);dsLoadLook();
+    const code=chRand(8);
+    NET={uid:chRand(10),topic:'maroe-bs-'+code.toLowerCase(),role:'host',code,es:null,lastT:0,seen:new Set(),esTry:0,q:0,lastQ:{}};
+    NET.hostU=NET.uid;
+    const L={mode,cap,seats:Array(cap).fill(null)};
+    L.seats[0]={u:NET.uid,name:nick(),sk:DS_LOOK.skin};
+    NET.L=L;
+    lobbyView();setSt('Menghubungi server…');
+    nOpen(onNetMsg,onNetEv);
+  }
+  function sendLobby(){const L=NET.L;nPost({t:'lobby',mode:L.mode,cap:L.cap,seats:L.seats},2)}
+  function lobbyView(){
+    const n=NET;if(!n||!n.L||(S&&S.online))return;
+    const L=n.L,host=n.role==='host';
+    root.innerHTML='';
+    const wrap=el('div','dsw');
+    wrap.append(el('div','dst',L.mode==='1v1'?'Room 1 v 1':'Room free for all'));
+    if(host){
+      const link=location.href.split('#')[0]+'#deadshell/'+n.code;
+      wrap.append(el('p','dsp','Kirim link ini ke temanmu. Begitu dibuka, dia langsung masuk ke room. Kode di bawah untuk cadangan.'));
+      wrap.append(el('div','dscode',fmtCode(n.code)));
+      const r=el('div','dsrow2');
+      const lb=mkB('Salin link','',()=>dsCopy(link,lb));
+      const cb=mkB('Salin kode','alt',()=>dsCopy(fmtCode(n.code),cb));
+      const sh=mkB('Bagikan','ghost',()=>{const t='Main Buckshot bareng aku di Board Game Maroe. Buka link ini, langsung masuk: '+link;if(navigator.share)navigator.share({text:t}).catch(()=>{});else dsCopy(t,sh)});
+      r.append(lb,cb,sh);wrap.append(r);
+    }
+    L.seats.forEach((s,i)=>{
+      const row=el('div','dsseat'+(s?'':' empty'));
+      if(!s)row.append(el('span','','Kursi '+(i+1)+': kosong'));
+      else{
+        row.append(el('span','','<b>'+s.name+'</b>'+(i===0?' · room master':s.bot?' · bot':s.u===n.uid?' · kamu':'')));
+        if(host&&s.bot)row.append(mkB('Hapus','ghost',()=>{L.seats[i]=null;sendLobby();lobbyView()}));
+      }
+      wrap.append(row);
+    });
+    const cnt=L.seats.filter(Boolean).length,full=cnt===L.cap;
+    if(host){
+      const r2=el('div','dsrow2');
+      const ab=mkB('Tambah bot','alt',addBot);ab.disabled=full;
+      const sb=mkB(full?'Mulai (room penuh)':'Mulai sekarang','',hostStart);sb.disabled=cnt<2;
+      r2.append(ab,sb);wrap.append(r2);
+      wrap.append(el('p','dsst',full?'Room penuh. Tekan Mulai.':'Pemain: '+cnt+'/'+L.cap+'. Tunggu temanmu, tambah bot di kursi kosong, atau mulai sekarang dengan yang ada.'));
+    }else wrap.append(el('p','dsst','Pemain: '+cnt+'/'+L.cap+'. Menunggu room master memulai…'));
+    wrap.append(el('p','dsst','Skin senapanmu dipakai saat giliranmu jalan. Ruangan dan aksesoris hanya terlihat olehmu.'));
+    wrap.append(el('div','dsst dsconn',''));
+    wrap.append(mkB('Keluar','ghost',()=>netMenu()));
+    root.append(wrap);
+  }
+  function addBot(){
+    const L=NET.L,e=L.seats.findIndex(x=>!x);if(e<0)return;
+    const free=BOT_POOL.filter(x=>!L.seats.some(s=>s&&s.name===x));
+    L.seats[e]={u:'bot'+e+'-'+rnd(1e6),name:free.length?free[rnd(free.length)]:'Bot',sk:rnd(DS_SKINS.length),bot:true};
+    sendLobby();lobbyView();
+  }
+  function hostStart(){
+    const n=NET,L=n.L;
+    const seats=L.seats.filter(Boolean).map(x=>({u:x.u,name:x.name,sk:x.sk,bot:!!x.bot}));
+    if(seats.length<2)return;
+    const cfg={t:'start',mode:L.mode,seed:(Math.random()*4294967296)>>>0,seats};
+    nPost(cfg,3);startOnline(cfg);
+  }
+  function rematch(){
+    const n=NET;if(!n||n.role!=='host'||!n.cfg)return;
+    const seats=n.cfg.seats.filter(x=>x.bot||!n.gone.has(x.u));
+    if(seats.length<2)return;
+    const cfg={t:'start',mode:n.cfg.mode,seed:(Math.random()*4294967296)>>>0,seats};
+    nPost(cfg,3);startOnline(cfg);
+  }
+  function joinFlow(pre){
+    nLeave(true);gen++;if(frameId){clearInterval(frameId);frameId=null}S=null;root.innerHTML='';
+    const wrap=el('div','dsw');wrap.append(el('div','dst','Gabung room'));
+    wrap.append(el('p','dsp','Masukkan kode 8 huruf dari room master.'));
+    wrap.append(el('div','dscl','Namamu'));
+    const ni=el('input','dsin');ni.type='text';ni.maxLength=12;ni.placeholder='Nama kamu';ni.value=store.get('nick','')||'';ni.oninput=()=>store.set('nick',ni.value.trim());
+    const inp=el('input','dsin code');inp.type='text';inp.maxLength=9;inp.placeholder='ABCD-EFGH';inp.autocapitalize='characters';inp.autocomplete='off';inp.spellcheck=false;
+    inp.oninput=()=>{inp.value=inp.value.toUpperCase().replace(/[^A-Z0-9-]/g,'')};
+    const st=el('div','dsst dsconn','');
+    const fail=t=>{st.textContent=t;go.disabled=false;inp.disabled=false};
+    const go=mkB('Gabung','',()=>{
+      const c=inp.value.replace(/[^A-Z0-9]/g,'');
+      if(c.length!==8){st.textContent='Kodenya 8 huruf atau angka.';return}
+      go.disabled=true;inp.disabled=true;st.textContent='Menghubungi server…';
+      joinRoom(c.toLowerCase(),fail);
+    });
+    if(typeof pre==='string'&&pre){inp.value=pre.toUpperCase().replace(/[^A-Z0-9]/g,'')}
+    wrap.append(ni,inp,go,st,mkB('Kembali','ghost',()=>netMenu()));
+    root.append(wrap);
+    if(inp.value.length===8)go.click();else inp.focus();
+  }
+  function joinRoom(c,fail){
+    dsLoadLook();
+    NET={uid:chRand(10),topic:'maroe-bs-'+c,role:'guest',code:c.toUpperCase(),es:null,lastT:0,seen:new Set(),esTry:0,q:0,lastQ:{},joined:false};
+    const n=NET;let tries=0;
+    const hello=()=>nPost({t:'join',n:nick(),sk:DS_LOOK.skin},1);
+    const tm=T.every(()=>{
+      if(NET!==n||n.joined||S){clearInterval(tm);return}
+      if(++tries>5){clearInterval(tm);nLeave(false);fail('Room tidak ditemukan atau room master belum membuatnya. Periksa kodenya.');return}
+      hello();
+    },3500);
+    nOpen(onNetMsg,ev=>{onNetEv(ev);if(ev==='open'&&!n.joined)hello()});
+  }
+  function onNetMsg(m){
+    const n=NET;if(!n)return;
+    if(S&&S.online){gameNet(m);return}
+    if(n.role==='host'){
+      const L=n.L;
+      if(m.t==='join'){
+        let i=L.seats.findIndex(x=>x&&x.u===m.u);
+        if(i<0){
+          i=L.seats.findIndex(x=>!x);
+          if(i<0){nPost({t:'full',g:m.u});return}
+          let nm=cleanName(m.n),base=nm,k=2;
+          while(L.seats.some(x=>x&&x.name===nm))nm=base.slice(0,10)+k++;
+          L.seats[i]={u:m.u,name:nm,sk:(m.sk|0)>=0&&(m.sk|0)<DS_SKINS.length?(m.sk|0):0};
+        }
+        sendLobby();lobbyView();
+      }else if(m.t==='bye'){
+        const i=L.seats.findIndex(x=>x&&x.u===m.u);
+        if(i>0){L.seats[i]=null;sendLobby();lobbyView()}
+      }
+    }else{
+      if(m.t==='lobby'&&Array.isArray(m.seats)&&m.seats.some(x=>x&&x.u===n.uid)){
+        n.joined=true;n.hostU=m.u;
+        n.L={mode:m.mode,cap:m.cap|0,seats:m.seats.map(x=>x?{u:String(x.u),name:cleanName(x.name),sk:x.sk|0,bot:!!x.bot}:null)};
+        lobbyView();setSt('Terhubung ke server.');
+      }else if(m.t==='full'&&m.g===n.uid){
+        nLeave(false);netMenu('Room ini sudah penuh.');
+      }else if(m.t==='start'&&Array.isArray(m.seats)&&m.seats.some(x=>x&&x.u===n.uid)){
+        startOnline(m);
+      }else if(m.t==='bye'&&m.u===n.hostU){
+        nLeave(false);netMenu('Room master keluar dari room.');
+      }else if(m.t==='kick'&&m.g===n.uid&&m.u===n.hostU){
+        nLeave(false);netMenu('Kamu dikeluarkan oleh room master.');
+      }
+    }
+  }
+  function startOnline(cfg){
+    const n=NET;if(!n)return;
+    const seats=cfg.seats.map(x=>({u:String(x.u),name:cleanName(x.name),sk:(x.sk|0)>=0&&(x.sk|0)<DS_SKINS.length?(x.sk|0):0,bot:!!x.bot}));
+    const N=seats.length,m=seats.findIndex(x=>x.u===n.uid);
+    if(m<0||N<2||N>4)return;
+    n.cfg={mode:cfg.mode,seats};n.gone=new Set();
+    if(n.role==='guest'&&cfg.u)n.hostU=cfg.u;
+    RR=mulberry(cfg.seed>>>0);
+    const ps=[];
+    for(let j=0;j<N;j++){
+      const seat=(m+j)%N,x=seats[seat];
+      ps.push({name:j===0?'Kamu':x.name,face:j===0?0:j,human:j===0,remote:j>0&&!x.bot,uid:x.u,seat,sk:x.sk,hp:0,max:0,items:[],cuffed:false,alive:true,wins:0,k:null});
+    }
+    start('online',ps);
+  }
+  function gameNet(m){
+    const n=NET;
+    if(m.t==='start'){if(n.role!=='host'&&m.u===n.hostU&&Array.isArray(m.seats)&&m.seats.some(x=>x&&x.u===n.uid))startOnline(m);return}
+    const p=S.players.find(x=>x.uid===m.u);
+    if(m.t==='act'){
+      if(!p||!p.remote||p.gone)return;
+      S.inbox.push({p,k:m.k,slot:m.slot|0,ti:m.ti==null?null:m.ti});pump();
+    }else if(m.t==='bye'){
+      if(p&&p.remote)dropPlayer(p);
+    }else if(m.t==='kick'&&m.u===n.hostU){
+      if(m.g===n.uid){nLeave(false);netMenu('Kamu dikeluarkan oleh room master.');return}
+      const q=S.players.find(x=>x.uid===m.g);if(q&&q.remote)dropPlayer(q);
+    }
+  }
+  function dropPlayer(p){
+    if(!S||p.gone)return;
+    p.gone=true;if(NET&&NET.gone)NET.gone.add(p.uid);
+    S.log.push(p.name+' keluar. Bot mengambil alih.');
+    if(!S.over&&p.alive&&S.players[S.turn]===p&&!S.lock){S.lock=true;render();after(botStep,700*spd())}
+    else render();
+  }
+  function pump(){
+    if(!S||!S.online||S.over||S.lock)return;
+    const p=S.players[S.turn];if(!p||!p.remote||p.gone||!p.alive)return;
+    const i=S.inbox.findIndex(a=>a.p===p);if(i<0)return;
+    const a=S.inbox.splice(i,1)[0];
+    if(a.k==='shoot'){
+      const ti=loc(a.ti);
+      if(ti<0||!S.players[ti].alive){pump();return}
+      shoot(S.turn,ti);
+    }else if(a.k==='item'){
+      if(!p.items[a.slot]){pump();return}
+      let ti=a.ti==null?undefined:loc(a.ti);
+      if(p.items[a.slot]==='cuffs'&&(ti==null||ti<0||!S.players[ti].alive)){pump();return}
+      useItem(S.turn,a.slot,ti);
+    }else pump();
+  }
+  const byeNow=()=>{if(NET)nPost({t:'bye'},0,true)};
+  window.addEventListener('pagehide',byeNow);
+
+  if(typeof joinCode==='string'&&joinCode.length===8)joinFlow(joinCode);else menu();
+  return{destroy(){byeNow();window.removeEventListener('pagehide',byeNow);nLeave(false);T.clear();if(frameId)clearInterval(frameId)}};
 }
 
 /* ---------- BLACKJACK ---------- */
@@ -3806,11 +4099,34 @@ const CH_ALPHA='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
 const chRand=n=>{let s='';const a=new Uint8Array(n);crypto.getRandomValues(a);for(const x of a)s+=CH_ALPHA[x%CH_ALPHA.length];return s};
 const CH_G={K:'♚',Q:'♛',R:'♜',B:'♝',N:'♞',P:'♟'};
 const chG=p=>CH_G[p.toUpperCase()]+'︎';
+const CH_QC=['Halo! 👋','Bagus!','Aduh 😅','GG 🤝'];
+const CH_BOARDS=[
+ {n:'Klasik',lt:'#ecd9b0',dk:'#b58863'},
+ {n:'Hijau',lt:'#eeeed2',dk:'#769656'},
+ {n:'Biru es',lt:'#dfe9ef',dk:'#7a9bb5'},
+ {n:'Malam',lt:'#8793ad',dk:'#3b4863',lab:'#dfe6f5',dot:'rgba(255,255,255,.4)'},
+ {n:'Merah muda',lt:'#fde7ef',dk:'#e08fb0'},
+ {n:'Marmer',lt:'#ecebe6',dk:'#9b9b9b'},
+ {n:'Hutan',lt:'#cfdcae',dk:'#3f6a3a',lab:'#f0f5e0',dot:'rgba(255,255,255,.35)'},
+ {n:'Neon',lt:'#1d2a52',dk:'#0b1230',edge:'#37e6ff',lab:'#6af0ff',dot:'rgba(106,240,255,.45)'},
+ {n:'Lava',lt:'#5a2a22',dk:'#2a0f0c',edge:'#ff6a3c',lab:'#ffb080',dot:'rgba(255,140,80,.5)'}
+];
+const CH_PIECES=[
+ {n:'Klasik',w:'#ffffff',b:'#17171a'},
+ {n:'Emas & perak',w:'#f6d365',b:'#aab4c6',ws:'0 0 1px #5a3d00,0 1px 2px rgba(0,0,0,.7)',bs:'0 0 1px #000,0 1px 2px rgba(0,0,0,.7)'},
+ {n:'Kayu',w:'#f5deb3',b:'#5b3a1e',ws:'0 0 1px #4a3016,0 1px 2px rgba(0,0,0,.6)',bs:'0 0 1px rgba(255,220,170,.5)'},
+ {n:'Neon',w:'#6af0ff',b:'#ff5ad8',ws:'0 0 6px #6af0ff,0 0 2px #fff',bs:'0 0 6px #ff5ad8,0 0 2px #fff'},
+ {n:'Api & es',w:'#cdeeff',b:'#ff6a3c',ws:'0 0 2px #1d5a8a,0 0 1px #000',bs:'0 0 4px #ffb040,0 0 1px #400'},
+ {n:'Zamrud',w:'#b9ffd9',b:'#0f5a3a',ws:'0 0 1px #064,0 1px 2px rgba(0,0,0,.6)',bs:'0 0 2px #9fffcc'},
+ {n:'Tulang',w:'#faf4e4',b:'#3a3226',ws:'0 0 1px #6a5e48,0 1px 2px rgba(0,0,0,.6)',bs:'0 0 1px rgba(250,244,228,.6)'}
+];
 function Chess(box,joinCode){
   const T=timers();
   const root=el('div','chs');box.appendChild(root);
   let st,hist,keys,mode,me,sel=null,lm=[],last=null,over=null,busy=false,pend=null,rem=0,botName=null;
   let dead=false,stale=false;
+  let sts=[],fv=false,pu=null,inU=null,pd=false,inD=false,cmsg='',note='';
+  const look=Object.assign({b:0,p:0},store.get('ch-look',{}));
   /* relay */
   let topic=null,es=null,uid=chRand(10),role=null,peer=null,lastT=0,seen=new Set(),seenAt=0,pingT=null,onNet=null,esTry=0;
   let elBoard,elTop,elBot,elSt,elMv,elAct;
@@ -3975,12 +4291,27 @@ function Chess(box,joinCode){
       if(!over){finish({over:1,res:'resign',winner:me});render()}
     }else if(m.t==='rematch'){
       rem|=2;if(rem===3)begin('net',me==='w'?'b':'w');else render();
+    }else if(m.t==='undoreq'){
+      if(!over&&m.n===hist.length&&m.k>0&&m.k<=hist.length){inU={n:m.n,k:m.k};render()}else send({t:'undono'});
+    }else if(m.t==='undoyes'){
+      if(pu&&pu.n===m.n&&m.n===hist.length&&m.k<=hist.length&&!over){doUndo(m.k);note='Undo disetujui.'}
+      pu=null;render();T.after(()=>{note='';if(root.contains(elBoard))render()},3000);
+    }else if(m.t==='undono'){
+      if(pu){pu=null;note='Undo ditolak teman.';render();T.after(()=>{note='';if(root.contains(elBoard))render()},3500)}
+    }else if(m.t==='drawoffer'){
+      if(!over){inD=true;render()}
+    }else if(m.t==='drawyes'){
+      if(pd&&!over){pd=false;finish({over:1,res:'draw'});render()}
+    }else if(m.t==='drawno'){
+      if(pd){pd=false;note='Remis ditolak teman.';render();T.after(()=>{note='';if(root.contains(elBoard))render()},3500)}
+    }else if(m.t==='chat'){
+      cmsg='Teman: '+(CH_QC[m.i|0]||'');render();T.after(()=>{cmsg='';if(root.contains(elBoard))render()},5000);
     }
   }
 
   /* ---------- permainan ---------- */
   function begin(m,color){
-    mode=m;me=color;st=CHE.init();hist=[];keys={};keys[CHE.key(st)]=1;
+    mode=m;me=color;st=CHE.init();hist=[];keys={};keys[CHE.key(st)]=1;sts=[];pu=null;inU=null;pd=false;inD=false;cmsg='';note='';
     sel=null;lm=[];last=null;over=null;busy=false;pend=null;rem=0;stale=false;
     if(m==='bot'&&!botName)botName=botNames(1)[0];
     if(m==='net'&&!pingT)startNet();
@@ -3991,8 +4322,8 @@ function Chess(box,joinCode){
     root.innerHTML='';
     elTop=el('div','chlab');elBot=el('div','chlab');
     elBoard=el('div','chb');elSt=el('div','chst');elMv=el('div','chmv');elAct=el('div','chact');
-    root.append(elTop,elBoard,elBot,elSt,elMv,elAct);
-    render();
+    root.append(elTop,elBoard,elBot,elSt,elMv,elAct,skinPanel());
+    applyLook();render();
   }
   function botMove(){
     busy=true;render();
@@ -4001,7 +4332,39 @@ function Chess(box,joinCode){
       const m=CHE.pick(st,3);busy=false;doMove(m,true);
     },450);
   }
+  function undoTarget(){
+    const n=hist.length;if(!n||over||busy)return 0;
+    if(mode==='local')return 1;
+    return st.t!==me?1:(n>=2?2:0);
+  }
+  function doUndo(k){
+    while(k-->0&&sts.length){const e=sts.pop();keys[e.k]=Math.max(0,(keys[e.k]||1)-1);st=e.st;last=e.last;hist.pop()}
+    sel=null;lm=[];pend=null;
+  }
+  function applyLook(){
+    const B=CH_BOARDS[look.b]||CH_BOARDS[0],P=CH_PIECES[look.p]||CH_PIECES[0],s=root.style;
+    const set=(k,v)=>{if(v)s.setProperty(k,v);else s.removeProperty(k)};
+    set('--ch-lt',B.lt);set('--ch-dk',B.dk);set('--ch-edge',B.edge);set('--ch-lab',B.lab);set('--ch-dot',B.dot);
+    set('--ch-pw',P.w);set('--ch-pb',P.b);set('--ch-pws',P.ws);set('--ch-pbs',P.bs);
+  }
+  function skinPanel(){
+    const d=el('details','chskin');d.append(el('summary','','Skin papan & bidak (hanya terlihat olehmu)'));
+    const grp=(label,list,key,sw)=>{
+      d.append(el('div','chskl',label));
+      const r=el('div','chsko');
+      list.forEach((x,i)=>{
+        const b=el('button','chskb'+(look[key]===i?' on':''),sw(x)+'<span>'+x.n+'</span>');b.type='button';
+        b.onclick=()=>{look[key]=i;store.set('ch-look',look);applyLook();[...r.children].forEach((c,j)=>c.classList.toggle('on',j===i))};
+        r.append(b);
+      });
+      d.append(r);
+    };
+    grp('Papan',CH_BOARDS,'b',x=>'<i class="chsw" style="background:linear-gradient(135deg,'+x.lt+' 50%,'+x.dk+' 50%)"></i>');
+    grp('Bidak',CH_PIECES,'p',x=>'<i class="chsw" style="background:linear-gradient(135deg,'+x.w+' 50%,'+x.b+' 50%)"></i>');
+    return d;
+  }
   function resultText(o){
+    if(o.res==='draw')return 'Remis: kedua pemain sepakat.';
     const wn=o.winner?(mode==='local'?(o.winner==='w'?'Putih':'Hitam'):nm(o.winner)):'';
     if(o.res==='mate')return 'Skakmat. '+wn+' menang.';
     if(o.res==='resign')return 'Menyerah. '+wn+' menang.';
@@ -4020,8 +4383,9 @@ function Chess(box,joinCode){
   function doMove(m,remote){
     const n=hist.length;
     hist.push(CHE.san(st,m));
-    st=CHE.apply(st,m);last=[m.f,m.t];sel=null;lm=[];pend=null;
-    const k=CHE.key(st);keys[k]=(keys[k]||0)+1;
+    const prev={st,last};sts.push(prev);
+    st=CHE.apply(st,m);last=[m.f,m.t];sel=null;lm=[];pend=null;pu=null;inU=null;pd=false;inD=false;
+    const k=CHE.key(st);keys[k]=(keys[k]||0)+1;prev.k=k;
     Music.sfx('tick');
     if(mode==='net'&&!remote)send({t:'move',n,f:m.f,to:m.t,p:m.p||null});
     const s=CHE.status(st,keys);
@@ -4047,7 +4411,8 @@ function Chess(box,joinCode){
   }
   function render(){
     if(!elBoard)return;
-    const flip=me==='b'&&mode!=='local';
+    if(pu&&pu.n!==hist.length)pu=null;if(inU&&inU.n!==hist.length)inU=null;
+    const flip=(me==='b'&&mode!=='local')!==fv;
     elBoard.innerHTML='';
     const chk=!over&&CHE.inCheck(st)?CHE.kingSq(st,st.t):-1;
     const dests=new Set(lm.map(m=>m.t));
@@ -4066,7 +4431,7 @@ function Chess(box,joinCode){
       b.onclick=()=>tap(i);
       elBoard.append(b);
     }
-    const top=mode==='local'?'b':me==='w'?'b':'w',bot=mode==='local'?'w':me;
+    let top=mode==='local'?'b':me==='w'?'b':'w',bot=mode==='local'?'w':me;if(fv){const z=top;top=bot;bot=z}
     label(elTop,top);label(elBot,bot);
     let s;
     if(over)s=resultText(over);
@@ -4076,6 +4441,7 @@ function Chess(box,joinCode){
       if(CHE.inCheck(st))s+=' · Skak!';
       if(stale)s+=' · Teman belum merespons';
     }
+    if(cmsg)s+=' · '+cmsg;if(note)s+=' · '+note;
     elSt.textContent=s;
     let mv='';
     for(let k=0;k<hist.length;k++){if(k%2===0)mv+=(k/2+1)+'. ';mv+=hist[k]+' '}
@@ -4109,6 +4475,32 @@ function Chess(box,joinCode){
       });
       elAct.append(b);
     }
+    if(!over){
+      if(inU){
+        elAct.append(el('div','chpq','Teman minta undo '+inU.k+' langkah.'),
+          btn('Setuju','primary',()=>{const u=inU;send({t:'undoyes',n:u.n,k:u.k});doUndo(u.k);inU=null;render()}),
+          btn('Tolak','',()=>{send({t:'undono'});inU=null;render()}));
+      }else if(pu)elAct.append(el('div','chpq','Menunggu persetujuan undo…'));
+      else{
+        const ut=undoTarget();
+        const ub=btn('Undo','',()=>{
+          if(mode==='net'){pu={n:hist.length,k:ut};send({t:'undoreq',n:hist.length,k:ut});render()}
+          else{doUndo(ut);render()}
+        });
+        ub.disabled=!ut||!!pend;elAct.append(ub);
+      }
+      if(mode==='net'){
+        if(inD)elAct.append(el('div','chpq','Teman menawarkan remis.'),
+          btn('Terima','primary',()=>{send({t:'drawyes'});inD=false;finish({over:1,res:'draw'});render()}),
+          btn('Tolak','',()=>{send({t:'drawno'});inD=false;render()}));
+        else if(pd)elAct.append(el('div','chpq','Menunggu jawaban remis…'));
+        else elAct.append(btn('Tawar remis','',()=>{pd=true;send({t:'drawoffer'});render()}));
+      }
+    }
+    elAct.append(btn('Putar papan','',()=>{fv=!fv;render()}));
+    if(mode==='net'&&!(over&&over.res==='lost')){
+      CH_QC.forEach((t,i)=>{const b=btn(t,'ghost',()=>{send({t:'chat',i});cmsg='Kamu: '+t;render();T.after(()=>{cmsg='';if(root.contains(elBoard))render()},3000)});elAct.append(b)});
+    }
     const q=btn(armedQ?'Yakin keluar? Ketuk lagi':'Menu','ghost',()=>{
       if(!armedQ){armedQ=1;render();T.after(()=>{armedQ=0;if(root.contains(q))render()},3000);return}
       armedQ=0;leave(true);menu();
@@ -4129,8 +4521,8 @@ const GAMES=[
   {id:'capsa',name:'Capsa Susun',tag:'Lawan 3 bot',bot:true,glyph:'13',blurb:'Susun 13 kartu jadi tiga baris dan adu dengan bot.',make:Capsa},
   {id:'blackjack',name:'Blackjack',tag:'Lawan bandar',bot:true,glyph:'21',blurb:'Hit, stand, double, split. Blackjack bayar 3:2.',make:Blackjack},
   {id:'holdem',name:'Texas Hold’em',tag:'Lawan 3 bot',bot:true,glyph:'A K',blurb:'No-limit, blind 10/20, side pot dan all-in.',make:Holdem},
-  {id:'deadshell',name:'Buckshot',tag:'Lawan 1–3 bot',bot:true,glyph:'L·B',blurb:'Duel shotgun dengan peluru live dan blank. Tebak, pakai item, bertahan. 1v1 atau free for all.',make:DeadShell},
-  {id:'chess',name:'Catur',tag:'Online berdua · lawan bot',bot:true,glyph:'♞\uFE0E',blurb:'Aturan lengkap. Main bareng teman lewat kode koneksi, lawan bot, atau berdua di satu HP.',make:Chess},
+  {id:'deadshell',name:'Buckshot',tag:'Online · lawan 1–3 bot',bot:true,glyph:'L·B',blurb:'Duel shotgun dengan peluru live dan blank. Tebak, pakai item, bertahan. 1v1 atau free for all, lawan bot atau bareng teman online.',make:DeadShell},
+  {id:'chess',name:'Catur',tag:'Online berdua · lawan bot',bot:true,glyph:'♞\uFE0E',blurb:'Aturan lengkap. Online bareng teman (undo dengan persetujuan, tawar remis, chat cepat), lawan bot, atau berdua di satu HP. Ada skin papan dan bidak.',make:Chess},
   {id:'deepdive',name:'Deep Dive',tag:'Trivia harian',bot:false,glyph:'10km',blurb:'Sebutkan satu hal yang cocok. Makin langka jawabanmu, makin dalam kamu menyelam.',make:DeepDive}
 ];
 const app=document.getElementById('app'),subEl=document.getElementById('sub');
