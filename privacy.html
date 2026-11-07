@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kebijakan Privasi · Board Game Maroe</title>
+<style>
+:root{--bg:#e7eeea;--fg:#13201b;--muted:#566962;--line:#c5d2cb;--panel:#f5f9f7;--acc:#1f7a5a;color-scheme:light dark}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1411;--fg:#e4eee9;--muted:#8ea39a;--line:#22352e;--panel:#121f1a;--acc:#4cc58a}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--fg);font:15px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+main{max-width:680px;margin:0 auto;padding:24px 18px 56px}
+a{color:var(--acc)}
+h1{font-size:22px;margin:8px 0 4px}
+h2{font-size:16px;margin:28px 0 6px;padding-top:14px;border-top:1px solid var(--line)}
+p,li{margin:6px 0}
+ul{padding-left:20px}
+.muted{color:var(--muted);font-size:13px}
+.box{background:var(--panel);border:1px solid var(--line);padding:12px 14px;margin:14px 0}
+.todo{background:#ffe9a8;color:#3a2a00;padding:0 4px}
+.back{display:inline-block;margin-bottom:8px;font-size:14px}
+</style>
+</head>
+<body>
+<main>
+<a class="back" href="./">← Kembali ke Board Game Maroe</a>
+<h1>Kebijakan Privasi</h1>
+<p class="muted">Terakhir diperbarui: 7 November 2026</p>
+
+<div class="box">
+<b>Ringkasnya:</b> Board Game Maroe adalah proyek hobi gratis tanpa iklan dan tanpa analitik. Kamu bisa bermain tanpa akun. Data hanya disimpan kalau kamu masuk dengan Google, dan itu pun sebatas yang dijelaskan di bawah. Data tidak dijual atau dibagikan untuk keperluan lain.
+</div>
+
+<h2>1. Data yang tersimpan di perangkatmu</h2>
+<p>Game menyimpan nama panggilan, avatar, statistik, hasil tantangan harian, dan pengaturan (misalnya tampilan dan suara) di penyimpanan lokal browser (<i>localStorage</i>). Data ini tetap di perangkatmu dan hilang kalau kamu menghapus data situs di browser.</p>
+
+<h2>2. Kalau kamu masuk dengan Google (opsional)</h2>
+<p>Masuk dengan Google bersifat opsional dan dipakai supaya statistikmu ikut ke HP lain. Login ditangani oleh Firebase Authentication milik Google.</p>
+<ul>
+<li><b>Yang diterima Firebase dari akun Google-mu:</b> alamat email, nama, dan foto profil. Password Google-mu tidak pernah kami terima.</li>
+<li><b>Yang disimpan game di database (Firestore):</b> nama panggilan, avatar, tanggal mulai bermain, statistik per game, dan waktu pembaruan terakhir.</li>
+<li><b>Email-mu tidak ditampilkan</b> kepada pemain lain dan tidak ditulis ke database game.</li>
+</ul>
+
+<h2>3. Papan peringkat (publik)</h2>
+<p>Kalau kamu masuk dengan Google dan mencetak skor, <b>nama panggilan, avatar, dan skor terbaikmu</b> bisa dilihat semua pemain di papan peringkat. Jangan pakai nama asli atau informasi pribadi sebagai nama panggilan kalau kamu tidak mau itu terlihat.</p>
+
+<h2>4. Bermain online</h2>
+<ul>
+<li>Untuk bermain online, game membuat akun anonim otomatis berisi ID acak. Tidak ada data pribadi di dalamnya.</li>
+<li>Langkah permainan dikirim lewat database (Firestore) sebagai pesan singkat dengan kode ruangan. Pesan itu hanya berisi data langkah dan diberi waktu kedaluwarsa 6 jam.</li>
+<li>Jangan membagikan kode ruanganmu ke orang yang tidak kamu kenal.</li>
+</ul>
+
+<h2>5. Layanan pihak ketiga</h2>
+<ul>
+<li><b>Firebase (Google):</b> login, database, dan pemuatan skrip Firebase. Google menerapkan kebijakan privasinya sendiri.</li>
+<li><b>Google Fonts:</b> untuk memuat huruf. Seperti situs web pada umumnya, ini membuat alamat IP-mu terlihat oleh Google.</li>
+<li><b>GitHub Pages:</b> tempat situs ini di-hosting. GitHub bisa mencatat log akses standar.</li>
+</ul>
+<p>Situs ini tidak memakai iklan, pelacak iklan, maupun layanan analitik.</p>
+
+<h2>6. Menghapus data</h2>
+<ul>
+<li><b>Data lokal:</b> hapus data situs ini lewat pengaturan browser.</li>
+<li><b>Data akun:</b> kalau kamu ingin akun dan datamu (nama panggilan, avatar, statistik, skor papan peringkat) dihapus dari server, hubungi <a href="mailto:maruhawa.stevanus@gmail.com">maruhawa.stevanus@gmail.com</a> dan sebutkan nama panggilanmu.</li>
+</ul>
+
+<h2>7. Anak-anak</h2>
+<p>Game ini untuk umum, tetapi kami tidak sengaja mengumpulkan data pribadi dari anak-anak. Anak-anak sebaiknya bermain tanpa masuk akun, atau dengan izin orang tua.</p>
+
+<h2>8. Perubahan kebijakan</h2>
+<p>Kebijakan ini bisa berubah kalau fitur game berubah. Tanggal pembaruan terakhir tercantum di bagian atas halaman.</p>
+
+<h2>9. Kontak</h2>
+<p>Pertanyaan soal privasi: <a href="mailto:maruhawa.stevanus@gmail.com">maruhawa.stevanus@gmail.com</a></p>
+
+<p class="muted" style="margin-top:28px">English summary: this is a free hobby project with no ads and no analytics. Signing in with Google is optional; it stores your nickname, avatar and stats (not your email) so they sync across devices. Your nickname, avatar and best score are public on leaderboards. Online play uses an anonymous account and short-lived move messages. Services used: Firebase (Google), Google Fonts, GitHub Pages. To request deletion, use the contact above.</p>
+</main>
+</body>
+</html>
