@@ -1,83 +1,193 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="id" data-l="id">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Privacy Policy · Board Game Maroe</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Kebijakan Privasi · Board Game Maroe</title>
+<meta name="description" content="Kebijakan Privasi Board Game Maroe / Privacy Policy">
+<meta name="color-scheme" content="light dark">
 <style>
-:root{--bg:#e7eeea;--fg:#13201b;--muted:#566962;--line:#c5d2cb;--panel:#f5f9f7;--acc:#1f7a5a;color-scheme:light dark}
-@media (prefers-color-scheme:dark){:root{--bg:#0b1411;--fg:#e4eee9;--muted:#8ea39a;--line:#22352e;--panel:#121f1a;--acc:#4cc58a}}
+:root{--bg:#e7eeea;--fg:#13201b;--muted:#566962;--line:#c5d2cb;--panel:#f5f9f7;--accent:#8a5d0e;--mark:#f6dc8a}
+@media (prefers-color-scheme:dark){:root{--bg:#0b1411;--fg:#e4eee9;--muted:#8ea39a;--line:#22352e;--panel:#121f1a;--accent:#e0ad4c;--mark:#5a4512}}
 *{box-sizing:border-box}
-body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.7 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;-webkit-text-size-adjust:100%}
-main{max-width:720px;margin:0 auto;padding:28px 20px 64px}
-a{color:var(--acc);text-underline-offset:2px}
-.back{display:inline-block;margin-bottom:20px;font-size:14px;text-decoration:none}
-.back:hover{text-decoration:underline}
-.eyebrow{margin:0;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--acc)}
-h1{font-size:30px;line-height:1.2;letter-spacing:-.01em;margin:6px 0 8px}
-h2{font-size:18px;line-height:1.3;margin:36px 0 8px;padding-top:20px;border-top:1px solid var(--line)}
-p,li{margin:8px 0}
-ul{padding-left:22px}
-.muted{color:var(--muted);font-size:14px;margin:0}
-.box{background:var(--panel);border:1px solid var(--line);border-left:4px solid var(--acc);border-radius:6px;padding:14px 16px;margin:24px 0 8px}
-.box p{margin:0}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.65 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+ padding:max(20px,env(safe-area-inset-top,0px)) max(18px,env(safe-area-inset-right,0px)) max(48px,env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-left,0px))}
+.wrap{max-width:720px;margin:0 auto}
+nav{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:28px}
+nav a{color:var(--accent);text-decoration:none;font-weight:600}
+.lang{display:flex;border:1px solid var(--line);border-radius:99px;overflow:hidden}
+.lang button{font:inherit;font-size:14px;background:none;color:var(--muted);border:0;padding:6px 14px;cursor:pointer}
+html[data-l=id] .lang [data-set=id],html[data-l=en] .lang [data-set=en]{background:var(--fg);color:var(--bg)}
+h1{font-size:clamp(28px,6vw,38px);line-height:1.15;margin:0 0 6px;letter-spacing:-.02em}
+h2{font-size:19px;margin:34px 0 8px;letter-spacing:-.01em}
+.meta{color:var(--muted);margin:0 0 22px;font-size:14px}
+p,ul{margin:0 0 12px}
+ul{padding-left:20px}li{margin:0 0 6px}
+.sum{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px 18px 6px}
+.sum ul{margin-top:4px}
+a{color:var(--accent)}
+mark{background:var(--mark);color:inherit;border-radius:4px;padding:0 4px}
+.en{display:none}
+html[data-l=en] .en{display:block}html[data-l=en] .id{display:none}
+footer{margin-top:36px;padding-top:16px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
 </style>
 </head>
 <body>
-<main>
-<a class="back" href="./">← Back to Board Game Maroe</a>
-<p class="eyebrow">Board Game Maroe</p>
-<h1>Privacy Policy</h1>
-<p class="muted">Last updated: November 8, 2026</p>
+<div class="wrap">
+<nav><a href="index.html">← Board Game Maroe</a>
+<div class="lang" role="group" aria-label="Bahasa / Language"><button type="button" data-set="id">ID</button><button type="button" data-set="en">EN</button></div></nav>
 
-<div class="box">
-<p><b>In short:</b> Board Game Maroe is a free hobby project with no ads and no analytics. You can play without an account. Data is stored on our servers only if you sign in with Google, and then only to the extent described below. We do not sell your data or share it for any other purpose.</p>
-</div>
+<main class="id" lang="id">
+<h1>Kebijakan Privasi</h1>
+<p class="meta">Board Game Maroe · Berlaku sejak 20 November 2026</p>
+<div class="sum"><ul>
+<li>Semua game bisa dimainkan tanpa akun. Pengaturan dan statistik tersimpan di perangkatmu.</li>
+<li>Masuk dengan Google bersifat opsional dan dipakai untuk menyinkronkan statistik antar perangkat.</li>
+<li>Kami tidak memasang iklan, analytics, atau pelacak, dan kami tidak menjual datamu.</li>
+<li>Google dan GitHub tetap menerima alamat IP-mu saat kamu membuka situs, karena situs berjalan di layanan mereka.</li>
+</ul></div>
 
-<h2>1. Data stored on your device</h2>
-<p>The game saves your nickname, avatar, statistics, daily challenge results, and settings (such as display and sound preferences) in your browser's local storage (<i>localStorage</i>). This data stays on your device and is lost if you clear this site's data in your browser.</p>
+<h2>1. Siapa kami</h2>
+<p>Board Game Maroe dikelola oleh Stevanus Sarofamati Maruhawa di Indonesia (“kami”). Kami adalah pengendali data pribadi untuk data yang dijelaskan di halaman ini. Kontak untuk urusan privasi: boardgame.maroe@gmail.com.</p>
 
-<h2>2. Signing in with Google (optional)</h2>
-<p>Signing in with Google is optional and lets your statistics follow you to other devices. Sign-in is handled by Firebase Authentication, a Google service.</p>
+<h2>2. Data yang kami proses</h2>
+<p><b>Tanpa akun.</b> Di penyimpanan lokal browser-mu tersimpan nama panggilan, avatar, statistik tiap game, progres harian, dan pengaturan seperti bahasa, suara, skin, serta game yang terakhir dibuka. Data ini tidak dikirim ke kami.</p>
+<p><b>Saat main online.</b> Firebase Authentication membuat ID anonim otomatis dan menyimpannya di browser-mu. Ke ruang online terkirim nama panggilan (maksimal 12 karakter), pilihan karakter atau skin, langkah permainan, dan kode ruang. Pesan ruang disimpan sementara di Firestore dan kami berusaha menghapusnya secara berkala, biasanya dalam beberapa jam. Pemain hanya bisa mengirim kalimat obrolan siap pakai, tidak ada teks bebas.</p>
+<p><b>Saat masuk dengan Google.</b></p>
 <ul>
-<li><b>What Firebase receives from your Google account:</b> your email address, name, and profile photo. We never receive your Google password.</li>
-<li><b>What the game stores in its database (Firestore):</b> your nickname, avatar, the date you started playing, your per-game statistics, and the time of your last update.</li>
-<li><b>Your email address is not shown</b> to other players and is not written to the game's database.</li>
+<li>Dari akun Google: alamat email, nama, foto profil, dan ID akun, diproses oleh Firebase Authentication. Email tidak ditampilkan ke pemain lain, tetapi pengelola dapat melihatnya di konsol Firebase.</li>
+<li>Profil tersinkron di Firestore: nama panggilan, avatar, tanggal mulai main, statistik, dan waktu pembaruan terakhir.</li>
+<li>Papan skor, untuk game yang memilikinya: nama panggilan (maksimal 16 karakter), avatar, skor terbaik, waktu pembaruan, dan ID akun. Papan skor bisa dilihat semua pengunjung.</li>
+</ul>
+<p><b>Otomatis dari penyedia layanan.</b> Alamat IP, jenis browser, dan perangkat tercatat oleh GitHub Pages dan Google (Google Fonts dan pustaka Firebase) saat situs dimuat. Kami tidak membuat atau membaca log ini; penyedia yang mengelolanya.</p>
+<p><b>Cookie dan penyimpanan browser.</b> Kami tidak memasang cookie iklan atau pelacak. Situs memakai localStorage dan IndexedDB agar pengaturan, statistik, dan sesi Firebase tetap ada. Menghapus data situs di browser menghapus semuanya.</p>
+<p>Kami tidak meminta nomor telepon, alamat, data pembayaran, atau lokasi. Pakai nama panggilan, bukan nama lengkap aslimu.</p>
+
+<h2>3. Tujuan dan dasar pemrosesan</h2>
+<ul>
+<li>Menjalankan game serta menyimpan pengaturan dan statistik di perangkatmu: pelaksanaan layanan yang kamu minta.</li>
+<li>Main online: pelaksanaan layanan yang kamu minta.</li>
+<li>Login, sinkronisasi statistik, dan papan skor: persetujuanmu, yang kamu berikan saat menekan “Masuk dengan Google” dan mengisi nama panggilan.</li>
+<li>Menjaga keamanan dan mencegah penyalahgunaan: kepentingan yang sah.</li>
+</ul>
+<p>Kami tidak memakai datamu untuk iklan atau profiling.</p>
+
+<h2>4. Pihak ketiga</h2>
+<ul>
+<li><b>Google LLC (Firebase, Google Sign-In, Google Fonts):</b> login, penyimpanan profil dan ruang online, pemuatan font dan pustaka. <a href="https://policies.google.com/privacy" rel="noopener">Kebijakan privasi Google</a>, <a href="https://firebase.google.com/support/privacy" rel="noopener">privasi Firebase</a>.</li>
+<li><b>GitHub, Inc. (GitHub Pages):</b> hosting situs. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">Pernyataan privasi GitHub</a>.</li>
+<li><b>ntfy.sh:</b> relay cadangan untuk main online. Tidak aktif secara bawaan. Jika diaktifkan, pesan ruang lewat server publik ntfy.sh.</li>
+</ul>
+<p>Kami tidak membagikan datamu ke pihak lain kecuali diwajibkan hukum.</p>
+
+<h2>5. Transfer ke luar negeri</h2>
+<p>Penyedia di atas memakai server di luar Indonesia. Basis data Firestore kami berada di Singapura (asia-southeast1), sehingga data akun dan ruang online tersimpan di luar Indonesia. Saat kamu masuk atau main online, datamu dapat diproses di luar Indonesia oleh penyedia tersebut, sesuai kebijakan keamanan mereka.</p>
+
+<h2>6. Lama penyimpanan</h2>
+<ul>
+<li>Data lokal: sampai kamu menghapusnya dari browser.</li>
+<li>Pesan ruang online: dihapus secara berkala, biasanya dalam beberapa jam.</li>
+<li>Profil, statistik, papan skor, dan akun Firebase: selama akunmu ada, atau sampai kamu meminta penghapusan.</li>
 </ul>
 
-<h2>3. Leaderboards (public)</h2>
-<p>If you sign in with Google and record a score, your <b>nickname, avatar, and best score</b> can be seen by all players on the leaderboard. If you do not want your real name or other personal information to be visible, do not use it as your nickname.</p>
+<h2>7. Keamanan</h2>
+<p>Koneksi memakai HTTPS dan data akun disimpan di Firebase dengan aturan akses. Tidak ada sistem yang sepenuhnya aman, jadi kami tidak bisa menjanjikan keamanan mutlak. Jika terjadi kegagalan pelindungan data yang berdampak padamu, kami memberi tahu paling lambat 3 × 24 jam setelah kejadian terkonfirmasi, lewat email akun Google atau pengumuman di situs.</p>
 
-<h2>4. Online play</h2>
-<ul>
-<li>To play online, the game automatically creates an anonymous account containing a random ID. It contains no personal data.</li>
-<li>Game moves are sent through the database (Firestore) as short messages tagged with a room code. These messages contain only move data and expire after 6 hours.</li>
-<li>Do not share your room code with people you do not know.</li>
-</ul>
+<h2>8. Hakmu</h2>
+<p>Berdasarkan UU Pelindungan Data Pribadi, kamu berhak mengakses dan mendapat salinan datamu, memperbaikinya, menghapusnya, menarik persetujuan, mengajukan keberatan atau meminta pembatasan pemrosesan, meminta pemindahan data, dan menuntut ganti rugi atas pelanggaran.</p>
+<p><b>Yang bisa kamu lakukan sendiri:</b> ubah atau hapus nama di halaman Profil, pilih “Keluar akun”, hapus data situs di browser, dan cabut akses Google di <a href="https://myaccount.google.com/permissions" rel="noopener">myaccount.google.com/permissions</a>.</p>
+<p><b>Lewat email:</b> kirim permintaanmu ke boardgame.maroe@gmail.com dari alamat Google yang sama dengan akunmu. Kami menjawab paling lama 14 hari, dan menghentikan pemrosesan karena penarikan persetujuan paling lama 3 × 24 jam. Bila lembaga pengawas pelindungan data pribadi sudah beroperasi, kamu juga bisa mengadu ke sana.</p>
 
-<h2>5. Third-party services</h2>
-<ul>
-<li><b>Firebase (Google):</b> sign-in, database, and delivery of Firebase scripts. Google applies its own privacy policy.</li>
-<li><b>Google Fonts:</b> used to load typefaces. As with most websites, this makes your IP address visible to Google.</li>
-<li><b>GitHub Pages:</b> hosts this site. GitHub may keep standard access logs.</li>
-</ul>
-<p>This site does not use advertising, ad trackers, or analytics services.</p>
+<h2>9. Anak-anak</h2>
+<p>Login Google dan papan skor ditujukan untuk pengguna 18 tahun ke atas. Pengguna di bawah 18 tahun tetap bisa bermain tanpa login. Jika kami mengetahui ada akun anak, kami akan menghapusnya. Orang tua atau wali bisa meminta penghapusan lewat email di atas.</p>
 
-<h2>6. Deleting your data</h2>
-<ul>
-<li><b>Local data:</b> clear this site's data in your browser settings.</li>
-<li><b>Account data:</b> to have your account and data (nickname, avatar, statistics, and leaderboard scores) deleted from our servers, email <a href="mailto:maruhawa.stevanus@gmail.com">maruhawa.stevanus@gmail.com</a> and include your nickname.</li>
-</ul>
+<h2>10. Perubahan kebijakan</h2>
+<p>Kami dapat memperbarui halaman ini. Tanggal berlaku ada di bagian atas, dan perubahan besar kami umumkan di situs.</p>
 
-<h2>7. Children</h2>
-<p>The game is open to a general audience, but we do not knowingly collect personal data from children. Children should play without signing in, or with a parent's permission.</p>
-
-<h2>8. Changes to this policy</h2>
-<p>This policy may change if the game's features change. The date of the latest update is shown at the top of this page.</p>
-
-<h2>9. Contact</h2>
-<p>For privacy questions, email <a href="mailto:maruhawa.stevanus@gmail.com">maruhawa.stevanus@gmail.com</a>.</p>
-
+<h2>11. Kontak</h2>
+<p>Stevanus Sarofamati Maruhawa · boardgame.maroe@gmail.com</p>
+<footer>Dasar hukum: Undang-Undang No. 27 Tahun 2022 tentang Pelindungan Data Pribadi dan peraturan pelaksananya. Halaman ini bukan nasihat hukum.</footer>
 </main>
+
+<main class="en" lang="en">
+<h1>Privacy Policy</h1>
+<p class="meta">Board Game Maroe · Effective 20 November 2026</p>
+<div class="sum"><ul>
+<li>Every game works without an account. Settings and stats stay on your device.</li>
+<li>Signing in with Google is optional and only syncs your stats across devices.</li>
+<li>We run no ads, analytics, or trackers, and we don’t sell your data.</li>
+<li>Google and GitHub still receive your IP address when you open the site, because the site runs on their services.</li>
+</ul></div>
+
+<h2>1. Who we are</h2>
+<p>Board Game Maroe is run by Stevanus Sarofamati Maruhawa in Indonesia (“we”). We are the data controller for the data described on this page. Privacy contact: boardgame.maroe@gmail.com.</p>
+
+<h2>2. Data we process</h2>
+<p><b>Without an account.</b> Your browser’s local storage holds your nickname, avatar, per-game stats, daily progress, and settings such as language, sound, skins, and the last game you opened. This data is not sent to us.</p>
+<p><b>When you play online.</b> Firebase Authentication creates an anonymous ID automatically and keeps it in your browser. An online room receives your nickname (up to 12 characters), your character or skin choice, game moves, and the room code. Room messages are stored temporarily in Firestore, and we aim to delete them periodically, usually within a few hours. Players can only send preset chat phrases, never free text.</p>
+<p><b>When you sign in with Google.</b></p>
+<ul>
+<li>From your Google account: email address, name, profile photo, and account ID, processed by Firebase Authentication. Your email is not shown to other players, but the operator can see it in the Firebase console.</li>
+<li>Synced profile in Firestore: nickname, avatar, start date, stats, and last update time.</li>
+<li>Leaderboards, for games that have one: nickname (up to 16 characters), avatar, best score, update time, and account ID. Every visitor can see a leaderboard.</li>
+</ul>
+<p><b>Automatically, from service providers.</b> Your IP address, browser type, and device are recorded by GitHub Pages and Google (Google Fonts and Firebase libraries) when the site loads. We don’t create or read these logs; the providers manage them.</p>
+<p><b>Cookies and browser storage.</b> We set no advertising or tracking cookies. The site uses localStorage and IndexedDB to keep your settings, stats, and Firebase session. Clearing site data in your browser removes all of it.</p>
+<p>We don’t ask for phone numbers, addresses, payment details, or location. Use a nickname, not your full real name.</p>
+
+<h2>3. Purposes and legal basis</h2>
+<ul>
+<li>Running games and keeping settings and stats on your device: performing the service you asked for.</li>
+<li>Online play: performing the service you asked for.</li>
+<li>Sign-in, stats sync, and leaderboards: your consent, given when you press “Sign in with Google” and enter a nickname.</li>
+<li>Keeping the service secure and preventing abuse: legitimate interest.</li>
+</ul>
+<p>We don’t use your data for advertising or profiling.</p>
+
+<h2>4. Third parties</h2>
+<ul>
+<li><b>Google LLC (Firebase, Google Sign-In, Google Fonts):</b> sign-in, storage of profiles and online rooms, loading of fonts and libraries. <a href="https://policies.google.com/privacy" rel="noopener">Google Privacy Policy</a>, <a href="https://firebase.google.com/support/privacy" rel="noopener">Firebase privacy</a>.</li>
+<li><b>GitHub, Inc. (GitHub Pages):</b> site hosting. <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" rel="noopener">GitHub Privacy Statement</a>.</li>
+<li><b>ntfy.sh:</b> backup relay for online play. Off by default. If switched on, room messages pass through ntfy.sh’s public server.</li>
+</ul>
+<p>We don’t share your data with anyone else unless the law requires it.</p>
+
+<h2>5. Transfers abroad</h2>
+<p>These providers use servers outside Indonesia. Our Firestore database is located in Singapore (asia-southeast1), so account and online room data is stored outside Indonesia. When you sign in or play online, your data may be processed outside Indonesia by these providers under their own security policies.</p>
+
+<h2>6. How long we keep data</h2>
+<ul>
+<li>Local data: until you clear it from your browser.</li>
+<li>Online room messages: deleted periodically, usually within a few hours.</li>
+<li>Profile, stats, leaderboards, and Firebase account: while your account exists, or until you ask us to delete them.</li>
+</ul>
+
+<h2>7. Security</h2>
+<p>Connections use HTTPS and account data is stored in Firebase behind access rules. No system is completely secure, so we can’t promise absolute security. If a data protection failure affects you, we will notify you within 3 × 24 hours of confirming it, by email to your Google account or by a notice on the site.</p>
+
+<h2>8. Your rights</h2>
+<p>Under Indonesia’s Personal Data Protection Law, you may access and get a copy of your data, correct it, delete it, withdraw consent, object to or ask us to restrict processing, request data transfer, and claim compensation for violations.</p>
+<p><b>What you can do yourself:</b> change or clear your name on the Profile page, choose “Sign out”, clear site data in your browser, and revoke access at <a href="https://myaccount.google.com/permissions" rel="noopener">myaccount.google.com/permissions</a>.</p>
+<p><b>By email:</b> send your request to boardgame.maroe@gmail.com from the same Google address as your account. We reply within 14 days, and stop processing after a consent withdrawal within 3 × 24 hours. Once the data protection supervisory authority is operating, you can also complain to it.</p>
+
+<h2>9. Children</h2>
+<p>Google sign-in and leaderboards are intended for users aged 18 and over. Users under 18 can still play without signing in. If we learn of a child’s account, we will delete it. Parents or guardians can request deletion at the email above.</p>
+
+<h2>10. Changes</h2>
+<p>We may update this page. The effective date is at the top, and we announce major changes on the site.</p>
+
+<h2>11. Contact</h2>
+<p>Stevanus Sarofamati Maruhawa · boardgame.maroe@gmail.com</p>
+<footer>Legal basis: Law No. 27 of 2022 on Personal Data Protection and its implementing regulations. This page is not legal advice.</footer>
+</main>
+</div>
+<script>
+(function(){var d=document.documentElement,l='id';
+try{var q=new URLSearchParams(location.search).get('lang'),s=JSON.parse(localStorage.getItem('rk:lang'));l=(q||s)==='en'?'en':'id'}catch(e){}
+function set(x){l=x;d.dataset.l=x;d.lang=x;document.title=(x==='en'?'Privacy Policy':'Kebijakan Privasi')+' · Board Game Maroe'}
+set(l);
+document.querySelectorAll('[data-set]').forEach(function(b){b.onclick=function(){set(b.dataset.set)}})})();
+</script>
 </body>
 </html>
