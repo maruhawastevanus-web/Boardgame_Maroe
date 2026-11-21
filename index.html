@@ -1109,6 +1109,7 @@ D1.push(["Kontrol waktu", "Time control"],["Tanpa batas waktu", "No time limit"]
 D1.push(["tanpa tambahan", "no increment"],["atau", "or"],["Remis", "Draw"],["Tahun", "Year"],["Tambah", "Add"],["raise ke", "raise to"],["dengan", "with"]);
 D1.push(["Potong ujung laras. Tembakan berikutnya bernilai 2x damage jika peluru live.", "Cut the barrel tip. Next shot does 2x damage if live."],["menggergaji ujung laras. Tembakan berikutnya 2x damage.", "sawed the barrel tip. Next shot does 2x damage."],["Kamu menggergaji ujung laras. Tembakan berikutnya 2x damage.", "You saw the barrel tip. Next shot does 2x damage."]);
 D1.push(["Gergaji aktif: tembakan berikutnya 2x damage.", "Saw active: next shot does 2x damage."]);
+D1.push(["Chat belum tersambung. Buka lewat link https, bukan file.","Chat not connected. Open it through an https link, not a file."],["Chat belum tersambung.","Chat not connected."],["Pesan belum terkirim.","Message not sent."],["Kirim","Send"],["Ketik pesan…","Type a message…"],["Pesan chat","Chat message"]);
 const LA="A-Za-z\\u00C0-\\u024F";
 const esc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
 function mk(list){const m=new Map();list.forEach(p=>{if(!m.has(p[0]))m.set(p[0],p[1])});const keys=[...m.keys()].sort((a,b)=>b.length-a.length);
@@ -1131,7 +1132,7 @@ function dirFor(node){
 }
 const orig=new WeakMap(),outp=new WeakMap(),attrs=new WeakMap(),SKIP={SCRIPT:1,STYLE:1,TEXTAREA:1,CANVAS:1},AT=["title","aria-label","placeholder"],AS="[title],[aria-label],[placeholder]";
 function procText(n){
-  const p=n.parentNode;if(!p||p.nodeType!==1||SKIP[p.tagName])return;
+  const p=n.parentNode;if(!p||p.nodeType!==1||SKIP[p.tagName]||(p.closest&&p.closest('.mchat-t')))return; // isi chat pemain tidak ikut diterjemahkan
   const cur=n.data;let src=orig.get(n);
   if(src===undefined||outp.get(n)!==cur){src=cur;orig.set(n,src)}
   const d=dirFor(p),out=d?conv(src,d):src;
@@ -6470,6 +6471,69 @@ const Relay=(()=>{
   };
   return api;
 })();
+/* ---------- CHAT ROOM (semua game online) ----------
+   Terpisah dari protokol game: pesan lewat topic '<topic>-c'. Jumlah pemain (2, 3, 4) tidak berpengaruh, bot tidak ikut chat.
+   Menempel otomatis: setiap game online yang memanggil Relay.listen() pada topic 'maroe-<game>-<kode 8>' memunculkan tombol chat. */
+const MChat=(()=>{
+  const RX=/^maroe-[a-z0-9]+-[a-z0-9]{8}$/i,uid=Math.random().toString(36).slice(2,12);
+  const CSS='.mchat-b{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:max(14px,env(safe-area-inset-bottom,0px));z-index:55;width:46px;height:46px;border-radius:99px;border:1px solid var(--line);background:var(--panel);color:var(--fg);display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 14px rgba(0,0,0,.25)}'
+   +'.mchat-b i{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;padding:0 5px;border-radius:99px;background:var(--bad);color:#fff;font:700 11px/18px var(--body);font-style:normal;text-align:center}.mchat-b i:empty{display:none}'
+   +'.mchat-p{position:fixed;right:max(14px,env(safe-area-inset-right,0px));bottom:calc(max(14px,env(safe-area-inset-bottom,0px)) + 56px);z-index:55;width:min(320px,calc(100vw - 28px));display:none;flex-direction:column;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 8px 28px rgba(0,0,0,.35)}.mchat-p.on{display:flex}'
+   +'.mchat-l{height:200px;overflow-y:auto;padding:10px;display:flex;flex-direction:column;gap:6px;font-size:13px}.mchat-m b{color:var(--accent);margin-right:6px;font-size:12px}.mchat-m b::after{content:\":\"}.mchat-m.me b{color:var(--ink-user)}.mchat-m span{overflow-wrap:anywhere;white-space:pre-wrap}'
+   +'.mchat-s{padding:0 10px 6px;font-size:12px;color:var(--bad)}.mchat-s:empty{display:none}.mchat-f{display:flex;gap:6px;padding:8px;border-top:1px solid var(--line)}.mchat-f input{flex:1;min-width:0;min-height:40px;padding:0 10px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;font-size:16px}'
+   +'.mchat-f button{min-height:40px;padding:0 14px;border-radius:10px;border:0;background:var(--accent);color:var(--accent-fg);font-weight:700;cursor:pointer}';
+  let cur=null,ui=null,last=0;const shown=new Set();
+  const nm=()=>Array.from(String(Stats.get().name||'')).slice(0,16).join('')||'Pemain'; // nama dikirim apa adanya
+  function build(){
+    const st=document.createElement('style');st.textContent=CSS;document.head.append(st);
+    const root=el('div','mchat'),b=el('button','mchat-b','<svg width="22" height="22" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 4h16a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H9l-5 4v-4H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="currentColor"/></svg>'),bd=el('i');
+    const panel=el('div','mchat-p'),list=el('div','mchat-l'),stat=el('div','mchat-s'),f=el('div','mchat-f'),inp=el('input'),go=el('button','','Kirim');
+    b.type='button';b.setAttribute('aria-label','Chat');b.append(bd);go.type='button';
+    inp.addEventListener('input',()=>{const a=Array.from(inp.value);if(a.length>140)inp.value=a.slice(0,140).join('')});inp.placeholder='Ketik pesan…';inp.setAttribute('aria-label','Pesan chat');
+    f.append(inp,go);panel.append(list,stat,f);root.append(b,panel);document.body.append(root);
+    let n=0;const unread=v=>{n=v?n+v:0;bd.textContent=n?String(Math.min(n,99)):''};
+    b.onclick=()=>{panel.classList.toggle('on');if(panel.classList.contains('on')){unread(0);list.scrollTop=list.scrollHeight}};
+    go.onclick=send;inp.addEventListener('keydown',e=>{if(e.key==='Enter')send()});
+    return{root,panel,list,stat,inp,unread};
+  }
+  function send(){
+    const v=ui.inp.value; // dikirim persis seperti diketik (batas 140 karakter dijaga di input)
+    if(!v.trim()||!cur||Date.now()-last<1500)return;
+    last=Date.now();ui.inp.value='';
+    const i=Math.random().toString(36).slice(2,8),m={u:uid,n:nm(),s:v,i};shown.add(i);show(m); // tampil langsung di layar pengirim
+    Relay.send(cur.t+'-c',JSON.stringify(m)).then(()=>{ui.stat.textContent=''}).catch(()=>{ui.stat.textContent='Pesan belum terkirim.'});
+  }
+  function show(m){
+    if(!m||typeof m!=='object'||typeof m.s!=='string')return;
+    const mine=m.u===uid,row=el('div','mchat-m'+(mine?' me':'')),n=el('b',mine?'':'mchat-t'),s=el('span','mchat-t');
+    n.textContent=mine?'Kamu':(typeof m.n==='string'&&m.n?m.n:'Pemain');s.textContent=m.s; // tampil persis seperti dikirim
+    row.append(n,s);ui.list.append(row);
+    while(ui.list.children.length>60)ui.list.firstChild.remove();
+    ui.list.scrollTop=ui.list.scrollHeight;
+    if(!mine&&!ui.panel.classList.contains('on'))ui.unread(1);
+  }
+  function kill(){const s=cur;cur=null;if(s&&s.h)s.h.close();if(ui){ui.root.hidden=true;ui.panel.classList.remove('on')}}
+  function attach(t){
+    if(cur&&cur.t===t){cur.n++;clearTimeout(cur.z);return}
+    if(cur)kill();
+    if(!ui)ui=build();
+    ui.root.hidden=false;ui.list.textContent='';ui.unread(0);
+    const s=cur={t,n:1,z:0,h:null};
+    s.h=Relay.listen(t+'-c',txt=>{let m;try{m=JSON.parse(txt)}catch(e){return}if(m&&m.u===uid&&m.i&&shown.has(m.i))return;show(m)},ev=>{if(cur!==s)return;ui.stat.textContent=ev==='open'?'':(location.protocol==='file:'?'Chat belum tersambung. Buka lewat link https, bukan file.':'Chat belum tersambung.')});
+  }
+  function detach(t){
+    const s=cur;if(!s||s.t!==t||--s.n>0)return;
+    s.z=setTimeout(()=>{if(cur===s)kill()},6000); // jeda: game menyambung ulang listener sendiri
+  }
+  const L0=Relay.listen;
+  Relay.listen=(t,a,b)=>{
+    const h=L0(t,a,b);
+    if(!RX.test(String(t)))return h;
+    attach(t);let d=false;
+    return{close(){if(d)return;d=true;h.close();detach(t)}};
+  };
+  return{kill};
+})();
 /* Main online: relay pesan lewat ntfy.sh (layanan pub/sub publik, gratis, tanpa akun). Yang lewat hanya langkah catur. */
 const CH_RELAY=(window.MAROE_RELAY||'https://ntfy.sh/').replace(/\/?$/,'/');
 const CH_ALPHA='ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
@@ -8235,19 +8299,13 @@ const AVC=['#e0ad4c','#cf3f3f','#4ca3e0','#58c28a','#9b7be0','#e07a4c','#4cc9c0'
 
 const Cloud=(()=>{
   const CFG={authDomain:'boardgame-maroe.firebaseapp.com',projectId:'boardgame-maroe',storageBucket:'boardgame-maroe.firebasestorage.app',messagingSenderId:'831482341498',appId:'1:831482341498:web:70834bee376c67930bb3c3'};
-  const KEYS=['AIzaSyDiUP_wLatWCMj_W4KN7ZaQVejbsdOW-Xc','AIzaSyDiUP_wLatWCMj_W4KN7ZaQVejbsd0W-Xc'];
+  const KEY='AIzaSyDiUP_wLatWCMj_W4KN7ZaQVejbsdOW-Xc';
   const B='https://www.gstatic.com/firebasejs/10.14.1/';
   let fb=null,user=null,tmr=0,err='';
   const api={onChange:null,user:()=>user,error:()=>err};
-  async function pickKey(){
-    for(const k of KEYS){
-      try{const r=await fetch('https://www.googleapis.com/identitytoolkit/v3/relyingparty/getProjectConfig?key='+k);if(r.ok)return k}catch(e){return KEYS[0]}
-    }
-    return KEYS[0];
-  }
   api.init=()=>fb||(fb=(async()=>{
     const [A,Au,F]=await Promise.all([import(B+'firebase-app.js'),import(B+'firebase-auth.js'),import(B+'firebase-firestore.js')]);
-    const key=await pickKey();
+    const key=KEY;
     const app=A.initializeApp(Object.assign({apiKey:key},CFG)),auth=Au.getAuth(app),db=F.initializeFirestore(app,{experimentalAutoDetectLongPolling:true});
     const x={Au,F,auth,db};
     Au.onAuthStateChanged(auth,async u=>{
