@@ -429,6 +429,7 @@ html:not([lang="en"]) .ty .t-en{display:none}
 .dsmy .slot.has:hover:not(:disabled),.dsmy .slot.on{border-color:#ffd23f;background:rgba(58,42,26,.92)}
 .dsmy .slot:disabled{opacity:.7;cursor:default}
 .dsmy .slot:focus-visible{outline:3px solid #fff}
+.dsmy .slot .xn{position:absolute;right:1px;bottom:1px;padding:1px 3px;font:700 10px/1 var(--mono);color:#ffd23f;background:rgba(2,6,15,.88);pointer-events:none}
 .dsmy canvas{width:100%!important;height:auto!important}
 .dsmy2{--g:4px;position:relative;display:grid;grid-auto-flow:column;grid-template-columns:none;grid-auto-columns:calc((100% - 7*var(--g))/8);gap:var(--g);padding:2px 0 6px;overflow-x:auto;overscroll-behavior-x:contain;-webkit-overflow-scrolling:touch;scrollbar-width:thin}.dsmy2 .slot{max-width:none;min-width:0}
 .dsmine{display:flex;align-items:center;gap:10px;font-size:9px;flex-wrap:wrap}
@@ -1104,6 +1105,10 @@ D1.push(["Empat pemain, 13 kartu. Habiskan kartumu duluan.","Four players, 13 ca
 D1.push(["Kartu Maut","Death Card"],["Lubang Hitam","Black Hole"],["Neraka","Inferno"],["Kraken","Kraken"]);
 D2.push(["Death Card","Kartu Maut"],["Black Hole","Lubang Hitam"],["Inferno","Neraka"]);
 D1.push(["Lima tes singkat untuk insting persepsimu. Dua menit. Satu skor.","Five quick tests of your perception instincts. Two minutes. One score."],["Uji ketajaman persepsimu: titik, bola, sudut, ketukan, dan garis.","Test how sharp your perception is: dots, a ball, angles, beats and lines."],["5 ronde","5 rounds"],["rekor","best"],["rata-rata","average"],["Ronde 1 dari 5","Round 1 of 5"],["Ronde 2 dari 5","Round 2 of 5"],["Ronde 3 dari 5","Round 3 of 5"],["Ronde 4 dari 5","Round 4 of 5"],["Ronde 5 dari 5","Round 5 of 5"],["Hitung","Count"],["Lacak","Track"],["Sudut","Angle"],["Bagi","Divide"],["Titik muncul 2 detik. Berapa jumlahnya?","Dots show for 2 seconds. How many are there?"],["Bola hilang. Tap tempat ia mendarat.","The ball vanishes. Tap where it lands."],["Lihat lintasan terbang, lalu tandai di mana bola mendarat.","Watch the visible flight, then place your landing estimate on the ground."],["Ketuk atau seret di area, atau pakai slider. Lalu kirim perkiraanmu.","Tap or drag on the field, or use the slider. Then submit your estimate."],["Kirim pendaratan","Submit landing"],["Posisi pendaratan","Landing position"],["Seret garis tepat","Drag the line to exactly"],["berlawanan arah jarum jam.","counterclockwise."],["Ketuk bareng 4 ketukan, lalu lanjutkan 8 kali tanpa suara. Ketuk atau tekan Spasi.","Tap along with 4 beats, then keep going 8 more times, silently. Tap or press Space."],["Lanjutkan sendiri: 8 ketukan tanpa suara.","Keep going on your own: 8 silent taps."],["Tandai titik","Mark the point"],["dari ujung kiri garis.","from the left end of the line."],["Jawab","Submit"],["Ketuk","Tap"],["Lihat skor","See score"],["Skormu","Your score"],["Rekor baru","New record"],["Jumlah titik","Number of dots"],["Jawaban","Answer"],["tebakanmu","your guess"],["sesi","sessions"]);
+D1.push(["Kontrol waktu", "Time control"],["Tanpa batas waktu", "No time limit"],["Tanpa batas", "No limit"],["tiap pemain", "per player"],["per langkah", "per move"],["menit", "min"],["detik", "sec"],["Main dengan teman", "Play with a friend"],["Main catur bareng aku di Board Game Maroe. Buka link ini, langsung masuk:", "Play chess with me on Board Game Maroe. Open this link to jump right in:"],["Untuk mengundang, berikan URL ini", "To invite, share this URL"],["Orang pertama yang membuka link akan bermain denganmu.", "The first person to open the link plays with you."],["Atau beri kode:", "Or share this code:"],["langkah pion", "pawn move"],["tanpa tangkapan", "without capture"],["Susunanmu sudah dikunci. Menunggu pemain lain…", "Your arrangement is locked. Waiting for other players…"],["pemain lain", "other players"],["Pemain", "Player"],["pemain", "player"],["Belum kunci:", "Not locked yet:"],["Paksa lanjut (yang belum kunci jadi bot)", "Force continue (unlocked players become bots)"],["Kartu kamu", "Your cards"],["Susun 13 kartu jadi tiga baris dan adu. Empat kursi: buat room atau main sendiri.", "Arrange 13 cards into three rows and compare. Four seats: create a room or play solo."],["4 kartu", "4 cards"],["Catatan aktif", "Notes on"],["Catatan mati", "Notes off"],["catatan", "notes"],["Waktu terbaik", "Best time"],["Sinkron gagal. Coba lagi nanti.", "Sync failed. Try again later."],["Server relay sedang sibuk, mencoba lagi sebentar...", "Relay server is busy, retrying shortly..."],["Terhubung ke server.", "Connected to server."],["Domain situs ini belum didaftarkan di Firebase.", "This site's domain isn't registered in Firebase yet."],["Setiap isi ulang tiap pemain mendapat item (maksimal 24).", "On each reload every player gets items (max 24)."],["Ketuk item di mejamu untuk membaca fungsinya, lalu pilih Pakai.", "Tap an item on your table to read what it does, then choose Use."],["Item boleh dipakai sebanyak yang kamu mau sebelum", "You can use as many items as you like before"],["menembak", "shooting"],["Kalau item lebih dari 8, geser barisnya ke samping.", "If there are more than 8 items, swipe the row sideways."]);
+D1.push(["tanpa tambahan", "no increment"],["atau", "or"],["Remis", "Draw"],["Tahun", "Year"],["Tambah", "Add"],["raise ke", "raise to"],["dengan", "with"]);
+D1.push(["Potong ujung laras. Tembakan berikutnya bernilai 2x damage jika peluru live.", "Cut the barrel tip. Next shot does 2x damage if live."],["menggergaji ujung laras. Tembakan berikutnya 2x damage.", "sawed the barrel tip. Next shot does 2x damage."],["Kamu menggergaji ujung laras. Tembakan berikutnya 2x damage.", "You saw the barrel tip. Next shot does 2x damage."]);
+D1.push(["Gergaji aktif: tembakan berikutnya 2x damage.", "Saw active: next shot does 2x damage."]);
 const LA="A-Za-z\\u00C0-\\u024F";
 const esc=s=>s.replace(/[.*+?^${}()|[\]\\]/g,"\\$&");
 function mk(list){const m=new Map();list.forEach(p=>{if(!m.has(p[0]))m.set(p[0],p[1])});const keys=[...m.keys()].sort((a,b)=>b.length-a.length);
@@ -3215,7 +3220,7 @@ const DS_ITEMS=[
   {id:'lens',name:'Lensa',desc:'Intip jenis peluru yang ada di laras sekarang.',may:{name:'Mata Takdir',desc:'Baca takdir laras: jenis peluru berikutnya terlihat hanya olehmu.',rows:['........','..oooo..','.owwwwo.','owwccwwo','ocooooco','owwccwwo','.owwwwo.','..oooo..']},rows:['.oooo...','owcwco..','occcco..','occcco..','.oooob..','.....bb.','......bb','........']},
   {id:'bandage',name:'Perban',desc:'Pulihkan 1 nyawa (tidak melebihi batas ronde).',rows:['oooooooo','owwrrwwo','owwrrwwo','orrrrrro','orrrrrro','owwrrwwo','owwrrwwo','oooooooo']},
   {id:'cuffs',name:'Borgol',desc:'Pilih satu lawan. Giliran berikutnya dia dilewati. Tidak bisa ditumpuk.',rows:['........','.gg..gg.','g..gg..g','g..gg..g','.gg..gg.','........','........','........']},
-  {id:'saw',name:'Batu Asah',desc:'Tembakan berikutnya bernilai 2x damage jika peluru live.',may:{name:'Batu Takdir',desc:'Asah pedangmu. Tebasan berikutnya bernilai 2x damage jika peluru live.',rows:['........','.oooooo.','oggggwgo','oggwgggo','oGGGGGGo','.oooooo.','..c..c..','........']},rows:['........','..G.G.G.','bbgggggg','bBgggggg','bb......','........','........','........']},
+  {id:'saw',name:'Gergaji',desc:'Potong ujung laras. Tembakan berikutnya bernilai 2x damage jika peluru live.',may:{name:'Batu Takdir',desc:'Asah pedangmu. Tebasan berikutnya bernilai 2x damage jika peluru live.',rows:['........','.oooooo.','oggggwgo','oggwgggo','oGGGGGGo','.oooooo.','..c..c..','........']},rows:['........','..G.G.G.','bbgggggg','bBgggggg','bb......','........','........','........']},
   {id:'soda',name:'Kaleng Soda',desc:'Buang peluru di laras sekarang. Jenisnya terlihat oleh semua.',may:{name:'Belati Takdir',desc:'Tusuk peluru di laras hingga terbuang. Jenisnya terlihat oleh semua.',rows:['...yy...','...bb...','.yyyyyy.','..wwgg..','..wwgg..','...wg...','...wg...','....g...']},rows:['..gggg..','.oooooo.','.orrrro.','.orwwro.','.orrrro.','.orrrro.','.oooooo.','........']},
   {id:'flip',name:'Pembalik',desc:'Balik peluru di laras: live jadi blank, blank jadi live.',may:{name:'Jarum Terbalik',desc:'Tusuk takdir laras: live jadi blank, blank jadi live. Hasilnya tersembunyi.',rows:['......o.','.....ogo','....owg.','...owg..','..owg...','.owg....','og......','x.x.....']},rows:['...yy...','..yyyy..','.yyyyyy.','...yy...','...yy...','.yyyyyy.','..yyyy..','...yy...']},
   {id:'pill',name:'Obat',desc:'Untung-untungan: 50% pulih 2 nyawa, 50% kehilangan 1 nyawa.',rows:['........','..oooo..','.orrwwo.','orrrwwwo','orrrwwwo','.orrwwo.','..oooo..','........']}
@@ -4680,7 +4685,7 @@ function DeadShell(box,joinCode){
     {const hh=S.fx&&S.fx.holder>=0?S.fx.holder:S.turn,qq=S.players[hh];f.pose.swi=hh===0?DS_LOOK.sw:(qq&&qq.swi)|0}
     const tp=poseFor();
     for(const k in tp)if(k!=='len')f.pose[k]+=(tp[k]-f.pose[k])*(f.sv?1:.34);
-    f.pose.len=1;
+    f.pose.len=(S.sawed&&!f.pose.sw&&!(f.sawAnim&&!f.sawAnim.may&&f.sawAnim.stage===0))?.66:1;
     let sx=0,sy=0;
     if(f.shake>0){sx=Math.round((Math.random()-.5)*7);sy=Math.round((Math.random()-.5)*5);f.shake--}
     ctx.save();ctx.translate(sx,sy);
@@ -4768,18 +4773,22 @@ function DeadShell(box,joinCode){
       let nx=-dy/ln,ny=dx/ln;if(ny>0){nx=-nx;ny=-ny}
       const cs=.68,C=[B[0]+dx*cs,B[1]+dy*cs],th=P.t0+(P.t1-P.t0)*cs;
       if(sa.may)dsSawMay(ctx,f,sa,now,B,M,dx,dy,ln,nx,ny);else if(sa.stage===0){
-        /* batu asah digesek di sisi bilah dari pangkal ke ujung; bilah berkilau di bagian yang sudah diasah */
-        const p0=Math.min(1,dt/950),tt=.15+.6*p0,ux=dx/ln,uy=dy/ln;
-        const Qx=B[0]+dx*tt+nx*4,Qy=B[1]+dy*tt+ny*4;
-        ctx.save();ctx.strokeStyle='rgba(255,255,255,'+(.25+.5*p0).toFixed(3)+')';ctx.lineWidth=2;
-        ctx.beginPath();ctx.moveTo(B[0],B[1]);ctx.lineTo(Qx,Qy);ctx.stroke();ctx.restore();
-        const cX=Qx+nx*6,cY=Qy+ny*6;
-        dsPoly(ctx,[[cX+ux*9+nx*5,cY+uy*9+ny*5],[cX+ux*9-nx*5,cY+uy*9-ny*5],[cX-ux*9-nx*5,cY-uy*9-ny*5],[cX-ux*9+nx*5,cY-uy*9+ny*5]],'#8a8f99');
-        dsPoly(ctx,[[cX+ux*9-nx*1,cY+uy*9-ny*1],[cX+ux*9-nx*5,cY+uy*9-ny*5],[cX-ux*9-nx*5,cY-uy*9-ny*5],[cX-ux*9-nx*1,cY-uy*9-ny*1]],'#5a606b');
-        if(Math.random()<.9)for(let q=0;q<3;q++)f.parts.push({x:Qx,y:Qy,vx:(Math.random()-.5)*6,vy:-Math.random()*4-1,life:12+Math.random()*10,sz:q%2?2:1,col:q%3?'#ffd23f':'#ffffff'});
+        const osc=Math.sin(dt/55)*(th*.5+4);
+        const ux=dx/ln,uy=dy/ln;
+        let vx=nx*(1-0.6),vy=ny*(1-0.6)-0.6;const vl=Math.hypot(vx,vy);vx/=vl;vy/=vl;
+        let wx=-vy,wy=vx;if(wx*ux+wy*uy<0){wx=-wx;wy=-wy}
+        const bx=C[0]+vx*osc,by=C[1]+vy*osc;
+        /* gergaji gaya ikon item: bilah tegak lurus laras, gagang di atas, gigi menghadap ujung laras */
+        const SX=8,SY=4,e1x=-vx,e1y=-vy,e2x=wx,e2y=wy;
+        const rows=DS_ITEMS.find(q=>q.id==='saw').rows,pal={G:'#f2f5fa',g:'#a3abb8'};
+        ctx.save();ctx.transform(e1x,e1y,e2x,e2y,bx-5*SX*e1x-1.5*SY*e2x,by-5*SX*e1y-1.5*SY*e2y);
+        for(let r=0;r<rows.length;r++)for(let c=0;c<rows[r].length;c++){const ch=rows[r][c];if(ch==='.')continue;ctx.fillStyle=pal[ch]||DS_PAL[ch]||'#fff';ctx.fillRect(c*SX,r*SY,SX+.6,SY+.6)}
+        ctx.restore();
+        if(Math.random()<.9)for(let q=0;q<3;q++)f.parts.push({x:C[0],y:C[1],vx:(Math.random()-.5)*6,vy:-Math.random()*4-1,life:12+Math.random()*10,sz:q%2?2:1,col:q%3?'#ffd23f':'#ffffff'});
         if(dt>950){
-          sa.stage=1;sa.t1=now;
-          f.shake=5;f.white=.25;
+          sa.stage=1;sa.t1=now;f.pose.len=.66;
+          f.piece={t0:now,B:B.slice(),M:M.slice(),t0w:P.t0,t1w:P.t1};
+          f.shake=7;f.white=.3;
         }
       }else if(now-sa.t1>400)f.sawAnim=null;
     }
@@ -4799,7 +4808,7 @@ function DeadShell(box,joinCode){
       ctx.fillStyle=q.col;ctx.fillRect(Math.round(q.x),Math.round(q.y),q.sz,q.sz);
     }
     if(f.flash>0){
-      const P=f.pose,mx=f.sv?Math.round(f.sv.mx):Math.round(P.ring>.5?P.cx:P.Mx),my=f.sv?Math.round(f.sv.my):Math.round(P.ring>.5?P.cy:P.My),r=f.flash*(f.flashLive?5:2)*(f.sv?1.7:1);
+      const P=f.pose,mx=f.sv?Math.round(f.sv.mx):Math.round(P.ring>.5?P.cx:P.Bx+(P.Mx-P.Bx)*P.len),my=f.sv?Math.round(f.sv.my):Math.round(P.ring>.5?P.cy:P.By+(P.My-P.By)*P.len),r=f.flash*(f.flashLive?5:2)*(f.sv?1.7:1);
       const fc=f.flashLive?(DS_SKINS[skI()].flash||'#ffd23f'):'#c9ced8',gs=[ctx];
       if(P.sw&&ctx._swL&&ctx._swL.box.style.display==='block')gs.push(ctx._swL.fx.getContext('2d'));/* pedang: kilatan di atas gambar pedang */
       gs.forEach(g=>{
@@ -4871,30 +4880,35 @@ function DeadShell(box,joinCode){
     });
     /* item milikmu di meja */
     const mi=el('div','dsmy dsmy2');
-    const nslots=Math.max(8,me.items.length);
-    for(let k=0;k<nslots;k++){
-      const id=me.items[k];
-      if(!id){mi.append(el('span','slot empty'));continue}
+    /* item sama digabung jadi 1 slot + badge xN; k = indeks pertama item itu */
+    const grp=[],gk={};
+    me.items.forEach((id,k)=>{if(gk[id]==null){gk[id]=grp.length;grp.push({id:id,k:k,n:0})}grp[gk[id]].n++});
+    const nslots=Math.max(8,grp.length);
+    for(let g=0;g<nslots;g++){
+      const e=grp[g];
+      if(!e){mi.append(el('span','slot empty'));continue}
+      const k=e.k,id=e.id;
       const it=dsItem(id,dsPlayerMay(S,0));
-      const b=el('button','slot has'+(S.sel===k?' on':''));b.type='button';b.title=it.name;b.setAttribute('aria-label',it.name);
+      const b=el('button','slot has'+(S.sel!=null&&me.items[S.sel]===id?' on':''));b.type='button';b.title=it.name+(e.n>1?' x'+e.n:'');b.setAttribute('aria-label',it.name+(e.n>1?' x'+e.n:''));
       b.append(dsCanvas(it.rows,4));
+      if(e.n>1)b.append(el('span','xn','x'+e.n));
       b.disabled=!canAct();
       b.onclick=()=>humanItem(k);
       mi.append(b);
     }
     const sl0=elItems.firstChild?elItems.firstChild.scrollLeft:0;elItems.innerHTML='';elItems.append(mi);mi.scrollLeft=sl0;
-    if(S.sel!=null&&mi.children[S.sel]){const sb=mi.children[S.sel],l=sb.offsetLeft,r=l+sb.offsetWidth;if(l<mi.scrollLeft)mi.scrollLeft=Math.max(0,l-4);else if(r>mi.scrollLeft+mi.clientWidth)mi.scrollLeft=r-mi.clientWidth+4}
+    const sb=mi.querySelector('.slot.on');if(sb){const l=sb.offsetLeft,r=l+sb.offsetWidth;if(l<mi.scrollLeft)mi.scrollLeft=Math.max(0,l-4);else if(r>mi.scrollLeft+mi.clientWidth)mi.scrollLeft=r-mi.clientWidth+4}
     /* status pribadi */
     elMine.innerHTML='';
     elMine.append(el('b','','Kamu'));elMine.append(heartRow(me));
     elMine.append(el('span','','Menang '+me.wins));
-    if(me.items.length>8)elMine.append(el('span','','Item '+me.items.length+' · geser →'));
+    if(grp.length>8)elMine.append(el('span','','Item '+me.items.length+' · geser →'));
     if(me.cuffed)elMine.append(el('em','','TERBORGOL'));
     if(!me.alive)elMine.append(el('em','','TUMBANG'));
     /* pesan */
     let m=S.msg||'';
     if(me.alive&&me.k&&!S.over)m+='<div class="dsk">Kamu tahu: peluru berikutnya <b class="'+(me.k==='L'?'lv':'bl')+'">&#9679;</b></div>';
-    if(S.sawed&&!S.over)m+='<div class="dsk">'+(dsHolderIsMay(S)?'Bilah diasah: tebasan berikutnya 2x damage.':'Bilah diasah: tembakan berikutnya 2x damage.')+'</div>';
+    if(S.sawed&&!S.over)m+='<div class="dsk">'+(dsHolderIsMay(S)?'Bilah diasah: tebasan berikutnya 2x damage.':'Gergaji aktif: tembakan berikutnya 2x damage.')+'</div>';
     elMsg.innerHTML=m;
     elLog.innerHTML=S.log.slice(-80).map(x=>'<div>'+x+'</div>').join('');elLog.scrollTop=elLog.scrollHeight;
     renderActions();
@@ -4920,7 +4934,7 @@ function DeadShell(box,joinCode){
     }
     if(S.pick==='stealitem'){
       const tg=P[S.stealT],r=el('div','dsrow');
-      if(tg&&tg.alive)tg.items.forEach((id,k)=>{const it=dsItem(id,dsPlayerMay(S,0)),b=mk('','alt',()=>humanSteal(S.stealT,k));b.title=it.name;b.setAttribute('aria-label','Curi: '+it.name);b.style.padding='8px 10px';b.append(dsCanvas(it.rows,4));r.append(b)});
+      if(tg&&tg.alive)tg.items.forEach((id,k)=>{const it=dsItem(id,dsPlayerMay(S,S.stealT)),b=mk('','alt',()=>humanSteal(S.stealT,k));b.title=it.name;b.setAttribute('aria-label','Curi: '+it.name);b.style.padding='8px 10px';b.append(dsCanvas(it.rows,4));r.append(b)});
       r.append(mk('Batal','ghost',()=>{S.pick=null;S.stealT=null;render()}));
       elAct.append(r);return;
     }
@@ -5078,7 +5092,7 @@ function DeadShell(box,joinCode){
     if(pi===0&&S.online)netAct({k:'item',slot,ti:ti==null?null:gl(ti)});
     p.items.splice(slot,1);S.lock=true;S.pick=null;S.sel=null;
     let delay=1400;
-    const hum=pi===0,may=dsHolderIsMay(S);/* pemegang pedang (Owner): item pakai animasi dan suara versi Owner */
+    const hum=pi===0,may=dsPlayerMay(S,pi);/* pemegang pedang (Owner): item pakai animasi dan suara versi Owner */
     if(['lens','bandage','soda','flip','pill'].includes(id)){
       const TG=pi===0?[160,id==='pill'?DS_H-10:150]:[figX(pi-1),figTop()+(id==='pill'?26:34)*figU()];
       const DU={lens:may?2800:2000,bandage:2100,soda:may?3000:2300,flip:may?3000:2400,pill:1900};
@@ -5099,7 +5113,7 @@ function DeadShell(box,joinCode){
         S.fx.ia.wheel={mode:'lens',spin:1100,segs,idx,st,thf:-(idx+.5)*st+Math.PI*2*5,reveal:hum};say(dsHolderIsMay(S)?(hum?roomName():p.name)+' sedang membaca takdirnya.':p.human?'Lensa: kamu melihat isi laras.':p.name+' mengintip peluru lewat lensa.')}break;
       case 'bandage':p.hp=Math.min(p.max,p.hp+1);say(p.name+' memakai perban (+1 nyawa).');if(hum)S.fx.green=.55;break;
       case 'cuffs':S.players[ti].cuffed=true;S.fx.cuffAnim={target:ti,t0:Date.now(),fall:520,hit:false};delay=1500;say(p.name+' memborgol '+(ti===0?'kamu':S.players[ti].name)+'.');break;
-      case 'saw':S.fx.show=true;S.fx.sawAnim={t0:Date.now(),stage:0,may};S.sawed=true;delay=1900;say(p.name+(may?' mengasah pedangnya. Tebasan berikutnya 2x damage.':' mengasah bilah. Tembakan berikutnya 2x damage.'));break;
+      case 'saw':S.fx.show=true;S.fx.sawAnim={t0:Date.now(),stage:0,may};S.sawed=true;delay=1900;say(p.name+(may?' mengasah pedangnya. Tebasan berikutnya 2x damage.':' menggergaji ujung laras. Tembakan berikutnya 2x damage.'));break;
       case 'soda':{
         const sgW=dsWheelSegs(S.chamber),nW=sgW.length;
         if(nW){const tp=S.chamber[0],cand=[];sgW.forEach((x,q)=>{if(x===tp)cand.push(q)});const idxS=cand.length?cand[Math.floor(Math.random()*cand.length)]:0,stS=Math.PI*2/nW;S.fx.ia.wheel={mode:'soda',spin:1100,hitAt:1550,cut:may?1850:1800,segs:sgW,idx:idxS,st:stS,thf:-(idxS+.5)*stS+Math.PI*2*5,reveal:true}}
