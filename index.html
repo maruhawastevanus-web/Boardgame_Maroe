@@ -6093,9 +6093,9 @@ const Music=(()=>{
   };
   const VOL={holdem:.9,deepdive:.55};
   /* Buckshot: pengali volume SEMUA efek suara, dipasang setelah limiter (1 = normal). Kecilkan agar soundtrack lebih dominan. */
-  const SFX_BK=.2;
+  const SFX_BK=.15;
   /* efek yang muncul sendiri di tengah permainan: [pengali tambahan, lama dalam detik], hanya di Buckshot */
-  const BKQ={dread:[.5,2.6],beat:[.6,.8],shot:[.4,2.2],fateEye:[.4,3.2],fateDagger:[.4,3.2],fateNeedle:[.4,3.2],whet:[.45,2],lens:[.6,1.2],bandage:[.6,1.6],cuffs:[.6,1.4],saw:[.6,2],soda:[.6,2],flip:[.6,1.6],pill:[.6,1.4],poison:[.6,1.4]};
+  const BKQ={dread:[.5,2.6],beat:[.6,.8],shot:[.15,2.2],fateEye:[.4,3.2],fateDagger:[.4,3.2],fateNeedle:[.4,3.2],whet:[.45,2],lens:[.6,1.2],bandage:[.6,1.6],cuffs:[.6,1.4],saw:[.6,2],soda:[.6,2],flip:[.6,1.6],pill:[.6,1.4],poison:[.6,1.4]};
   let pg=null;const sfxK=()=>want==='deadshell'?SFX_BK:1;
   let volK=12,mkNode,busT=1,ctx,master,sx,gun,echo,noiseBuf,bus,lpn,th,curId=null,want='lobby',timer,step=0,next=0,muted=false,onchange=()=>{};
   try{muted=localStorage.getItem('maroe:mute')==='1'}catch(e){}
@@ -6151,7 +6151,7 @@ const Music=(()=>{
   }
   /* OST Buckshot: file mp3 asli (HTMLAudioElement biasa, bukan WebAudio, supaya jalan juga dari file://). Gagal muat -> jatuh ke sintesis. */
   const OST_SRC='soundtrack-buckshot.mp3?v=3';
-  const OST_BOOST=1.3; /* 2 = 200%. Naikkan untuk lebih keras. Hanya aktif di http(s); dari file:// volume mentok 100% */
+  const OST_BOOST=2.6; /* 2 = 200%. Naikkan untuk lebih keras. Hanya aktif di http(s); dari file:// volume mentok 100% */
   let aug=null,au=null,auT=null,auFade=0,auTo=0,duckA=0,duckD=0,ostBad=false;
   function auApply(){
     if(!au)return;
