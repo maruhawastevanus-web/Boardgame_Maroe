@@ -6094,8 +6094,10 @@ const Music=(()=>{
   const VOL={holdem:.9,deepdive:.55};
   /* Buckshot: pengali volume SEMUA efek suara, dipasang setelah limiter (1 = normal). Kecilkan agar soundtrack lebih dominan. */
   const SFX_BK=.15;
+  const SHOT_LV=.25; /* level absolut suara tembakan (setelah limiter). Terlalu keras -> kecilkan, gak kedengeran -> naikkan */
+  const SHOT_DUCK=.35; /* soundtrack turun ke 35% selama tembakan */
   /* efek yang muncul sendiri di tengah permainan: [pengali tambahan, lama dalam detik], hanya di Buckshot */
-  const BKQ={dread:[.5,2.6],beat:[.6,.8],shot:[.15,2.2],fateEye:[.4,3.2],fateDagger:[.4,3.2],fateNeedle:[.4,3.2],whet:[.45,2],lens:[.6,1.2],bandage:[.6,1.6],cuffs:[.6,1.4],saw:[.6,2],soda:[.6,2],flip:[.6,1.6],pill:[.6,1.4],poison:[.6,1.4]};
+  const BKQ={dread:[.5,2.6],beat:[.6,.8],shot:[SHOT_LV/SFX_BK,2.2],fateEye:[.4,3.2],fateDagger:[.4,3.2],fateNeedle:[.4,3.2],whet:[.45,2],lens:[.6,1.2],bandage:[.6,1.6],cuffs:[.6,1.4],saw:[.6,2],soda:[.6,2],flip:[.6,1.6],pill:[.6,1.4],poison:[.6,1.4]};
   let pg=null;const sfxK=()=>want==='deadshell'?SFX_BK:1;
   let volK=12,mkNode,busT=1,ctx,master,sx,gun,echo,noiseBuf,bus,lpn,th,curId=null,want='lobby',timer,step=0,next=0,muted=false,onchange=()=>{};
   try{muted=localStorage.getItem('maroe:mute')==='1'}catch(e){}
@@ -6151,14 +6153,15 @@ const Music=(()=>{
   }
   /* OST Buckshot: file mp3 asli (HTMLAudioElement biasa, bukan WebAudio, supaya jalan juga dari file://). Gagal muat -> jatuh ke sintesis. */
   const OST_SRC='soundtrack-buckshot.mp3?v=3';
-  const OST_BOOST=2.6; /* 2 = 200%. Naikkan untuk lebih keras. Hanya aktif di http(s); dari file:// volume mentok 100% */
-  let aug=null,au=null,auT=null,auFade=0,auTo=0,duckA=0,duckD=0,ostBad=false;
+  const OST_BOOST=1.6; /* 1 = 100%. mp3 sudah mentok keras (-2.6 dB RMS), jadi >2 cuma bikin pecah. Soft-clip statis, volume konstan. Hanya aktif di http(s) */
+  const OST_IN=2; /* skala internal soft-clip, jangan diubah */
+  let aug=null,au=null,auT=null,auFade=0,auTo=0,duckA=0,duckD=0,duckF=.8,ostBad=false;
   function auApply(){
     if(!au)return;
     const t=performance.now();let dk=1;
-    if(duckD){if(t>=duckA+duckD){duckD=0}else if(t>=duckA){dk=.8+.2*(t-duckA)/duckD}else if(t>=duckA-30){dk=1-.2*(t-(duckA-30))/30}}
+    if(duckD){if(t>=duckA+duckD){duckD=0}else if(t>=duckA){dk=duckF+(1-duckF)*(t-duckA)/duckD}else if(t>=duckA-30){dk=1-(1-duckF)*(t-(duckA-30))/30}}
     const lv=Math.max(0,Math.min(1,volK/10))*auFade*dk;
-    if(aug)aug.gain.value=lv*OST_BOOST;else au.volume=Math.max(0,Math.min(1,lv));
+    if(aug)aug.gain.value=lv*OST_BOOST/OST_IN;else au.volume=Math.max(0,Math.min(1,lv));
   }
   function auLoop(){
     auFade+=auFade<auTo?.05:-.05;
@@ -6176,7 +6179,7 @@ const Music=(()=>{
       srcs.push(OST_SRC);
       let si=0;
       au=new Audio(srcs[0]);au.loop=true;au.preload='auto';
-      try{if(ctx&&/^https?:/.test(location.protocol)){const ms=ctx.createMediaElementSource(au),g=ctx.createGain(),l=ctx.createDynamicsCompressor();l.threshold.value=-3;l.knee.value=0;l.ratio.value=20;l.attack.value=.003;l.release.value=.1;ms.connect(g);g.connect(l);l.connect(ctx.destination);aug=g;au.volume=1}}catch(e){aug=null}
+      try{if(ctx&&/^https?:/.test(location.protocol)){const ms=ctx.createMediaElementSource(au),g=ctx.createGain(),l=ctx.createWaveShaper(),cv=new Float32Array(2048);for(let i=0;i<2048;i++)cv[i]=Math.tanh(OST_IN*(i/1023.5-1));l.curve=cv;l.oversample='2x';ms.connect(g);g.connect(l);l.connect(ctx.destination);aug=g;au.volume=1}}catch(e){aug=null}
       au.onerror=()=>{
         if(++si<srcs.length){au.src=srcs[si];au.load();if(auTo===1){const p=au.play();if(p&&p.catch)p.catch(()=>{})}return}
         ostBad=true;stopOst(true);ostWarn('OST gagal dimuat (kode '+(au.error?au.error.code:'?')+')');
@@ -6275,7 +6278,7 @@ const Music=(()=>{
     if(ctx.state==='suspended')ctx.resume();
     const now=ctx.currentTime,at=now+.01+(dl||0);X[n](at);{const q=want==='deadshell'&&BKQ[n];if(q&&pg){const k=sfxK();pg.gain.setValueAtTime(k*q[0],Math.max(now,at-.01));pg.gain.setValueAtTime(k,at+q[1])}}const gm=GM[n]||1;if(gm!==1){sx.gain.setValueAtTime(1.6*gm,Math.max(now,at-.01));sx.gain.setValueAtTime(1.6,at+3.6)}
     const du=D[n];
-    if(du&&au&&auTo===1){duckA=performance.now()+(at-now)*1000;duckD=du*1000}
+    if(du&&au&&auTo===1){duckA=performance.now()+(at-now)*1000;duckD=du*1000;duckF=n==='shot'?SHOT_DUCK:.8}
     if(du&&bus){const g=bus.gain,a=Math.max(now,at-.02);g.cancelScheduledValues(a);g.setValueAtTime(busT,a);g.linearRampToValueAtTime(busT*.1,at);g.linearRampToValueAtTime(busT,at+du)}
   }
   function start(id){
