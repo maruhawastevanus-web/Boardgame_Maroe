@@ -6152,8 +6152,10 @@ const Music=(()=>{
     o.connect(g);g.connect(dest||bus);o.start(t);o.stop(t+.25);
   }
   /* OST Buckshot: file mp3 asli (HTMLAudioElement biasa, bukan WebAudio, supaya jalan juga dari file://). Gagal muat -> jatuh ke sintesis. */
-  const OST_SRC='soundtrack-buckshot.mp3?v=3';
-  const OST_BOOST=1.6; /* 1 = 100%. mp3 sudah mentok keras (-2.6 dB RMS), jadi >2 cuma bikin pecah. Soft-clip statis, volume konstan. Hanya aktif di http(s) */
+  const OST_SRC='soundtrack-buckshot.mp3?v=4';
+  const OST_PROCESSED=true; /* mp3 sudah diolah (harmonik bass + keras). true = langsung diputar apa adanya, jalan juga dari file://. Kalau pakai mp3 asli, ubah ke false */
+  const OST_BOOST=1.3; /* 1 = 100%. mp3 sudah mentok keras (-2.6 dB RMS), jadi >2 cuma bikin pecah. Soft-clip statis, volume konstan. Hanya aktif di http(s) */
+  const BASS_HARM=1.4; /* kekuatan harmonik bass (speaker HP tak bisa bass <150Hz). 0 = mati, 2 = lebih tebal */
   const OST_IN=2; /* skala internal soft-clip, jangan diubah */
   let aug=null,au=null,auT=null,auFade=0,auTo=0,duckA=0,duckD=0,duckF=.8,ostBad=false;
   function auApply(){
@@ -6179,7 +6181,7 @@ const Music=(()=>{
       srcs.push(OST_SRC);
       let si=0;
       au=new Audio(srcs[0]);au.loop=true;au.preload='auto';
-      try{if(ctx&&/^https?:/.test(location.protocol)){const ms=ctx.createMediaElementSource(au),g=ctx.createGain(),l=ctx.createWaveShaper(),cv=new Float32Array(2048);for(let i=0;i<2048;i++)cv[i]=Math.tanh(OST_IN*(i/1023.5-1));l.curve=cv;l.oversample='2x';ms.connect(g);g.connect(l);l.connect(ctx.destination);aug=g;au.volume=1}}catch(e){aug=null}
+      try{if(!OST_PROCESSED&&ctx&&/^https?:/.test(location.protocol)){const ms=ctx.createMediaElementSource(au),g=ctx.createGain(),l=ctx.createWaveShaper(),cv=new Float32Array(2048);for(let i=0;i<2048;i++)cv[i]=Math.tanh(OST_IN*(i/1023.5-1));l.curve=cv;l.oversample='2x';const F=(t,f)=>{const b=ctx.createBiquadFilter();b.type=t;b.frequency.value=f;return b},hp=F('highpass',90),bl=F('lowpass',140),hb=F('highpass',160),hl=F('lowpass',1200),dr=ctx.createGain(),hg=ctx.createGain(),bs=ctx.createWaveShaper(),bc=new Float32Array(2048);for(let i=0;i<2048;i++)bc[i]=Math.tanh(2*(i/1023.5-1));bs.curve=bc;dr.gain.value=4;hg.gain.value=BASS_HARM;/* jalur utama tanpa sub <90Hz (HP tak bisa memutarnya), + harmonik bass 160-1200Hz supaya bass terdengar di speaker HP */ms.connect(hp);hp.connect(g);ms.connect(bl);bl.connect(dr);dr.connect(bs);bs.connect(hb);hb.connect(hl);hl.connect(hg);hg.connect(g);g.connect(l);l.connect(ctx.destination);aug=g;au.volume=1}}catch(e){aug=null}
       au.onerror=()=>{
         if(++si<srcs.length){au.src=srcs[si];au.load();if(auTo===1){const p=au.play();if(p&&p.catch)p.catch(()=>{})}return}
         ostBad=true;stopOst(true);ostWarn('OST gagal dimuat (kode '+(au.error?au.error.code:'?')+')');
