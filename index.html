@@ -6073,7 +6073,7 @@ function Holdem(box,arg){
   return{destroy(){if(net)net.close(true);hub.destroy();T.clear()}};
 }
 
-/* ---------- soundtrack: sintesis Web Audio, tanpa file audio ---------- */
+/* ---------- soundtrack: sintesis Web Audio; khusus Buckshot memakai file OST mp3 ---------- */
 const Music=(()=>{
   const N=m=>440*Math.pow(2,(m-69)/12);
   /* 1 bar = 8 langkah (nada 1/8). ch = akor, bass/arp = indeks nada akor per langkah, k/s/h = drum */
@@ -6088,11 +6088,10 @@ const Music=(()=>{
     tahun:{bpm:100,sw:.15,w:'triangle',pad:'sine',lp:3600,ch:[[57,60,64,69],[55,59,62,67],[53,57,60,65],[55,59,62,67]],bass:'0.1.2.1.',arp:'.2.1.3.2',sc:[69,72,74,76,79],p:.25,k:'x.......',h:'..x...x.'},
     highlow:{bpm:104,sw:.2,w:'triangle',pad:'sine',lp:3800,ch:[[57,60,64,67],[53,57,60,64],[55,59,62,65],[52,55,59,62]],bass:'0.1.2.1.',arp:'.1.2.3.2',sc:[72,74,76,79,81],p:.3,k:'x...x...',h:'..x...x.'},
     holdem:{bpm:96,sw:0,w:'square',pad:'sawtooth',lp:1800,ch:[[57,60,64,69],[53,57,60,65],[50,53,57,62],[52,56,59,64]],bass:'0.0.0.0.',arp:'..1..2..',sc:[69,72,74,76,77,81],p:.18,k:'x..x..x.',s:'....x...',h:'.x.x.x.x'},
-    deadshell:{bpm:70,sw:0,w:'sawtooth',pad:'sawtooth',lp:800,ch:[[36,43,48,51],[34,41,46,49],[35,42,47,50],[37,44,49,52]],bass:'0.......',arp:'....1...',sc:[60,61,66,67],p:.12,k:'x.x.....'},
     perceptile:{bpm:60,sw:0,w:'sine',pad:'sine',lp:2500,ch:[[57,60,64,71],[53,57,60,67],[48,52,55,64],[55,59,62,69]],bass:'0.......',arp:'0..1..2.',sc:[],p:0},
     deepdive:{bpm:132,sw:.12,w:'square',pad:'triangle',lp:6500,ch:[[60,64,67,72],[57,60,64,69],[53,57,60,65],[55,59,62,67]],bass:'0.2.0.2.',arp:'0.12.31.',sc:[72,74,76,79,81,84,88],p:.7,k:'x.x.x.x.',s:'..x...x.',h:'xxxxxxxx',st:'.x..x.x.'}
   };
-  const VOL={holdem:.9,deadshell:.9,deepdive:.55};
+  const VOL={holdem:.9,deepdive:.55};
   let volK=12,mkNode,busT=1,ctx,master,sx,gun,echo,noiseBuf,bus,lpn,th,curId=null,want='lobby',timer,step=0,next=0,muted=false,onchange=()=>{};
   try{muted=localStorage.getItem('maroe:mute')==='1'}catch(e){}
   try{const v=+localStorage.getItem('maroe:vol');if(v>=1&&v<=60)volK=v}catch(e){}
@@ -6144,6 +6143,47 @@ const Music=(()=>{
     o.frequency.setValueAtTime(130,t);o.frequency.exponentialRampToValueAtTime(40,t+.14);
     g.gain.setValueAtTime(v,t);g.gain.exponentialRampToValueAtTime(.0001,t+.22);
     o.connect(g);g.connect(dest||bus);o.start(t);o.stop(t+.25);
+  }
+  /* OST Buckshot: file mp3 asli (HTMLAudioElement biasa, bukan WebAudio, supaya jalan juga dari file://). Gagal muat -> jatuh ke sintesis. */
+  const OST_SRC='soundtrack-buckshot.mp3';
+  let au=null,auT=null,auFade=0,auTo=0,duckA=0,duckD=0,ostBad=false;
+  function auApply(){
+    if(!au)return;
+    const t=performance.now();let dk=1;
+    if(duckD){if(t>=duckA+duckD){duckD=0}else if(t>=duckA){dk=.1+.9*(t-duckA)/duckD}else if(t>=duckA-30){dk=1-.9*(t-(duckA-30))/30}}
+    au.volume=Math.max(0,Math.min(1,volK/20*auFade*dk));
+  }
+  function auLoop(){
+    auFade+=auFade<auTo?.05:-.05;
+    if(Math.abs(auFade-auTo)<.05)auFade=auTo;
+    auApply();
+    if(auFade===0&&auTo===0){au.pause();clearInterval(auT);auT=null}
+  }
+  function ostWarn(msg){
+    try{const d=document.createElement('div');d.textContent=msg;d.style.cssText='position:fixed;left:50%;top:12px;transform:translateX(-50%);z-index:99999;background:#7a1f1f;color:#fff;padding:8px 14px;border-radius:8px;font:13px sans-serif;max-width:90vw';document.body.append(d);setTimeout(()=>d.remove(),8000)}catch(e){}
+  }
+  function startOst(){
+    if(!au){
+      const srcs=[];
+      try{const e=document.getElementById('ost-b64');if(e&&e.textContent.trim()){const t=e.textContent.trim(),bin=atob(t),u=new Uint8Array(bin.length);for(let i=0;i<bin.length;i++)u[i]=bin.charCodeAt(i);srcs.push(URL.createObjectURL(new Blob([u],{type:'audio/mpeg'})));srcs.push('data:audio/mpeg;base64,'+t)}}catch(x){}
+      srcs.push(OST_SRC);
+      let si=0;
+      au=new Audio(srcs[0]);au.loop=true;au.preload='auto';
+      au.onerror=()=>{
+        if(++si<srcs.length){au.src=srcs[si];au.load();if(auTo===1){const p=au.play();if(p&&p.catch)p.catch(()=>{})}return}
+        ostBad=true;stopOst(true);ostWarn('OST gagal dimuat (kode '+(au.error?au.error.code:'?')+')');
+      };
+    }
+    auTo=1;auApply();
+    const p=au.play();
+    if(p&&p.catch)p.catch(e=>{if(ostBad||e&&e.name==='AbortError')return;if(e&&e.name!=='NotAllowedError'){ostWarn('OST tidak bisa diputar: '+e.name);return}curId=null;window.addEventListener('pointerdown',()=>{if(!muted&&want==='deadshell')start('deadshell')},{once:true})});
+    if(!auT)auT=setInterval(auLoop,30);
+  }
+  function stopOst(now){
+    if(!au)return;
+    auTo=0;
+    if(now){auFade=0;au.pause();clearInterval(auT);auT=null}
+    else if(!auT)auT=setInterval(auLoop,30);
   }
   function tick(){
     const dur=60/th.bpm/2;
@@ -6227,12 +6267,15 @@ const Music=(()=>{
     if(ctx.state==='suspended')ctx.resume();
     const now=ctx.currentTime,at=now+.01+(dl||0);X[n](at);const gm=GM[n]||1;if(gm!==1){sx.gain.setValueAtTime(1.6*gm,Math.max(now,at-.01));sx.gain.setValueAtTime(1.6,at+3.6)}
     const du=D[n];
+    if(du&&au&&auTo===1){duckA=performance.now()+(at-now)*1000;duckD=du*1000}
     if(du&&bus){const g=bus.gain,a=Math.max(now,at-.02);g.cancelScheduledValues(a);g.setValueAtTime(busT,a);g.linearRampToValueAtTime(busT*.1,at);g.linearRampToValueAtTime(busT,at+du)}
   }
   function start(id){
     if(!ctx||muted||id===curId)return;
     const old=bus,oldLp=lpn,now=ctx.currentTime;
     if(old){old.gain.cancelScheduledValues(now);old.gain.setValueAtTime(old.gain.value,now);old.gain.linearRampToValueAtTime(0,now+.6);setTimeout(()=>{try{old.disconnect();oldLp.disconnect()}catch(e){}},900)}
+    if(id==='deadshell'){bus=null;clearInterval(timer);curId=id;if(!ostBad)startOst();return}
+    stopOst();
     th=T[id]||T.lobby;curId=id;
     bus=ctx.createGain();bus.gain.setValueAtTime(0,now);busT=(VOL[id]||1)*1.2;bus.gain.setValueAtTime(0,now+.35);bus.gain.linearRampToValueAtTime(busT,now+.95);
     lpn=ctx.createBiquadFilter();lpn.type='lowpass';lpn.frequency.value=th.lp;
@@ -6250,13 +6293,13 @@ const Music=(()=>{
     if(!ctx&&!muted){unlock()}
     else if(ctx){
       master.gain.setTargetAtTime(muted?0:.9,ctx.currentTime,.1);
-      if(muted){clearInterval(timer);curId=null}else{unlock()}
+      if(muted){clearInterval(timer);stopOst(true);curId=null}else{unlock()}
     }
     onchange(muted);
   }
-  document.addEventListener('visibilitychange',()=>{if(ctx)document.hidden?ctx.suspend():(!muted&&ctx.resume())});
+  document.addEventListener('visibilitychange',()=>{if(ctx)document.hidden?ctx.suspend():(!muted&&ctx.resume());if(au&&curId==='deadshell'&&!muted){if(document.hidden)au.pause();else{const p=au.play();if(p&&p.catch)p.catch(()=>{})}}});
   ['pointerdown','keydown'].forEach(e=>window.addEventListener(e,()=>{if(!ctx||ctx.state==='suspended')unlock()},{passive:true}));
-  return{set(id){want=id;if(ctx&&!muted)start(id)},sfx,toggle,setVol(v){volK=v;try{localStorage.setItem('maroe:vol',String(v))}catch(e){}if(mkNode)mkNode.gain.setTargetAtTime(v,ctx.currentTime,.03)},get vol(){return volK},get muted(){return muted},set onchange(f){onchange=f}};
+  return{set(id){want=id;if(ctx&&!muted)start(id)},sfx,toggle,setVol(v){volK=v;try{localStorage.setItem('maroe:vol',String(v))}catch(e){}if(mkNode)mkNode.gain.setTargetAtTime(v,ctx.currentTime,.03);auApply()},get vol(){return volK},get muted(){return muted},set onchange(f){onchange=f}};
 })();
 (function(){
   const b=document.createElement('button');b.className='btn';b.type='button';
