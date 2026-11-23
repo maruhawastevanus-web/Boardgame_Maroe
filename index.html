@@ -6092,13 +6092,18 @@ const Music=(()=>{
     deepdive:{bpm:132,sw:.12,w:'square',pad:'triangle',lp:6500,ch:[[60,64,67,72],[57,60,64,69],[53,57,60,65],[55,59,62,67]],bass:'0.2.0.2.',arp:'0.12.31.',sc:[72,74,76,79,81,84,88],p:.7,k:'x.x.x.x.',s:'..x...x.',h:'xxxxxxxx',st:'.x..x.x.'}
   };
   const VOL={holdem:.9,deepdive:.55};
+  /* Buckshot: pengali volume SEMUA efek suara, dipasang setelah limiter (1 = normal). Kecilkan agar soundtrack lebih dominan. */
+  const SFX_BK=.3;
+  /* efek yang muncul sendiri di tengah permainan: [pengali tambahan, lama dalam detik], hanya di Buckshot */
+  const BKQ={dread:[.5,2.6],beat:[.6,.8]};
+  let pg=null;const sfxK=()=>want==='deadshell'?SFX_BK:1;
   let volK=12,mkNode,busT=1,ctx,master,sx,gun,echo,noiseBuf,bus,lpn,th,curId=null,want='lobby',timer,step=0,next=0,muted=false,onchange=()=>{};
   try{muted=localStorage.getItem('maroe:mute')==='1'}catch(e){}
   try{const v=+localStorage.getItem('maroe:vol');if(v>=1&&v<=60)volK=v}catch(e){}
   function build(){
     ctx=new (window.AudioContext||window.webkitAudioContext)();
     master=ctx.createGain();master.gain.value=muted?0:.9;
-    const comp=ctx.createDynamicsCompressor();comp.threshold.value=-20;comp.ratio.value=5;const mk=ctx.createGain();mk.gain.value=volK;mkNode=mk;const lim=ctx.createDynamicsCompressor();lim.threshold.value=-2;lim.knee.value=0;lim.ratio.value=20;lim.attack.value=.002;lim.release.value=.12;master.connect(comp);comp.connect(mk);mk.connect(lim);lim.connect(ctx.destination);
+    const comp=ctx.createDynamicsCompressor();comp.threshold.value=-20;comp.ratio.value=5;const mk=ctx.createGain();mk.gain.value=volK;mkNode=mk;const lim=ctx.createDynamicsCompressor();lim.threshold.value=-2;lim.knee.value=0;lim.ratio.value=20;lim.attack.value=.002;lim.release.value=.12;master.connect(comp);comp.connect(mk);mk.connect(lim);pg=ctx.createGain();pg.gain.value=sfxK();lim.connect(pg);pg.connect(ctx.destination);
     sx=ctx.createGain();sx.gain.value=1.6;sx.connect(master);
     gun=ctx.createGain();const sh=ctx.createWaveShaper(),cv=new Float32Array(1024);
     for(let i=0;i<1024;i++)cv[i]=Math.tanh(4*(i/512-1));
@@ -6268,7 +6273,7 @@ const Music=(()=>{
   function sfx(n,dl){
     if(!ctx||muted||!X[n])return;
     if(ctx.state==='suspended')ctx.resume();
-    const now=ctx.currentTime,at=now+.01+(dl||0);X[n](at);const gm=GM[n]||1;if(gm!==1){sx.gain.setValueAtTime(1.6*gm,Math.max(now,at-.01));sx.gain.setValueAtTime(1.6,at+3.6)}
+    const now=ctx.currentTime,at=now+.01+(dl||0);X[n](at);{const q=want==='deadshell'&&BKQ[n];if(q&&pg){const k=sfxK();pg.gain.setValueAtTime(k*q[0],Math.max(now,at-.01));pg.gain.setValueAtTime(k,at+q[1])}}const gm=GM[n]||1;if(gm!==1){sx.gain.setValueAtTime(1.6*gm,Math.max(now,at-.01));sx.gain.setValueAtTime(1.6,at+3.6)}
     const du=D[n];
     if(du&&au&&auTo===1){duckA=performance.now()+(at-now)*1000;duckD=du*1000}
     if(du&&bus){const g=bus.gain,a=Math.max(now,at-.02);g.cancelScheduledValues(a);g.setValueAtTime(busT,a);g.linearRampToValueAtTime(busT*.1,at);g.linearRampToValueAtTime(busT,at+du)}
@@ -6302,7 +6307,7 @@ const Music=(()=>{
   }
   document.addEventListener('visibilitychange',()=>{if(ctx)document.hidden?ctx.suspend():(!muted&&ctx.resume());if(au&&curId==='deadshell'&&!muted){if(document.hidden)au.pause();else{const p=au.play();if(p&&p.catch)p.catch(()=>{})}}});
   ['pointerdown','keydown'].forEach(e=>window.addEventListener(e,()=>{if(!ctx||ctx.state==='suspended')unlock()},{passive:true}));
-  return{set(id){want=id;if(ctx&&!muted)start(id)},sfx,toggle,setVol(v){volK=v;try{localStorage.setItem('maroe:vol',String(v))}catch(e){}if(mkNode)mkNode.gain.setTargetAtTime(v,ctx.currentTime,.03);auApply()},get vol(){return volK},get muted(){return muted},set onchange(f){onchange=f}};
+  return{set(id){want=id;if(pg)pg.gain.setTargetAtTime(sfxK(),ctx.currentTime,.05);if(ctx&&!muted)start(id)},sfx,toggle,setVol(v){volK=v;try{localStorage.setItem('maroe:vol',String(v))}catch(e){}if(mkNode)mkNode.gain.setTargetAtTime(v,ctx.currentTime,.03);auApply()},get vol(){return volK},get muted(){return muted},set onchange(f){onchange=f}};
 })();
 (function(){
   const b=document.createElement('button');b.className='btn';b.type='button';
