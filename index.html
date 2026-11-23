@@ -6146,12 +6146,14 @@ const Music=(()=>{
   }
   /* OST Buckshot: file mp3 asli (HTMLAudioElement biasa, bukan WebAudio, supaya jalan juga dari file://). Gagal muat -> jatuh ke sintesis. */
   const OST_SRC='soundtrack-buckshot.mp3';
-  let au=null,auT=null,auFade=0,auTo=0,duckA=0,duckD=0,ostBad=false;
+  const OST_BOOST=2; /* 2 = 200%. Naikkan untuk lebih keras. Hanya aktif di http(s); dari file:// volume mentok 100% */
+  let aug=null,au=null,auT=null,auFade=0,auTo=0,duckA=0,duckD=0,ostBad=false;
   function auApply(){
     if(!au)return;
     const t=performance.now();let dk=1;
-    if(duckD){if(t>=duckA+duckD){duckD=0}else if(t>=duckA){dk=.1+.9*(t-duckA)/duckD}else if(t>=duckA-30){dk=1-.9*(t-(duckA-30))/30}}
-    au.volume=Math.max(0,Math.min(1,volK/20*auFade*dk));
+    if(duckD){if(t>=duckA+duckD){duckD=0}else if(t>=duckA){dk=.4+.6*(t-duckA)/duckD}else if(t>=duckA-30){dk=1-.6*(t-(duckA-30))/30}}
+    const lv=Math.max(0,Math.min(1,volK/10))*auFade*dk;
+    if(aug)aug.gain.value=lv*OST_BOOST;else au.volume=Math.max(0,Math.min(1,lv));
   }
   function auLoop(){
     auFade+=auFade<auTo?.05:-.05;
@@ -6169,6 +6171,7 @@ const Music=(()=>{
       srcs.push(OST_SRC);
       let si=0;
       au=new Audio(srcs[0]);au.loop=true;au.preload='auto';
+      try{if(ctx&&/^https?:/.test(location.protocol)){const ms=ctx.createMediaElementSource(au),g=ctx.createGain(),l=ctx.createDynamicsCompressor();l.threshold.value=-3;l.knee.value=0;l.ratio.value=20;l.attack.value=.003;l.release.value=.1;ms.connect(g);g.connect(l);l.connect(ctx.destination);aug=g;au.volume=1}}catch(e){aug=null}
       au.onerror=()=>{
         if(++si<srcs.length){au.src=srcs[si];au.load();if(auTo===1){const p=au.play();if(p&&p.catch)p.catch(()=>{})}return}
         ostBad=true;stopOst(true);ostWarn('OST gagal dimuat (kode '+(au.error?au.error.code:'?')+')');
