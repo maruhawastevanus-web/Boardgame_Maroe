@@ -1097,6 +1097,29 @@ background-image:linear-gradient(90deg,transparent calc(33.333% - .5px),rgba(233
 .tw .twend.on{display:flex}.tw .twend.l{color:#ff6a5a}.tw .twend.w{color:#ffd23f}
 .tw.tover .twfl,.tw.tover .twmon,.tw.tover .dsbar,.tw.tover .twtb,.tw.tover .twtbl,.tw.tover .dscl,.tw.tover .twtr,.tw.tover .dsdesc,.tw.tover .dsmsg{display:none}
 .tw .twres:empty{display:none}
+/* Twenty One online: layar VS gaya foto tahanan sebelum ronde 1 */
+.vsov{position:fixed;inset:0;z-index:9500;display:flex;align-items:center;justify-content:center;gap:clamp(8px,9vw,48px);padding:max(24px,env(safe-area-inset-top,0px)) 12px max(72px,env(safe-area-inset-bottom,0px));background:#44403b repeating-linear-gradient(0deg,transparent 0 66px,#0e0d0c 66px 69px);color:#f2efe8;overflow:hidden;transition:opacity .35s;cursor:pointer}
+.vsov.out{opacity:0}
+.vsov .vsp{flex:1;max-width:min(240px,calc(40vh - 10px));min-width:0;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;opacity:0;animation:vsin .55s cubic-bezier(.2,.8,.2,1) forwards}
+.vsov .vsp.r{--vx:60px}.vsov .vsp.l{--vx:-60px}
+.vsov .vsp.r{animation-delay:.15s}
+.vsov .vsn{position:relative;font:600 clamp(19px,5.6vw,28px)/1.2 Georgia,"Times New Roman",serif;text-align:center;padding:12px 14px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.vsov .vsn::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,rgba(13,12,11,.92) 30%,transparent 72%)}
+.vsov canvas{width:100%;height:auto;aspect-ratio:1;image-rendering:pixelated;border:3px solid #080808;background:#0d0e12}
+.vsov .vspl{width:112%;background:#080808;border:1px solid #2a2724;padding:clamp(10px,2.6vw,16px) 6px;text-align:center;font:clamp(12px,3.3vw,16px)/1.6 var(--mono,monospace);color:#d9d5cb;margin-top:calc(-1 * clamp(26px,8vw,48px));position:relative;overflow-wrap:anywhere}
+.vsov .vspl b{display:block;font-weight:500;font-size:1.1em}
+.vsov .vspl i{display:block;font-style:normal;color:#9c978c;font-size:.9em}
+.vsov .vsvs{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-6deg);font:italic 700 clamp(52px,14vw,92px)/1 Georgia,serif;z-index:2;color:#fff;text-shadow:2px 2px 0 rgba(255,255,255,.25),-2px 1px 0 rgba(255,255,255,.2);opacity:0;animation:vsvs .45s .55s cubic-bezier(.2,1.4,.4,1) forwards;pointer-events:none}
+.vsov .vsx{position:absolute;left:50%;bottom:max(22px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);min-height:44px;padding:0 22px;background:none;border:0;color:#fff;font:400 17px sans-serif;letter-spacing:.2em;cursor:pointer}
+@keyframes vsin{from{opacity:0;transform:translateX(var(--vx))}to{opacity:1;transform:none}}
+@keyframes vsvs{from{opacity:0;transform:translate(-50%,-50%) rotate(-6deg) scale(2)}to{opacity:1;transform:translate(-50%,-50%) rotate(-6deg) scale(1)}}
+@media (prefers-reduced-motion:reduce){.vsov .vsp,.vsov .vsvs{animation:none;opacity:1;transform:none}.vsov .vsvs{transform:translate(-50%,-50%) rotate(-6deg)}}
+.tw .twps{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:8px 0 2px;pointer-events:none}
+.tw .twp{font-size:11px;padding:3px 9px;border-radius:99px;border:1px solid #d9a441;color:#ffe7a6;background:rgba(27,32,82,.55);animation:twfloat 2.4s ease-in-out infinite,twpulse 1.2s ease-in-out infinite alternate}
+.tw .twp:nth-child(2){animation-delay:.3s}.tw .twp:nth-child(3){animation-delay:.6s}.tw .twp:nth-child(4){animation-delay:.9s}
+.tw .twp.u{border-color:#6b6757;color:#9a9482;background:rgba(0,0,0,.25);opacity:.6;animation:twfloat 2.4s ease-in-out infinite}
+@keyframes twfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@media (prefers-reduced-motion:reduce){.tw .twp{animation:none}}
 .tw .twnx{text-align:center;font-size:12px;color:#9a9482;padding:8px 0;animation:twpulse 1.2s ease-in-out infinite alternate}
 .tw .twres{background:#0c0e12;border:3px solid #02060f;box-shadow:inset 0 0 0 2px #3a2a1a;padding:16px 12px;text-align:center;color:#e9e4d6}
 .tw .twres .rh{font-size:11px;letter-spacing:.2em;color:#9a9482;margin-bottom:10px}
@@ -1255,7 +1278,7 @@ function mk(list){const m=new Map();list.forEach(p=>{if(!m.has(p[0]))m.set(p[0],
 D1.push(["Taruhan lawan naik 1 selama kartu ini di meja.","The opponent's bet goes up by 1 while this card is on the table."],["Taruhan lawan naik 2 selama kartu ini di meja.","The opponent's bet goes up by 2 while this card is on the table."],["Selama di meja, taruhanmu turun 1.","While on the table, your bet goes down by 1."],["Selama di meja, taruhanmu turun 2.","While on the table, your bet goes down by 2."],["Selama di meja, kamu tidak mati walau kalah dan taruhanmu sama atau lebih besar dari poinmu. Poinmu tidak berkurang.","While on the table, you will not die even if you lose and your bet is equal to or higher than your points. You lose no points."],["Ambil 1 trump card. Taruhan lawan naik 1 selama kartu ini di meja.","Draw 1 trump card. The opponent's bet goes up by 1 while this card is on the table."],["Kartu terbuka terakhir lawan dikembalikan ke dek.","The opponent's last face-up card goes back to the deck."],["Taruhanmu naik ke","Your bet goes up to"],["Taruhan lawan naik ke","The opponent's bet goes up to"],["Taruhan lawan turun ke","The opponent's bet goes down to"],["Taruhanmu turun ke","Your bet goes down to"],["Meja lawan kosong. Tidak ada efek.","The opponent's table is empty. No effect."],["Dikembalikan ke dek dari","Returned to the deck from"],["Tidak ada kartu yang pas di dek.","No fitting card in the deck."],["Bless menyelamatkanmu. Tidak ada poin yang berpindah.","Bless saves you. No points change hands."],["Bless menyelamatkan lawan. Tidak ada poin yang berpindah.","Bless saves the opponent. No points change hands."],["Totalmu sudah lewat batas, tidak bisa Hit.","Your total is already over the limit, so you cannot Hit."],["Angka merah di samping poin (misalnya −3) adalah poin yang hilang kalau pemain itu kalah ronde ini. One-Up, Two-Up, dan Bloodshed menaikkan angka lawan, Shield dan Shield+ menurunkan angkamu.","The red number next to the points (for example −3) is how many points that player loses if they lose this round. One-Up, Two-Up, and Bloodshed raise the opponent's number; Shield and Shield+ lower yours."],["Bless mencegah kamu mati: kalau kalah dan angka merahmu sama atau lebih besar dari poinmu, tidak ada poin yang berpindah.","Bless keeps you alive: if you lose and your red number is equal to or higher than your points, no points change hands."],["Yang kalah ronde memberikan poin sebesar taruhannya ke pemenang.","The round's loser gives the winner points equal to their bet."],["Ronde berlanjut sampai kedua pemain Stand. Kalau totalmu sudah lewat batas, kamu tidak bisa Hit lagi.","The round goes on until both players Stand. If your total is already over the limit, you cannot Hit again."],["Rangkuman Aturan Twenty One (21)","Twenty One (21) Rules Summary"],["Tujuan:","Goal:"],["Kumpulkan total kartu sedekat mungkin ke 21 tanpa melewatinya.","Get your card total as close to 21 as possible without going over."],["Cara menang:","How to win:"],["Total lebih dekat ke 21 (tanpa lewat) menang.","The total closer to 21 (without going over) wins."],["Kalau dua-duanya lewat 21, yang lebih dekat ke 21 menang.","If both go over 21, the one closer to 21 wins."],["Total sama berarti seri.","Equal totals mean a draw."],["Kartu:","Cards:"],["Dek berisi kartu 1 sampai 11, semuanya unik. Tidak ada kartu kembar, jadi kartu yang sudah ada di meja tidak akan muncul lagi.","The deck holds cards 1 to 11, all unique. There are no duplicates, so a card already on the table cannot appear again."],["Jalannya permainan:","How a round goes:"],["Di awal ronde, tiap pemain dapat 2 kartu acak. Kartu pertama tertutup, jadi lawan tidak bisa melihat angkanya. Kamu juga dapat trump card.","At the start of a round, each player gets 2 random cards. The first card is face-down, so the opponent cannot see its number. You also get trump cards."],["Di gilirannya, pemain bisa Hit (tarik kartu) atau Stand (pass).","On their turn, a player can Hit (draw a card) or Stand (pass)."],["Ronde berlanjut sampai kedua pemain Stand.","The round goes on until both players Stand."],["Setelah itu kartu dibuka dan pemenang ditentukan.","Then the cards are revealed and the winner is decided."],["Trump card:","Trump cards:"],["Kartu spesial yang mengubah jalannya game, misalnya menarik kartu tertentu atau mengubah taruhan.","Special cards that change the game, such as drawing a specific card or changing the bet."],["Boleh dipakai sebanyak apa pun selama giliranmu, dan tidak menghabiskan giliran. Trump yang sama menumpuk (x2, x3) tanpa batas.","Play as many as you like during your turn; it does not use up the turn. Identical trumps stack (x2, x3) with no limit."],["Kamu dapat 2 trump di awal tiap ronde, dan ada peluang dapat trump baru setiap kali Hit.","You get 2 trumps at the start of every round, and a chance at a new trump every time you Hit."],["Ada 25 trump dalam 4 kategori: Add Number, Go For, Bet, dan Deck. Trump baru memilih kategori dulu (masing-masing 25%), lalu kartu acak di dalam kategori itu.","There are 25 trumps in 4 categories: Add Number, Go For, Bet, and Deck. A new trump picks the category first (25% each), then a random card inside it."],["Go For, One-Up, Two-Up, Shield, Bless, dan Bloodshed tinggal di meja sampai ronde selesai. Destroy dan Reincarnation menghancurkan trump terakhir yang dipasang lawan.","Go For, One-Up, Two-Up, Shield, Bless, and Bloodshed stay on the table until the round ends. Destroy and Reincarnation destroy the last trump the opponent placed."],["Ketuk kartunya untuk membaca fungsinya, lalu tekan Pakai. Trump yang terpasang kelihatan di Mejamu dan Meja lawan.","Tap a card to read what it does, then press Use. Placed trumps show under Your table and Opponent\'s table."],["Taruhan dan poin:","Bet and points:"],["Tiap pemain mulai dengan 7 poin (total selalu 14).","Each player starts with 7 points (the total is always 14)."],["Yang kalah ronde memberikan poin sebesar taruhan (BET) ke pemenang.","The round\'s loser gives points equal to the bet (BET) to the winner."],["BET naik 1 setiap ronde berakhir, maksimal 5.","The BET goes up by 1 each time a round ends, up to 5."],["Di layar: Taruhan di pojok kiri atas adalah BET saat ini, dan angka di tiap baris adalah poin pemain itu.","On screen: Bet at the top left is the current BET, and the number on each row is that player\'s points."],["Poin habis (0) berarti kalah pertandingan.","Reaching 0 points means you lose the match."],["Tips:","Tip:"],["Karena kartu unik dan hanya 1 sampai 11, kamu bisa menghitung kartu mana yang masih tersisa untuk menebak risiko lewat batas saat Hit.","Because cards are unique and only 1 to 11, you can count which cards remain to estimate the risk of going over when you Hit."],["Menggantikan kartu Go For lain di meja.","Replaces other Go For cards on the table."],["Taruhan naik 1 selama kartu ini di meja.","Bet goes up by 1 while this card is on the table."],["Taruhan naik 2 selama kartu ini di meja.","Bet goes up by 2 while this card is on the table."],["Selama di meja, kerusakan yang kamu terima berkurang 1.","While on the table, damage you take is reduced by 1."],["Selama di meja, kerusakan yang kamu terima berkurang 2.","While on the table, damage you take is reduced by 2."],["Selama di meja, kamu tidak kehabisan poin di ronde ini.","While on the table, you cannot run out of points this round."],["Poinmu tersisa minimal 1.","You keep at least 1 point."],["Ambil 1 trump card.","Take 1 trump card."],["Hancurkan trump terakhir yang dipasang lawan di meja.","Destroy the last trump the opponent placed on the table."],["Kamu dan lawan masing-masing ambil 2 trump card.","You and the opponent each take 2 trump cards."],["Hancurkan trump terakhir lawan di meja, lalu ambil 1 trump card.","Destroy the opponent's last trump on the table, then take 1 trump card."],["Tanpa efek kalau meja lawan kosong.","No effect if the opponent's table is empty."],["Ambil kartu acak dari dek, tertutup.","Take a random card from the deck, face down."],["Lawan tidak melihat angkanya.","The opponent cannot see its number."],["Kembalikan semua kartumu ke dek, lalu ambil 2 kartu baru.","Return all your cards to the deck, then take 2 new cards."],["Lawan dipaksa ambil 1 kartu dari dek.","The opponent is forced to take 1 card from the deck."],["Bless aktif.","Bless active."],["Bless melindungi","Bless protects"],["Meja lawan kosong.","The opponent's table is empty."],["Masing-masing ambil 2 trump card.","Each takes 2 trump cards."],["Satu kartu diambil tanpa dilihat lawan.","One card taken, hidden from the opponent."],["Dipaksa ambil kartu","Forced to take card"],["Kartu baru diambil.","New cards taken."],["Meja lawan","Opponent's table"],["Mejamu","Your table"],["Peluang trump: 25% per kategori, lalu acak dalam kategori.","Trump odds: 25% per category, then random inside the category."],["Ada 25 trump card dalam 4 kategori: Add Number, Go For, Bet, dan Deck. Tiap trump card baru memilih kategori dulu (masing-masing 25%), lalu kartu acak di dalam kategori itu. Jumlah kartu tiap kategori beda, jadi peluang tiap kartu juga beda.","There are 25 trump cards in 4 categories: Add Number, Go For, Bet and Deck. Each new trump picks a category first (25% each), then a random card inside it. Categories hold different numbers of cards, so each card has a different chance."],["Go For, One-Up, Two-Up, Shield, Bless, dan Bloodshed tinggal di meja sampai ronde selesai. Destroy dan Reincarnation menghancurkan trump terakhir yang dipasang lawan.","Go For, One-Up, Two-Up, Shield, Bless and Bloodshed stay on the table until the round ends. Destroy and Reincarnation destroy the last trump the opponent placed."]);
 D1.push(["KAMU KALAH","YOU LOSE"],["KAMU MENANG","YOU WIN"]);
 /* Twenty One: kekuatan Kitsune Emas, nama karakter, layar room online */
-D1.push(["Nyala Arwah","Spirit Flame"],["Tipuan","Deception"],["Mutiara Rubah","Fox Pearl"],["Kembali ke Ekor","Return to Tail"],["Sembilan Ekor","Nine Tails"],["Kitsune Emas","Golden Kitsune"],["Kitsune Arwah","Spirit Kitsune"],["Baret Topeng","Masked Beret"],["Polisi","Police"],["Pesulap","Magician"],["Robot Kasino","Casino Robot"],["Badut","Clown"],["Rubah Topeng","Masked Fox"],["Nyala Arwah – kartu tertutup lawan:","Spirit Flame – opponent's hidden card:"],["Nyala Arwah dipakai oleh:","Spirit Flame used by:"],["Tipuan: kartu terbukamu tampil palsu di layar lawan.","Deception: your face-up card shows a fake number on the opponent's screen."],["Asli:","Real:"],["tampil:","shown:"],["Angkamu:","Your number:"],["Angka","Number"],["Angka:","Number:"],["Oleh:","By:"],["Trump hancur:","Trump destroyed:"],["· pemilik:","· owner:"],["Kembali ke Ekor: kartu terakhir dikembalikan ke dek.","Return to Tail: the last card goes back to the deck."],["Poin diambil oleh","Points taken by"],["Poin diambil dari","Points taken from"],["Mutiara Rubah menyelamatkanmu. Tidak ada poin yang berpindah.","Fox Pearl saves you. No points change hands."],["Mutiara Rubah menyelamatkan lawan. Tidak ada poin yang berpindah.","Fox Pearl saves the opponent. No points change hands."],["Nyala Arwah sudah dipakai ronde ini.","Spirit Flame was already used this round."],["Tipuan sudah dipakai ronde ini.","Deception was already used this round."],["Tidak ada kartu terbuka untuk ditipu.","No face-up card to deceive."],["Mutiara Rubah:","Fox Pearl:"],["Kembali ke Ekor:","Return to Tail:"],["siap","ready"],["terpakai","used"],["POIN AKHIR","FINAL POINTS"],["Kamu room master. Bagikan kode 8 huruf ke temanmu.","You're the room master. Share the 8-letter code with your friend."],["Berikan kode 8 huruf ini ke temanmu. Orang pertama yang gabung akan bermain denganmu.","Give this 8-letter code to your friend. The first person to join will play with you."],["Online tidak jalan kalau dibuka dari file. Upload ke hosting (misalnya GitHub Pages), lalu buka lewat link https.","Online doesn't work when opened from a file. Upload to hosting (for example GitHub Pages), then open the https link."],["Room sudah penuh.","The room is full."],["Menunggu temanmu bergabung…","Waiting for your friend to join…"],["Temanmu keluar dari room.","Your friend left the room."],["Room tidak ditemukan atau temanmu belum membuatnya. Periksa kodenya.","Room not found, or your friend hasn't created it yet. Check the code."],["Kodenya 8 huruf atau angka.","The code is 8 letters or digits."],["Mencari room…","Looking for room…"],["Main Twenty One bareng aku di Board Game Maroe. Gabung dengan kode:","Play Twenty One with me on Board Game Maroe. Join with code:"]);
+D1.push(["Nyala Arwah","Spirit Flame"],["Tipuan","Deception"],["Pesona Rubah","Fox Charm"],["Pesona Rubah sudah dipakai ronde ini.","Fox Charm was already used this round."],["Pesona Rubah –","Fox Charm –"],["wajib Hit di giliran berikutnya.","must Hit on their next turn."],["Pesona Rubah! Kamu wajib Hit di giliran berikutnya.","Fox Charm! You must Hit on your next turn."],["Terpesona Pesona Rubah: kamu wajib Hit.","Charmed by Fox Charm: you must Hit."],["Tipuan (pasif): kartu terbuka pertamamu tampil palsu di layar lawan.","Deception (passive): your first face-up card shows a fake number on the opponent's screen."],["Terpakai","Used"],["Siap","Ready"],["Mutiara Rubah","Fox Pearl"],["Kembali ke Ekor","Return to Tail"],["Sembilan Ekor","Nine Tails"],["Kitsune Emas","Golden Kitsune"],["Kitsune Arwah","Spirit Kitsune"],["Baret Topeng","Masked Beret"],["Polisi","Police"],["Pesulap","Magician"],["Robot Kasino","Casino Robot"],["Badut","Clown"],["Rubah Topeng","Masked Fox"],["Nyala Arwah – kartu tertutup lawan:","Spirit Flame – opponent's hidden card:"],["Nyala Arwah dipakai oleh:","Spirit Flame used by:"],["Tipuan: kartu terbukamu tampil palsu di layar lawan.","Deception: your face-up card shows a fake number on the opponent's screen."],["Asli:","Real:"],["tampil:","shown:"],["Angkamu:","Your number:"],["Angka","Number"],["Angka:","Number:"],["Oleh:","By:"],["Trump hancur:","Trump destroyed:"],["· pemilik:","· owner:"],["Kembali ke Ekor: kartu terakhir dikembalikan ke dek.","Return to Tail: the last card goes back to the deck."],["Poin diambil oleh","Points taken by"],["Poin diambil dari","Points taken from"],["Mutiara Rubah menyelamatkanmu. Tidak ada poin yang berpindah.","Fox Pearl saves you. No points change hands."],["Mutiara Rubah menyelamatkan lawan. Tidak ada poin yang berpindah.","Fox Pearl saves the opponent. No points change hands."],["Nyala Arwah sudah dipakai ronde ini.","Spirit Flame was already used this round."],["Tipuan sudah dipakai ronde ini.","Deception was already used this round."],["Tidak ada kartu terbuka untuk ditipu.","No face-up card to deceive."],["Mutiara Rubah:","Fox Pearl:"],["Kembali ke Ekor:","Return to Tail:"],["siap","ready"],["terpakai","used"],["POIN AKHIR","FINAL POINTS"],["Kamu room master. Bagikan kode 8 huruf ke temanmu.","You're the room master. Share the 8-letter code with your friend."],["Berikan kode 8 huruf ini ke temanmu. Orang pertama yang gabung akan bermain denganmu.","Give this 8-letter code to your friend. The first person to join will play with you."],["Online tidak jalan kalau dibuka dari file. Upload ke hosting (misalnya GitHub Pages), lalu buka lewat link https.","Online doesn't work when opened from a file. Upload to hosting (for example GitHub Pages), then open the https link."],["Room sudah penuh.","The room is full."],["Menunggu temanmu bergabung…","Waiting for your friend to join…"],["Temanmu keluar dari room.","Your friend left the room."],["Room tidak ditemukan atau temanmu belum membuatnya. Periksa kodenya.","Room not found, or your friend hasn't created it yet. Check the code."],["Kodenya 8 huruf atau angka.","The code is 8 letters or digits."],["Mencari room…","Looking for room…"],["Main Twenty One bareng aku di Board Game Maroe. Gabung dengan kode:","Play Twenty One with me on Board Game Maroe. Join with code:"]);
 const T={en:mk(D1),id:mk(D2)},cache=new Map();
 let LANG=store.get("lang","id");if(LANG!=="en")LANG="id";
 function conv(s,to){
@@ -3541,7 +3564,7 @@ function dsItemAnim(c,f,now){
   const E=(t,u)=>Math.min(1,Math.max(0,(k-t)/u)),ez=x=>x*x*(3-2*x);
   const once=n=>{if(a[n])return false;a[n]=1;return true};
   c.save();c.globalAlpha=k>a.dur-250?Math.max(0,(a.dur-k)/250):1;
-  if(a.may&&!(a.id==='lens'&&!(a.wheel&&a.wheel.reveal)))dsFateWheel(c,a.wheel,k);/* roulette = item khusus Owner (Mata/Belati/Jarum Takdir); lensa = info privat: hanya tampil untuk pemakai */
+  if(a.may&&!((a.id==='lens'||a.id==='flip')&&!(a.wheel&&a.wheel.reveal)))dsFateWheel(c,a.wheel,k);/* roulette = item khusus Owner (Mata/Belati/Jarum Takdir); lensa dan Jarum Takdir = privat: roulette hanya tampil untuk pemakai, lawan tidak melihat roulette sama sekali */
   const tx=a.tx,ty=a.ty;
   switch(a.id){
     case 'lens':{
@@ -3602,7 +3625,7 @@ function dsItemAnim(c,f,now){
     }break;
     case 'flip':{
       /* Owner: jarum menusuk segmen di penunjuk; hanya getaran, warna disembunyikan dari semua pemain */
-      if(a.may){if(a.wheel&&k>=a.wheel.needleAt&&once('stab')){f.white=.2;f.shake=3;dsBurst(f,52,148,['#ffffff','#ffd23f','#9ac0ff','#ff9a8a'],10,3,.2)}break}
+      if(a.may){if(a.wheel&&k>=a.wheel.needleAt&&once('stab')){f.white=.2;f.shake=3;if(a.wheel.reveal)dsBurst(f,52,148,['#ffffff','#ffd23f','#9ac0ff','#ff9a8a'],10,3,.2)}break}
       /* pembalik jatuh ke selongsong, mengorbit sambil warna selongsong berkedip acak (tidak membocorkan isinya), lalu ledakan emas */
       const sx=205,sy=164;let dx=-99,dy=0;
       if(k<400){const e=E(0,400);dx=sx;dy=-20+(sy-30+20)*e*e;if(k>=390&&once('land')){f.shake=4;f.white=.15}}
@@ -8773,11 +8796,11 @@ function TwentyOne(box,joinCode){
     w.append(mk('Buat room','Kamu room master. Bagikan kode 8 huruf ke temanmu.',hostFlow),mk('Gabung dengan kode','',guestFlow),btn('Kembali','ghost',menu));root.append(w);
   }
   function menu(){
-    gen++;netLeave(true);S=null;stopLoop();root.innerHTML='';
+    hideVS();gen++;netLeave(true);S=null;stopLoop();root.innerHTML='';
     const w=el('div','dsw');
     w.append(el('div','dst','Twenty One'));
     const mk=(t,fn)=>{const b=el('button','dsbig','<b>'+t+'</b>');b.type='button';b.onclick=()=>fn();return b};
-    w.append(mk('Lawan bot',start),mk('Main online',netMenu),mk('Kustomisasi',customize),rulesBox());root.append(w);
+    w.append(mk('Lawan bot',start),mk('Main online',netMenu),mk('Preview layar VS',previewVS),mk('Kustomisasi',customize),rulesBox());root.append(w);
     if(joinCode){const c=joinCode;joinCode=null;guestFlow(c)}
   }
 
@@ -9065,13 +9088,15 @@ function TwentyOne(box,joinCode){
     if(S.over){if(!S.anim||S.anim.done){if(!(NET&&NET.gone))row.append(btn('Main lagi','',again));row.append(btn('Menu','ghost',menu))}}
     else if(S.phase==='end'){row.append(el('div','twnx','Ronde berikutnya sebentar lagi…'))}
     else{
-      row.append(btn('Hit','',()=>pHit(),tot(0)>S.limit||!S.deck.length),btn('Stand','ghost',()=>pStand()));
+      row.append(btn('Hit','',()=>pHit(),tot(0)>S.limit||!S.deck.length),btn('Stand','ghost',()=>pStand(),mustHit(0)));
       if(sid)row.append(btn('Pakai '+TW_TR[sid].n,'alt',()=>pTrump()));
-      if(kit(0)){const q=S.pw[0]||{};row.append(btn('Nyala Arwah','alt',()=>pPower('peek'),!!q.pk||!S.hand[1].some(c=>c.hid)),btn('Tipuan','alt',()=>pPower('fake'),!!q.pt||!face(0).length))}
+      if(kit(0)){const q=S.pw[0]||{};row.append(btn('Nyala Arwah','alt',()=>pPower('peek'),!!q.pk||!S.hand[1].some(c=>c.hid)),btn('Pesona Rubah','alt',()=>pPower('charm'),!!q.pc))}
       if(!my)row.querySelectorAll('button').forEach(b=>b.disabled=true);
     }
     elAct.append(row);
-    if(kit(0)&&!S.over&&S.pw[0])elAct.append(el('div','twnx','Kitsune · Mutiara Rubah: '+(S.pw[0].pp?'terpakai':'siap')+' · Kembali ke Ekor: '+(S.pw[0].pb?'terpakai':'siap')));
+    if(kit(0)&&!S.over&&S.pw[0]){const q=S.pw[0],ps=el('div','twps');
+      [['Sembilan Ekor',1],['Tipuan',q.pt],['Mutiara Rubah',q.pp],['Kembali ke Ekor',q.pb]].forEach(([n,u])=>{const c=el('span','twp'+(u?' u':''));c.textContent=n+' · '+(u?'Terpakai':'Siap');ps.append(c)});
+      elAct.append(ps)}
     if(NET&&NET.role==='host')netSync();
   }
   function buildUI(){
@@ -9122,6 +9147,30 @@ function TwentyOne(box,joinCode){
     NET=null;
   }
   const fmtCode=c=>c.slice(0,4)+'-'+c.slice(4);
+  /* layar VS (online): muncul sekali per room sebelum ronde 1, sekitar 3 detik; ketuk untuk lewati, LEAVE untuk keluar */
+  let vsEl=null;
+  function hideVS(){if(vsEl){const e=vsEl;vsEl=null;e.remove()}}
+  function showVS(lkA,lkB,nameB,demo){
+    hideVS();if((!NET&&!demo)||!lkA||!lkB)return;
+    const D=(c,t)=>{const d=document.createElement('div');d.className=c;if(t!=null)d.textContent=t;return d};
+    const code=demo||fmtCode(String(NET.code||'')),day=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
+    const side=(cls,nm,lk)=>{
+      const p=D('vsp '+cls),c=dsCharThumb(chOk(lk.ch),1),pl=D('vspl'),b=document.createElement('b');
+      b.textContent='['+nm+']';pl.append(b,D('','ROOM '+code),D('',day));
+      const i=document.createElement('i');i.textContent='[Boardgame_Maroe]';pl.append(i);
+      p.append(D('vsn',nm),c,pl);return p;
+    };
+    const o=D('vsov');o.setAttribute('role','dialog');o.setAttribute('aria-label','Versus');
+    o.append(side('l',meName,lkA),side('r',String(nameB||'Teman').slice(0,16),lkB),D('vsvs','VS'));
+    const x=document.createElement('button');x.type='button';x.className='vsx';x.textContent='LEAVE';
+    x.onclick=e=>{e.stopPropagation();menu()};
+    o.append(x);
+    const t=Date.now();
+    o.onclick=()=>{if(Date.now()-t>900&&vsEl===o){o.classList.add('out');T.after(()=>{if(vsEl===o)hideVS()},350)}};
+    vsEl=o;document.body.append(o);
+    T.after(()=>{if(vsEl===o){o.classList.add('out');T.after(()=>{if(vsEl===o)hideVS()},350)}},3200);
+  }
+  const previewVS=()=>showVS(twMine(),twBotLook(),bn,'ABCD-EFGH');/* uji tampilan tanpa lawan: kode room contoh */
   const stNote=t=>{const n=root.querySelector('.twst');if(n)n.textContent=t};
   const fileNote=()=>/^https?:$/.test(location.protocol)?'':'Online tidak jalan kalau dibuka dari file. Upload ke hosting (misalnya GitHub Pages), lalu buka lewat link https.';
   function copyTxt(text,b){
@@ -9174,7 +9223,7 @@ function TwentyOne(box,joinCode){
       if(m.a==='hit'){if(tot(1)<=S.limit&&!hit(1)){NET.out.push('Dek habis.')}}
       else if(m.a==='stand')stand(1);
       else if(m.a==='trump'&&Number.isInteger(m.k)&&m.k>=0&&m.k<S.tr[1].length)useTrump(1,m.k);
-      else if(m.a==='pw'&&(m.k==='peek'||m.k==='fake'))power(1,m.k);
+      else if(m.a==='pw'&&(m.k==='peek'||m.k==='charm'))power(1,m.k);
     }
     render();
   }
@@ -9246,6 +9295,7 @@ function TwentyOne(box,joinCode){
     if(reset){
       gen++;stopLoop();msgs=[];sel=null;NET.overSeen=false;t0=Date.now();Stats.arm('twentyone');
       S=v;buildUI();
+      if(!NET.vs){NET.vs=1;showVS(v.lk[0],v.lk[1],bn)}
     }else{
       if(v.round!==old.round){msgs=[];sel=null}
       v.anim=NET.overSeen?old.anim:null;
@@ -9271,6 +9321,7 @@ function TwentyOne(box,joinCode){
     msgs=[];sel=null;
     if(NET&&NET.role==='host'){NET.out=[];NET.lastV=''}
     buildUI();newRound();
+    if(NET&&NET.role==='host'&&!NET.vs){NET.vs=1;showVS(S.lk[0],S.lk[1],bn)}
   }
   const betFor=l=>Math.max(0,S.bet+S.tl.reduce((a,x)=>a+(x.w!==l?(TW_UP[x.id]||0):0),0)-S.tl.reduce((a,x)=>a+(x.w===l?(TW_SH[x.id]||0):0),0));
   const shieldOf=i=>S.tl.reduce((a,x)=>a+(x.w===i?(TW_SH[x.id]||0):0),0);
@@ -9288,15 +9339,22 @@ function TwentyOne(box,joinCode){
       if(p.pk)bad='Nyala Arwah sudah dipakai ronde ini.';
       else if(!c)bad='Tidak ada kartu tertutup untuk diintip.';
       else{p.pk=1;sayV(x=>x===i?'Nyala Arwah – kartu tertutup lawan: '+c.v+'.':'Nyala Arwah dipakai oleh: '+pn(i)+'.')}
-    }else if(w==='fake'){
-      const f=face(i),c=f[f.length-1];
-      if(p.pt)bad='Tipuan sudah dipakai ronde ini.';
-      else if(!c)bad='Tidak ada kartu terbuka untuk ditipu.';
-      else{let n;do n=rnd(11)+1;while(n===c.v);c.fk=n;p.pt=1;priv('Tipuan: kartu terbukamu tampil palsu di layar lawan. Asli: '+c.v+', tampil: '+n+'.')}
+    }else if(w==='charm'){
+      if(p.pc)bad='Pesona Rubah sudah dipakai ronde ini.';
+      else{p.pc=1;S.pw[o].cm=1;sayV(x=>x===i?'Pesona Rubah – '+pn(o)+' wajib Hit di giliran berikutnya.':'Pesona Rubah! Kamu wajib Hit di giliran berikutnya.')}
     }else return false;
     if(bad){priv(bad);return false}
     Music.sfx('click');return true;
   }
+  /* Tipuan (pasif): kartu terbuka pertama diberi angka palsu yang hanya terlihat lawan */
+  function deceive(i){
+    const c=face(i)[0];if(!c)return;
+    let n;do n=rnd(11)+1;while(n===c.v);c.fk=n;S.pw[i].pt=1;
+    const t='Tipuan (pasif): kartu terbuka pertamamu tampil palsu di layar lawan. Asli: '+c.v+', tampil: '+n+'.';
+    if(i===0)addMsg(t);else if(NET&&NET.role==='host')NET.out.push(t);
+  }
+  /* Pesona Rubah: yang terpesona wajib Hit (kalau masih bisa Hit) */
+  function mustHit(i){const q=S.pw&&S.pw[i];return !!(q&&q.cm&&tot(i)<=S.limit&&S.deck.length)}
   function pPower(w){
     if(S.turn!==0||S.phase!=='play'||S.over||!kit(0))return;
     if(NET&&NET.role==='guest'){netAct('pw',w);guestPend();return}
@@ -9309,7 +9367,7 @@ function TwentyOne(box,joinCode){
   function gain(i,n){for(let c=0;c<n;c++){const g=giveTrump(i);if(g)trumpMsg(i,g)}}
   function newRound(){
     gen++;S.round++;S.limit=21;S.phase='play';S.deck=shuffle([1,2,3,4,5,6,7,8,9,10,11]);
-    S.hand=[[],[]];S.tl=[];S.stood=[false,false];S.botTr=0;sel=null;msgs=[];S.pw.forEach(q=>{q.pk=0;q.pt=0;q.pb=0});
+    S.hand=[[],[]];S.tl=[];S.stood=[false,false];S.botTr=0;sel=null;msgs=[];S.pw.forEach(q=>{q.pk=0;q.pt=0;q.pb=0;q.pc=0;q.cm=0});
     S.bet=S.round===1?1:S.blessSaved?Math.max(1,S.bet-1):Math.min(5,S.bet+1);S.blessSaved=false;
     for(let i=0;i<2;i++){S.hand[i].push({v:S.deck.pop(),hid:true,fresh:true});S.hand[i].push({v:S.deck.pop(),hid:false,fresh:true})}
     const mine=giveTrump(0),theirs=giveTrump(1);giveTrump(0);giveTrump(1);
@@ -9318,6 +9376,7 @@ function TwentyOne(box,joinCode){
     if(mine)sayV(w=>'Kamu dapat trump card "'+TW_TR[w?theirs:mine].n+'".');
     if(theirs)sayV(w=>pn(1-w)+' dapat trump card.');
     [0,1].forEach(i=>{if(kit(i))gain(i,1)});/* Sembilan Ekor: +1 trump gratis tiap ronde */
+    [0,1].forEach(i=>{if(kit(i))deceive(i)});/* Tipuan (pasif): kartu terbuka pertama langsung tampil palsu di layar lawan */
     Music.sfx('deal');render();
     if(S.turn===1&&!NET)botTurn();
   }
@@ -9328,11 +9387,14 @@ function TwentyOne(box,joinCode){
   function pass(){S.turn=1-S.turn;S.botTr=0;render();if(S.turn===1&&!NET)botTurn()}
   function hit(i){
     const v=draw(i);if(!v)return false;
+    S.pw[i].cm=0;
     S.stood=[false,false];sayV(w=>nmV(w,i)+' Hit dan dapat '+v+'.');
     if(Math.random()<.4){const g=giveTrump(i);if(g)trumpMsg(i,g)}
     pass();return true;
   }
   function stand(i){
+    if(mustHit(i)){const t='Terpesona Pesona Rubah: kamu wajib Hit.';if(i===0)addMsg(t);else if(NET&&NET.role==='host')NET.out.push(t);render();return false}
+    S.pw[i].cm=0;
     sayV(w=>nmV(w,i)+' Stand.');S.stood[i]=true;
     if(S.stood[1-i]){showdown();return}
     pass();
@@ -9501,11 +9563,12 @@ function TwentyOne(box,joinCode){
     else if(bt<e-.5)h=pb<.6;
     else h=pb<.22&&bt<S.limit-3;
     if(h&&pb>.4&&Math.random()<.25)h=false;
+    if(mustHit(1))h=true;
     if(h)hit(1);else stand(1);
   }
 
   menu();
-  return{destroy(){gen++;window.removeEventListener('pagehide',byeNow);netLeave(true);T.clear();stopLoop()}};
+  return{destroy(){hideVS();gen++;window.removeEventListener('pagehide',byeNow);netLeave(true);T.clear();stopLoop()}};
 }
 
 /* ---------- lobby + router ---------- */
