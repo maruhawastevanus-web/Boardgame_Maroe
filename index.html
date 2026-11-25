@@ -1028,23 +1028,44 @@ background-image:linear-gradient(90deg,transparent calc(33.333% - .5px),rgba(233
 .tw .twc.bk{background:#1a1612;color:#ffd23f;border-color:#3a2a1a}
 .tw .twc.mh::after{content:"";position:absolute;inset:2px;border:1px dashed #b22a1f;pointer-events:none}
 .tw .twc.new{animation:twdeal .3s steps(5)}
-/* skin kartu Twenty One */
-.tw .twc.s1{background:linear-gradient(145deg,#f6dc82,#b8862a);color:#3a2600;border-color:#5a3a05}
-.tw .twc.bk.s1{background:#3a2a05;color:#ffd23f;border-color:#b8862a}
-.tw .twc.s2{background:#0a0f1e;color:#39f5ff;border-color:#39f5ff;box-shadow:0 0 7px #39f5ff,2px 2px 0 #02060f;text-shadow:0 0 5px #39f5ff}
-.tw .twc.bk.s2{background:#14051f;color:#ff3df0;border-color:#ff3df0;box-shadow:0 0 7px #ff3df0,2px 2px 0 #02060f;text-shadow:0 0 5px #ff3df0}
-.tw .twc.s3{background:#17090b;color:#ff4d4d;border-color:#7a1d16;box-shadow:inset 0 0 0 2px #3a0d10,2px 2px 0 #02060f}
-.tw .twc.bk.s3{background:repeating-linear-gradient(45deg,#4a0d10 0 4px,#2a080a 4px 8px);color:#ff4d4d;border-color:#7a1d16}
-.tw .twc.s4{background:linear-gradient(160deg,#e6f9ff,#8fd3e6);color:#0b3a4a;border-color:#2a6f86}
-.tw .twc.bk.s4{background:#123b4a;color:#e6f9ff;border-color:#8fd3e6}
-.tw .twc.s5{background:#0d1a0a;color:#9dff3d;border-color:#4aa014;box-shadow:0 0 6px rgba(157,255,61,.6),2px 2px 0 #02060f}
-.tw .twc.bk.s5{background:#1f3a0a;color:#9dff3d;border-color:#4aa014}
-.tw .twc.s6{background:linear-gradient(135deg,#ffd1e8,#ffb3d9);color:#7a0f4a;border-color:#e0509c}
-.tw .twc.bk.s6{background:repeating-linear-gradient(45deg,#ff6fb5 0 4px,#fff 4px 8px);color:#7a0f4a;border-color:#e0509c}
-.tw .twc.s7{background:#f4ecd8;color:#b22a1f;border-color:#0e4d2a;box-shadow:inset 0 0 0 2px #f4ecd8,inset 0 0 0 3px #0e4d2a,2px 2px 0 #02060f}
-.tw .twc.bk.s7{background:#0e4d2a;color:#ffd23f;border-color:#f4ecd8}
-.tw .twc.s8{background:#9bbc0f;color:#0f380f;border-color:#0f380f;border-radius:0}
-.tw .twc.bk.s8{background:#306230;color:#9bbc0f;border-color:#0f380f}
+/* skin kartu Twenty One: tema ilustrasi + animasi (lapisan seni di ::before, angka tetap di atas) */
+.tw .twc:is(.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8){overflow:hidden;isolation:isolate;border-radius:5px}
+.tw .twc:is(.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8)::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.tw .twc.bk:is(.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8){font-size:0;box-shadow:inset 0 0 0 2px rgba(0,0,0,.5),2px 2px 0 #02060f}
+.tw .twc.bk:is(.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8)::after{font-size:22px;line-height:1}
+.tw .twc.s1{color:#ffe7a6;border-color:#f2b632;text-shadow:0 1px 0 #3a0306,0 0 6px #ff7a1a;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'>%3Cpath d='M5 11Q7 2 15 0Q11 6 12 12ZM37 11Q35 2 27 0Q31 6 30 12Z' fill='%23f5c542'/%3E</svg>") 0 0/100% 100% no-repeat,radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(255,196,64,.3) 5px 6px,transparent 6.5px) 0 0/12px 9px,radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(255,196,64,.3) 5px 6px,transparent 6.5px) 6px 4.5px/12px 9px,linear-gradient(170deg,#a3121a,#4d070c)}
+.tw .twc.s1::before{background:radial-gradient(ellipse at 50% 115%,rgba(255,170,40,.9),rgba(255,70,10,.5) 40%,transparent 68%);transform-origin:50% 100%;animation:twflick 1.3s ease-in-out infinite alternate}
+.tw .twc.bk.s1{background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'>%3Cpath d='M4 30Q21 12 38 30Q21 48 4 30Z' fill='%23f2a413'/%3E%3Cellipse cx='21' cy='30' rx='4' ry='10' fill='%23120000'/%3E%3Cpath d='M4 30Q21 12 38 30' fill='none' stroke='%23ffe08a' stroke-width='1.6'/%3E</svg>") 0 0/100% 100% no-repeat,radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(255,196,64,.3) 5px 6px,transparent 6.5px) 0 0/12px 9px,radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(255,196,64,.3) 5px 6px,transparent 6.5px) 6px 4.5px/12px 9px,linear-gradient(170deg,#6d0b11,#2a0306)}
+.tw .twc.bk.s1::after{content:"❖";color:#f5c542;position:absolute;bottom:3px}
+.tw .twc.s2,.tw .twc.bk.s2{color:#fff;border-color:#6a3dd8;text-shadow:0 0 5px #b88cff;background:radial-gradient(circle,#000 0 16%,transparent 17%),radial-gradient(1px 1px at 20% 15%,#fff,transparent),radial-gradient(1px 1px at 80% 25%,#cfe,transparent),radial-gradient(1px 1px at 28% 86%,#fff,transparent),radial-gradient(1px 1px at 76% 82%,#fff,transparent),radial-gradient(1px 1px at 58% 8%,#fff,transparent),#05010f}
+.tw .twc.s2::before{inset:auto;left:50%;top:50%;width:92px;height:92px;margin:-46px 0 0 -46px;background:conic-gradient(#ff8a2b,#fff0b0,#7a2cff,#14052e,#ff8a2b);-webkit-mask:radial-gradient(circle closest-side,transparent 20%,#000 23%,#000 48%,transparent 50%);mask:radial-gradient(circle closest-side,transparent 20%,#000 23%,#000 48%,transparent 50%);animation:twspin 5s linear infinite}
+.tw .twc.bk.s2::after{content:"✦";color:#fff0b0;position:absolute;opacity:.0}
+.tw .twc.s3,.tw .twc.bk.s3{color:#c8fff6;border-color:#2fd6c4;text-shadow:0 0 6px #19e6d0;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'>%3Cpath d='M9 28Q9 9 21 9Q33 9 33 28Z' fill='%235fffee' fill-opacity='.22' stroke='%236ffff0' stroke-width='1'/%3E%3Cpath d='M13 28Q10 36 14 44M18 28Q16 38 20 48M24 28Q27 37 23 47M29 28Q32 35 28 43' fill='none' stroke='%236ffff0' stroke-width='.9' stroke-opacity='.8'/%3E</svg>") 0 0/100% 100% no-repeat,linear-gradient(180deg,#03182e,#06476b)}
+.tw .twc.s3::before{background:radial-gradient(circle at 50% 30%,rgba(90,255,235,.5),transparent 58%);animation:twpulse 2.2s ease-in-out infinite alternate}
+.tw .twc.bk.s3::after{content:"≋";color:#6ffff0;position:absolute;bottom:4px}
+.tw .twc.s4,.tw .twc.bk.s4{color:#ffcf8a;border-color:#a83a10;text-shadow:0 0 6px #ff6a1a;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'>%3Cpath d='M0 60V46L11 32L19 40L30 26L42 44V60Z' fill='%230b0403'/%3E%3Cpath d='M0 52L8 48L12 55M22 60L24 51L30 47L34 54L42 50M30 26L32 36L28 42' fill='none' stroke='%23ff8a2b' stroke-width='1.1'/%3E</svg>") 0 0/100% 100% no-repeat,linear-gradient(180deg,#1a0c0a,#2a1008 60%,#5c1a06)}
+.tw .twc.s4::before{background:linear-gradient(0deg,rgba(255,110,20,.85),transparent 55%);animation:twpulse 1.8s ease-in-out infinite alternate}
+.tw .twc.bk.s4::after{content:"▲";color:#ff8a2b;position:absolute;top:5px}
+.tw .twc.s5,.tw .twc.bk.s5{color:#8a1c46;border-color:#e0709a;text-shadow:0 0 3px #fff;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'>%3Cpath d='M44 3Q31 8 23 20' fill='none' stroke='%236b3a2a' stroke-width='1.6'/%3E%3Cg fill='%23ff8fb3'%3E%3Ccircle cx='36' cy='6' r='3.2'/%3E%3Ccircle cx='29' cy='12' r='2.8'/%3E%3Ccircle cx='24' cy='19' r='2.4'/%3E%3C/g%3E%3Cg fill='%23fff'%3E%3Ccircle cx='36' cy='6' r='1.1'/%3E%3Ccircle cx='29' cy='12' r='1'/%3E%3Ccircle cx='24' cy='19' r='.9'/%3E%3C/g%3E</svg>") 0 0/100% 100% no-repeat,linear-gradient(160deg,#fff0f5,#ffc4d8)}
+.tw .twc.s5::before{background:radial-gradient(circle at 20% 20%,#fff 0 1.6px,transparent 2px) 0 0/21px 30px,radial-gradient(circle at 70% 60%,#ff9fbf 0 1.4px,transparent 1.8px) 0 0/21px 30px;animation:twfall 3s linear infinite}
+.tw .twc.bk.s5::after{content:"✿";color:#d9457a;position:absolute;bottom:5px}
+.tw .twc.s6,.tw .twc.bk.s6{color:#6bffd0;border-color:#1fe0a0;text-shadow:0 0 6px #1fe0a0;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'>%3Cpath d='M0 12H10L14 8H28L32 12H42M0 30H8V40H20M42 34H30V48L26 52H12M21 0V10M21 60V50' fill='none' stroke='%231fe0a0' stroke-width='.8' stroke-opacity='.7'/%3E%3Cg fill='%236bffd0'%3E%3Ccircle cx='10' cy='12' r='1.3'/%3E%3Ccircle cx='32' cy='12' r='1.3'/%3E%3Ccircle cx='20' cy='40' r='1.3'/%3E%3Ccircle cx='12' cy='52' r='1.3'/%3E%3C/g%3E</svg>") 0 0/100% 100% no-repeat,#03130f}
+.tw .twc.s6::before{background:linear-gradient(180deg,transparent 40%,rgba(80,255,200,.4) 50%,transparent 60%);animation:twsweep 2.4s linear infinite}
+.tw .twc.bk.s6::after{content:"◈";color:#6bffd0;position:absolute;bottom:4px}
+.tw .twc.s7,.tw .twc.bk.s7{color:#14316b;border-color:#1b4aa0;text-shadow:0 1px 0 rgba(255,255,255,.6);background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'>%3Cpath d='M0 3H42M0 57H42' stroke='%231b4aa0' stroke-width='3'/%3E%3Ccircle cx='21' cy='13' r='6' fill='%23c1440e' fill-opacity='.85'/%3E%3Cpath d='M0 60L14 42L28 60ZM18 60L32 36L46 60Z' fill='%238a5a10' fill-opacity='.75'/%3E</svg>") 0 0/100% 100% no-repeat,linear-gradient(180deg,#f4d58d,#d9a441)}
+.tw .twc.s7::before{width:60%;left:-70%;background:linear-gradient(105deg,transparent,rgba(255,255,255,.6),transparent);animation:twshim 3.2s ease-in-out infinite}
+.tw .twc.bk.s7::after{content:"☼";color:#7a2a08;position:absolute;top:4px;font-size:16px}
+.tw .twc.s8,.tw .twc.bk.s8{color:#fff;border-color:#7fd8ff;text-shadow:0 0 6px #3dffb0;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'>%3Cpath d='M0 60V50L10 44L16 50L26 42L34 49L42 46V60Z' fill='%23dff4ff' fill-opacity='.85'/%3E%3Cpath d='M21 7V19M15.8 10L26.2 16M15.8 16L26.2 10' stroke='%23bfe9ff' stroke-width='1.1' stroke-linecap='round'/%3E</svg>") 0 0/100% 100% no-repeat,linear-gradient(180deg,#04122a,#0b2a4a)}
+.tw .twc.s8::before{background:linear-gradient(115deg,transparent 20%,rgba(61,255,176,.55) 40%,rgba(122,92,255,.5) 60%,transparent 80%);filter:blur(3px);animation:twaur 4s ease-in-out infinite alternate}
+.tw .twc.bk.s8::after{content:"✧";color:#bfe9ff;position:absolute;top:5px}
+@keyframes twflick{from{opacity:.45;transform:scaleY(.8)}to{opacity:1;transform:scaleY(1.1)}}
+@keyframes twspin{to{transform:rotate(360deg)}}
+@keyframes twpulse{from{opacity:.3}to{opacity:1}}
+@keyframes twsweep{from{transform:translateY(-100%)}to{transform:translateY(100%)}}
+@keyframes twshim{from{transform:translateX(0)}to{transform:translateX(330%)}}
+@keyframes twfall{to{background-position:0 30px,0 30px}}
+@keyframes twaur{from{transform:translateX(-30%)}to{transform:translateX(30%)}}
+@media(prefers-reduced-motion:reduce){.tw .twc::before{animation:none!important}}
 @keyframes twdeal{from{transform:translateY(-16px);opacity:0}to{transform:none;opacity:1}}
 .tw .twtot{width:62px;flex:none;text-align:right;font-size:clamp(16px,5.4vw,22px);font-weight:500;color:#fff;white-space:nowrap}
 .tw .twtot small{font-size:10px;color:#9a9482;font-weight:400}
@@ -1068,6 +1089,7 @@ background-image:linear-gradient(90deg,transparent calc(33.333% - .5px),rgba(233
 .tw .twend.on{display:flex}.tw .twend.l{color:#ff6a5a}.tw .twend.w{color:#ffd23f}
 .tw.tover .twfl,.tw.tover .twmon,.tw.tover .dsbar,.tw.tover .twtb,.tw.tover .twtbl,.tw.tover .dscl,.tw.tover .twtr,.tw.tover .dsdesc,.tw.tover .dsmsg{display:none}
 .tw .twres:empty{display:none}
+.tw .twnx{text-align:center;font-size:12px;color:#9a9482;padding:8px 0;animation:twpulse 1.2s ease-in-out infinite alternate}
 .tw .twres{background:#0c0e12;border:3px solid #02060f;box-shadow:inset 0 0 0 2px #3a2a1a;padding:16px 12px;text-align:center;color:#e9e4d6}
 .tw .twres .rh{font-size:11px;letter-spacing:.2em;color:#9a9482;margin-bottom:10px}
 .tw .twres .rs{display:flex;align-items:center;justify-content:center;gap:14px}
@@ -1211,7 +1233,7 @@ D1.push(["Empat pemain, 13 kartu. Habiskan kartumu duluan.","Four players, 13 ca
 D1.push(["Kartu Maut","Death Card"],["Lubang Hitam","Black Hole"],["Neraka","Inferno"],["Kraken","Kraken"]);
 D2.push(["Death Card","Kartu Maut"],["Black Hole","Lubang Hitam"],["Inferno","Neraka"]);
 D1.push(["Lima tes singkat untuk insting persepsimu. Dua menit. Satu skor.","Five quick tests of your perception instincts. Two minutes. One score."],["Uji ketajaman persepsimu: titik, bola, sudut, ketukan, dan garis.","Test how sharp your perception is: dots, a ball, angles, beats and lines."],["5 ronde","5 rounds"],["rekor","best"],["rata-rata","average"],["Ronde 1 dari 5","Round 1 of 5"],["Ronde 2 dari 5","Round 2 of 5"],["Ronde 3 dari 5","Round 3 of 5"],["Ronde 4 dari 5","Round 4 of 5"],["Ronde 5 dari 5","Round 5 of 5"],["Hitung","Count"],["Lacak","Track"],["Sudut","Angle"],["Bagi","Divide"],["Titik muncul 2 detik. Berapa jumlahnya?","Dots show for 2 seconds. How many are there?"],["Bola hilang. Tap tempat ia mendarat.","The ball vanishes. Tap where it lands."],["Lihat lintasan terbang, lalu tandai di mana bola mendarat.","Watch the visible flight, then place your landing estimate on the ground."],["Ketuk atau seret di area, atau pakai slider. Lalu kirim perkiraanmu.","Tap or drag on the field, or use the slider. Then submit your estimate."],["Kirim pendaratan","Submit landing"],["Posisi pendaratan","Landing position"],["Seret garis tepat","Drag the line to exactly"],["berlawanan arah jarum jam.","counterclockwise."],["Ketuk bareng 4 ketukan, lalu lanjutkan 8 kali tanpa suara. Ketuk atau tekan Spasi.","Tap along with 4 beats, then keep going 8 more times, silently. Tap or press Space."],["Lanjutkan sendiri: 8 ketukan tanpa suara.","Keep going on your own: 8 silent taps."],["Tandai titik","Mark the point"],["dari ujung kiri garis.","from the left end of the line."],["Jawab","Submit"],["Ketuk","Tap"],["Lihat skor","See score"],["Skormu","Your score"],["Rekor baru","New record"],["Jumlah titik","Number of dots"],["Jawaban","Answer"],["tebakanmu","your guess"],["sesi","sessions"]);
-D1.push(["Skin kartu","Card skins"],["Klasik","Classic"]);
+D1.push(["Skin kartu","Card skins"],["Klasik","Classic"],["Naga","Dragon"],["Ubur-ubur","Jellyfish"],["Gunung Api","Volcano"],["Sirkuit","Circuit"],["Mesir","Egypt"],["Kutub","Polar"],["Ronde berikutnya sebentar lagi…","Next round starting soon…"],["MENGIRIM…","SENDING…"]);
 D1.push(["Kontrol waktu", "Time control"],["Tanpa batas waktu", "No time limit"],["Tanpa batas", "No limit"],["tiap pemain", "per player"],["per langkah", "per move"],["menit", "min"],["detik", "sec"],["Main dengan teman", "Play with a friend"],["Main catur bareng aku di Board Game Maroe. Buka link ini, langsung masuk:", "Play chess with me on Board Game Maroe. Open this link to jump right in:"],["Untuk mengundang, berikan URL ini", "To invite, share this URL"],["Orang pertama yang membuka link akan bermain denganmu.", "The first person to open the link plays with you."],["Atau beri kode:", "Or share this code:"],["langkah pion", "pawn move"],["tanpa tangkapan", "without capture"],["Susunanmu sudah dikunci. Menunggu pemain lain…", "Your arrangement is locked. Waiting for other players…"],["pemain lain", "other players"],["Pemain", "Player"],["pemain", "player"],["Belum kunci:", "Not locked yet:"],["Paksa lanjut (yang belum kunci jadi bot)", "Force continue (unlocked players become bots)"],["Kartu kamu", "Your cards"],["Susun 13 kartu jadi tiga baris dan adu. Empat kursi: buat room atau main sendiri.", "Arrange 13 cards into three rows and compare. Four seats: create a room or play solo."],["4 kartu", "4 cards"],["Catatan aktif", "Notes on"],["Catatan mati", "Notes off"],["catatan", "notes"],["Waktu terbaik", "Best time"],["Sinkron gagal. Coba lagi nanti.", "Sync failed. Try again later."],["Server relay sedang sibuk, mencoba lagi sebentar...", "Relay server is busy, retrying shortly..."],["Terhubung ke server.", "Connected to server."],["Domain situs ini belum didaftarkan di Firebase.", "This site's domain isn't registered in Firebase yet."],["Setiap isi ulang tiap pemain mendapat item (maksimal 24).", "On each reload every player gets items (max 24)."],["Ketuk item di mejamu untuk membaca fungsinya, lalu pilih Pakai.", "Tap an item on your table to read what it does, then choose Use."],["Item boleh dipakai sebanyak yang kamu mau sebelum", "You can use as many items as you like before"],["menembak", "shooting"],["Kalau item lebih dari 8, geser barisnya ke samping.", "If there are more than 8 items, swipe the row sideways."]);
 D1.push(["tanpa tambahan", "no increment"],["atau", "or"],["Remis", "Draw"],["Tahun", "Year"],["Tambah", "Add"],["raise ke", "raise to"],["dengan", "with"]);
 D1.push(["Potong ujung laras. Tembakan berikutnya bernilai 2x damage jika peluru live.", "Cut the barrel tip. Next shot does 2x damage if live."],["menggergaji ujung laras. Tembakan berikutnya 2x damage.", "sawed the barrel tip. Next shot does 2x damage."],["Kamu menggergaji ujung laras. Tembakan berikutnya 2x damage.", "You saw the barrel tip. Next shot does 2x damage."]);
@@ -8464,7 +8486,7 @@ const TW_CAT=[
 const TW_IDS=Object.keys(TW_TR);
 const TW_TBL={g17:1,g24:1,g27:1,oneup:1,twoup:1,shield:1,shield2:1,bless:1,bloodshed:1};
 const TW_GF={g17:17,g24:24,g27:27},TW_UP={oneup:1,twoup:2,bloodshed:1},TW_SH={shield:1,shield2:2};
-const TW_SK=['Klasik','Emas','Neon','Obsidian','Es Beku','Toxic','Permen','Kasino','Retro'];
+const TW_SK=['Klasik','Naga','Black Hole','Ubur-ubur','Gunung Api','Sakura','Sirkuit','Mesir','Kutub'];
 function twSan(m){m=m||{};const n=TW_SK.length;return{sk:(((m.sk|0)%n)+n)%n,ch:chOk(m.ch)}}
 function twMine(){const v=store.get('tw-look',null)||{},L=twSan(v);if(DS_CHARS[L.ch].own&&!isOwner())L.ch=0;return L}
 function twBotLook(){const ids=[];DS_CHARS.forEach((c,i)=>{if(!c.own)ids.push(i)});return{sk:rnd(TW_SK.length),ch:ids[rnd(ids.length)]}}
@@ -8733,7 +8755,7 @@ function TwentyOne(box,joinCode){
   function btn(label,cls,fn,dis){const b=el('button','dbtn'+(cls?' '+cls:''));b.type='button';b.textContent=label;b.onclick=fn;if(dis)b.disabled=true;return b}
   function render(){
     if(!S||!elBar)return;
-    const my=S.turn===0&&S.phase==='play'&&!S.over;
+    const my=S.turn===0&&S.phase==='play'&&!S.over&&!S.pend;
     root.classList.toggle('tover',!!S.over);
     elRes.innerHTML='';
     if(S.over&&(!S.anim||S.anim.done)){
@@ -8747,7 +8769,7 @@ function TwentyOne(box,joinCode){
     elBar.innerHTML='<span>Dek '+S.deck.length+'</span><span>Batas '+S.limit+'</span><span>Trump lawan '+S.tr[1].length+'</span>';
     elFl.innerHTML='<div><b>'+p2(S.bet)+'</b><span>Taruhan</span></div><div><b>'+p2(S.round)+'</b><span>Ronde</span></div>';
     elMon.className='twmon'+(my?' go':'');
-    elMon.textContent=S.phase==='end'?'SELESAI':my?'GILIRANMU':'TUNGGU';
+    elMon.textContent=S.pend?'MENGIRIM…':S.phase==='end'?'SELESAI':my?'GILIRANMU':'TUNGGU';
     elTb.innerHTML='';elTb.append(rowEl(1),el('div','twdiv'),rowEl(0));
     elTl.innerHTML='';
     [1,0].forEach(i=>{
@@ -8774,7 +8796,7 @@ function TwentyOne(box,joinCode){
     elAct.innerHTML='';
     const row=el('div','dsrow');
     if(S.over){if(!S.anim||S.anim.done){if(!(NET&&NET.gone))row.append(btn('Main lagi','',again));row.append(btn('Menu','ghost',menu))}}
-    else if(S.phase==='end'){row.append(btn('Ronde berikutnya','',nextRound))}
+    else if(S.phase==='end'){row.append(el('div','twnx','Ronde berikutnya sebentar lagi…'))}
     else{
       row.append(btn('Hit','',()=>pHit(),tot(0)>S.limit||!S.deck.length),btn('Stand','ghost',()=>pStand()));
       if(sid)row.append(btn('Pakai '+TW_TR[sid].n,'alt',()=>pTrump()));
@@ -9018,17 +9040,18 @@ function TwentyOne(box,joinCode){
     if(S.stood[1-i]){showdown();return}
     pass();
   }
+  function guestPend(){Music.sfx('click');const t=S.pend=Date.now();render();after(()=>{if(S&&S.pend===t){S.pend=0;render()}},4000)}
   function pHit(){
     if(S.turn!==0||S.phase!=='play'||S.over)return;
     if(tot(0)>S.limit){addMsg('Totalmu sudah lewat batas, tidak bisa Hit.');render();return}
-    if(NET&&NET.role==='guest'){netAct('hit');return}
+    if(NET&&NET.role==='guest'){netAct('hit');guestPend();return}
     if(!hit(0)){addMsg('Dek habis.');render()}
   }
-  function pStand(){if(S.turn!==0||S.phase!=='play'||S.over)return;if(NET&&NET.role==='guest'){netAct('stand');return}stand(0)}
+  function pStand(){if(S.turn!==0||S.phase!=='play'||S.over)return;if(NET&&NET.role==='guest'){netAct('stand');guestPend();return}stand(0)}
   function pTrump(){
     if(S.turn!==0||S.phase!=='play'||S.over||sel==null)return;
     const k=S.tr[0].indexOf(sel);sel=null;
-    if(NET&&NET.role==='guest'){if(k>=0)netAct('trump',k);render();return}
+    if(NET&&NET.role==='guest'){if(k>=0){netAct('trump',k);guestPend()}else render();return}
     if(k>=0)useTrump(0,k);render();
   }
   function useTrump(i,k){
@@ -9113,6 +9136,7 @@ function TwentyOne(box,joinCode){
       sayV(w=>l===w?'Kamu kalah ronde ini. '+pn(1-w)+' mengambil '+d+' poin darimu.':'Kamu menang ronde ini. Kamu mengambil '+d+' poin dari '+pn(l)+'.');
       if(d>0){if(l===0){flash=Date.now()+700;Music.sfx('hurtMe')}else Music.sfx('hurt')}
     }
+    if(S.hp[0]>0&&S.hp[1]>0){const r=S.round;after(()=>{if(S&&S.phase==='end'&&!S.over&&S.round===r)newRound()},4500)}
     if(S.hp[0]<=0||S.hp[1]<=0){
       S.over=true;const won=S.hp[0]>0;
       sayV(w=>S.hp[w]>0?pn(1-w)+' kehabisan poin. Kamu menang pertandingan.':'Poinmu habis. Kamu kalah pertandingan.');
