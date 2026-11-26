@@ -1173,6 +1173,31 @@ background-image:linear-gradient(90deg,transparent calc(33.333% - .5px),rgba(233
 .tw .dbtn:disabled{opacity:.45;cursor:default}
 @media(max-width:420px){.tw .twc{width:36px;height:52px;font-size:20px}.tw .twwho{width:70px}.tw .twtot{width:54px}}
 </style>
+<style id="lob2">
+/* Lobi v3: tile berwarna penuh, seni besar, meta terlihat, sisa ganjil jadi tile lebar */
+.lsec{align-items:center;margin:36px 2px 12px}
+.lsec b{font-family:var(--display);font-size:20px;font-weight:800;letter-spacing:-.025em;text-transform:none;color:var(--fg)}
+.lsec span{font-size:12px;font-weight:500;color:var(--muted);padding:4px 10px;border-radius:99px;border:1px solid var(--line)}
+.lt.n{position:relative;display:flex;flex-direction:column;isolation:isolate;border:1px solid rgba(255,255,255,.1);border-radius:24px;color:#f3f8f5;box-shadow:0 14px 26px -16px rgba(0,0,0,.7),inset 0 1px 0 rgba(255,255,255,.1)}
+.lt.n::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(rgba(255,255,255,.08) 1px,transparent 1.4px) 0 0/7px 7px;-webkit-mask:linear-gradient(#000,transparent 65%);mask:linear-gradient(#000,transparent 65%)}
+.lt.n .lart{flex:none;height:106px;background:none}
+.lt.n .lart:has(.lbd) svg{transform:translateX(-24px)}
+.lt.n .lglow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(closest-side at 50% 50%,rgba(255,255,255,.17),transparent)}
+.lt.n .lart svg{position:relative;height:66px;width:auto;max-width:80%;filter:drop-shadow(0 8px 10px rgba(0,0,0,.35))}
+.lt.n .lbd{top:12px;right:12px;font-size:11px}
+.lt.n .lnf{position:relative;padding:0 16px 15px}
+.lt.n .lnf b{font-size:18px;line-height:1.15;letter-spacing:-.025em;color:#f3f8f5}
+.lt.n .lnf span{margin-top:3px;font-size:12.5px;line-height:1.35;color:rgba(232,243,237,.76);text-wrap:balance}
+.lt.n .lgo{display:none}
+.lt.n.f{grid-column:1/-1;flex-direction:row;align-items:stretch;min-height:150px}
+.lt.n.f .lart{flex:0 0 42%;height:auto}
+.lt.n.f .lart svg{height:72px}
+.lt.n.f .lnf{flex:1;align-self:center;padding:16px 62px 16px 2px}
+.lt.n.f .lnf b{font-size:25px;letter-spacing:-.03em}
+.lt.n.f .lnf span{margin-top:5px;font-size:13px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.lt.n.f .lgo{display:grid;place-items:center;position:absolute;right:16px;top:50%;margin-top:-20px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);color:#f3f8f5}
+@media(hover:hover){.lt.n:hover{border-color:rgba(255,255,255,.28)}}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -1212,7 +1237,7 @@ const store={
    Kunci cocok per frasa utuh (bukan di tengah kata), frasa terpanjang dipakai dulu. */
 const I18N=(()=>{
 const D1=[
-["Profil","Profile"],
+["Profil","Profile"],["Vs 3 bot · 4 kartu","Vs 3 bots · 4 cards"],
 ["Ambil dari tumpukan","Take from pile"],["Ambil dari tengah","Take from deck"],["Tutup 41","Close 41"],["Tumpukanmu","Your pile"],["di tengah","in deck"],["Kartu dibagikan. Kamu jalan duluan.","Cards dealt. You go first."],["Giliranmu: ambil satu kartu.","Your turn: take one card."],["Pilih satu kartu untuk dibuang.","Pick one card to discard."],["tumpukan","pile"],["Buang","Discard"],["Lewat.","Pass."],["Skor:","Score:"],["paling dekat ke 41","closest to 41"],["menutup dengan 41!","closed with 41!"],["Kartu tengah habis.","The deck is empty."],["dapat skor tertinggi","has the highest score"],["Kumpulkan 4 kartu bernilai tepat 41.","Collect 4 cards worth exactly 41."],["Kartu dibagikan.","Cards dealt."],["jalan duluan.","goes first."],["Menunggu meja dibuka…","Waiting for the table to open…"],["ambil dari tumpukan.","took from pile."],["ambil dari tengah.","took from deck."],["buang ke","discarded to"],["tidak bisa ambil kartu.","can’t take a card."],["Tidak ada kartu lagi.","No cards left."],
 ["Tidak bisa memuat layanan login. Cek koneksi.","Can’t load the sign-in service. Check your connection."],["Kebijakan privasi","Privacy policy"],
 ["Main sendiri, lawan 3 bot","Solo, vs 3 bots"],["Buat room (online)","Create room (online)"],["Buat room dan kamu main putih, atau gabung dengan kode 8 huruf dari temanmu.","Create a room and you play white, or join with the 8-letter code from your friend."],["Pilih level bot, lalu mau main sebagai apa?","Pick a bot level, then choose your colour."],["Satu lawan satu di papan 8×8. Lawan bot, main online bareng teman, atau berdua di satu HP.","One on one on an 8×8 board. Play a bot, online with a friend, or two on one phone."],["Isi 4 kursi dulu","Fill 4 seats first"],["Kursi 1: kosong","Seat 1: empty"],["Kursi","Seat"],["kursi","seats"],["kosong","empty"],["Pemain:","Players:"],["lawan","vs"],["sendiri","solo"],["menunggu","waiting for"],["Menunggu","Waiting for"],["Tambah bot","Add bot"],["Salin link","Copy link"],["Salin kode","Copy code"],["Bagikan","Share"],
@@ -9796,7 +9821,7 @@ function route(){
   if(!g){
     document.title='Board Game Maroe';subEl.textContent='Lima belas meja, main kapan saja';
     const fl=(c1,c2)=>'linear-gradient(160deg,'+c1+','+c2+')';
-    const K='<svg width="46" height="46" viewBox="0 0 40 40" fill="#e4eee9" aria-hidden="true"><path d="M10 33l4-13-2-6 10-9 2 5 6 3-2 6-2 14z"/><circle cx="21" cy="13" r="1.7" fill="#161a22"/></svg>';
+    const K='<svg width="46" height="46" viewBox="0 0 64 64" fill="#e4eee9" aria-hidden="true"><path d="M16 52C16 40 20 33 28 27L22 25C20 24 19 22 20 20L30 8C31 7 32 7 33 8L36 11C46 13 51 22 51 34C51 41 50 47 50 52Z"/><rect x="11" y="52" width="44" height="7" rx="3"/><circle cx="35" cy="19" r="2.2" fill="#161a22"/></svg>';
     const LB={
       domino:{g:'Lawan bot',m:'Vs 3 bot · 28 kartu',bg:fl('#17382d','#0f2a21'),art:'<svg width="90" height="50" viewBox="0 0 90 50" aria-hidden="true"><rect x="8" y="5" width="32" height="40" rx="5" fill="#e4eee9"/><rect x="50" y="5" width="32" height="40" rx="5" fill="#e4eee9"/><g fill="#1a2c25"><circle cx="18" cy="15" r="3"/><circle cx="30" cy="15" r="3"/><circle cx="24" cy="25" r="3"/><circle cx="18" cy="35" r="3"/><circle cx="30" cy="35" r="3"/><circle cx="60" cy="15" r="3"/><circle cx="72" cy="35" r="3"/><circle cx="66" cy="25" r="3"/></g></svg>'},
       capsa:{g:'Lawan bot',m:'Vs 3 bot · 13 kartu',bg:fl('#3a2c14','#241a0b'),art:'<svg width="90" height="54" viewBox="0 0 90 54" aria-hidden="true"><g fill="#e4eee9"><rect x="8" y="4" width="14" height="18" rx="2"/><rect x="26" y="4" width="14" height="18" rx="2"/><rect x="44" y="4" width="14" height="18" rx="2"/><rect x="8" y="30" width="14" height="18" rx="2" opacity=".8"/><rect x="26" y="30" width="14" height="18" rx="2" opacity=".8"/><rect x="44" y="30" width="14" height="18" rx="2" opacity=".8"/><rect x="62" y="30" width="14" height="18" rx="2" opacity=".8"/></g></svg>'},
@@ -9809,15 +9834,23 @@ function route(){
       kartu41:{g:'Lawan bot',m:'Vs 3 bot · 4 kartu',bg:fl('#17382d','#0f2a21'),art:'<svg width="90" height="54" viewBox="0 0 90 54" aria-hidden="true"><g transform="rotate(-30 45 56)"><rect x="31" y="2" width="28" height="40" rx="4" fill="#b9c9c1"/><text x="34" y="15" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="12" fill="#cf3f3f">J</text><text x="34" y="26" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="10" fill="#cf3f3f">♥︎</text></g><g transform="rotate(-10 45 56)"><rect x="31" y="2" width="28" height="40" rx="4" fill="#d3e0d9"/><text x="34" y="15" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="12" fill="#cf3f3f">Q</text><text x="34" y="26" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="10" fill="#cf3f3f">♥︎</text></g><g transform="rotate(10 45 56)"><rect x="31" y="2" width="28" height="40" rx="4" fill="#e4eee9"/><text x="34" y="15" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="12" fill="#cf3f3f">K</text><text x="34" y="26" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="10" fill="#cf3f3f">♥︎</text></g><g transform="rotate(30 45 56)"><rect x="31" y="2" width="28" height="40" rx="4" fill="#fff"/><text x="34" y="15" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="12" fill="#cf3f3f">A</text><text x="34" y="26" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="10" fill="#cf3f3f">♥︎</text></g><circle cx="45" cy="40" r="11.5" fill="#e0ad4c" stroke="#17382d" stroke-width="3"/><text x="45" y="44.6" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="13" fill="#17382d">41</text></svg>'},
       tahun:{g:'Trivia',m:'',bg:'linear-gradient(#3a2450,#d98a5a)',wide:1,art:'<svg width=\"92\" height=\"100%\" viewBox=\"0 0 92 110\" preserveAspectRatio=\"xMidYMid slice\" aria-hidden=\"true\" style=\"position:absolute;inset:0\" shape-rendering=\"crispEdges\"><rect width=\"92\" height=\"40\" fill=\"#3a2450\"/><rect y=\"40\" width=\"92\" height=\"20\" fill=\"#8e4a6a\"/><rect y=\"60\" width=\"92\" height=\"30\" fill=\"#d98a5a\"/><rect x=\"62\" y=\"14\" width=\"14\" height=\"14\" fill=\"#ffe9a0\"/><path d=\"M20 90h54l-8-8h-6l-8-8h-6l-8-8h-6l-6-8z\" fill=\"#5a3040\"/><rect y=\"90\" width=\"92\" height=\"20\" fill=\"#3a2230\"/><rect x=\"10\" y=\"72\" width=\"10\" height=\"4\" fill=\"#ffcc33\"/><rect x=\"11\" y=\"76\" width=\"8\" height=\"10\" fill=\"#c9a86a\"/><rect x=\"12\" y=\"84\" width=\"2\" height=\"6\" fill=\"#2b3040\"/><rect x=\"16\" y=\"84\" width=\"2\" height=\"6\" fill=\"#2b3040\"/><rect x=\"6\" y=\"8\" width=\"2\" height=\"2\" fill=\"#fff\"/><rect x=\"30\" y=\"20\" width=\"2\" height=\"2\" fill=\"#fff\"/><rect x=\"48\" y=\"6\" width=\"2\" height=\"2\" fill=\"#fff\"/></svg>'},
       highlow:{g:'Sendirian',m:'51 tebakan berturut-turut',bg:fl('#17382d','#0f2a21'),art:'<svg width="90" height="54" viewBox="0 0 90 54" aria-hidden="true"><rect x="10" y="6" width="30" height="42" rx="5" fill="#e4eee9" transform="rotate(-8 25 27)"/><rect x="44" y="4" width="32" height="44" rx="5" fill="#fff"/><path d="M60 14l9 12H51z" fill="#17382d"/><path d="M60 40l-9-12h18z" fill="#cf3f3f"/></svg>'},
-      solitaire:{g:'Sendirian',m:'Klondike · buka 1 atau 3',bg:fl('#17382d','#0f2a21'),art:'<svg width="80" height="54" viewBox="0 0 80 54" aria-hidden="true"><rect x="14" y="4" width="34" height="46" rx="5" fill="#e4eee9" transform="rotate(-8 31 27)"/><rect x="32" y="4" width="34" height="46" rx="5" fill="#fff"/><text x="40" y="28" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="22" fill="#1a2c25">A♠︎</text></svg>'},
+      solitaire:{g:'Sendirian',m:'Klondike · buka 1 atau 3',bg:fl('#17382d','#0f2a21'),art:'<svg width="80" height="54" viewBox="0 0 80 54" aria-hidden="true"><rect x="14" y="4" width="34" height="46" rx="5" fill="#e4eee9" transform="rotate(-8 31 27)"/><rect x="32" y="4" width="34" height="46" rx="5" fill="#fff"/><text x="49" text-anchor="middle" y="28" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="18" fill="#1a2c25">A♠︎</text></svg>'},
       sudoku:{g:'Sendirian',m:'4 level · catatan &amp; hint',bg:fl('#1c2b3d','#101a28'),art:'<svg width="60" height="60" viewBox="0 0 60 60" aria-hidden="true"><rect x="3" y="3" width="54" height="54" rx="4" fill="#e4eee9"/><path d="M21 3v54M39 3v54M3 21h54M3 39h54" stroke="#1c2b3d"/><g font-family="DM Mono,monospace" font-size="12" fill="#1c2b3d"><text x="9" y="17">5</text><text x="27" y="35">9</text><text x="45" y="53">2</text></g></svg>'},
       deepdive:{g:'Trivia',m:'',bg:'linear-gradient(#1b6a8e,#0a1a26)',wide:1,art:'<svg width="92" height="100%" viewBox="0 0 92 110" preserveAspectRatio="none" aria-hidden="true" style="position:absolute;inset:0"><g stroke="#8fd3f0" stroke-opacity=".5"><path d="M0 28h92M0 56h92M0 84h92"/></g><circle cx="46" cy="40" r="7" fill="#e0ad4c"/><path d="M46 47v40" stroke="#e0ad4c" stroke-width="1.5" stroke-dasharray="3 3"/></svg>'}
     ,
       perceptile:{g:'Trivia',m:'',bg:'linear-gradient(160deg,#0f3b2f,#0a2a21)',wide:1,cls:'pcw',big:(()=>{const g=Stats.get().g.perceptile;return g&&g.mx&&g.mx.best?String(g.mx.best):''})(),art:'<svg width="92" height="100%" viewBox="0 0 92 110" preserveAspectRatio="xMidYMid slice" aria-hidden="true" style="position:absolute;inset:0"><defs><radialGradient id="pcg" cx=".5" cy=".5" r=".6"><stop offset="0" stop-color="#e0ad4c" stop-opacity=".3"/><stop offset="1" stop-color="#e0ad4c" stop-opacity="0"/></radialGradient></defs><rect width="92" height="110" fill="url(#pcg)"/><g fill="#e0ad4c"><circle cx="20" cy="26" r="5"/><circle cx="62" cy="18" r="4"/><circle cx="42" cy="48" r="6"/><circle cx="74" cy="60" r="4.5"/><circle cx="22" cy="78" r="4"/></g><circle cx="58" cy="88" r="13" fill="#e0ad4c" fill-opacity=".22"/><circle cx="58" cy="88" r="8" fill="#e0ad4c" fill-opacity=".5"/><circle cx="58" cy="88" r="3.5" fill="#e0ad4c"/></svg>'}
     };
-    const GORD=['Lawan bot','Online','Sendirian','Trivia'];
+    LB.twentyone.art='<svg width="90" height="54" viewBox="0 0 90 54" aria-hidden="true"><g transform="rotate(-10 28 26)"><rect x="12" y="4" width="32" height="44" rx="5" fill="#e4eee9"/><text x="17" y="28" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="19" fill="#1a2c25">10</text></g><g transform="rotate(9 62 26)"><rect x="46" y="4" width="32" height="44" rx="5" fill="#fff"/><text x="62" y="33" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="24" fill="#cf3f3f">?</text></g><circle cx="45" cy="38" r="13" fill="#e0ad4c" stroke="#1c1a33" stroke-width="3"/><text x="45" y="43.5" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="15" fill="#1a2c25">21</text></svg>';LB.twentyone.bg=fl('#2d2a4a','#17152e');const GORD=['Lawan bot','Online','Sendirian','Trivia'];
     let last='',flt='Semua';try{last=localStorage.getItem('maroe-last')||''}catch(e){}
-    const mkTile=x=>{
+    const mkTileN=(x,feat)=>{
+      const L=LB[x.id]||{m:'',bg:fl('#17382d','#0f2a21'),art:'<b class="lbn">'+x.glyph+'</b>'};
+      const a=el('a','lt n'+(feat?' f':''));a.href='#'+x.id;a.style.background=L.bg;
+      const sub=feat&&x.blurb?x.blurb:L.m;
+      a.innerHTML='<div class="lart"><i class="lglow"></i>'+L.art+(L.badge?'<span class="lbd">'+L.badge+'</span>':'')+'</div><div class="lnf"><b>'+x.name+'</b>'+(sub?'<span>'+sub+'</span>':'')+'</div><i class="lgo" aria-hidden="true"><svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg></i>';
+      return a;
+    };
+    const mkTile=(x,feat)=>{
+      if(!(LB[x.id]||{}).wide)return mkTileN(x,feat);
       const L=LB[x.id]||{g:'Sendirian',m:'',bg:fl('#17382d','#0f2a21'),art:'<b class="lbn">'+x.glyph+'</b>'};
       const a=el('a','lt'+(L.wide?' wide':'')+(L.cls?' '+L.cls:''));a.href='#'+x.id;
       a.innerHTML='<div class="lart" style="background:'+L.bg+'">'+L.art+(L.badge?'<span class="lbd">'+L.badge+'</span>':'')+'</div><div class="lnf"><b>'+x.name+'</b>'+(L.wide&&x.blurb?'<span>'+x.blurb+'</span>':'')+'</div>'+(L.big?'<i class="lbig2"><small>rekor</small>'+L.big+'</i>':'');
@@ -9846,7 +9879,7 @@ function route(){
         if(flt!=='Semua'&&flt!==gn)return;
         const gs=GAMES.filter(x=>(LB[x.id]||{g:'Sendirian'}).g===gn);if(!gs.length)return;
         const sec=el('div','lsec');sec.append(el('b','',gn),el('span','',gs.length+' meja'));
-        body.append(sec);const g=el('div','lgrid');gs.forEach(x=>g.append(mkTile(x)));body.append(g);
+        body.append(sec);const g=el('div','lgrid');const fi=gs.length%2?gs.findIndex(x=>!(LB[x.id]||{}).wide):-1;gs.forEach((x,i)=>g.append(mkTile(x,i===fi)));body.append(g);
       });
     };
     ['Semua',...GORD].forEach(f=>{const c=el('button','lchip',f);c.type='button';c.dataset.f=f;c.onclick=()=>{flt=f;paint()};chips.append(c)});
