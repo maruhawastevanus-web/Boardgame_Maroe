@@ -1103,7 +1103,7 @@ background-image:linear-gradient(90deg,transparent calc(33.333% - .5px),rgba(233
 .tw .twend.on{display:flex}.tw .twend.l{color:#ff6a5a}.tw .twend.w{color:#ffd23f}
 .tw.tover .twfl,.tw.tover .twmon,.tw.tover .dsbar,.tw.tover .twtb,.tw.tover .twtbl,.tw.tover .dscl,.tw.tover .twtr,.tw.tover .dsdesc,.tw.tover .dsmsg{display:none}
 .tw .twres:empty{display:none}
-/* Twenty One online: layar VS gaya foto tahanan (masuk geser, flash, VS coretan, hitung mundur 3 dtk) */
+/* Twenty One online: layar VS gaya foto tahanan (masuk geser, flash, VS coretan, hitung mundur 6 dtk) */
 .vsov{position:fixed;inset:0;z-index:9500;display:flex;align-items:center;justify-content:center;gap:clamp(4px,2vw,24px);padding:max(18px,env(safe-area-inset-top,0px)) 10px max(78px,calc(env(safe-area-inset-bottom,0px) + 70px));background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 35%,rgba(0,0,0,.78) 100%),repeating-linear-gradient(0deg,transparent 0 54px,rgba(0,0,0,.55) 54px 56px),linear-gradient(#2b2926,#161513);color:#f2efe8;overflow:hidden;transition:opacity .35s .15s;cursor:pointer}
 .vsov.out{opacity:0}
 .vsov .vsp{flex:1 1 0;max-width:min(46vw,46dvh);min-width:0;display:flex;flex-direction:column;align-items:center;position:relative;opacity:0;animation:vsin .6s cubic-bezier(.16,1,.3,1) forwards}
@@ -1124,7 +1124,7 @@ background-image:linear-gradient(90deg,transparent calc(33.333% - .5px),rgba(233
 .vsov .vsvs path:nth-child(2){animation:vsdraw .4s 1.2s ease-out forwards}
 .vsov.wt .vsvs{opacity:.25}.vsov.wt .vsvs path{animation:none;stroke-dashoffset:0}
 .vsov .vsfl{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:4;animation:vsfl .55s .85s ease-out forwards}
-.vsov .vsbar{position:absolute;left:0;right:0;bottom:0;height:3px;background:#d9a441;transform-origin:left center;z-index:5;animation:vsbar 3.2s linear forwards}
+.vsov .vsbar{position:absolute;left:0;right:0;bottom:0;height:3px;background:#d9a441;transform-origin:left center;z-index:5;animation:vsbar 6s linear forwards}
 .vsov .vsst{position:absolute;left:12px;right:12px;bottom:max(70px,calc(env(safe-area-inset-bottom,0px) + 62px));text-align:center;color:#d9a441;font-size:13px;z-index:5;min-height:18px}
 .vsov .vsact{position:absolute;left:0;right:0;bottom:max(12px,env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:4px;z-index:5}
 .vsov .vsx{min-height:46px;min-width:46px;padding:0 18px;background:none;border:0;color:#fff;font:400 16px sans-serif;letter-spacing:.18em;cursor:pointer}
@@ -9169,7 +9169,7 @@ function TwentyOne(box,joinCode){
     NET=null;
   }
   const fmtCode=c=>c.slice(0,4)+'-'+c.slice(4);
-  /* layar VS (online): muncul sekali per room sebelum ronde 1, 3 detik; ketuk untuk lewati, LEAVE untuk keluar. Mode wait = layar tunggu (teman belum masuk) */
+  /* layar VS (online): muncul sekali per room sebelum ronde 1, 6 detik; ketuk untuk lewati, LEAVE untuk keluar. Mode wait = layar tunggu (teman belum masuk) */
   let vsEl=null;
   function hideVS(){if(vsEl){const e=vsEl;vsEl=null;e.remove()}}
   function vsOut(o){if(vsEl===o&&!o.classList.contains('out')){o.classList.add('out');T.after(()=>{if(vsEl===o)hideVS()},620)}}
@@ -9204,7 +9204,7 @@ function TwentyOne(box,joinCode){
     const t=Date.now();
     o.onclick=()=>{if(Date.now()-t>900)vsOut(o)};
     vsEl=o;document.body.append(o);
-    T.after(()=>vsOut(o),3200);
+    T.after(()=>vsOut(o),6000);
   }
   function showVS(lkA,lkB,nameB,demo){if(!lkA||!lkB)return;vsBuild(lkA,lkB,nameB,demo,false)}
   function showWait(){vsBuild(twMine(),null,'',null,true)}
