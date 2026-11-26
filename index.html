@@ -1326,6 +1326,8 @@ D1.push(["Taruhan lawan naik 1 selama kartu ini di meja.","The opponent's bet go
 D1.push(["KAMU KALAH","YOU LOSE"],["KAMU MENANG","YOU WIN"]);
 /* Twenty One: kekuatan Kitsune Emas, nama karakter, layar room online */
 D1.push(["Main Twenty One bareng aku di Board Game Maroe. Buka link ini, langsung masuk:","Play Twenty One with me on Board Game Maroe. Open this link to join straight away:"],["Nyala Arwah","Spirit Flame"],["Tipuan","Deception"],["Pesona Rubah","Fox Charm"],["Pesona Rubah sudah dipakai ronde ini.","Fox Charm was already used this round."],["Pesona Rubah –","Fox Charm –"],["wajib Hit di giliran berikutnya.","must Hit on their next turn."],["Pesona Rubah! Kamu wajib Hit di giliran berikutnya.","Fox Charm! You must Hit on your next turn."],["Terpesona Pesona Rubah: kamu wajib Hit.","Charmed by Fox Charm: you must Hit."],["Tipuan (pasif): kartu terbuka pertamamu tampil palsu di layar lawan.","Deception (passive): your first face-up card shows a fake number on the opponent's screen."],["Terpakai","Used"],["Siap","Ready"],["Mutiara Rubah","Fox Pearl"],["Kembali ke Ekor","Return to Tail"],["Sembilan Ekor","Nine Tails"],["Kitsune Emas","Golden Kitsune"],["Kitsune Arwah","Spirit Kitsune"],["Baret Topeng","Masked Beret"],["Polisi","Police"],["Pesulap","Magician"],["Robot Kasino","Casino Robot"],["Badut","Clown"],["Rubah Topeng","Masked Fox"],["Nyala Arwah – kartu tertutup lawan:","Spirit Flame – opponent's hidden card:"],["Nyala Arwah dipakai oleh:","Spirit Flame used by:"],["Tipuan: kartu terbukamu tampil palsu di layar lawan.","Deception: your face-up card shows a fake number on the opponent's screen."],["Asli:","Real:"],["tampil:","shown:"],["Angkamu:","Your number:"],["Angka","Number"],["Angka:","Number:"],["Oleh:","By:"],["Trump hancur:","Trump destroyed:"],["· pemilik:","· owner:"],["Kembali ke Ekor: kartu terakhir dikembalikan ke dek.","Return to Tail: the last card goes back to the deck."],["Poin diambil oleh","Points taken by"],["Poin diambil dari","Points taken from"],["Mutiara Rubah menyelamatkanmu. Tidak ada poin yang berpindah.","Fox Pearl saves you. No points change hands."],["Mutiara Rubah menyelamatkan lawan. Tidak ada poin yang berpindah.","Fox Pearl saves the opponent. No points change hands."],["Nyala Arwah sudah dipakai ronde ini.","Spirit Flame was already used this round."],["Tipuan sudah dipakai ronde ini.","Deception was already used this round."],["Tidak ada kartu terbuka untuk ditipu.","No face-up card to deceive."],["Mutiara Rubah:","Fox Pearl:"],["Kembali ke Ekor:","Return to Tail:"],["siap","ready"],["terpakai","used"],["POIN AKHIR","FINAL POINTS"],["Kamu room master. Bagikan kode 8 huruf ke temanmu.","You're the room master. Share the 8-letter code with your friend."],["Berikan kode 8 huruf ini ke temanmu. Orang pertama yang gabung akan bermain denganmu.","Give this 8-letter code to your friend. The first person to join will play with you."],["Online tidak jalan kalau dibuka dari file. Upload ke hosting (misalnya GitHub Pages), lalu buka lewat link https.","Online doesn't work when opened from a file. Upload to hosting (for example GitHub Pages), then open the https link."],["Room sudah penuh.","The room is full."],["Menunggu temanmu bergabung…","Waiting for your friend to join…"],["Temanmu keluar dari room.","Your friend left the room."],["Room tidak ditemukan atau temanmu belum membuatnya. Periksa kodenya.","Room not found, or your friend hasn't created it yet. Check the code."],["Kodenya 8 huruf atau angka.","The code is 8 letters or digits."],["Mencari room…","Looking for room…"],["Main Twenty One bareng aku di Board Game Maroe. Gabung dengan kode:","Play Twenty One with me on Board Game Maroe. Join with code:"]);
+/* Twenty One: kekuatan Owner */
+D1.push(["Mata Takdir","Fate's Eye"],["Belati Takdir","Fate's Dagger"],["Mata Takdir sudah dipakai ronde ini.","Fate's Eye was already used this round."],["Belati Takdir sudah dipakai ronde ini.","Fate's Dagger was already used this round."],["Dek terlalu sedikit.","Too few cards in the deck."],["Mata Takdir – kartu teratas dek:","Fate's Eye – top card of the deck:"],["Mata Takdir dipakai oleh:","Fate's Eye used by:"],["Belati Takdir: kartu teratas dek dibuang.","Fate's Dagger: the top card of the deck is discarded."],["Kapten Menang Seri","Captain's Tiebreak"],["Kapten Menang Seri: imbang jadi menang.","Captain's Tiebreak: the draw becomes a win."],["Kulit Karang","Reef Hide"],["Kulit Karang: poin yang hilang berkurang 1.","Reef Hide: points lost reduced by 1."],["Tebasan Akhir","Final Slash"],["Tebasan Akhir: total pas, lawan kehilangan 1 poin tambahan.","Final Slash: exact total, the opponent loses 1 extra point."],["Pasang Balik","Tide Turn"],["Pasang Balik: trump tambahan.","Tide Turn: bonus trump."],["Poin >3","Points >3"]);
 const T={en:mk(D1),id:mk(D2)},cache=new Map();
 let LANG=store.get("lang","id");if(LANG!=="en")LANG="id";
 function conv(s,to){
@@ -4032,6 +4034,7 @@ function dsFig(c,type,ox,oy,u,st){
       /* kitsune emas (khusus owner): topeng rubah berbingkai emas, haori biru malam, sembilan ekor emas, nyala arwah keemasan */
       const GD='#d9a441',GH='#ffe7a6',RD='#b3261e',WH='#f6ecd8',IA='#1b2052',IB='#2c3478',IC='#0b0d2a';
       /* sembilan ekor: berisi di tengah, melengkung, ujung lancip; krem di pangkal, emas di ujung */
+      if(!st.notail){/* notail: kepala/badan terpotong tanpa ekor; tailsonly: hanya ekor */
       for(const k of [0,8,1,7,2,6,3,5,4]){
         const d=k-4,sg=Math.sign(d),ad=Math.abs(d),a=d*.24+Math.sin(t/800+k*.7)*.04,L=64-ad*3.5,RM=8.5-ad*.35,pt=[];
         let x=0,y=60;
@@ -4044,6 +4047,8 @@ function dsFig(c,type,ox,oy,u,st){
         for(const [px,py,r,pr] of pt)E(px,py,r,r,pr<.45?'#fff3d6':pr<.75?'#f8d98a':'#e59a35');
       }
       for(const [sx,sy,ph] of [[-38,44,0],[38,40,1.3],[-30,8,2.1],[31,6,.7]])if(((t/260+ph)|0)%4<2){R(sx,sy-2,1,5,'#fff');R(sx-2,sy,5,1,'#fff')}
+      }
+      if(st.tailsonly)return;
       body(IA,IB,IC);
       for(let i=0;i<13;i++){R(-12+i,44+i,3,1,GH);R(10-i,44+i,3,1,GH)}
       for(let i=0;i<13;i++){R(-14+i,43+i,2,1,GD);R(13-i,43+i,2,1,GD)}
@@ -8787,6 +8792,8 @@ const TW_GF={g17:17,g24:24,g27:27},TW_UP={oneup:1,twoup:2,bloodshed:1},TW_SH={sh
 const TW_SK=['Klasik','Naga','Black Hole','Ubur-ubur','Gunung Api','Sakura','Sirkuit','Mesir','Kutub','Kitsune','Kitsune Arwah','Reaper'];
 const TW_SK_OWN=new Set([9,11]);/* skin khusus owner (akun owner) */
 function twSan(m){m=m||{};const n=TW_SK.length;return{sk:(((m.sk|0)%n)+n)%n,ch:chOk(m.ch)}}
+/* look tamu online: karakter/skin owner tidak bisa diverifikasi antar-peer, jadi direset ke default (cegah tamu pakai kekuatan Kitsune) */
+function twPeer(m){const L=twSan(m);if(DS_CHARS[L.ch].own)L.ch=0;if(TW_SK_OWN.has(L.sk))L.sk=0;return L}
 function twMine(){const v=store.get('tw-look',null)||{},L=twSan(v);if(DS_CHARS[L.ch].own&&!isOwner())L.ch=0;if(TW_SK_OWN.has(L.sk)&&!isOwner())L.sk=0;return L}
 function twBotLook(){const ids=[],sks=[];DS_CHARS.forEach((c,i)=>{if(!c.own)ids.push(i)});TW_SK.forEach((_,i)=>{if(!TW_SK_OWN.has(i))sks.push(i)});return{sk:sks[rnd(sks.length)],ch:ids[rnd(ids.length)]}}
 function TwentyOne(box,joinCode){
@@ -8852,10 +8859,10 @@ function TwentyOne(box,joinCode){
   }
 
   /* karakter lawan di adegan: pakai karakter Buckshot pilihan pemain itu */
-  function twFig(c,ci,now){
+  function twFig(c,ci,now,ex){
     const C=twCh(ci),sp=!!C.spr;
     if(sp&&!C.spr.naturalWidth)return;
-    dsFigure(c,C.face,80,sp?8:15,sp?1:.6,{t:now,mood:'tense',opp:1});
+    dsFigure(c,C.face,80,sp?8:15,sp?1:.6,Object.assign({t:now,mood:'tense',opp:1},ex||{}));
   }
   /* garis leher karakter (koordinat adegan 160x90): sprite = fraksi tinggi (C.neck bisa menimpa), figur kode = 36 */
   function twNeck(ci){
@@ -8867,6 +8874,7 @@ function TwentyOne(box,joinCode){
   const twToneC={};
   function twTone(ci){
     const ix=chOk(ci);if(twToneC[ix])return twToneC[ix];
+    if(DS_CHARS[ix].id==='kit')return twToneC[ix]=['#1b2052','#2c3478','#0b0d2a'];/* Kitsune Emas: haori biru malam (tanpa sprite untuk dihitung) */
     let t=['#2a2d36','#3a3e4a','#171920'];const f=dsSprFig(ix);
     if(f){try{const g=f.getContext('2d'),y0=Math.floor(f.height*.7),d=g.getImageData(0,y0,f.width,f.height-y0).data;let r=0,gg=0,b=0,n=0;
       for(let i=0;i<d.length;i+=4)if(d[i+3]>200){r+=d[i];gg+=d[i+1];b+=d[i+2];n++}
@@ -8876,7 +8884,7 @@ function TwentyOne(box,joinCode){
   /* gambar hanya kepala (atas leher) atau hanya badan (bawah leher) dari karakter yang sama */
   function twSplit(c,ci,now,part,neck){
     c.save();c.beginPath();if(part==='head')c.rect(0,0,160,neck);else c.rect(0,neck,160,90-neck);c.clip();
-    twFig(c,ci,now);c.restore();
+    twFig(c,ci,now,{notail:1});c.restore();
   }
   function customize(){
     gen++;netLeave(true);stopLoop();S=null;root.innerHTML='';
@@ -8944,6 +8952,7 @@ function TwentyOne(box,joinCode){
     if(lk&&!cut)twFig(cx,lk.ch,now);
     if(lk&&cut){/* badan tetap skin karakter, kepala hilang, leher berdarah menyembur */
       const nk=twNeck(lk.ch),tn=twTone(lk.ch);
+      if(DS_CHARS[chOk(lk.ch)].id==='kit')twFig(cx,lk.ch,now,{tailsonly:1});/* Kitsune Emas: ekor tidak ikut terpotong */
       /* badan hasil generate: torso + pinggang, sprite bahu digambar di atasnya */
       R(64,nk,32,66-nk,tn[0]);R(64,nk,3,66-nk,tn[1]);R(93,nk,3,66-nk,tn[2]);R(76,nk,8,6,tn[2]);
       R(78,nk+6,1,60-nk,tn[2]);for(let y=nk+10;y<62;y+=9)R(77,y,3,2,tn[1]);
@@ -9138,11 +9147,15 @@ function TwentyOne(box,joinCode){
       row.append(btn('Hit','',()=>pHit(),tot(0)>S.limit||!S.deck.length),btn('Stand','ghost',()=>pStand(),mustHit(0)));
       if(sid)row.append(btn('Pakai '+TW_TR[sid].n,'alt',()=>pTrump()));
       if(kit(0)){const q=S.pw[0]||{};row.append(btn('Nyala Arwah','alt',()=>pPower('peek'),!!q.pk||!S.hand[1].some(c=>c.hid)),btn('Pesona Rubah','alt',()=>pPower('charm'),!!q.pc))}
+      if(ownr(0)){const q=S.pw[0]||{};row.append(btn('Mata Takdir','alt',()=>pPower('eye'),!!q.ey||!S.deck.length),btn('Belati Takdir','alt',()=>pPower('dagger'),!!q.dg||S.deck.length<2))}
       if(!my)row.querySelectorAll('button').forEach(b=>b.disabled=true);
     }
     elAct.append(row);
     if(kit(0)&&!S.over&&S.pw[0]){const q=S.pw[0],ps=el('div','twps');
-      [['Sembilan Ekor',1],['Tipuan',q.pt],['Mutiara Rubah',q.pp],['Kembali ke Ekor',q.pb]].forEach(([n,u])=>{const c=el('span','twp'+(u?' u':''));c.textContent=n+' · '+(u?'Terpakai':'Siap');ps.append(c)});
+      [['Sembilan Ekor',1],['Tipuan',q.pt],['Mutiara Rubah',q.pp],['Kembali ke Ekor',kbCd(q)]].forEach(([n,u])=>{const c=el('span','twp'+(u?' u':''));c.textContent=n+' · '+(n==='Kembali ke Ekor'&&u?'CD '+u+' ronde':u?'Terpakai':'Siap');ps.append(c)});
+      elAct.append(ps)}
+    if(ownr(0)&&!S.over&&S.pw[0]){const ps=el('div','twps');
+      [['Kapten Menang Seri',0],['Kulit Karang',0],['Tebasan Akhir',0],['Pasang Balik',S.hp[0]>3]].forEach(([n,u])=>{const c=el('span','twp'+(u?' u':''));c.textContent=n+' · '+(u?'Poin >3':'Siap');ps.append(c)});
       elAct.append(ps)}
     if(NET&&NET.role==='host')netSync();
   }
@@ -9263,7 +9276,7 @@ function TwentyOne(box,joinCode){
       if(m.t==='join'){
         if(!n.peer||n.peer===m.u){
           const first=!n.peer;n.peer=m.u;bn=(typeof m.n==='string'&&m.n.trim())?m.n.trim().slice(0,16):'Teman';
-          n.peerLk=twSan(m);netPost({t:'start',g:m.u,n:myName||'Teman'},3);
+          n.peerLk=twPeer(m);netPost({t:'start',g:m.u,n:myName||'Teman'},3);
           if(first){n.ready=true;start()}else{if(S&&S.lk)S.lk[1]=n.peerLk;n.lastV='';netSync()}
         }else netPost({t:'full',g:m.u},1);
         return;
@@ -9388,19 +9401,33 @@ function TwentyOne(box,joinCode){
   const syncLim=()=>{const g=S.tl.find(x=>TW_GF[x.id]);S.limit=g?TW_GF[g.id]:21};
   /* kekuatan Kitsune Emas (khusus game 21): Sembilan Ekor, Nyala Arwah, Tipuan, Mutiara Rubah, Kembali ke Ekor */
   const KIT=DS_CHARS.findIndex(c=>c.id==='kit');
+  const KIT_CD=2;/* Kembali ke Ekor: setelah dipakai, tidak bisa dipakai lagi selama KIT_CD ronde (pb = ronde terakhir dipakai) */
+  const kbCd=q=>q&&q.pb?Math.min(KIT_CD,Math.max(0,KIT_CD+1-(S.round-q.pb))):0;
   const kit=i=>KIT>=0&&!!S&&!!S.lk&&!!S.lk[i]&&S.lk[i].ch===KIT;
+  /* kekuatan Owner (karakter 'may', khusus game 21). Aktif: Mata Takdir, Belati Takdir. Pasif: Kapten Menang Seri, Kulit Karang, Tebasan Akhir, Pasang Balik. Tamu online tidak bisa jadi Owner (lihat twPeer), jadi hanya host / lawan bot. */
+  const MAY=DS_CHARS.findIndex(c=>c.id==='may');
+  const ownr=i=>MAY>=0&&!!S&&!!S.lk&&!!S.lk[i]&&S.lk[i].ch===MAY;
   function power(i,w){
-    if(!kit(i)||S.turn!==i||S.phase!=='play'||S.over)return false;
+    const K=kit(i),M=ownr(i);
+    if(!(K||M)||S.turn!==i||S.phase!=='play'||S.over)return false;
     const p=S.pw[i],o=1-i;let bad='';
     const priv=t=>{if(i===0)addMsg(t);else if(NET&&NET.role==='host')NET.out.push(t)};
-    if(w==='peek'){
+    if(K&&w==='peek'){
       const c=S.hand[o].find(x=>x.hid);
       if(p.pk)bad='Nyala Arwah sudah dipakai ronde ini.';
       else if(!c)bad='Tidak ada kartu tertutup untuk diintip.';
       else{p.pk=1;sayV(x=>x===i?'Nyala Arwah – kartu tertutup lawan: '+c.v+'.':'Nyala Arwah dipakai oleh: '+pn(i)+'.')}
-    }else if(w==='charm'){
+    }else if(K&&w==='charm'){
       if(p.pc)bad='Pesona Rubah sudah dipakai ronde ini.';
       else{p.pc=1;S.pw[o].cm=1;sayV(x=>x===i?'Pesona Rubah – '+pn(o)+' wajib Hit di giliran berikutnya.':'Pesona Rubah! Kamu wajib Hit di giliran berikutnya.')}
+    }else if(M&&w==='eye'){
+      if(p.ey)bad='Mata Takdir sudah dipakai ronde ini.';
+      else if(!S.deck.length)bad='Dek habis.';
+      else{const v=S.deck[S.deck.length-1];p.ey=1;sayV(x=>x===i?'Mata Takdir – kartu teratas dek: '+v+'.':'Mata Takdir dipakai oleh: '+pn(i)+'.')}
+    }else if(M&&w==='dagger'){
+      if(p.dg)bad='Belati Takdir sudah dipakai ronde ini.';
+      else if(S.deck.length<2)bad='Dek terlalu sedikit.';
+      else{const v=S.deck.pop();p.dg=1;sayV(x=>'Belati Takdir: kartu teratas dek dibuang. Angka: '+v+'. Oleh: '+nmV(x,i)+'.')}
     }else return false;
     if(bad){priv(bad);return false}
     Music.sfx('click');return true;
@@ -9415,7 +9442,7 @@ function TwentyOne(box,joinCode){
   /* Pesona Rubah: yang terpesona wajib Hit (kalau masih bisa Hit) */
   function mustHit(i){const q=S.pw&&S.pw[i];return !!(q&&q.cm&&tot(i)<=S.limit&&S.deck.length)}
   function pPower(w){
-    if(S.turn!==0||S.phase!=='play'||S.over||!kit(0))return;
+    if(S.turn!==0||S.phase!=='play'||S.over||!(kit(0)||ownr(0)))return;
     if(NET&&NET.role==='guest'){netAct('pw',w);guestPend();return}
     power(0,w);render();
   }
@@ -9426,7 +9453,7 @@ function TwentyOne(box,joinCode){
   function gain(i,n){for(let c=0;c<n;c++){const g=giveTrump(i);if(g)trumpMsg(i,g)}}
   function newRound(){
     gen++;S.round++;S.limit=21;S.phase='play';S.deck=shuffle([1,2,3,4,5,6,7,8,9,10,11]);
-    S.hand=[[],[]];S.tl=[];S.stood=[false,false];S.botTr=0;sel=null;msgs=[];S.pw.forEach(q=>{q.pk=0;q.pt=0;q.pb=0;q.pc=0;q.cm=0});
+    S.hand=[[],[]];S.tl=[];S.stood=[false,false];S.botTr=0;sel=null;msgs=[];S.pw.forEach(q=>{q.pk=0;q.pt=0;q.pc=0;q.cm=0;q.ey=0;q.dg=0});
     S.bet=S.round===1?1:S.blessSaved?Math.max(1,S.bet-1):Math.min(5,S.bet+1);S.blessSaved=false;
     for(let i=0;i<2;i++){S.hand[i].push({v:S.deck.pop(),hid:true,fresh:true});S.hand[i].push({v:S.deck.pop(),hid:false,fresh:true})}
     const mine=giveTrump(0),theirs=giveTrump(1);giveTrump(0);giveTrump(1);
@@ -9435,6 +9462,7 @@ function TwentyOne(box,joinCode){
     if(mine)sayV(w=>'Kamu dapat trump card "'+TW_TR[w?theirs:mine].n+'".');
     if(theirs)sayV(w=>pn(1-w)+' dapat trump card.');
     [0,1].forEach(i=>{if(kit(i))gain(i,1)});/* Sembilan Ekor: +1 trump gratis tiap ronde */
+    [0,1].forEach(i=>{if(ownr(i)&&S.hp[i]<=3){sayV(w=>'Pasang Balik: trump tambahan. Oleh: '+nmV(w,i)+'.');gain(i,1)}});/* Pasang Balik (Owner): poin 3 atau kurang, +1 trump tiap ronde */
     [0,1].forEach(i=>{if(kit(i))deceive(i)});/* Tipuan (pasif): kartu terbuka pertama langsung tampil palsu di layar lawan */
     Music.sfx('deal');render();
     if(S.turn===1&&!NET)botTurn();
@@ -9540,9 +9568,9 @@ function TwentyOne(box,joinCode){
   }
   function showdown(){
     S.phase='end';S.hand.forEach(h=>h.forEach(c=>{c.hid=false;delete c.fk}));
-    [0,1].forEach(i=>{/* Kembali ke Ekor: kalau lewat batas, kartu terakhir balik ke dek (1x per ronde) */
-      if(!kit(i)||S.pw[i].pb||tot(i)<=S.limit||S.hand[i].length<2)return;
-      const c=S.hand[i].pop();S.deck.splice(rnd(S.deck.length+1),0,c.v);S.pw[i].pb=1;
+    [0,1].forEach(i=>{/* Kembali ke Ekor: kalau lewat batas, kartu terakhir balik ke dek (cooldown KIT_CD ronde) */
+      if(!kit(i)||kbCd(S.pw[i])>0||tot(i)<=S.limit||S.hand[i].length<2)return;
+      const c=S.hand[i].pop();S.deck.splice(rnd(S.deck.length+1),0,c.v);S.pw[i].pb=S.round;
       sayV(w=>'Kembali ke Ekor: kartu terakhir dikembalikan ke dek. Angka: '+c.v+'. Oleh: '+nmV(w,i)+'.');
     });
     const L=S.limit,a=tot(0),b=tot(1),ba=a>L,bb=b>L;
@@ -9551,9 +9579,12 @@ function TwentyOne(box,joinCode){
     sayV(w=>'Kartu dibuka. Totalmu '+(w?b:a)+' · '+pn(1-w)+' '+(w?a:b)+' · Batas '+L+'.');
     if(ba)sayV(w=>w===0?'Kamu lewat batas.':pn(0)+' lewat batas.');
     if(bb)sayV(w=>w===1?'Kamu lewat batas.':pn(1)+' lewat batas.');
+    if(w<0){const t=ownr(0)&&!ownr(1)?0:ownr(1)&&!ownr(0)?1:-1;if(t>=0){w=t;sayV(x=>'Kapten Menang Seri: imbang jadi menang. Oleh: '+nmV(x,t)+'.')}}/* Kapten Menang Seri (Owner) */
     if(w<0)say('Imbang. Tidak ada poin yang berpindah.');
     else{
       const l=1-w;let d=Math.min(S.hp[l],betFor(l));
+      if(ownr(w)&&tot(w)===L&&d<S.hp[l]){d++;sayV(x=>'Tebasan Akhir: total pas, lawan kehilangan 1 poin tambahan. Oleh: '+nmV(x,w)+'.')}/* Tebasan Akhir (Owner) */
+      if(ownr(l)&&d>1){d--;sayV(x=>'Kulit Karang: poin yang hilang berkurang 1. Oleh: '+nmV(x,l)+'.')}/* Kulit Karang (Owner) */
       if(d>0&&d>=S.hp[l]&&S.tl.some(x=>x.w===l&&x.id==='bless')){d=0;S.blessSaved=true;sayV(w=>l===w?'Bless menyelamatkanmu. Tidak ada poin yang berpindah.':'Bless menyelamatkan lawan. Tidak ada poin yang berpindah.')}
       else if(d>0&&d>=S.hp[l]&&kit(l)&&!S.pw[l].pp){d=0;S.pw[l].pp=1;sayV(w=>l===w?'Mutiara Rubah menyelamatkanmu. Tidak ada poin yang berpindah.':'Mutiara Rubah menyelamatkan lawan. Tidak ada poin yang berpindah.')}
       S.hp[l]-=d;S.hp[w]+=d;
