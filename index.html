@@ -1029,10 +1029,10 @@ background-image:linear-gradient(90deg,transparent calc(33.333% - .5px),rgba(233
 .tw .twc.mh::after{content:"";position:absolute;inset:2px;border:1px dashed #b22a1f;pointer-events:none}
 .tw .twc.new{animation:twdeal .3s steps(5)}
 /* skin kartu Twenty One: tema ilustrasi + animasi (lapisan seni di ::before, angka tetap di atas) */
-.tw .twc:is(.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10){overflow:hidden;isolation:isolate;border-radius:5px}
-.tw .twc:is(.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10)::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
-.tw .twc.bk:is(.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10){font-size:0;box-shadow:inset 0 0 0 2px rgba(0,0,0,.5),2px 2px 0 #02060f}
-.tw .twc.bk:is(.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10)::after{font-size:22px;line-height:1}
+.tw .twc:is(.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10,.s11){overflow:hidden;isolation:isolate;border-radius:5px}
+.tw .twc:is(.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10,.s11)::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.tw .twc.bk:is(.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10,.s11){font-size:0;box-shadow:inset 0 0 0 2px rgba(0,0,0,.5),2px 2px 0 #02060f}
+.tw .twc.bk:is(.s1,.s2,.s3,.s4,.s5,.s6,.s7,.s8,.s9,.s10,.s11)::after{font-size:22px;line-height:1}
 .tw .twc.s1{color:#ffe7a6;border-color:#f2b632;text-shadow:0 1px 0 #3a0306,0 0 6px #ff7a1a;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'>%3Cpath d='M5 11Q7 2 15 0Q11 6 12 12ZM37 11Q35 2 27 0Q31 6 30 12Z' fill='%23f5c542'/%3E</svg>") 0 0/100% 100% no-repeat,radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(255,196,64,.3) 5px 6px,transparent 6.5px) 0 0/12px 9px,radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(255,196,64,.3) 5px 6px,transparent 6.5px) 6px 4.5px/12px 9px,linear-gradient(170deg,#a3121a,#4d070c)}
 .tw .twc.s1::before{background:radial-gradient(ellipse at 50% 115%,rgba(255,170,40,.9),rgba(255,70,10,.5) 40%,transparent 68%);transform-origin:50% 100%;animation:twflick 1.3s ease-in-out infinite alternate}
 .tw .twc.bk.s1{background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'>%3Cpath d='M4 30Q21 12 38 30Q21 48 4 30Z' fill='%23f2a413'/%3E%3Cellipse cx='21' cy='30' rx='4' ry='10' fill='%23120000'/%3E%3Cpath d='M4 30Q21 12 38 30' fill='none' stroke='%23ffe08a' stroke-width='1.6'/%3E</svg>") 0 0/100% 100% no-repeat,radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(255,196,64,.3) 5px 6px,transparent 6.5px) 0 0/12px 9px,radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(255,196,64,.3) 5px 6px,transparent 6.5px) 6px 4.5px/12px 9px,linear-gradient(170deg,#6d0b11,#2a0306)}
@@ -1058,13 +1058,19 @@ background-image:linear-gradient(90deg,transparent calc(33.333% - .5px),rgba(233
 .tw .twc.s8,.tw .twc.bk.s8{color:#fff;border-color:#7fd8ff;text-shadow:0 0 6px #3dffb0;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'>%3Cpath d='M0 60V50L10 44L16 50L26 42L34 49L42 46V60Z' fill='%23dff4ff' fill-opacity='.85'/%3E%3Cpath d='M21 7V19M15.8 10L26.2 16M15.8 16L26.2 10' stroke='%23bfe9ff' stroke-width='1.1' stroke-linecap='round'/%3E</svg>") 0 0/100% 100% no-repeat,linear-gradient(180deg,#04122a,#0b2a4a)}
 .tw .twc.s8::before{background:linear-gradient(115deg,transparent 20%,rgba(61,255,176,.55) 40%,rgba(122,92,255,.5) 60%,transparent 80%);filter:blur(3px);animation:twaur 4s ease-in-out infinite alternate}
 .tw .twc.bk.s8::after{content:"✧";color:#bfe9ff;position:absolute;top:5px}
-.tw .twc.s9{color:#ffe7a6;border-color:#d9a441;text-shadow:0 1px 0 #06081a,0 0 6px #e0482a;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cg id='t'%3E%3Cpath d='M21 62C12 56 13 48 21 41C29 48 30 56 21 62Z' fill='%23d9a441' fill-opacity='.2' stroke='%23d9a441' stroke-width='.7'/%3E%3Cpath d='M21 41C19.2 44 19.6 45.6 21 47C22.4 45.6 22.8 44 21 41Z' fill='%23fff2c8'/%3E%3C/g%3E%3C/defs%3E%3Crect x='2.4' y='2.4' width='37.2' height='55.2' rx='2' fill='none' stroke='%23d9a441' stroke-opacity='.55' stroke-width='.6'/%3E%3Cuse href='%23t' transform='rotate(-60 21 62)'/%3E%3Cuse href='%23t' transform='rotate(-45 21 62)'/%3E%3Cuse href='%23t' transform='rotate(-30 21 62)'/%3E%3Cuse href='%23t' transform='rotate(-15 21 62)'/%3E%3Cuse href='%23t' transform='rotate(0 21 62)'/%3E%3Cuse href='%23t' transform='rotate(15 21 62)'/%3E%3Cuse href='%23t' transform='rotate(30 21 62)'/%3E%3Cuse href='%23t' transform='rotate(45 21 62)'/%3E%3Cuse href='%23t' transform='rotate(60 21 62)'/%3E%3Cpath d='M4 15L7 1L16 9ZM38 15L35 1L26 9Z' fill='%23d9a441'/%3E%3Cpath d='M7.4 11.5L8.2 5.2L12.4 8.4ZM34.6 11.5L33.8 5.2L29.6 8.4Z' fill='%23b3261e'/%3E%3Ccircle cx='21' cy='6.5' r='2.2' fill='%23ffe7a6'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat,radial-gradient(ellipse at 50% 112%,rgba(255,150,60,.55),transparent 62%),radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(217,164,65,.26) 5px 6px,transparent 6.5px) 0 0/12px 9px,radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(217,164,65,.26) 5px 6px,transparent 6.5px) 6px 4.5px/12px 9px,linear-gradient(170deg,#1d2252,#090b22)}
+.tw .twc.s9{padding-bottom:8px;color:#ffe7a6;border-color:#d9a441;text-shadow:0 1px 0 #06081a,0 0 6px #e0482a;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'%3E%3Crect x='2.4' y='2.4' width='37.2' height='55.2' rx='2' fill='none' stroke='%23d9a441' stroke-opacity='.55' stroke-width='.6'/%3E%3Cpath d='M7 60C4.4 57.09 2.1 58.2 2.8 51.7C12.81 51.5 19.5 56.27 21 60Z' fill='%23262040' stroke='%23d9a441' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M10.4 60C7.8 55.52 5.4 53.7 6.1 47.2C14.29 47 19.5 54.24 21 60Z' fill='%23262040' stroke='%23d9a441' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M13.4 60C10.8 54.3 9.6 50.2 10.3 43.7C16.19 43.5 19.5 52.67 21 60Z' fill='%23262040' stroke='%23d9a441' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M16 60C13.4 53.56 14.7 48.1 15.4 41.6C18.48 41.4 19.5 51.72 21 60Z' fill='%23262040' stroke='%23d9a441' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M17.6 60C14.6 53.5 19.2 47 21 40.9C22.8 47 27.4 53.5 24.4 60Z' fill='%23262040' stroke='%23d9a441' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M26 60C28.6 53.56 27.3 48.1 26.6 41.6C23.52 41.4 22.5 51.72 21 60Z' fill='%23262040' stroke='%23d9a441' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M28.6 60C31.2 54.3 32.4 50.2 31.7 43.7C25.81 43.5 22.5 52.67 21 60Z' fill='%23262040' stroke='%23d9a441' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M31.6 60C34.2 55.52 36.6 53.7 35.9 47.2C27.71 47 22.5 54.24 21 60Z' fill='%23262040' stroke='%23d9a441' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M35 60C37.6 57.09 39.9 58.2 39.2 51.7C29.19 51.5 22.5 56.27 21 60Z' fill='%23262040' stroke='%23d9a441' stroke-width='1' stroke-linejoin='round'/%3E%3Cpath d='M3.07 51.82L5.01 54.08L7.99 54.07L6.05 51.81Z' fill='%23fff2c8'/%3E%3Cpath d='M6.33 47.4L7.56 50.1L10.42 50.91L9.19 48.21Z' fill='%23fff2c8'/%3E%3Cpath d='M10.46 43.95L10.9 46.89L13.43 48.47L12.99 45.52Z' fill='%23fff2c8'/%3E%3Cpath d='M15.49 41.89L15.08 44.83L17.06 47.05L17.47 44.11Z' fill='%23fff2c8'/%3E%3Cpath d='M21 41.2L19.75 43.9L21 46.6L22.25 43.9Z' fill='%23fff2c8'/%3E%3Cpath d='M26.51 41.89L24.53 44.11L24.94 47.05L26.92 44.83Z' fill='%23fff2c8'/%3E%3Cpath d='M31.54 43.95L29.01 45.52L28.57 48.47L31.1 46.89Z' fill='%23fff2c8'/%3E%3Cpath d='M35.67 47.4L32.81 48.21L31.58 50.91L34.44 50.1Z' fill='%23fff2c8'/%3E%3Cpath d='M38.93 51.82L35.95 51.81L34.01 54.07L36.99 54.08Z' fill='%23fff2c8'/%3E%3Cpath d='M4 15L7 1L16 9ZM38 15L35 1L26 9Z' fill='%23d9a441'/%3E%3Cpath d='M7.4 11.5L8.2 5.2L12.4 8.4ZM34.6 11.5L33.8 5.2L29.6 8.4Z' fill='%23b3261e'/%3E%3Ccircle cx='21' cy='6.5' r='2.2' fill='%23ffe7a6'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat,radial-gradient(ellipse at 50% 112%,rgba(255,150,60,.55),transparent 62%),radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(217,164,65,.26) 5px 6px,transparent 6.5px) 0 0/12px 9px,radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(217,164,65,.26) 5px 6px,transparent 6.5px) 6px 4.5px/12px 9px,linear-gradient(170deg,#1d2252,#090b22)}
 .tw .twc.s9::before{width:55%;left:-70%;background:linear-gradient(105deg,transparent,rgba(255,231,166,.4),transparent);animation:twshim 3.6s ease-in-out infinite}
 .tw .twc.bk.s9{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'%3E%3Crect x='2.4' y='2.4' width='37.2' height='55.2' rx='2' fill='none' stroke='%23d9a441' stroke-opacity='.55' stroke-width='.6'/%3E%3Cg transform='translate(6.8 3) scale(.69)'%3E%3Cpath d='M5 21L7 4L17 13Q21 12 25 13L35 4L37 21Q37 42 21 56Q5 42 5 21Z' fill='%23f6ecd8' stroke='%23d9a441' stroke-width='1.4'/%3E%3Cpath d='M8 17L8.6 8L14 12ZM34 17L33.4 8L28 12Z' fill='%23b3261e'/%3E%3Cpath d='M21 15L18.6 23H23.4Z' fill='%23b3261e'/%3E%3Cpath d='M10 28Q14 32 18 29M32 28Q28 32 24 29' fill='none' stroke='%23b3261e' stroke-width='1.8' stroke-linecap='round'/%3E%3Cpath d='M5 36L13 37M5 41L13 40M37 36L29 37M37 41L29 40' stroke='%23b3261e' stroke-width='1.2' stroke-linecap='round'/%3E%3Ccircle cx='21' cy='46' r='2' fill='%231a0a10'/%3E%3C/g%3E%3C/svg%3E") 0 0/100% 100% no-repeat,radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(217,164,65,.26) 5px 6px,transparent 6.5px) 0 0/12px 9px,radial-gradient(circle at 50% 0,transparent 0 4.5px,rgba(217,164,65,.26) 5px 6px,transparent 6.5px) 6px 4.5px/12px 9px,linear-gradient(170deg,#1d2252,#090b22)}
 .tw .twc.bk.s9::after{content:"❖";color:#d9a441;position:absolute;bottom:3px}
 .tw .twc.s10{color:#fff;border-color:#e8742a;text-shadow:0 0 4px #12061f,0 1px 0 #12061f,0 0 8px #12061f;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'%3E%3Cdefs%3E%3Cg id='t'%3E%3Cellipse cx='21' cy='50' rx='3.2' ry='11' fill='%23f08a2c'/%3E%3Cellipse cx='21' cy='42' rx='2' ry='3.6' fill='%23fff6e6'/%3E%3C/g%3E%3C/defs%3E%3Ccircle cx='31' cy='13' r='5' fill='%23fff3c4' fill-opacity='.9'/%3E%3Cuse href='%23t' transform='rotate(-62 21 61)'/%3E%3Cuse href='%23t' transform='rotate(-46 21 61)'/%3E%3Cuse href='%23t' transform='rotate(-31 21 61)'/%3E%3Cuse href='%23t' transform='rotate(-15 21 61)'/%3E%3Cuse href='%23t' transform='rotate(0 21 61)'/%3E%3Cuse href='%23t' transform='rotate(15 21 61)'/%3E%3Cuse href='%23t' transform='rotate(31 21 61)'/%3E%3Cuse href='%23t' transform='rotate(46 21 61)'/%3E%3Cuse href='%23t' transform='rotate(62 21 61)'/%3E%3Cpath d='M3 15L5 2L14 9ZM39 15L37 2L28 9Z' fill='%23f08a2c'/%3E%3Cpath d='M6 11L6.6 5L10 8ZM36 11L35.4 5L32 8Z' fill='%23fff6e6'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat,linear-gradient(170deg,#3a1450,#12061f)}
 .tw .twc.s10::before,.tw .twc.bk.s10::before{background:radial-gradient(circle at 25% 80%,#aef 0 1.3px,transparent 2.4px) 0 0/21px 30px,radial-gradient(circle at 72% 40%,#fff 0 1px,transparent 2px) 0 0/21px 30px,radial-gradient(ellipse at 50% 100%,rgba(120,200,255,.3),transparent 60%);animation:twrise 3.4s linear infinite}
 .tw .twc.bk.s10{border-color:#c8261f;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'%3E%3Cpath d='M5 21L7 4L17 13Q21 12 25 13L35 4L37 21Q37 42 21 56Q5 42 5 21Z' fill='%23fbf4e6'/%3E%3Cpath d='M8 17L8.6 8L14 12ZM34 17L33.4 8L28 12Z' fill='%23c8261f'/%3E%3Cpath d='M21 15L18.6 23H23.4Z' fill='%23c8261f'/%3E%3Cpath d='M10 28Q14 32 18 29M32 28Q28 32 24 29' fill='none' stroke='%23c8261f' stroke-width='1.6' stroke-linecap='round'/%3E%3Cpath d='M5 36L13 37M5 41L13 40M37 36L29 37M37 41L29 40' stroke='%23c8261f' stroke-width='1.1' stroke-linecap='round'/%3E%3Ccircle cx='21' cy='46' r='2' fill='%231a0a10'/%3E%3C/svg%3E") 0 0/100% 100% no-repeat,linear-gradient(170deg,#2a1148,#12061f)}
+.tw .twc.s11{color:#eee9da;border-color:#a89e9e;align-items:flex-start;padding-top:8px;line-height:1.15;text-shadow:0 1px 0 #2e0008,1px 0 0 #2e0008,-1px 0 0 #2e0008,0 -1px 0 #2e0008,0 0 6px #6a0010;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'><defs><radialGradient id='m' cx='.42' cy='.42' r='.65'><stop offset='0' stop-color='%23d6342a'/><stop offset='1' stop-color='%23690c14'/></radialGradient><radialGradient id='g'><stop offset='.5' stop-color='%23ff3a2a' stop-opacity='.5'/><stop offset='1' stop-color='%23ff3a2a' stop-opacity='0'/></radialGradient></defs><circle cx='21' cy='22' r='21.25' fill='url(%23g)'/><circle cx='21' cy='22' r='12.5' fill='url(%23m)' stroke='%23ff826e' stroke-opacity='.5' stroke-width='.4'/><circle cx='25' cy='18' r='2.3' fill='%236e0e16' fill-opacity='.45'/><circle cx='16' cy='25' r='1.7' fill='%236e0e16' fill-opacity='.45'/><path d='M31.5 57L10.5 8.5' stroke='%235c3e2e' stroke-width='1'/><path d='M10.5 8.5C16 -.5 31 .5 38.5 14.5C31 7.6 20 8.8 10.5 8.5Z' fill='%23b0b6c6'/><path d='M10.5 8.5C16 -.5 31 .5 38.5 14.5' fill='none' stroke='%23eef4fc' stroke-width='.5'/><path d='M11.2 9.4L12.8 9.7L10.6 17L8.2 15.4L9.8 12.6Z' fill='%234e0a14'/><path d='M4 58C4 50 8 45 12 43C13 35 16.5 30.5 21 30C25.5 30.5 29 35 30 43C34 45 38 50 38 58L35.4 54.6L32.8 58L30.2 54.6L27.6 58L25 54.6L22.4 58L19.8 54.6L17.2 58L14.6 54.6L12 58L9.4 54.6L6.8 58Z' fill='%23050408' stroke='%2378242c' stroke-width='.45'/><path d='M12 43C13 35 16.5 30.5 21 30C25.5 30.5 29 35 30 43' fill='none' stroke='%23ff5f46' stroke-opacity='.85' stroke-width='.55'/><ellipse cx='21' cy='39.8' rx='4.6' ry='5.6' fill='%23000' stroke='%235c3238' stroke-opacity='.8' stroke-width='.35'/><path d='M12 49L10.4 57M16 50L15.2 57M26 50L26.8 57M30 49L31.6 57' stroke='%233e1620' stroke-width='.35' fill='none'/><circle cx='28.4' cy='47.6' r='1.15' fill='%23ded7c6'/><circle cx='26.5' cy='50.7' r='1.1' fill='%23ded7c6'/></svg>") 0 0/100% 100% no-repeat,linear-gradient(170deg,#2c0a10,#070408)}
+.tw .twc.s11::before,.tw .twc.bk.s11::before{background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'><defs><radialGradient id='e'><stop offset='0' stop-color='%23ff7a3a' stop-opacity='.9'/><stop offset='1' stop-color='%23ff3a1a' stop-opacity='0'/></radialGradient></defs><circle cx='18.6' cy='39.8' r='3.6' fill='url(%23e)'/><circle cx='23.4' cy='39.8' r='3.6' fill='url(%23e)'/><path d='M16.7 40.6L19.9 38.8L20.4 40.6Z' fill='%23ffae66'/><path d='M25.3 40.6L22.1 38.8L21.6 40.6Z' fill='%23ffae66'/></svg>") 0 0/100% 100% no-repeat;transform-origin:50% 66%;animation:tw11eye 3.4s ease-in-out infinite}
+.tw .twc.s11:not(.mh)::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:radial-gradient(circle at 20% 20%,rgba(255,225,225,.85) 0 .7px,transparent 1.2px) 0 0/21px 30px,radial-gradient(circle at 70% 60%,rgba(255,200,200,.7) 0 .6px,transparent 1.1px) 0 0/21px 30px;animation:twfall 4s linear infinite}
+.tw .twc.bk.s11{border-color:#a89e9e;padding-top:0;background:url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 42 60' preserveAspectRatio='none'><defs><radialGradient id='m' cx='.42' cy='.42' r='.65'><stop offset='0' stop-color='%23d6342a'/><stop offset='1' stop-color='%23690c14'/></radialGradient><radialGradient id='g'><stop offset='.5' stop-color='%23ff3a2a' stop-opacity='.5'/><stop offset='1' stop-color='%23ff3a2a' stop-opacity='0'/></radialGradient></defs><circle cx='21' cy='27' r='24.139999999999997' fill='url(%23g)'/><circle cx='21' cy='27' r='14.2' fill='url(%23m)' stroke='%23ff826e' stroke-opacity='.5' stroke-width='.4'/><circle cx='25' cy='23' r='2.3' fill='%236e0e16' fill-opacity='.45'/><circle cx='16' cy='30' r='1.7' fill='%236e0e16' fill-opacity='.45'/><circle cx='21' cy='27' r='16.6' fill='none' stroke='%23cdb4b4' stroke-opacity='.7' stroke-width='.5' stroke-dasharray='.5 1.1'/><path d='M31.5 57L10.5 8.5' stroke='%235c3e2e' stroke-width='1'/><path d='M10.5 8.5C16 -.5 31 .5 38.5 14.5C31 7.6 20 8.8 10.5 8.5Z' fill='%23b0b6c6'/><path d='M10.5 8.5C16 -.5 31 .5 38.5 14.5' fill='none' stroke='%23eef4fc' stroke-width='.5'/><path d='M11.2 9.4L12.8 9.7L10.6 17L8.2 15.4L9.8 12.6Z' fill='%234e0a14'/><path d='M4 58C4 50 8 45 12 43C13 35 16.5 30.5 21 30C25.5 30.5 29 35 30 43C34 45 38 50 38 58L35.4 54.6L32.8 58L30.2 54.6L27.6 58L25 54.6L22.4 58L19.8 54.6L17.2 58L14.6 54.6L12 58L9.4 54.6L6.8 58Z' fill='%23050408' stroke='%2378242c' stroke-width='.45'/><path d='M12 43C13 35 16.5 30.5 21 30C25.5 30.5 29 35 30 43' fill='none' stroke='%23ff5f46' stroke-opacity='.85' stroke-width='.55'/><ellipse cx='21' cy='39.8' rx='4.6' ry='5.6' fill='%23000' stroke='%235c3238' stroke-opacity='.8' stroke-width='.35'/><path d='M12 49L10.4 57M16 50L15.2 57M26 50L26.8 57M30 49L31.6 57' stroke='%233e1620' stroke-width='.35' fill='none'/><circle cx='28.4' cy='47.6' r='1.15' fill='%23ded7c6'/><circle cx='26.5' cy='50.7' r='1.1' fill='%23ded7c6'/></svg>") 0 0/100% 100% no-repeat,linear-gradient(170deg,#2c0a10,#070408)}
+@keyframes tw11eye{0%,100%{opacity:.8}30%{opacity:1}55%{opacity:.65}86%{opacity:.9;transform:scaleY(1)}90%{opacity:.9;transform:scaleY(.08)}94%{transform:scaleY(1)}}
+@media(prefers-reduced-motion:reduce){.tw .twc.s11::before,.tw .twc.s11:not(.mh)::after{animation:none}}
 @keyframes twrise{to{background-position:0 -30px,0 -30px,0 0}}
 @keyframes twflick{from{opacity:.45;transform:scaleY(.8)}to{opacity:1;transform:scaleY(1.1)}}
 @keyframes twspin{to{transform:rotate(360deg)}}
@@ -1097,23 +1103,39 @@ background-image:linear-gradient(90deg,transparent calc(33.333% - .5px),rgba(233
 .tw .twend.on{display:flex}.tw .twend.l{color:#ff6a5a}.tw .twend.w{color:#ffd23f}
 .tw.tover .twfl,.tw.tover .twmon,.tw.tover .dsbar,.tw.tover .twtb,.tw.tover .twtbl,.tw.tover .dscl,.tw.tover .twtr,.tw.tover .dsdesc,.tw.tover .dsmsg{display:none}
 .tw .twres:empty{display:none}
-/* Twenty One online: layar VS gaya foto tahanan sebelum ronde 1 */
-.vsov{position:fixed;inset:0;z-index:9500;display:flex;align-items:center;justify-content:center;gap:clamp(8px,9vw,48px);padding:max(24px,env(safe-area-inset-top,0px)) 12px max(72px,env(safe-area-inset-bottom,0px));background:#44403b repeating-linear-gradient(0deg,transparent 0 66px,#0e0d0c 66px 69px);color:#f2efe8;overflow:hidden;transition:opacity .35s;cursor:pointer}
+/* Twenty One online: layar VS gaya foto tahanan (masuk geser, flash, VS coretan, hitung mundur 3 dtk) */
+.vsov{position:fixed;inset:0;z-index:9500;display:flex;align-items:center;justify-content:center;gap:clamp(4px,2vw,24px);padding:max(18px,env(safe-area-inset-top,0px)) 10px max(78px,calc(env(safe-area-inset-bottom,0px) + 70px));background:radial-gradient(ellipse at 50% 45%,rgba(0,0,0,0) 35%,rgba(0,0,0,.78) 100%),repeating-linear-gradient(0deg,transparent 0 54px,rgba(0,0,0,.55) 54px 56px),linear-gradient(#2b2926,#161513);color:#f2efe8;overflow:hidden;transition:opacity .35s .15s;cursor:pointer}
 .vsov.out{opacity:0}
-.vsov .vsp{flex:1;max-width:min(240px,calc(40vh - 10px));min-width:0;display:flex;flex-direction:column;align-items:center;gap:8px;position:relative;opacity:0;animation:vsin .55s cubic-bezier(.2,.8,.2,1) forwards}
-.vsov .vsp.r{--vx:60px}.vsov .vsp.l{--vx:-60px}
-.vsov .vsp.r{animation-delay:.15s}
-.vsov .vsn{position:relative;font:600 clamp(19px,5.6vw,28px)/1.2 Georgia,"Times New Roman",serif;text-align:center;padding:12px 14px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.vsov .vsn::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(ellipse at center,rgba(13,12,11,.92) 30%,transparent 72%)}
-.vsov canvas{width:100%;height:auto;aspect-ratio:1;image-rendering:pixelated;border:3px solid #080808;background:#0d0e12}
-.vsov .vspl{width:112%;background:#080808;border:1px solid #2a2724;padding:clamp(10px,2.6vw,16px) 6px;text-align:center;font:clamp(12px,3.3vw,16px)/1.6 var(--mono,monospace);color:#d9d5cb;margin-top:calc(-1 * clamp(26px,8vw,48px));position:relative;overflow-wrap:anywhere}
+.vsov .vsp{flex:1 1 0;max-width:min(46vw,46dvh);min-width:0;display:flex;flex-direction:column;align-items:center;position:relative;opacity:0;animation:vsin .6s cubic-bezier(.16,1,.3,1) forwards}
+.vsov .vsp.l{--vx:-110vw;--ox:-60vw;--rt:-7deg;--pr:3deg}
+.vsov .vsp.r{--vx:110vw;--ox:60vw;--rt:7deg;--pr:-3deg;animation-delay:.1s}
+.vsov.out .vsp{animation:vsout .45s cubic-bezier(.5,0,.9,.4) forwards}
+.vsov .vsn{position:relative;z-index:1;font:600 clamp(18px,min(5.4vw,5dvh),28px)/1.2 Georgia,"Times New Roman",serif;text-align:center;padding:10px 16px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#fff}
+.vsov .vsn::before{content:"";position:absolute;inset:-6px -10px;z-index:-1;background:radial-gradient(ellipse at 50% 50%,#050505 38%,rgba(5,5,5,.8) 58%,transparent 76%);filter:blur(1.5px)}
+.vsov canvas{width:100%;height:auto;aspect-ratio:1;image-rendering:pixelated;background:transparent;-webkit-mask-image:radial-gradient(closest-side,#000 64%,transparent 100%);mask-image:radial-gradient(closest-side,#000 64%,transparent 100%)}
+.vsov .vspl{width:92%;margin-top:-17%;position:relative;z-index:1;background:#070707;border:1px solid #2e2b27;padding:clamp(6px,1.6dvh,12px) 6px;text-align:center;font:clamp(9px,min(2.9vw,2.6dvh),14px)/1.55 var(--mono,monospace);color:#d9d5cb;overflow-wrap:anywhere;transform:rotate(var(--pr));animation:vspl .7s .08s cubic-bezier(.16,1,.3,1) both;box-shadow:0 6px 18px rgba(0,0,0,.6)}
 .vsov .vspl b{display:block;font-weight:500;font-size:1.1em}
-.vsov .vspl i{display:block;font-style:normal;color:#9c978c;font-size:.9em}
-.vsov .vsvs{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-6deg);font:italic 700 clamp(52px,14vw,92px)/1 Georgia,serif;z-index:2;color:#fff;text-shadow:2px 2px 0 rgba(255,255,255,.25),-2px 1px 0 rgba(255,255,255,.2);opacity:0;animation:vsvs .45s .55s cubic-bezier(.2,1.4,.4,1) forwards;pointer-events:none}
-.vsov .vsx{position:absolute;left:50%;bottom:max(22px,env(safe-area-inset-bottom,0px));transform:translateX(-50%);min-height:44px;padding:0 22px;background:none;border:0;color:#fff;font:400 17px sans-serif;letter-spacing:.2em;cursor:pointer}
-@keyframes vsin{from{opacity:0;transform:translateX(var(--vx))}to{opacity:1;transform:none}}
-@keyframes vsvs{from{opacity:0;transform:translate(-50%,-50%) rotate(-6deg) scale(2)}to{opacity:1;transform:translate(-50%,-50%) rotate(-6deg) scale(1)}}
-@media (prefers-reduced-motion:reduce){.vsov .vsp,.vsov .vsvs{animation:none;opacity:1;transform:none}.vsov .vsvs{transform:translate(-50%,-50%) rotate(-6deg)}}
+.vsov .vspl i{display:block;font-style:normal;color:#8d887d;font-size:.9em}
+.vsov .vsw{align-self:stretch;justify-content:center;opacity:1;animation:none}
+.vsov .vswt{font:italic 600 clamp(18px,5vw,28px) Georgia,serif;color:#cfcac0;letter-spacing:.06em;animation:vswait 1.4s ease-in-out infinite alternate}
+.vsov .vsvs{position:absolute;left:50%;top:44%;width:clamp(84px,min(26vw,30dvh),170px);transform:translate(-50%,-50%) rotate(-6deg);z-index:3;pointer-events:none;overflow:visible;filter:drop-shadow(0 2px 0 rgba(0,0,0,.6))}
+.vsov .vsvs path{fill:none;stroke:#fff;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.vsov .vsvs path:nth-child(1){animation:vsdraw .3s .95s ease-out forwards}
+.vsov .vsvs path:nth-child(2){animation:vsdraw .4s 1.2s ease-out forwards}
+.vsov.wt .vsvs{opacity:.25}.vsov.wt .vsvs path{animation:none;stroke-dashoffset:0}
+.vsov .vsfl{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:4;animation:vsfl .55s .85s ease-out forwards}
+.vsov .vsbar{position:absolute;left:0;right:0;bottom:0;height:3px;background:#d9a441;transform-origin:left center;z-index:5;animation:vsbar 3.2s linear forwards}
+.vsov .vsst{position:absolute;left:12px;right:12px;bottom:max(70px,calc(env(safe-area-inset-bottom,0px) + 62px));text-align:center;color:#d9a441;font-size:13px;z-index:5;min-height:18px}
+.vsov .vsact{position:absolute;left:0;right:0;bottom:max(12px,env(safe-area-inset-bottom,0px));display:flex;justify-content:center;gap:4px;z-index:5}
+.vsov .vsx{min-height:46px;min-width:46px;padding:0 18px;background:none;border:0;color:#fff;font:400 16px sans-serif;letter-spacing:.18em;cursor:pointer}
+@keyframes vsin{0%{opacity:1;transform:translateX(var(--vx)) rotate(var(--rt))}100%{opacity:1;transform:none}}
+@keyframes vspl{from{transform:translateX(calc(var(--vx)*.1)) rotate(var(--pr))}to{transform:rotate(var(--pr))}}
+@keyframes vsout{from{opacity:1;transform:none}to{opacity:0;transform:translateX(var(--ox))}}
+@keyframes vsdraw{to{stroke-dashoffset:0}}
+@keyframes vsfl{0%{opacity:0}12%{opacity:.9}100%{opacity:0}}
+@keyframes vsbar{to{transform:scaleX(0)}}
+@keyframes vswait{from{opacity:.45}to{opacity:1}}
+@media (prefers-reduced-motion:reduce){.vsov *{animation:none!important}.vsov .vsp{opacity:1;transform:none}.vsov .vsvs path{stroke-dashoffset:0}.vsov .vsfl{display:none}}
 .tw .twps{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:8px 0 2px;pointer-events:none}
 .tw .twp{font-size:11px;padding:3px 9px;border-radius:99px;border:1px solid #d9a441;color:#ffe7a6;background:rgba(27,32,82,.55);animation:twfloat 2.4s ease-in-out infinite,twpulse 1.2s ease-in-out infinite alternate}
 .tw .twp:nth-child(2){animation-delay:.3s}.tw .twp:nth-child(3){animation-delay:.6s}.tw .twp:nth-child(4){animation-delay:.9s}
@@ -8737,8 +8759,8 @@ const TW_CAT=[
 const TW_IDS=Object.keys(TW_TR);
 const TW_TBL={g17:1,g24:1,g27:1,oneup:1,twoup:1,shield:1,shield2:1,bless:1,bloodshed:1};
 const TW_GF={g17:17,g24:24,g27:27},TW_UP={oneup:1,twoup:2,bloodshed:1},TW_SH={shield:1,shield2:2};
-const TW_SK=['Klasik','Naga','Black Hole','Ubur-ubur','Gunung Api','Sakura','Sirkuit','Mesir','Kutub','Kitsune','Kitsune Arwah'];
-const TW_SK_OWN=new Set([9]);/* skin khusus owner (akun owner) */
+const TW_SK=['Klasik','Naga','Black Hole','Ubur-ubur','Gunung Api','Sakura','Sirkuit','Mesir','Kutub','Kitsune','Kitsune Arwah','Reaper'];
+const TW_SK_OWN=new Set([9,11]);/* skin khusus owner (akun owner) */
 function twSan(m){m=m||{};const n=TW_SK.length;return{sk:(((m.sk|0)%n)+n)%n,ch:chOk(m.ch)}}
 function twMine(){const v=store.get('tw-look',null)||{},L=twSan(v);if(DS_CHARS[L.ch].own&&!isOwner())L.ch=0;if(TW_SK_OWN.has(L.sk)&&!isOwner())L.sk=0;return L}
 function twBotLook(){const ids=[],sks=[];DS_CHARS.forEach((c,i)=>{if(!c.own)ids.push(i)});TW_SK.forEach((_,i)=>{if(!TW_SK_OWN.has(i))sks.push(i)});return{sk:sks[rnd(sks.length)],ch:ids[rnd(ids.length)]}}
@@ -8790,7 +8812,7 @@ function TwentyOne(box,joinCode){
   }
   function stopLoop(){if(tick){clearInterval(tick);tick=null}}
   function netMenu(){
-    netLeave(true);gen++;stopLoop();S=null;root.innerHTML='';
+    hideVS();netLeave(true);gen++;stopLoop();S=null;root.innerHTML='';
     const w=el('div','dsw');w.append(el('div','dst','Main online'));
     const mk=(t,d,fn)=>{const b=el('button','dsbig','<b>'+t+'</b>'+(d?'<span>'+d+'</span>':''));b.type='button';b.onclick=()=>fn();return b};
     w.append(mk('Buat room','Kamu room master. Bagikan kode 8 huruf ke temanmu.',hostFlow),mk('Gabung dengan kode','',guestFlow),btn('Kembali','ghost',menu));root.append(w);
@@ -8800,7 +8822,7 @@ function TwentyOne(box,joinCode){
     const w=el('div','dsw');
     w.append(el('div','dst','Twenty One'));
     const mk=(t,fn)=>{const b=el('button','dsbig','<b>'+t+'</b>');b.type='button';b.onclick=()=>fn();return b};
-    w.append(mk('Lawan bot',start),mk('Main online',netMenu),mk('Preview layar VS',previewVS),mk('Kustomisasi',customize),rulesBox());root.append(w);
+    w.append(mk('Lawan bot',start),mk('Main online',netMenu),mk('Kustomisasi',customize),rulesBox());root.append(w);
     if(joinCode){const c=joinCode;joinCode=null;guestFlow(c)}
   }
 
@@ -9147,31 +9169,47 @@ function TwentyOne(box,joinCode){
     NET=null;
   }
   const fmtCode=c=>c.slice(0,4)+'-'+c.slice(4);
-  /* layar VS (online): muncul sekali per room sebelum ronde 1, sekitar 3 detik; ketuk untuk lewati, LEAVE untuk keluar */
+  /* layar VS (online): muncul sekali per room sebelum ronde 1, 3 detik; ketuk untuk lewati, LEAVE untuk keluar. Mode wait = layar tunggu (teman belum masuk) */
   let vsEl=null;
   function hideVS(){if(vsEl){const e=vsEl;vsEl=null;e.remove()}}
-  function showVS(lkA,lkB,nameB,demo){
-    hideVS();if((!NET&&!demo)||!lkA||!lkB)return;
+  function vsOut(o){if(vsEl===o&&!o.classList.contains('out')){o.classList.add('out');T.after(()=>{if(vsEl===o)hideVS()},620)}}
+  function vsBuild(lkA,lkB,nameB,demo,wait){
+    hideVS();if(!NET&&!demo)return;
     const D=(c,t)=>{const d=document.createElement('div');d.className=c;if(t!=null)d.textContent=t;return d};
     const code=demo||fmtCode(String(NET.code||'')),day=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
     const side=(cls,nm,lk)=>{
-      const p=D('vsp '+cls),c=dsCharThumb(chOk(lk.ch),1),pl=D('vspl'),b=document.createElement('b');
-      b.textContent='['+nm+']';pl.append(b,D('','ROOM '+code),D('',day));
-      const i=document.createElement('i');i.textContent='[Boardgame_Maroe]';pl.append(i);
-      p.append(D('vsn',nm),c,pl);return p;
+      const p=D('vsp '+cls),pl=D('vspl'),b=document.createElement('b');
+      b.textContent='['+nm+']';pl.append(b,D('','ROOM '+code),D('',day),D('','[Boardgame_Maroe]'));
+      pl.lastChild.className='';const i=document.createElement('i');i.textContent='[Boardgame_Maroe]';pl.lastChild.replaceWith(i);
+      p.append(D('vsn',nm),dsCharThumb(chOk(lk.ch),1),pl);return p;
     };
-    const o=D('vsov');o.setAttribute('role','dialog');o.setAttribute('aria-label','Versus');
-    o.append(side('l',meName,lkA),side('r',String(nameB||'Teman').slice(0,16),lkB),D('vsvs','VS'));
+    const o=D('vsov'+(wait?' wt':''));o.setAttribute('role','dialog');o.setAttribute('aria-label','Versus');
+    o.append(side('l',meName,lkA));
+    if(wait){const w=D('vsp r vsw');w.append(D('vswt','Waiting...'));o.append(w)}
+    else o.append(side('r',String(nameB||'Teman').slice(0,16),lkB));
+    o.insertAdjacentHTML('beforeend','<svg class="vsvs" viewBox="0 0 120 80" aria-hidden="true"><path pathLength="1" d="M8 8 L33 72 L55 6"/><path pathLength="1" d="M106 14 C94 0 66 6 72 26 C76 40 108 36 106 56 C104 76 76 82 62 64"/></svg>');
+    o.append(D('vsfl'));
+    const act=D('vsact');
+    if(wait){
+      o.append(D('vsst','Menghubungi server…'));
+      const mkb=(t,fn)=>{const x=document.createElement('button');x.type='button';x.className='vsx';x.textContent=t;x.onclick=e=>{e.stopPropagation();fn(x)};act.append(x)};
+      mkb('Salin kode',x=>copyTxt(NET?NET.code:code,x));
+      mkb('Bagikan',x=>{const t=I18N.t('Main Twenty One bareng aku di Board Game Maroe. Gabung dengan kode:')+' '+code;if(navigator.share)navigator.share({text:t}).catch(()=>{});else copyTxt(t,x)});
+      mkb('Batal',()=>netMenu());
+      o.append(act);vsEl=o;document.body.append(o);return;
+    }
     const x=document.createElement('button');x.type='button';x.className='vsx';x.textContent='LEAVE';
-    x.onclick=e=>{e.stopPropagation();menu()};
-    o.append(x);
+    x.onclick=e=>{e.stopPropagation();menu()};act.append(x);
+    o.append(act,D('vsbar'));
     const t=Date.now();
-    o.onclick=()=>{if(Date.now()-t>900&&vsEl===o){o.classList.add('out');T.after(()=>{if(vsEl===o)hideVS()},350)}};
+    o.onclick=()=>{if(Date.now()-t>900)vsOut(o)};
     vsEl=o;document.body.append(o);
-    T.after(()=>{if(vsEl===o){o.classList.add('out');T.after(()=>{if(vsEl===o)hideVS()},350)}},3200);
+    T.after(()=>vsOut(o),3200);
   }
+  function showVS(lkA,lkB,nameB,demo){if(!lkA||!lkB)return;vsBuild(lkA,lkB,nameB,demo,false)}
+  function showWait(){vsBuild(twMine(),null,'',null,true)}
   const previewVS=()=>showVS(twMine(),twBotLook(),bn,'ABCD-EFGH');/* uji tampilan tanpa lawan: kode room contoh */
-  const stNote=t=>{const n=root.querySelector('.twst');if(n)n.textContent=t};
+  const stNote=t=>{const n=root.querySelector('.twst');if(n)n.textContent=t;if(vsEl){const q=vsEl.querySelector('.vsst');if(q)q.textContent=t}};
   const fileNote=()=>/^https?:$/.test(location.protocol)?'':'Online tidak jalan kalau dibuka dari file. Upload ke hosting (misalnya GitHub Pages), lalu buka lewat link https.';
   function copyTxt(text,b){
     const done=()=>{const t=b.textContent;b.textContent='Tersalin';T.after(()=>{b.textContent=t},1500)};
@@ -9179,7 +9217,7 @@ function TwentyOne(box,joinCode){
     const ta=document.createElement('textarea');ta.value=text;document.body.append(ta);ta.select();try{document.execCommand('copy');done()}catch(e){}ta.remove();
   }
   function netShell(title){
-    gen++;stopLoop();S=null;root.innerHTML='';
+    hideVS();gen++;stopLoop();S=null;root.innerHTML='';
     const w=el('div','dsw twnet');w.append(el('div','dst',title));root.append(w);return w;
   }
   const nextRound=()=>{if(NET&&NET.role==='guest'){netAct('next');return}if(S&&S.phase==='end'&&!S.over)newRound()};
@@ -9191,11 +9229,7 @@ function TwentyOne(box,joinCode){
     const code=chRand(8);
     NET={role:'host',uid:chRand(10),topic:'maroe-twentyone-'+code.toLowerCase(),code,peer:null,out:[],sq:0,seq:0,lastV:'',ready:false};
     const n=NET;
-    const w=netShell('Main dengan teman');
-    w.append(el('p','','Berikan kode 8 huruf ini ke temanmu. Orang pertama yang gabung akan bermain denganmu.'));
-    w.append(el('p','twcode',fmtCode(code)),el('div','twst','Menghubungi server…'));
-    const ac=el('div','dsrow'),cb=btn('Salin kode','alt',()=>copyTxt(code,cb)),sh=btn('Bagikan','alt',()=>{const t=I18N.t('Main Twenty One bareng aku di Board Game Maroe. Gabung dengan kode:')+' '+fmtCode(code);if(navigator.share)navigator.share({text:t}).catch(()=>{});else copyTxt(t,sh)});
-    ac.append(cb,sh,btn('Batal','ghost',netMenu));w.append(ac);
+    netShell('Main dengan teman');showWait();
     if(fileNote())stNote(fileNote());
     netOpen(m=>{
       if(NET!==n)return;
