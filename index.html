@@ -1118,11 +1118,20 @@ background-image:linear-gradient(90deg,transparent calc(33.333% - .5px),rgba(233
 .vsov .vspl i{display:block;font-style:normal;color:#8d887d;font-size:.9em}
 .vsov .vsw{align-self:stretch;justify-content:center;opacity:1;animation:none}
 .vsov .vswt{font:italic 600 clamp(18px,5vw,28px) Georgia,serif;color:#cfcac0;letter-spacing:.06em;animation:vswait 1.4s ease-in-out infinite alternate}
-.vsov .vsvs{position:absolute;left:50%;top:44%;width:clamp(84px,min(26vw,30dvh),170px);transform:translate(-50%,-50%) rotate(-6deg);z-index:3;pointer-events:none;overflow:visible;filter:drop-shadow(0 2px 0 rgba(0,0,0,.6))}
-.vsov .vsvs path{fill:none;stroke:#fff;stroke-width:7;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
+.vsov .vsvs{position:absolute;left:50%;top:44%;width:clamp(62px,min(19vw,22dvh),120px);transform:translate(-50%,-50%) rotate(-6deg);z-index:3;pointer-events:none;overflow:visible;filter:drop-shadow(0 1px 1px rgba(0,0,0,.7))}
+.vsov .vsvs path{fill:none;stroke:#fff;stroke-width:3.6;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:1;stroke-dashoffset:1}
 .vsov .vsvs path:nth-child(1){animation:vsdraw .3s .95s ease-out forwards}
 .vsov .vsvs path:nth-child(2){animation:vsdraw .4s 1.2s ease-out forwards}
+.vsov .vsvs path:nth-child(n+3){stroke-width:1.6;opacity:.75}
+.vsov .vsvs path:nth-child(3){animation:vsdraw .3s 1s ease-out forwards}
+.vsov .vsvs path:nth-child(4){animation:vsdraw .4s 1.26s ease-out forwards}
 .vsov.wt .vsvs{opacity:.25}.vsov.wt .vsvs path{animation:none;stroke-dashoffset:0}
+.vsov{--kh:clamp(86px,min(27vw,31dvh),168px);--D:calc(max(100vw,100dvh)*.9)}
+.vsov:not(.wt){animation:vsshk .34s 1.94s both}
+.vsov .vsk{position:absolute;left:50%;top:44%;width:calc(var(--kh)*.2333);height:var(--kh);margin:calc(var(--kh)*-.983) 0 0 calc(var(--kh)*-.1167);transform-origin:50% 98.3%;transform:rotate(34deg);z-index:3;pointer-events:none;overflow:visible;filter:drop-shadow(3px 4px 4px rgba(0,0,0,.55));animation:vskf .22s 1.72s cubic-bezier(.45,0,.9,.6) both,vskw .6s 1.94s ease-in-out both}
+.vsov .vsks{position:absolute;left:50%;top:44%;width:calc(var(--kh)*.9);aspect-ratio:1;margin:calc(var(--kh)*-.45) 0 0 calc(var(--kh)*-.45);pointer-events:none;z-index:3;opacity:0;background:repeating-conic-gradient(from 8deg,rgba(255,246,220,.95) 0 3deg,transparent 3deg 24deg);-webkit-mask-image:radial-gradient(circle,transparent 14%,#000 16%,#000 40%,transparent 44%);mask-image:radial-gradient(circle,transparent 14%,#000 16%,#000 40%,transparent 44%);animation:vsks .34s 1.94s cubic-bezier(.16,1,.3,1) both}
+.vsov .vsks::after{content:"";position:absolute;inset:22%;border:1.5px solid rgba(255,246,220,.85);border-radius:50%;opacity:0;animation:vsring .42s 1.94s cubic-bezier(.16,1,.3,1) both}
+.vsov.wt .vsk,.vsov.wt .vsks{display:none}
 .vsov .vsfl{position:absolute;inset:0;background:#fff;opacity:0;pointer-events:none;z-index:4;animation:vsfl .55s .85s ease-out forwards}
 .vsov .vsbar{position:absolute;left:0;right:0;bottom:0;height:3px;background:#d9a441;transform-origin:left center;z-index:5;animation:vsbar 4.8s linear forwards}
 .vsov .vsst{position:absolute;left:12px;right:12px;bottom:max(70px,calc(env(safe-area-inset-bottom,0px) + 62px));text-align:center;color:#d9a441;font-size:13px;z-index:5;min-height:18px}
@@ -1132,10 +1141,15 @@ background-image:linear-gradient(90deg,transparent calc(33.333% - .5px),rgba(233
 @keyframes vspl{from{transform:translateX(calc(var(--vx)*.1)) rotate(var(--pr))}to{transform:rotate(var(--pr))}}
 @keyframes vsout{from{opacity:1;transform:none}to{opacity:0;transform:translateX(var(--ox))}}
 @keyframes vsdraw{to{stroke-dashoffset:0}}
+@keyframes vskf{0%{transform:translate(calc(var(--D)*.559),calc(var(--D)*-.829)) rotate(394deg);filter:blur(3px) drop-shadow(3px 4px 4px rgba(0,0,0,.55))}100%{transform:rotate(34deg);filter:blur(0) drop-shadow(3px 4px 4px rgba(0,0,0,.55))}}
+@keyframes vskw{0%{rotate:0deg}14%{rotate:-9deg}32%{rotate:5.5deg}50%{rotate:-3deg}68%{rotate:1.6deg}84%{rotate:-.6deg}100%{rotate:0deg}}
+@keyframes vsks{0%{opacity:0;scale:.35}18%{opacity:1}100%{opacity:0;scale:1.25}}
+@keyframes vsring{0%{opacity:.9;scale:.2}100%{opacity:0;scale:1.5}}
+@keyframes vsshk{0%,100%{transform:none}16%{transform:translate(-2px,3px)}34%{transform:translate(1.6px,-2px)}52%{transform:translate(-1px,1.2px)}70%{transform:translate(.6px,-.6px)}}
 @keyframes vsfl{0%{opacity:0}12%{opacity:.9}100%{opacity:0}}
 @keyframes vsbar{to{transform:scaleX(0)}}
 @keyframes vswait{from{opacity:.45}to{opacity:1}}
-@media (prefers-reduced-motion:reduce){.vsov *{animation:none!important}.vsov .vsp{opacity:1;transform:none}.vsov .vsvs path{stroke-dashoffset:0}.vsov .vsfl{display:none}}
+@media (prefers-reduced-motion:reduce){.vsov,.vsov *{animation:none!important}.vsov .vsp{opacity:1;transform:none}.vsov .vsvs path{stroke-dashoffset:0}.vsov .vsfl{display:none}}
 .tw .twps{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;padding:8px 0 2px;pointer-events:none}
 .tw .twp{font-size:11px;padding:3px 9px;border-radius:99px;border:1px solid #d9a441;color:#ffe7a6;background:rgba(27,32,82,.55);animation:twfloat 2.4s ease-in-out infinite,twpulse 1.2s ease-in-out infinite alternate}
 .tw .twp:nth-child(2){animation-delay:.3s}.tw .twp:nth-child(3){animation-delay:.6s}.tw .twp:nth-child(4){animation-delay:.9s}
@@ -4037,7 +4051,7 @@ function dsFig(c,type,ox,oy,u,st){
         if(fk===2)R(fx+2,fy-s-4,1,1,'#8ae0ff')}
     }else{
       /* kitsune emas (khusus owner): topeng rubah berbingkai emas, haori biru malam, sembilan ekor emas, nyala arwah keemasan */
-      const GD='#d9a441',GH='#ffe7a6',RD='#b3261e',WH='#f6ecd8',IA='#1b2052',IB='#2c3478',IC='#0b0d2a';
+      const GD='#e6b04a',GH='#fff1bd',RD='#b3261e',WH='#f6ecd8',IA='#1b2052',IB='#2c3478',IC='#0b0d2a';
       /* sembilan ekor: berisi di tengah, melengkung, ujung lancip; krem di pangkal, emas di ujung */
       if(!st.notail){/* notail: kepala/badan terpotong tanpa ekor; tailsonly: hanya ekor */
       for(const k of [0,8,1,7,2,6,3,5,4]){
@@ -4077,7 +4091,7 @@ function dsFig(c,type,ox,oy,u,st){
         R(sg*10-w-1,y,w*2+3,1,GD);R(sg*10-w,y,w*2+1,1,WH);
         if(q>=0)R(sg*10-q,y,q*2+1,1,RD);
       }
-      E(0,18,13,14,GD);for(let y=24;y<=37;y++){const w=Math.max(3,12-(y-24));R(-w,y,w*2+1,1,GD)}
+      E(0,18,14,15,'#9a6a1a');for(let y=24;y<=38;y++){const w=Math.max(3,13-(y-24));R(-w,y,w*2+1,1,'#9a6a1a')}E(0,18,13,14,GD);for(let y=24;y<=37;y++){const w=Math.max(3,12-(y-24));R(-w,y,w*2+1,1,GD)}
       for(let k=0;k<4;k++){R(-15-k,22+k*2,4,2,GD);R(12+k,22+k*2,4,2,GD)}
       E(0,18,12,13,WH);for(let y=24;y<=36;y++){const w=Math.max(2,11-(y-24));R(-w,y,w*2+1,1,WH)}
       for(let k=0;k<4;k++){R(-14-k,22+k*2,3,2,WH);R(12+k,22+k*2,3,2,WH)}
@@ -4088,10 +4102,12 @@ function dsFig(c,type,ox,oy,u,st){
         R(sx-4,16,9,1,RD);
         if(ko)xx(sx,20,'#14100c');
         else if(shut||bl)R(sx-3,20,7,1,'#14100c');
-        else{R(sx-3,19,7,2,'#14100c');R(sx+(sx>0?4:-4),18,1,1,'#14100c');if(!dead)R(sx-1+lk,19,2,2,st.hit?'#ff6a5a':GH)}
+        else{R(sx-3,19,7,2,'#14100c');R(sx+(sx>0?4:-4),18,1,1,'#14100c');if(!dead){R(sx-1+lk,19,2,2,st.hit?'#ff6a5a':'#ffd25a');R(sx-1+lk,19,1,1,'#fff6d6')}}
       }
       R(-2,33,5,3,'#14100c');R(-1,33,1,1,'#6b6b7a');
-      if(!dead){E(-5,20,4,2,'rgba(255,208,100,.16)');E(5,20,4,2,'rgba(255,208,100,.16)')}
+      if(!dead){const ga=(.12+.16*(.5+.5*Math.sin(t/700))).toFixed(2);E(-5,20,4,2,'rgba(255,208,100,'+ga+')');E(5,20,4,2,'rgba(255,208,100,'+ga+')');
+        /* kilau tipis menyapu bingkai emas */
+        const sp=((t/20)%220)-40;for(let y=5;y<=36;y++)for(let x=-14;x<=14;x++){const o=(x/13)*(x/13)+((y-18)/14)*((y-18)/14),n=(x/12)*(x/12)+((y-18)/13)*((y-18)/13);if(o<=1&&(n>1||y>24)){const d=Math.abs(x+y*.8-sp);if(d<=1.2)R(x,y,1,1,d<.6?'rgba(255,255,255,.7)':'rgba(255,255,255,.35)')}}}
       if(!dead)for(const [bx,by,ph,sz] of [[27,30,0,1],[35,13,1.7,1],[24,-1,3.1,0],[-27,26,2.3,1],[-35,10,4.2,1],[-23,-2,5.5,0],[34,38,.9,0],[-34,36,3.8,0]]){
         const fx=bx+Math.round(Math.sin(t/420+ph)*2),fy=by+Math.round(Math.sin(t/310+ph)*3),s=2+sz,fk=((t/110+ph*7)|0)%3;
         E(fx,fy,s,s+1,'#e8892a');E(fx,fy+1,s-1,s,'#ffd98a');R(fx,fy+1,1,s-1,'#fff');R(fx,fy-s-2-(fk===0?1:0),1,2+(fk===1?1:0),'#e8892a');R(fx+fk-1,fy-s-1,1,1,'#ffd98a');
@@ -4926,6 +4942,8 @@ function DeadShell(box,joinCode){
   /* kemampuan Mayat Laut: curi item lawan, maks STEAL_MAX kali per ronde, tidak memakai giliran */
   const STEAL_MAX=5,MAYI=DS_CHARS.findIndex(c=>c.id==='may');
   const canSteal=p=>!!p&&MAYI>=0&&p.ch===MAYI;
+  /* Kitsune Emas: aktif Nyala Arwah (intip 2 peluru, 1x per ronde, tanpa memakai giliran), pasif Sembilan Ekor (1x per pertandingan, tembakan mematikan menyisakan 1 nyawa) */
+  const KITI=DS_CHARS.findIndex(c=>c.id==='kit'),isKit=p=>!!p&&KITI>=0&&p.ch===KITI,canPeek=p=>isKit(p)&&!p.pk;
   let elBar,elMine,elMsg,elAct,elLog,elLab,elSc,elItems;
   const stats=()=>{const s=store.get('ds-stats',{});return s&&typeof s==='object'?s:{}};
   const spd=()=>S&&!S.players[0].alive?.45:1;
@@ -5275,7 +5293,7 @@ function DeadShell(box,joinCode){
     dsTintData(D,DS_ROOMS[DS_LOOK.room]);
     const fl=((now%5200)<110?.82:1)*(1-(f.fade||0));
     const hzm=(S.players.length===2&&!S.online&&S.players[1].alive&&!f.sv)?(DS_HZV||(DS_HZV=dsMakeHz())):null,hf=hzm?((now%9300)<130?.1:1)*(Math.random()<.06?.72:1)*(.94+.06*Math.sin(now/110)):1;
-    const w=f.white*230,rd=f.red,gr=f.green,cy=f.cyan||0;
+    const w=f.white*230,rd=f.red,gr=f.green,cy=f.cyan||0,gd=f.gold||0;
     for(let y=0;y<DS_H;y++){
       const sl=(y&1)?.93:1;
       for(let x=0;x<DS_W;x++){
@@ -5284,11 +5302,12 @@ function DeadShell(box,joinCode){
         if(rd>0){r+=rd*70;g*=1-rd*.55;b*=1-rd*.55}
         if(gr>0){g+=gr*55;r*=1-gr*.35;b*=1-gr*.3}
         if(cy>0){g+=cy*40;b+=cy*70;r*=1-cy*.3}
+        if(gd>0){r+=gd*75;g+=gd*42;b*=1-gd*.4}
         D[o]=r>255?255:r<0?0:r;D[o+1]=g>255?255:g<0?0:g;D[o+2]=b>255?255:b<0?0:b;
       }
     }
     ctx.putImageData(img,0,0);
-    f.white*=.74;f.fade=(f.fade||0)*.72;f.red*=.9;f.green*=.92;f.cyan*=.9;
+    f.white*=.74;f.fade=(f.fade||0)*.72;f.red*=.9;f.green*=.92;f.cyan*=.9;f.gold=(f.gold||0)*.93;
   }
 
   function heartRow(p){
@@ -5350,7 +5369,7 @@ function DeadShell(box,joinCode){
     if(!me.alive)elMine.append(el('em','','TUMBANG'));
     /* pesan */
     let m=S.msg||'';
-    if(me.alive&&me.k&&!S.over)m+='<div class="dsk">Kamu tahu: peluru berikutnya <b class="'+(me.k==='L'?'lv':'bl')+'">&#9679;</b></div>';
+    if(me.alive&&me.k&&!S.over)m+='<div class="dsk">Kamu tahu: peluru berikutnya <b class="'+(me.k==='L'?'lv':'bl')+'">&#9679;</b>'+(me.k2?' lalu <b class="'+(me.k2==='L'?'lv':'bl')+'">&#9679;</b>':'')+'</div>';
     if(S.sawed&&!S.over)m+='<div class="dsk">'+(dsHolderIsMay(S)?'Bilah diasah: tebasan berikutnya 2x damage.':'Gergaji aktif: tembakan berikutnya 2x damage.')+'</div>';
     elMsg.innerHTML=m;
     elLog.innerHTML=S.log.slice(-80).map(x=>'<div>'+x+'</div>').join('');elLog.scrollTop=elLog.scrollHeight;
@@ -5400,6 +5419,7 @@ function DeadShell(box,joinCode){
     P.forEach((p,i)=>{if(i>0&&p.alive)r.append(mk(vb+p.name,'red',()=>humanShoot(i)))});
     r.append(mk(vb+'diri','red out',()=>humanShoot(0)));
     if(canSteal(P[0])){const left=STEAL_MAX-(P[0].steals|0),sb=mk('Curi item ('+left+'/'+STEAL_MAX+')','alt',stealMenu);if(left<=0)sb.disabled=true;r.append(sb)}
+    if(isKit(P[0])){const pb=mk('Nyala Arwah ('+(P[0].pk?0:1)+'/1)','alt',humanPeek);if(P[0].pk||!S.chamber.length)pb.disabled=true;r.append(pb)}
     elAct.append(r);
   }
   function banner(text){
@@ -5414,7 +5434,7 @@ function DeadShell(box,joinCode){
     S.round++;
     const mx=5;
     if(S.mode==='ffa'&&!S.online){const nm=botNames(3);S.players.slice(1).forEach((p,i)=>{p.name=nm[i]})}
-    S.players.forEach(p=>{p.max=mx;p.hp=mx;p.items=[];p.cuffed=false;p.alive=true;p.k=null;p.steals=0});
+    S.players.forEach(p=>{p.max=mx;p.hp=mx;p.items=[];p.cuffed=false;p.alive=true;p.k=null;p.k2=null;p.pk=0;p.steals=0});
     S.turn=S.online?loc(S.start%S.players.length):S.start%S.players.length;S.start++;
     S.hit=-1;S.pick=null;S.sel=null;S.fx.aim=-1;S.fx.holder=-1;
     say('Ronde '+S.round+'. Tiap pemain punya '+mx+' nyawa.');
@@ -5426,7 +5446,7 @@ function DeadShell(box,joinCode){
   function reload(){Music.sfx('reload');
     const n=2+rn(7),live=1+rn(n-1),blank=n-live;
     S.chamber=shf(Array(live).fill('L').concat(Array(blank).fill('B')));S.pL=live;S.pB=blank;S.flipU=false;
-    S.sawed=false;S.players.forEach(p=>{p.k=null});
+    S.sawed=false;S.players.forEach(p=>{p.k=null;p.k2=null});
     S.fx.reveal={types:shuffle(S.chamber.slice()),until:Date.now()+2600};
     const cnt=1+rn(4);
     bySeat().forEach(ix=>{const p=S.players[ix];if(!p.alive)return;for(let k=0;k<cnt&&p.items.length<DS_MAXIT;k++)p.items.push(DS_ITEMS[rn(DS_ITEMS.length)].id)});
@@ -5489,7 +5509,8 @@ function DeadShell(box,joinCode){
     }
     say(mayR&&si===0&&ti===0?'Makhluk Kuno menunggu takdirmu...':s.name+' membidik '+(si===ti?(si===0?'dirimu sendiri':'dirinya sendiri'):(ti===0?'kamu':t.name))+'...');render();
     after(()=>{
-      const shell=S.chamber.shift(),dmg=S.sawed?2:1,live=shell==='L';if(live)S.pL=Math.max(0,S.pL-1);else S.pB=Math.max(0,S.pB-1);
+      const shell=S.chamber.shift(),live=shell==='L';let dmg=S.sawed?2:1,nine=false;
+      if(live&&isKit(t)&&!t.nu&&t.hp-dmg<=0){nine=true;t.nu=1;dmg=Math.max(0,t.hp-1)}/* Sembilan Ekor */if(live)S.pL=Math.max(0,S.pL-1);else S.pB=Math.max(0,S.pB-1);
       const mayS=dsHolderIsMay(S);
       if(!mayS){S.fx.eject={type:shell,t0:Date.now()};S.fx.flash=live?5:2;S.fx.flashLive=live}
       if(mayS)DS_SWING={t:live?Date.now():0,self:si===ti,live};
@@ -5509,13 +5530,14 @@ function DeadShell(box,joinCode){
            :ti===0?'Keberuntungan tidak di pihakmu, kamu tertebas! Kamu kehilangan '+dmg+' nyawa.'
            :s.name+' menebas '+t.name+'. '+t.name+' kehilangan '+dmg+' nyawa.')}Music.sfx(t.hp<=0?(ti===0?'dieMe':'die'):(ti===0?'hurtMe':'hurt'),.28);
         if(t.hp<=0){t.hp=0;t.alive=false;t.cuffed=false;say((ti===0?'Kamu':t.name)+' tumbang.')}
+        if(nine){say('Sembilan Ekor: '+(ti===0?'kamu':t.name)+' bertahan di 1 nyawa.');S.fx.gold=1;S.fx.white=.4;dsBurst(S.fx,ti===0?160:figX(ti-1),ti===0?150:figTop()+34*figU(),['#ffd98a','#e8892a','#fff6e0','#ffb347'],40,8,-.08);Music.sfx('fateEye',.3)}
       }else{S.fx.white=mayS?0:.18;
         say(!mayS?'Klik. BLANK.'+(si===ti?' '+s.name+' dapat giliran lagi.':'')
           :si===0?(si===ti?'Keberuntungan di pihakmu, lanjut.':'Keberuntungan tidak di pihakmu.')
           :si===ti?'Keberuntungan tidak di pihakmu, '+s.name+' lanjut.'
           :ti===0?'Keberuntungan di pihakmu.'
           :s.name+' menebas '+t.name+', tapi tidak terjadi apa-apa.')}
-      S.players.forEach(q=>{q.k=null});S.sawed=false;
+      S.players.forEach(q=>{q.k=q.k2||null;q.k2=null});S.sawed=false;
       render();
       after(()=>{
         S.hit=-1;S.fx.ov=null;DS_RL=null;if(S.fx.sv){S.fx.sv=null;S.fx.fade=1}
@@ -5561,7 +5583,7 @@ function DeadShell(box,joinCode){
         const sgW=dsWheelSegs(S.chamber),nW=sgW.length;
         if(nW){const tp=S.chamber[0],cand=[];sgW.forEach((x,q)=>{if(x===tp)cand.push(q)});const idxS=cand.length?cand[Math.floor(Math.random()*cand.length)]:0,stS=Math.PI*2/nW;S.fx.ia.wheel={mode:'soda',spin:1100,hitAt:1550,cut:may?1850:1800,segs:sgW,idx:idxS,st:stS,thf:-(idxS+.5)*stS+Math.PI*2*5,reveal:true}}
         const s=S.chamber.shift();if(s==='L')S.pL=Math.max(0,S.pL-1);else S.pB=Math.max(0,S.pB-1);{const ej=s;S.fx.ia.pop=()=>{S.fx.eject={type:ej,t0:Date.now()}}}
-        S.players.forEach(q=>{q.k=null});
+        S.players.forEach(q=>{q.k=q.k2||null;q.k2=null});
         say(p.name+(may?' menusuk satu peluru keluar dari laras.':' membuang satu peluru.'));
         if(!S.chamber.length){reload();delay=2800}
       }break;
@@ -5570,7 +5592,7 @@ function DeadShell(box,joinCode){
         S.fx.ia.wheel={mode:'flip',spin:950,jump:1400,needleAt:1560,glitchEnd:2560,segs:fgW,idx:idxF,opp:oppF,st:stF,thf:-(idxF+.5)*stF+Math.PI*2*5,thf2:-(oppF+.5)*stF+Math.PI*2*5,newType:null,reveal:hum};
         S.chamber[0]=S.chamber[0]==='L'?'B':'L';S.flipU=true;S.fx.ia.wheel.newType=S.chamber[0];
         const mine=p.k?S.chamber[0]:null;
-        S.players.forEach(q=>{q.k=null});p.k=mine;
+        S.players.forEach(q=>{q.k=null;if(q!==p)q.k2=null});p.k=mine;
         say(dsHolderIsMay(S)?(hum?roomName():p.name)+' sedang membelokkan takdirnya.':p.name+' membalik peluru di laras.');
       }break;
       case 'pill':{
@@ -5609,6 +5631,24 @@ function DeadShell(box,joinCode){
     after(()=>{if(S&&!S.over)continueTurn()},700*spd());
     return true;
   }
+  /* Nyala Arwah: intip 2 peluru berikutnya, 1x per ronde, tidak memakai giliran. Animasi: api arwah naik dari tangan, dua nyala menyusul kiri-kanan, layar menghangat emas */
+  function peekSpirit(pi){
+    const p=S&&S.players[pi];
+    if(!p||S.over||pi!==S.turn||!p.alive||!canPeek(p)||!S.chamber.length)return false;
+    if(pi===0&&S.online)netAct({k:'peek'});
+    p.pk=1;p.k=S.chamber[0];p.k2=S.chamber[1]||null;
+    S.lock=true;S.pick=null;S.sel=null;
+    Music.sfx('fateEye');
+    const hum=pi===0,x=hum?160:figX(pi-1),y=hum?150:figTop()+34*figU(),C=['#e8892a','#ffd98a','#fff6e0','#ffb347'];
+    S.fx.gold=1;dsBurst(S.fx,x,y,C,26,6,-.06);
+    after(()=>{if(S&&!S.over){dsBurst(S.fx,x-34,y-40,C,14,5,-.06);S.fx.gold=.7}},380*spd());
+    after(()=>{if(S&&!S.over){dsBurst(S.fx,x+34,y-40,C,14,5,-.06);S.fx.gold=.7}},760*spd());
+    say(p.name+' memanggil Nyala Arwah'+(hum?': kamu melihat 2 peluru berikutnya.':'.'));
+    render();
+    after(()=>{if(S&&!S.over)continueTurn()},1100*spd());
+    return true;
+  }
+  function humanPeek(){if(!canAct())return;peekSpirit(0)}
   function roundEnd(w){
     S.lock=true;S.fx.aim=-1;S.fx.holder=-1;
     w.wins++;Music.sfx(w.human?'win':'lose',.6);
@@ -5981,6 +6021,8 @@ function DeadShell(box,joinCode){
     }else if(a.k==='steal'){
       const ti=loc(a.ti);
       if(ti<0||!stealItem(S.turn,ti,a.slot))pump();
+    }else if(a.k==='peek'){
+      if(!peekSpirit(S.turn))pump();
     }else pump();
   }
   const byeNow=()=>{if(NET)nPost({t:'bye'},0,true)};
@@ -9215,7 +9257,7 @@ function TwentyOne(box,joinCode){
     });
   }
   function netLeave(bye){
-    if(NET){if(bye&&NET.peer)netPost({t:'bye'},0,true);if(NET.h){try{NET.h.close()}catch(x){}NET.h=null}}
+    if(NET){clearTimeout(NET.vsTm);if(bye&&NET.peer)netPost({t:'bye'},0,true);if(NET.h){try{NET.h.close()}catch(x){}NET.h=null}}
     NET=null;
   }
   const fmtCode=c=>c.slice(0,4)+'-'+c.slice(4);
@@ -9223,7 +9265,7 @@ function TwentyOne(box,joinCode){
   let vsEl=null;
   function hideVS(){if(vsEl){const e=vsEl;vsEl=null;e.remove()}}
   function vsOut(o){if(vsEl===o&&!o.classList.contains('out')){o.classList.add('out');T.after(()=>{if(vsEl===o)hideVS()},620)}}
-  function vsBuild(lkA,lkB,nameB,demo,wait){
+  function vsBuild(lkA,lkB,nameB,demo,wait,skew){
     hideVS();if(!NET&&!demo)return;
     const D=(c,t)=>{const d=document.createElement('div');d.className=c;if(t!=null)d.textContent=t;return d};
     const code=demo||fmtCode(String(NET.code||'')),day=new Date().toLocaleDateString('en-US',{month:'short',day:'numeric',year:'numeric'});
@@ -9237,7 +9279,8 @@ function TwentyOne(box,joinCode){
     o.append(side('l',meName,lkA));
     if(wait){const w=D('vsp r vsw');w.append(D('vswt','Waiting...'));o.append(w)}
     else o.append(side('r',String(nameB||'Teman').slice(0,16),lkB));
-    o.insertAdjacentHTML('beforeend','<svg class="vsvs" viewBox="0 0 120 80" aria-hidden="true"><path pathLength="1" d="M8 8 L33 72 L55 6"/><path pathLength="1" d="M106 14 C94 0 66 6 72 26 C76 40 108 36 106 56 C104 76 76 82 62 64"/></svg>');
+    o.insertAdjacentHTML('beforeend','<svg class="vsvs" viewBox="0 0 120 80" aria-hidden="true"><path pathLength="1" d="M8 8 L33 72 L55 6"/><path pathLength="1" d="M106 14 C94 0 66 6 72 26 C76 40 108 36 106 56 C104 76 76 82 62 64"/><path pathLength="1" transform="translate(2.2 1.6)" d="M8 8 L33 72 L55 6"/><path pathLength="1" transform="translate(-1.6 2)" d="M106 14 C94 0 66 6 72 26 C76 40 108 36 106 56 C104 76 76 82 62 64"/></svg>');
+    o.insertAdjacentHTML('beforeend','<div class="vsks"></div><svg class="vsk" viewBox="0 0 28 120" aria-hidden="true"><defs><linearGradient id="vkl" x1="0" x2="1"><stop offset="0" stop-color="#f7f9fc"/><stop offset="1" stop-color="#b9c1cd"/></linearGradient><linearGradient id="vkr" x1="0" x2="1"><stop offset="0" stop-color="#9aa3b1"/><stop offset="1" stop-color="#5f6877"/></linearGradient><linearGradient id="vkb" x1="0" x2="1"><stop offset="0" stop-color="#f0c56a"/><stop offset=".55" stop-color="#d9a441"/><stop offset="1" stop-color="#8f6420"/></linearGradient><linearGradient id="vkg" x1="0" x2="1"><stop offset="0" stop-color="#4a3522"/><stop offset=".5" stop-color="#2a1e14"/><stop offset="1" stop-color="#150f09"/></linearGradient></defs><path d="M14 118C11 104 7.6 84 7.6 60V46H14z" fill="url(#vkl)"/><path d="M14 118C17 104 20.4 84 20.4 60V46H14z" fill="url(#vkr)"/><path d="M7.9 46V60C7.9 83 11.2 103 14 116" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width=".7"/><path d="M12.7 52h2.6l-.5 34h-1.6z" fill="#000" fill-opacity=".16"/><rect x="7.6" y="46" width="12.8" height="1.6" fill="#3a2a1a" fill-opacity=".35"/><path d="M2.5 40.2C8 45.2 20 45.2 25.5 40.2V44.6C20 49.6 8 49.6 2.5 44.6z" fill="url(#vkb)" stroke="#3a2a1a" stroke-width=".6" stroke-linejoin="round"/><rect x="10.4" y="13" width="7.2" height="28" rx="2.4" fill="url(#vkg)"/><path d="M10.6 17.5l6.8-1.8M10.6 21.5l6.8-1.8M10.6 25.5l6.8-1.8M10.6 29.5l6.8-1.8M10.6 33.5l6.8-1.8M10.6 37.5l6.8-1.8" stroke="#d9a441" stroke-opacity=".6" stroke-width=".9" stroke-linecap="round"/><circle cx="14" cy="8.2" r="5.2" fill="url(#vkb)" stroke="#3a2a1a" stroke-width=".6"/><circle cx="14" cy="8.2" r="2" fill="#150f09"/></svg>');
     o.append(D('vsfl'));
     const act=D('vsact');
     if(wait){
@@ -9254,9 +9297,17 @@ function TwentyOne(box,joinCode){
     const t=Date.now();
     o.onclick=()=>{if(Date.now()-t>900)vsOut(o)};
     vsEl=o;document.body.append(o);
-    T.after(()=>vsOut(o),4800);
+    /* sinkron online: host baru mulai setelah tamu, jadi majukan semua animasi (VS, flash, bar kuning) sebesar selisihnya */
+    const sk=Math.max(0,Math.min(1500,skew||0));
+    if(sk&&o.getAnimations)o.getAnimations({subtree:true}).forEach(a=>{try{a.currentTime=(a.currentTime||0)+sk}catch(e){}});
+    T.after(()=>vsOut(o),4800-sk);
   }
-  function showVS(lkA,lkB,nameB,demo){if(!lkA||!lkB)return;vsBuild(lkA,lkB,nameB,demo,false)}
+  function showVS(lkA,lkB,nameB,demo,skew){if(!lkA||!lkB)return;vsBuild(lkA,lkB,nameB,demo,false,skew)}
+  /* host: tunggu tamu menandai VS-nya sudah tampil (t:'vsa'), lalu mulai dengan lompatan setengah RTT. Tanpa ack: mulai sendiri setelah 2,5 dtk */
+  function hostVS(skew){
+    if(!NET||!NET.vsw)return;NET.vsw=0;clearTimeout(NET.vsTm);
+    if(S&&S.lk)showVS(S.lk[0],S.lk[1],bn,null,skew);
+  }
   function showWait(){vsBuild(twMine(),null,'',null,true)}
   const previewVS=()=>showVS(twMine(),twBotLook(),bn,'ABCD-EFGH');/* uji tampilan tanpa lawan: kode room contoh */
   const stNote=t=>{const n=root.querySelector('.twst');if(n)n.textContent=t;if(vsEl){const q=vsEl.querySelector('.vsst');if(q)q.textContent=t}};
@@ -9299,6 +9350,7 @@ function TwentyOne(box,joinCode){
   function hostMsg(m){
     if(!S||!NET)return;
     if(m.t==='bye'){NET.gone=true;if(!S.over){S.over=true;S.anim=null}addMsg('Temanmu keluar dari room.');render();return}
+    if(m.t==='vsa'){if(NET.vsw){const s0=NET.sT&&NET.sT[m.q];hostVS(s0?(Date.now()-s0)/2:0)}return}
     if(m.t!=='act')return;
     if(m.q!=null&&m.q<NET.sq)NET.lastV='';/* tamu tertinggal: kirim ulang tampilan terbaru */
     if(m.a==='again'){if(S.over&&!NET.gone)start();return}
@@ -9323,6 +9375,7 @@ function TwentyOne(box,joinCode){
     const v=viewFor(),js=JSON.stringify(v);
     if(js===NET.lastV&&!NET.out.length)return;
     NET.lastV=js;NET.sq++;
+    if(NET.sq<=8)(NET.sT=NET.sT||{})[NET.sq]=Date.now();
     netPost({t:'st',q:NET.sq,v,m:NET.out.splice(0)},3);
   }
 
@@ -9379,7 +9432,7 @@ function TwentyOne(box,joinCode){
     if(reset){
       gen++;stopLoop();msgs=[];sel=null;NET.overSeen=false;t0=Date.now();Stats.arm('twentyone');
       S=v;buildUI();
-      if(!NET.vs){NET.vs=1;showVS(v.lk[0],v.lk[1],bn)}
+      if(!NET.vs){NET.vs=1;showVS(v.lk[0],v.lk[1],bn);netPost({t:'vsa',q:m.q},2)}
     }else{
       if(v.round!==old.round){msgs=[];sel=null}
       v.anim=NET.overSeen?old.anim:null;
@@ -9404,8 +9457,8 @@ function TwentyOne(box,joinCode){
     S={hp:[HP0,HP0],round:0,over:false,tr:[[],[]],hand:[[],[]],deck:[],limit:21,bet:1,turn:0,phase:'play',stood:[false,false],tl:[],botTr:0,pw:[{},{}],lk:[twMine(),NET&&NET.peerLk?NET.peerLk:twBotLook()]};
     msgs=[];sel=null;
     if(NET&&NET.role==='host'){NET.out=[];NET.lastV=''}
+    if(NET&&NET.role==='host'&&!NET.vs){NET.vs=1;NET.vsw=1;NET.vsTm=setTimeout(()=>hostVS(0),2500)}
     buildUI();newRound();
-    if(NET&&NET.role==='host'&&!NET.vs){NET.vs=1;showVS(S.lk[0],S.lk[1],bn)}
   }
   const betFor=l=>Math.max(0,S.bet+S.tl.reduce((a,x)=>a+(x.w!==l?(TW_UP[x.id]||0):0),0)-S.tl.reduce((a,x)=>a+(x.w===l?(TW_SH[x.id]||0):0),0));
   const shieldOf=i=>S.tl.reduce((a,x)=>a+(x.w===i?(TW_SH[x.id]||0):0),0);
