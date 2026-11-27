@@ -8982,16 +8982,29 @@ function TwentyOne(box,joinCode){
     gen++;netLeave(true);stopLoop();S=null;root.innerHTML='';
     const L=twMine();
     const w=el('div','dsw');w.append(el('div','dst','Kustomisasi'));
-    const pv=document.createElement('canvas');pv.width=160;pv.height=90;pv.style.cssText='width:100%;image-rendering:pixelated;background:#07090d;display:block';
+    /* preview = adegan yang sama persis dengan saat main: ruangan, lampu, meja hijau, kamera REC, meja kartu */
+    const sc=el('div','twsc'),pv=document.createElement('canvas');pv.width=160;pv.height=90;sc.append(pv);
+    const cam=el('div','twcam','<i></i><i></i><i></i><i></i><span class="rec">REC</span>'),tcE=el('span','tc');cam.append(tcE);
+    const ov=el('div','twov');ov.append(cam);sc.append(ov);
     const pc=pv.getContext('2d');pc.imageSmoothingEnabled=false;
+    const pt0=Date.now();
     const pt=setInterval(()=>{
       if(!pv.isConnected){clearInterval(pt);return}
-      pc.fillStyle='#0b0e13';pc.fillRect(0,0,160,90);twFig(pc,L.ch,Date.now());
-      pc.fillStyle='#3a2a1a';pc.fillRect(0,64,160,2);pc.fillStyle='#142018';pc.fillRect(0,66,160,24);
+      const now=Date.now(),fk=.55+.3*Math.sin(now/240)+(Math.random()<.05?-.3:0);
+      cx=pc;
+      roomWall(now/1000);roomLamp(now/1000,fk);
+      twFig(pc,L.ch,now);
+      roomTable(now/1000,fk);roomVignette();post(now);
+      const e=Math.floor((now-pt0)/1000),pd=n=>String(n).padStart(2,'0');
+      tcE.textContent='CAM 02 · '+pd(Math.floor(e/60)%100)+':'+pd(e%60);
     },100);
-    const prow=el('div','dsrow');prow.style.cssText='justify-content:center;gap:8px;margin:10px 0';
-    const refresh=()=>{prow.innerHTML='';[['♠︎',1],['7',0],['11',0],['4',0]].forEach(([t,bk])=>{const d=el('div','twc'+(bk?' bk':'')+(L.sk?' s'+L.sk:''));d.textContent=t;prow.append(d)})};
-    w.append(pv,prow);refresh();
+    const tb=el('div','twtb'),prow=el('div','twrow'),pwho=el('div','twwho'),pnb=document.createElement('b');
+    pnb.textContent=meName;pwho.append(pnb);
+    const pcs=el('div','twcs');
+    const ptt=el('div','twtot','22<small>/21</small>');
+    prow.append(pwho,pcs,ptt);tb.append(prow);
+    const refresh=()=>{pcs.innerHTML='';[['♠︎',1],['7',0],['11',0],['4',0]].forEach(([t,bk])=>{const d=el('div','twc'+(bk?' bk':'')+(L.sk?' s'+L.sk:''));d.textContent=t;pcs.append(d)})};
+    w.append(sc,tb);refresh();
     const group=(label,names,key,mk)=>{
       w.append(el('div','dscl',label));
       const r=el('div','dsopts'),ord=names.map((_,i)=>i);
@@ -9269,9 +9282,9 @@ function TwentyOne(box,joinCode){
   }
   function nyStar(x,y,f){x=Math.round(x);y=Math.round(y);if(!f){cx.fillRect(x,y,1,1);return}const a=f===2?2:1;cx.fillRect(x-a,y,2*a+1,1);cx.fillRect(x,y-a,1,2*a+1)}
   function drawNyan(c,dt,now){
-    c.nt+=dt;c.x+=62*dt;const nt=c.nt;
+    c.nt+=dt;c.x+=46*dt;const nt=c.nt;
     if(c.x>210){catS=null;catFx=null;catNext=now+6000+Math.random()*4000;return}
-    const al=Math.max(0,Math.min(1,nt/.5,(210-c.x)/62/.6)),f=Math.floor(nt*10)%2,X0=Math.round(c.x-16),Y0=Math.round(56+Math.sin(nt*4.5)*3+f),TL=36,tx=X0+6,ty=Y0,ph=Math.floor(nt*8);
+    const al=Math.max(0,Math.min(1,nt/.5,(210-c.x)/46/.6)),f=Math.floor(nt*10)%2,X0=Math.round(c.x-16),Y0=Math.round(56+Math.sin(nt*4.5)*3+f),TL=36,tx=X0+6,ty=Y0,ph=Math.floor(nt*8);
     /* kartu kamu terangkat dan bergoyang waktu Nyan lewat di atasnya */
     const wx=c.d>0?c.x:160-c.x,m={};let any=false;
     catSlots().forEach((sx,k)=>{const dd=Math.abs(wx-sx);if(dd<18){const u=1-dd/18;m[k]={dx:0,dy:-1.6*u,rot:(k%2?1:-1)*.07*u*Math.sin(nt*16)};any=true}});
