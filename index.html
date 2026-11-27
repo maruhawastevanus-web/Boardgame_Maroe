@@ -995,11 +995,13 @@ body.dsimm .top .btn,body.dsimm .ghead .back{background:#14110d;border-color:#3a
 .tw .twsc{position:relative;border:3px solid #02060f;background:#050507;line-height:0;overflow:hidden}
 .tw .twsc canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;image-rendering:pixelated}
 .tw .twov{position:absolute;inset:0;pointer-events:none;line-height:1.2}
-.tw .twfl{position:absolute;left:5.5%;top:9%;display:flex;gap:5px}
-.tw .twfl,.tw .twmon{display:none!important}/* TV kuning (giliran) dan kotak Taruhan/Ronde disembunyikan supaya adegan tidak tertutup */
-.tw .twfl div{background:#0c0e12;border:2px solid #02060f;box-shadow:0 0 0 1px #3a2a1a;color:#e9e4d6;text-align:center;padding:2px 7px 3px}
-.tw .twfl b{display:block;font-size:clamp(15px,5.4vw,24px);font-weight:500;letter-spacing:.08em}
-.tw .twfl span{font-size:9px;color:#9a9482;letter-spacing:.06em}
+.tw .twmon{display:none!important}/* TV kuning (giliran) disembunyikan */
+.tw .twfl{position:absolute;left:4.4%;top:4%;display:flex;gap:5px;pointer-events:none}/* Taruhan/Ronde: gaya lama (angka di atas, label di bawah), pojok kiri atas dalam grid kamera, di atas rak */
+.tw .twfl div{background:#0c0e12;border:2px solid #02060f;box-shadow:0 0 0 1px #3a2a1a;color:#e9e4d6;text-align:center;padding:1px 6px 2px;line-height:1.05}
+.tw .twfl b{display:block;font-size:clamp(11px,3.6vw,15px);font-weight:500;letter-spacing:.08em}
+.tw .twfl span{display:block;font-size:clamp(6px,2vw,8px);color:#9a9482;letter-spacing:.06em}
+.tw .twpd{background:#0c0e12;border:2px solid #ffd23f;color:#e9e4d6;font-size:11px;line-height:1.5;padding:8px 10px;margin-bottom:8px}.tw .twpd b{color:#ffd23f;font-weight:500}
+.tw .dbtn.on{outline:2px solid #ffd23f;outline-offset:1px}
 .tw .twmon{position:absolute;right:4%;top:16%;width:33%;height:38%;display:flex;align-items:center;justify-content:center;text-align:center;background:#d9d9d3;color:#85857e;border:3px solid #02060f;font-size:clamp(12px,4.4vw,20px);font-weight:500;letter-spacing:.06em;transform:perspective(180px) rotateY(-14deg)}
 .tw .twmon.go{background:#ffd23f;color:#1b1200}
 .tw .twcam{position:absolute;inset:0;pointer-events:none;font-size:clamp(8px,2.6vw,11px);letter-spacing:.14em;color:rgba(233,228,214,.78);
@@ -1374,6 +1376,7 @@ D1.push(["Taruhan lawan naik 1 selama kartu ini di meja.","The opponent's bet go
 D1.push(["KAMU KALAH","YOU LOSE"],["KAMU MENANG","YOU WIN"]);
 /* Twenty One: kekuatan Kitsune Emas, nama karakter, layar room online */
 D1.push(["Main Twenty One bareng aku di Board Game Maroe. Buka link ini, langsung masuk:","Play Twenty One with me on Board Game Maroe. Open this link to join straight away:"],["Nyala Arwah","Spirit Flame"],["Tipuan","Deception"],["Pesona Rubah","Fox Charm"],["Pesona Rubah sudah dipakai ronde ini.","Fox Charm was already used this round."],["Pesona Rubah masih cooldown.","Fox Charm is still on cooldown."],["Pesona Rubah –","Fox Charm –"],["wajib Hit di giliran berikutnya.","must Hit on their next turn."],["Pesona Rubah! Kamu wajib Hit di giliran berikutnya.","Fox Charm! You must Hit on your next turn."],["Terpesona Pesona Rubah: kamu wajib Hit.","Charmed by Fox Charm: you must Hit."],["Tipuan (pasif): kartu terbuka pertamamu tampil palsu di layar lawan.","Deception (passive): your first face-up card shows a fake number on the opponent's screen."],["Terpakai","Used"],["Siap","Ready"],["Mutiara Rubah","Fox Pearl"],["Kembali ke Ekor","Return to Tail"],["Sembilan Ekor","Nine Tails"],["Kitsune Emas","Golden Kitsune"],["Kitsune Arwah","Spirit Kitsune"],["Baret Topeng","Masked Beret"],["Polisi","Police"],["Pesulap","Magician"],["Robot Kasino","Casino Robot"],["Badut","Clown"],["Rubah Topeng","Masked Fox"],["Nyala Arwah – kartu tertutup lawan:","Spirit Flame – opponent's hidden card:"],["Nyala Arwah dipakai oleh:","Spirit Flame used by:"],["Tipuan: kartu terbukamu tampil palsu di layar lawan.","Deception: your face-up card shows a fake number on the opponent's screen."],["Asli:","Real:"],["tampil:","shown:"],["Angkamu:","Your number:"],["Angka","Number"],["Angka:","Number:"],["Oleh:","By:"],["Trump hancur:","Trump destroyed:"],["· pemilik:","· owner:"],["Kembali ke Ekor: kartu terakhir dikembalikan ke dek.","Return to Tail: the last card goes back to the deck."],["Kembali ke Ekor: kartu terakhir dibuang.","Return to Tail: the last card is discarded."],["Kartu pengganti terbaik dari dek:","Best replacement card from the deck:"],["Tidak ada kartu pengganti yang muat.","No replacement card fits."],["Poin diambil oleh","Points taken by"],["Poin diambil dari","Points taken from"],["Mutiara Rubah menyelamatkanmu. Tidak ada poin yang berpindah.","Fox Pearl saves you. No points change hands."],["Mutiara Rubah menyelamatkan lawan. Tidak ada poin yang berpindah.","Fox Pearl saves the opponent. No points change hands."],["Nyala Arwah sudah dipakai ronde ini.","Spirit Flame was already used this round."],["Tipuan sudah dipakai ronde ini.","Deception was already used this round."],["Tidak ada kartu terbuka untuk ditipu.","No face-up card to deceive."],["Mutiara Rubah:","Fox Pearl:"],["Kembali ke Ekor:","Return to Tail:"],["siap","ready"],["terpakai","used"],["POIN AKHIR","FINAL POINTS"],["Kamu room master. Bagikan kode 8 huruf ke temanmu.","You're the room master. Share the 8-letter code with your friend."],["Berikan kode 8 huruf ini ke temanmu. Orang pertama yang gabung akan bermain denganmu.","Give this 8-letter code to your friend. The first person to join will play with you."],["Online tidak jalan kalau dibuka dari file. Upload ke hosting (misalnya GitHub Pages), lalu buka lewat link https.","Online doesn't work when opened from a file. Upload to hosting (for example GitHub Pages), then open the https link."],["Room sudah penuh.","The room is full."],["Menunggu temanmu bergabung…","Waiting for your friend to join…"],["Temanmu keluar dari room.","Your friend left the room."],["Room tidak ditemukan atau temanmu belum membuatnya. Periksa kodenya.","Room not found, or your friend hasn't created it yet. Check the code."],["Kodenya 8 huruf atau angka.","The code is 8 letters or digits."],["Mencari room…","Looking for room…"],["Main Twenty One bareng aku di Board Game Maroe. Gabung dengan kode:","Play Twenty One with me on Board Game Maroe. Join with code:"]);
+D1.push(["Intip kartu tertutup lawan. Sekali per ronde.","Peek at the opponent's hidden card. Once per round."],["Lawan wajib Hit di giliran berikutnya. Sekali per ronde, lalu istirahat 1 ronde.","The opponent must Hit on their next turn. Once per round, then 1 round of rest."],["Lihat kartu teratas dek tanpa mengambilnya. Sekali per ronde.","Look at the top card of the deck without taking it. Once per round."],["Buang kartu teratas dek, angkanya diumumkan ke kedua pemain. Sekali per ronde.","Discard the top card of the deck; its number is announced to both players. Once per round."],["Pakai","Use"]);
 /* Twenty One: kekuatan Owner */
 D1.push(["Mata Takdir","Fate's Eye"],["Belati Takdir","Fate's Dagger"],["Mata Takdir sudah dipakai ronde ini.","Fate's Eye was already used this round."],["Belati Takdir sudah dipakai ronde ini.","Fate's Dagger was already used this round."],["Dek terlalu sedikit.","Too few cards in the deck."],["Mata Takdir – kartu teratas dek:","Fate's Eye – top card of the deck:"],["Mata Takdir dipakai oleh:","Fate's Eye used by:"],["Belati Takdir: kartu teratas dek dibuang.","Fate's Dagger: the top card of the deck is discarded."],["Kapten Menang Seri","Captain's Tiebreak"],["Kapten Menang Seri: imbang jadi menang.","Captain's Tiebreak: the draw becomes a win."],["Kulit Karang","Reef Hide"],["Kulit Karang: poin yang hilang berkurang 1.","Reef Hide: points lost reduced by 1."],["Tebasan Akhir","Final Slash"],["Tebasan Akhir: total pas, lawan kehilangan 1 poin tambahan.","Final Slash: exact total, the opponent loses 1 extra point."],["Pasang Balik","Tide Turn"],["Pasang Balik: trump tambahan.","Tide Turn: bonus trump."],["Poin >3","Points >3"]);
 const T={en:mk(D1),id:mk(D2)},cache=new Map();
@@ -8893,7 +8896,7 @@ function TwentyOne(box,joinCode){
   const meName=((Stats.get().name||'')+'').trim()||'Kamu';
   const myName=((Stats.get().name||'')+'').trim();
   const HP0=7,p2=n=>String(n).padStart(2,'0');
-  let S=null,cv=null,cx=null,tick=null,flash=0,sel=null,msgs=[],elTc=null,TVG=null,t0=Date.now();
+  let S=null,cv=null,cx=null,tick=null,flash=0,sel=null,selPw=null,msgs=[],elTc=null,TVG=null,t0=Date.now();
   /* online 1v1: host memegang seluruh logika game, tamu hanya mengirim aksi dan menerima tampilan (pandangan sudah dibalik) */
   let NET=null;
   const pn=i=>i?bn:(NET?(myName||'Teman'):meName);/* nama mutlak pemain i */
@@ -8904,6 +8907,7 @@ function TwentyOne(box,joinCode){
   const nm=i=>i?bn:meName;
   const R=(x,y,w,h,c)=>{cx.fillStyle=c;cx.fillRect(x,y,w,h)};
 
+  const TW_PW={peek:['Nyala Arwah','Intip kartu tertutup lawan. Sekali per ronde.'],charm:['Pesona Rubah','Lawan wajib Hit di giliran berikutnya. Sekali per ronde, lalu istirahat 1 ronde.'],eye:['Mata Takdir','Lihat kartu teratas dek tanpa mengambilnya. Sekali per ronde.'],dagger:['Belati Takdir','Buang kartu teratas dek, angkanya diumumkan ke kedua pemain. Sekali per ronde.']};
   function oddsBox(){
     const w=el('div','twodds'),bar=el('div','twstk'),lg=el('ul','twlg'),n=TW_IDS.length;
     w.append(el('div','twoh','Peluang trump: 25% per kategori, lalu acak dalam kategori.'));
@@ -9138,11 +9142,17 @@ function TwentyOne(box,joinCode){
     R(11,70,7,2,'rgba(0,0,0,.4)');
     R(12,66,5,7,'#d6d0bd');R(12,66,5,1,'#efe9d6');R(16,68,1,5,'#a8a392');R(12,72,5,1,'#8f897a');
     R(17,73,3,1,'rgba(214,208,189,.55)');
+    /* hiasan meja biar lilin tidak sendirian: lilin pendek, chip, dadu, botol, gelas */
+    R(20,74,5,1,'rgba(0,0,0,.35)');R(21,70,3,4,'#d6d0bd');R(21,70,3,1,'#efe9d6');R(23,71,1,3,'#a8a392');
+    [['#a83232','#d8d4c4','#a83232','#d9b24a',5,78],['#2a3b6a','#d8d4c4','#2a3b6a','#2a3b6a',10,78],['#d8d4c4','#222','#d8d4c4','#222',148,80]].forEach(([c0,c1,c2,c3,x,y],n)=>{const hh=n===1?2:4;R(x-1,y+1,6,1,'rgba(0,0,0,.4)');[c0,c1,c2,c3].slice(0,hh).forEach((col,j)=>{R(x,y-j,4,1,col)});R(x+1,y-hh+1,2,1,'rgba(255,255,255,.22)')});
+    R(16,79,4,1,'rgba(0,0,0,.4)');R(16,76,3,3,'#e8e4d0');R(18,76,1,3,'#b9b4a2');R(16,76,1,1,'#222');R(18,78,1,1,'#222');
+    R(141,71,6,1,'rgba(0,0,0,.4)');R(142,63,4,8,'#0e3a26');R(143,59,2,4,'#0e3a26');R(143,58,2,1,'#6a4a22');R(142,64,1,6,'rgba(190,255,210,.25)');R(142,66,4,3,'#d6c9a0');R(143,67,2,1,'#6a4a22');
+    R(148,75,6,1,'rgba(0,0,0,.4)');R(149,70,4,5,'rgba(190,210,225,.22)');R(149,70,4,1,'rgba(230,240,250,.35)');R(150,72,2,3,'#b8731f');R(150,72,2,1,'#e0a040');
     roomTblCv=c;
   }
   let roomTblCv=null;
   /* kartu di atas meja kamera: digambar 4x lebih besar (tebal tepi, bayangan lembut, miring, perspektif), lalu diperkecil ke 160x90 supaya menyatu dengan adegan */
-  let cHi=null,cMid=null;
+  let cHi=null,cMid=null,catFx=null;
   const TW_PAL=[['#8f897a','#ece7d9','#d6d0bd','#cfc8b4'],['#f2b632','#a6321c','#d0561e','#ffe7a6'],['#6a3dd8','#2a1250','#d9822a','#fff0b0'],['#2fd6c4','#0f6c78','#0b3f5c','#8ffff0'],['#c4501c','#2a110a','#b0540f','#ffb25a'],['#e0709a','#fbdce6','#f7c3d4','#d9457a'],['#1fe0a0','#06352a','#0a4a3a','#6bffd0'],['#2a62c0','#e6b878','#c4984b','#ec8f6a'],['#7fd8ff','#0a2a4a','#cfe9f2','#3dffb0'],['#d9a441','#2a2a4a','#4a3a2a','#ffe7a6'],['#e8742a','#2a1050','#d99a5a','#ffd6a0'],['#a89e9e','#4a0a10','#2a0a10','#eee9da']];
   const twRR=(g,x,y,w,h,r)=>{g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()};
   const twDk=(h,f)=>'rgb('+[1,3,5].map(i=>Math.round(parseInt(h.substr(i,2),16)*f)).join(',')+')';
@@ -9175,7 +9185,7 @@ function TwentyOne(box,joinCode){
     [1,0].forEach(i=>{
       const h=S.hand[i],n=h.length;if(!n)return;
       const l=L[i?0:1],P=TW_PAL[S.lk&&S.lk[i]&&S.lk[i].sk||0]||TW_PAL[0],pt=l.w*l.pitch,x0=80-((n-1)*pt)/2;
-      h.forEach((c,k)=>twCard(g,x0+k*pt,l.cy+l.dy[k%5],l.w,l.sy,l.rot[k%5],P,!!c.hid));
+      h.forEach((c,k)=>{const f=catFx&&catFx.r===i?(catFx.m?catFx.m[k]:catFx.k===k?catFx:null):null;twCard(g,x0+k*pt+(f?f.dx:0),l.cy+l.dy[k%5]+(f?f.dy:0),l.w,l.sy,l.rot[k%5]+(f?f.rot:0),P,!!c.hid)});/* catFx: kartu tertekan waktu kucing mendarat */
     });
     g.globalCompositeOperation='source-atop';                              /* cahaya: lampu di tengah, lilin hangat di kiri, tepi gelap */
     let q=g.createRadialGradient(320,285,20,320,285,330);q.addColorStop(0,'rgba(235,240,170,'+(.1*fk).toFixed(3)+')');q.addColorStop(.5,'rgba(0,0,0,.05)');q.addColorStop(1,'rgba(0,0,0,.25)');g.fillStyle=q;g.fillRect(0,0,640,360);
@@ -9200,6 +9210,8 @@ function TwentyOne(box,joinCode){
     R(66,TW_Y0,28,1,'rgba(255,240,180,'+(.22*fk).toFixed(3)+')');
     /* api lilin + cahaya hangat di meja */
     const fl=(Math.sin(t*17+2)>.6)?1:0;R(13,62-fl,2,4+fl,'#ffb02a');R(13,61-fl,1,2,'#fff2a0');
+    {const f2=(Math.sin(t*13+5)>.5)?1:0;R(21,67-f2,2,3+f2,'#ffb02a');R(21,66-f2,1,2,'#fff2a0')}
+    for(let r=12;r>=4;r-=4){for(let d=-r;d<=r;d++){const y=70+d;if(y<TW_Y0+1||y>86)continue;const w=Math.floor(Math.sqrt(r*r-d*d));R(22-w,y,w*2+1,1,'rgba(255,150,40,.04)')}}
     for(let r=22;r>=6;r-=4){for(let d=-r;d<=r;d++){const y=66+d;if(y<TW_Y0+1||y>86)continue;const w=Math.floor(Math.sqrt(r*r-d*d));R(14-w,y,w*2+1,1,'rgba(255,150,40,.04)')}}
     /* kabut tipis di depan meja */
     for(let b=0;b<3;b++){const y=72+b*7;for(let x=0;x<160;x+=2){const a=.03+.025*Math.sin(x*.07+b*2+t*.8);R(x,y,2,3,'rgba(160,180,200,'+Math.max(0,a).toFixed(3)+')')}}
@@ -9215,6 +9227,138 @@ function TwentyOne(box,joinCode){
     const R=RR;
   const e=Math.min(1,t/1.9),ee=1-(1-e)*(1-e);
   for(let x=54;x<108;x++){const a=.46*ee*Math.pow((x-54)/54,1.2);R(x,26,1,40,'rgba(0,0,0,'+a.toFixed(3)+')')}
+  }
+  /* Nyan Cat (25% kemunculan kucing): terbang melintasi meja dengan pelangi bergelombang, bintang berkedip, dan kartu kamu terangkat waktu dilewati. */
+  const NY_RB=['#fe0000','#ff9000','#f8ff01','#1bbf20','#549eff','#6c0aff'],nyC=[],NY_COL={'#':'#000','g':'#888','c':'#fff8b4','p':'#ffb3f1','*':'#ee00fc','r':'#fe8a8a','w':'#fff'},
+  NY_G=[
+    '........#################.......',
+    '.......#ccccccccccccccccc#......',
+    '......#cccpppppppppppppccc#.....',
+    '......#ccpppppp*pp*pppppcc#.....',
+    '......#cpp*ppppppp##pppppc#.##..',
+    '......#cppppppppp#gg#p*ppc##gg#.',
+    '......#cppppppppp#ggg#pppc#ggg#.',
+    '.##...#cpppppp*pp#gggg####gggg#.',
+    '#gg#..#cppppppppp#gggggggggggg#.',
+    '#gg####cppp*pppp#gggggggggggggg#',
+    '.#gggg#cppppppp*#gggw#gggggw#gg#',
+    '..##gg#cp*pppppp#ggg##ggg#g##gg#',
+    '....###cpppppppp#grrgggggggggrr#',
+    '......#cppppp*pp#grrg#gg#gg#grr#',
+    '......#ccp*pppppp#ggg#######gg#.',
+    '.....##cccpppppppp#gggggggggg#..',
+    '....#g##ccccccccccc##########...',
+    '...#ggg##################g#.....',
+    '...#gg#.#gg#.....#gg#.##gg#.....',
+    '...###..###......###...####.....'];
+  /* sprite 32x20 disalin dari gambar referensi Nyan Cat: kaki dulu (digeser tiap frame), lalu badan, ekor (naik-turun), dan bintik (berpindah) */
+  function nyLeg(x,y){return y>=18||(y===17&&(x<=6||x>=25))||(y===16&&(x===4||x===5))}
+  function nyanSpr(f){
+    if(nyC[f])return nyC[f];
+    const c=document.createElement('canvas');c.width=32;c.height=20;const g=c.getContext('2d');
+    const put=(x,y,ch)=>{const col=NY_COL[ch];if(!col||x<0||y<0||x>31||y>19)return;g.fillStyle=col;g.fillRect(x,y,1,1)};
+    const lg=x=>x<=6?0:x<=13?1:x<=21?2:3,dl=f?[1,-1,1,-1]:[0,0,0,0];
+    for(let y=16;y<20;y++)for(let x=0;x<32;x++)if(nyLeg(x,y))put(x+dl[lg(x)],y,NY_G[y][x]);
+    for(let y=0;y<20;y++)for(let x=0;x<32;x++){
+      if(nyLeg(x,y))continue;
+      const ch=NY_G[y][x];
+      if(y>=7&&y<=12&&x<=5)put(x,y-f,ch);else put(x,y,ch==='*'?'p':ch);
+    }
+    for(let y=0;y<20;y++)for(let x=0;x<32;x++)if(NY_G[y][x]==='*')put(x,y+(f&&NY_G[y+1][x]==='p'?1:0),'*');
+    return nyC[f]=c;
+  }
+  function nyStar(x,y,f){x=Math.round(x);y=Math.round(y);if(!f){cx.fillRect(x,y,1,1);return}const a=f===2?2:1;cx.fillRect(x-a,y,2*a+1,1);cx.fillRect(x,y-a,1,2*a+1)}
+  function drawNyan(c,dt,now){
+    c.nt+=dt;c.x+=62*dt;const nt=c.nt;
+    if(c.x>210){catS=null;catFx=null;catNext=now+25000+Math.random()*35000;return}
+    const al=Math.max(0,Math.min(1,nt/.5,(210-c.x)/62/.6)),f=Math.floor(nt*10)%2,X0=Math.round(c.x-16),Y0=Math.round(56+Math.sin(nt*4.5)*3+f),TL=36,tx=X0+6,ty=Y0,ph=Math.floor(nt*8);
+    /* kartu kamu terangkat dan bergoyang waktu Nyan lewat di atasnya */
+    const wx=c.d>0?c.x:160-c.x,m={};let any=false;
+    catSlots().forEach((sx,k)=>{const dd=Math.abs(wx-sx);if(dd<18){const u=1-dd/18;m[k]={dx:0,dy:-1.6*u,rot:(k%2?1:-1)*.07*u*Math.sin(nt*16)};any=true}});
+    catFx=any?{r:0,m}:null;
+    cx.save();cx.imageSmoothingEnabled=false;
+    if(c.d<0){cx.translate(160,0);cx.scale(-1,1)}
+    for(let i=0;i<18;i++){/* bintang berkedip, bergeser ke belakang */
+      let sx=((i*47+13)%160-nt*(36+i%3*10))%160;if(sx<0)sx+=160;
+      cx.globalAlpha=al*.9;cx.fillStyle=i%3?'#fff':'#ffe9a6';nyStar(sx,4+(i*29)%56,[0,1,2,1][Math.floor(nt*7+i*1.3)%4]);
+    }
+    for(let d=0;d<TL;d++){/* pelangi bergelombang, memudar di ujung */
+      const xx=tx-d-1;if(xx<-1||xx>160)continue;
+      const off=[1,2,0,2][((d<6?0:1+((d-6)>>2))+ph)&3];cx.globalAlpha=al*(1-d/TL*.55);
+      for(let b=0;b<6;b++){cx.fillStyle=NY_RB[b];cx.fillRect(xx,ty+off+b*3,1,3)}
+    }
+    cx.fillStyle='#fff';
+    for(let i=0;i<8;i++){const p=(nt*30+i*7)%TL;cx.globalAlpha=al*(1-p/TL);nyStar(tx-p,ty-1+(i*5)%20,[0,1,2,1][Math.floor(nt*9+i)%4])}
+    cx.globalAlpha=1;cx.shadowColor='rgba(255,150,240,.55)';cx.shadowBlur=3;cx.drawImage(nyanSpr(f),X0,Y0);
+    cx.restore();
+  }
+  /* kucing piksel (gaya sprite): jalan masuk dari kiri atau kanan (acak 50%), melompat-lompat di atas kartu kamu (maju, balik, maju lagi), turun, diam lalu menjilat tangan, kemudian pergi ke kanan.
+     Posisinya mengikuti jumlah kartu di meja (2, 3, 4, 5, ...): kalau kartu bertambah/berkurang, kucing berjalan menggeser diri.
+     Tiap bulu (oranye, abu belang, putih, hitam, tuksedo, abu polos) digambar sekali ke kanvas kecil lalu di-cache. */
+  const CAT_D={sit:['.............k.....k............|............kbk...kbk...........|............kbskkksbk...........|...........kbbsbsbsbbk..........|........kk.kbbbbbbbbbk.kk.......|..........kbbbbbbbbbbbk.........|........kkkbbkbbkbbkbbkkk.......|..........kbpbbkbkbbpbk.........|.........kbbbbbbbbbbbbbk........|.........kbbbbbbbbbbbbbk........|.........kbbbbbbbbbbbbbk........|.........kbbbbbbbbbbbbbk........|........kbbbbbbbbbbbbbbbk.......|........kssbbbbbbbbbbbssk...kk..|........ksbbbbbbbbbbbbbsk..kbbk.|........kbbbbbbbbbbbbbbbk..kbk..|........kssbbbbbbbbbbbssk..ksk..|........ksbbkbbbbbbbkbbsk..kbk..|........kbbbkbkbbbkbkbbbkkkbsk..|.........kbbkbkbbbkbkbbkbbsbk...|..........kkkbkkkkkbkkkkkkkk....|............kkk...kkk...........','.............k.....k............|............kbk...kbk...........|............kbskkksbk...........|...........kbbsbsbsbbk..........|........kk.kbbbbbbbbbk.kk.......|..........kbbbbbbbbbbbk.........|........kkkbbkbbkbbkbbkkk.......|..........kbpbbkbkbbpbk.........|.........kbbbbbbbbbbbbbk........|.........kbbbbbbbbbbbbbk........|.........kbbbbbbbbbbbbbk........|.........kbbbbbbbbbbbbbk........|........kbbbbbbbbbbbbbbbk...kk..|........kssbbbbbbbbbbbssk..kbbk.|........ksbbbbbbbbbbbbbsk..kbk..|........kbbbbbbbbbbbbbbbk..ksk..|........kssbbbbbbbbbbbssk..kbk..|........ksbbkbbbbbbbkbbsk..bsk..|........kbbbkbkbbbkbkbbbkkkbk...|.........kbbkbkbbbkbkbbkbbs.....|..........kkkbkkkkkbkkkkkkkk....|............kkk...kkk...........','.............k.....k............|............kbk...kbk...........|............kbskkksbk...........|...........kbbsbsbsbbk..........|........kk.kbbbbbbbbbk.kk.......|..........kbbbbbbbbbbbk.........|........kkkbbkbbkbbkbbkkk.......|..........kbpbbkbkbbpbk.........|.........kbbbbbbbbbbbbbk........|.........kbbbbbbbbbbbbbk........|.........kbbbbbbbbbbbbbk........|.........kbbbbbbbbbbbbbk........|........kbbbbbbbbbbbbbbbk.......|........kssbbbbbbbbbbbssk...kk..|........ksbbbbbbbbbbbbbsk..kbbk.|........kbbbbbbbbbbbbbbbk..kbk..|........kssbbbbbbbbbbbssk..ksk..|........ksbbkbbbbbbbkbbsk..kbk..|........kbbbkbkbbbkbkbbbkkkbsk..|.........kbbkbkbbbkbkbbkbbsbk...|..........kkkbkkkkkbkkkkkkkk....|............kkk...kkk...........','.............k.....k............|............kbk...kbk...........|............kbskkksbk...........|...........kbbsbsbsbbk..........|........kk.kbbbbbbbbbk.kk.......|..........kbbbbbbbbbbbk.........|........kkkbbkbbkbbkbbkkk.......|..........kbpbbkbkbbpbk.........|.........kbbbbbbbbbbbbbk........|.........kbbbbbbbbbbbbbk........|.........kbbbbbbbbbbbbbk........|.........kbbbbbbbbbbbbbk........|........kbbbbbbbbbbbbbbbk...kk..|........kssbbbbbbbbbbbssk..kbbk.|........ksbbbbbbbbbbbbbsk..kbk..|........kbbbbbbbbbbbbbbbk..ksk..|........kssbbbbbbbbbbbssk..kbk..|........ksbbkbbbbbbbkbbsk..bsk..|........kbbbkbkbbbkbkbbbkkkbk...|.........kbbkbkbbbkbkbbkbbs.....|..........kkkbkkkkkbkkkkkkkk....|............kkk...kkk...........'],lick:['.............k.....k............|............kbk...kbk...........|............kbskkksbk...........|...........kbbsbsbsbbk..........|........kk.kbbbbbbbbbk.kk.......|..........kbbbbbbbbbbbk.........|........kkkbbkbbkbbkbbkkk.......|..........kbpbbkbkbbpbk.........|.........kbbbkkkkpbbbbbk........|.........kbbkbpbbbkbbbbk........|.........kbbkbbbbbkbbbbk........|.........kbbkbbkbbbbbbbk........|........kbbkbbkbbbbbbbbbk.......|........kssbbbbbbbbbbbssk...kk..|........ksbbbbbbbbbbbbbsk..kbbk.|........kbbbbbbbbbbbbbbbk..kbk..|........kssbbbbbbbbbbbssk..ksk..|........ksbbkbbbbbbbkbbsk..kbk..|........kbbbkbkbbbkbkbbbkkkbsk..|.........kbbkbkbbbkbkbbkbbsbk...|..........kkkbkkkkkbkkkkkkkk....|............kkk...kkk...........','.............k.....k............|............kbk...kbk...........|............kbskkksbk...........|...........kbbsbsbsbbk..........|........kk.kbbbbbbbbbk.kk.......|..........kbbbbbbbbbbbk.........|........kkkbbkbbkbbkbbkkk.......|..........kbpbbkbkbbpbk.........|.........kbbbbbbbbbbbbbk........|.........kbkkkkkbbbbbbbk........|.........kkbpbbbkbbbbbbk........|.........kkbbbbbkbbbbbbk........|........kbkbbkbbbbbbbbbbk.......|........kskbbkbbbbbbbbssk...kk..|........ksbbbbbbbbbbbbbsk..kbbk.|........kbbbbbbbbbbbbbbbk..kbk..|........kssbbbbbbbbbbbssk..ksk..|........ksbbkbbbbbbbkbbsk..kbk..|........kbbbkbkbbbkbkbbbkkkbsk..|.........kbbkbkbbbkbkbbkbbsbk...|..........kkkbkkkkkbkkkkkkkk....|............kkk...kkk...........'],walk:['.......k......k.................|......kbk....kbk................|......kbskkkksbk........kk......|.....kbbbssbsbbsk......kbbk.....|.....kbbbbbbbbbbk......kbbk.....|....kbbkbbkbbkbbskkkk...ksk.....|....kbpbbkbkbbpbbsbsbk..kbk.....|....kbbbbbbbbbbbbsbsbbkkksk.....|....kbbbbbbbbbbbbbbbbbbkbk......|....kbbbbbtbbbbttttbbbbkbk......|....kbbbbbbbbbbbbbbbbbbbk.......|....ksbbbbbbbbbbbbbbbbbbk.......|....ksbbbbbbbbbbbbbbbbbbk.......|....ksbbbbbbbbbbbbbbbbbsk.......|.....kbbbbbbbbbbbbbbbbsk........|......ksbbbbsbbbsbssbsk.........|.......kbkkbkkkkkbkkbk..........|.......kk..kk...kk..kk..........','.......k......k.................|......kbk....kbk................|......kbskkkksbk........kk......|.....kbbbssbsbbsk......kbbk.....|.....kbbbbbbbbbbk......kbbk.....|....kbbkbbkbbkbbskkkk...ksk.....|....kbpbbkbkbbpbbsbsbk..kbk.....|....kbbbbbbbbbbbbsbsbbkkksk.....|....kbbbbbbbbbbbbbbbbbbkbk......|....kbbbbbtbbbbttttbbbbkbk......|....kbbbbbbbbbbbbbbbbbbbk.......|....ksbbbbbbbbbbbbbbbbbbk.......|....ksbbbbbbbbbbbbbbbbbbk.......|....ksbbbbbbbbbbbbbbbbbsk.......|.....kbbbbbbbbbbbbbbbbsk........|......ksbbbbsbbbsbssbsk.........|.......kbkkbkkkkkbkkbk..........|........kk.kk....kk.kk..........','.......k......k.................|......kbk....kbk................|......kbskkkksbk........kk......|.....kbbbssbsbbsk......kbbk.....|.....kbbbbbbbbbbk......kbbk.....|....kbbkbbkbbkbbskkkk...ksk.....|....kbpbbkbkbbpbbsbsbk..kbk.....|....kbbbbbbbbbbbbsbsbbkkksk.....|....kbbbbbbbbbbbbbbbbbbkbk......|....kbbbbbtbbbbttttbbbbkbk......|....kbbbbbbbbbbbbbbbbbbbk.......|....ksbbbbbbbbbbbbbbbbbbk.......|....ksbbbbbbbbbbbbbbbbbbk.......|....ksbbbbbbbbbbbbbbbbbsk.......|.....kbbbbbbbbbbbbbbbbsk........|......ksbbbbsbbbsbssbsk.........|.......kbkkbkkkkkbkkbk..........|.......kk...kk..kk...kk.........','.......k......k.................|......kbk....kbk................|......kbskkkksbk........kk......|.....kbbbssbsbbsk......kbbk.....|.....kbbbbbbbbbbk......kbbk.....|....kbbkbbkbbkbbskkkk...ksk.....|....kbpbbkbkbbpbbsbsbk..kbk.....|....kbbbbbbbbbbbbsbsbbkkksk.....|....kbbbbbbbbbbbbbbbbbbkbk......|....kbbbbbtbbbbttttbbbbkbk......|....kbbbbbbbbbbbbbbbbbbbk.......|....ksbbbbbbbbbbbbbbbbbbk.......|....ksbbbbbbbbbbbbbbbbbbk.......|....ksbbbbbbbbbbbbbbbbbsk.......|.....kbbbbbbbbbbbbbbbbsk........|......ksbbbbsbbbsbssbsk.........|.......kbkkbkkkkkbkkbk..........|........kk..kk...kk..kk.........']};
+  const catCache={};
+  function catSpr(pose,i,ci,flip){
+    const id=pose+i+'|'+ci+'|'+(flip?1:0);if(catCache[id])return catCache[id];
+    const rows=CAT_D[pose][i].split('|'),h=rows.length,w=rows[0].length,co={k:'#1c0f08',b:'#f2a03c',s:'#d4801f',t:'#e08a28',p:'#f2a0a0'},c=document.createElement('canvas');c.width=w;c.height=h;
+    const g=c.getContext('2d');
+    for(let y=0;y<h;y++)for(let x=0;x<w;x++){const col=co[rows[y][x]];if(!col)continue;g.fillStyle=col;g.fillRect(flip?w-1-x:x,y,1,1)}
+    return catCache[id]=c;
+  }
+  let catS=null,catNext=Date.now()+12000+Math.random()*20000;
+  /* kartu kamu (baris 0): tengah tiap kartu, sama dengan geometri drawCards (lebar 11.5, jarak 1.1, rata tengah di x=80) */
+  function catSlots(){const h=S.hand&&S.hand[0],n=h?h.length:0,pt=11.5*1.1,x0=80-(n-1)*pt/2,a=[];for(let k=0;k<n;k++)a.push(x0+k*pt);return a}
+  const CAT_FY=83,CAT_GY=86;/* y kaki di atas kartu (kartu 75.6–85.5, jadi ±75% kartu tertutup kaki dan badan) / di atas meja */
+  function drawCat(now){
+    if(!S||S.over||S.anim){catFx=null;if(catS)catS.last=now;return}
+    if(!catS){
+      if(now<catNext)return;
+      catS={ny:Math.random()<.25,nt:0,ph:'in',x:-20,d:Math.random()<.5?1:-1,y:CAT_GY,last:now,t0:now,fl:true,seq:[],si:0,pk:-1,tk:-1,gx:0,from:null,dur:.55};
+    }
+    const c=catS,dt=Math.min(.1,Math.max(0,(now-c.last)/1000));c.last=now;
+    if(c.ny){drawNyan(c,dt,now);return}
+    const sl=catSlots(),n=sl.length,tx=k=>n?sl[Math.min(Math.max(k,0),n-1)]:c.gx;
+    catFx=null;
+    const hop=(k,gx,dur)=>{c.from={x:c.x,y:c.y};c.tk=k;c.gx=gx;c.dur=dur;c.t0=now;c.ph='air'};
+    const cl=v=>Math.max(0,Math.min(1,v)),ak=k=>c.d>0?k:n-1-k;/* d=-1: datang dari kanan, semua dihitung di ruang cermin lalu dibalik saat digambar */
+    let walk=false,lick=false,sx=1,sy=1;/* sx, sy: gepeng/melar badan (kaki tetap di tanah) */
+    if(!n&&(c.ph==='air'||c.ph==='rest'||c.ph==='wait')){c.y=CAT_GY;c.ph='out'}/* kartu habis: turun dan pergi */
+    if(c.ph==='in'){
+      walk=true;c.fl=true;c.x+=24*dt;
+      const stop=n?sl[0]-26:40;
+      if(c.x>=stop){c.x=stop;c.ph='wait';c.t0=now;walk=false}
+    }else if(c.ph==='wait'){/* diam dulu, lalu jongkok sebentar sebelum lompat pertama */
+      const t=now-c.t0,k=cl((t-1250)/250);sy=1-.15*k;sx=1+.07*k;
+      if(t>1500){if(n){c.seq=[];for(let k=0;k<n;k++)c.seq.push(k);for(let k=n-2;k>=0;k--)c.seq.push(k);for(let k=1;k<n;k++)c.seq.push(k);c.si=0;hop(c.seq[0],0,.6)}else c.ph='out'}
+    }else if(c.ph==='air'){
+      const u=(now-c.t0)/1000/c.dur,X1=c.tk>=0?tx(c.tk):c.gx,Y1=c.tk>=0?CAT_FY:CAT_GY;
+      if(u>=1){c.x=X1;c.y=Y1;c.pk=c.tk;c.ph=c.tk>=0?'rest':'groom';c.t0=now;sy=.84;sx=1.08}
+      else{
+        const H=(c.from.y>=CAT_GY&&c.tk>=0)?15:(c.tk<0?12:9);
+        {const q=(now-c.t0)/1000;if(c.pk>=0&&c.pk<n&&q<.45){const a=Math.exp(-q*8);catFx={r:0,k:ak(c.pk),dx:0,dy:-1.1*a*Math.abs(Math.cos(q*16)),rot:-(c.d>0?1:-1)*.08*a*Math.sin(q*20)}}}/* kartu memantul naik waktu ditinggal lompat */
+        c.x=c.from.x+(X1-c.from.x)*u;c.y=c.from.y+(Y1-c.from.y)*u-4*u*(1-u)*H;c.fl=X1>=c.from.x-.01;
+        const m=Math.sin(Math.PI*u);sy=1+.13*m;sx=1-.07*m;/* melar waktu di udara */
+      }
+    }else if(c.ph==='rest'){
+      c.x=tx(c.pk);const p=(now-c.t0)/1000;
+      if(c.pk>=0&&c.pk<n){const a=Math.exp(-p*6),w=Math.sin(p*22);catFx={r:0,k:ak(c.pk),dx:(c.d>0?1:-1)*.9*a*w,dy:2.4*a+.9,rot:.13*a*w}}/* kartu diinjak: amblas dalam waktu mendarat, goyang, lalu tetap sedikit tertekan selama kucing berdiri */
+      if(p<.16){const k=1-p/.16;sy=1-.16*k;sx=1+.08*k}/* mendarat: gepeng lalu pulih */
+      else if(p>.2){const k=cl((p-.2)/.12);sy=1-.15*k;sx=1+.07*k}/* jongkok sebelum lompat lagi */
+      if(p>.32){c.si++;if(c.si<c.seq.length)hop(c.seq[c.si],0,.5);else hop(-1,sl[n-1]+30,.6)}
+    }else if(c.ph==='groom'){/* turun: diam sebentar, jilat-jilat tangan, lalu pergi */
+      const t=(now-c.t0)/1000;c.y=CAT_GY;c.fl=true;
+      if(t<.25){const k=1-t/.25;sy=1-.16*k;sx=1+.08*k}
+      lick=t>.9&&t<4.0;
+      if(t>4.5){c.ph='out';c.t0=now}
+    }else{/* out */
+      walk=true;c.fl=true;c.y=CAT_GY;c.x+=34*dt;
+      if(c.x>200){catS=null;catFx=null;catNext=now+25000+Math.random()*35000;return}
+    }
+    const pose=walk?'walk':lick?'lick':'sit',i=walk?Math.floor(now/110)%4:lick?Math.floor(now/230)%2:Math.floor(now/620)%2;
+    const sp=catSpr(pose,i,0,c.d>0?c.fl:!c.fl),w=Math.round(sp.width*sx),h=Math.round(sp.height*sy),X=Math.round((c.d>0?c.x:160-c.x)-w/2),Y=Math.round(c.y);
+    if(c.y>=CAT_GY-.5){R(X+2,85,w-4,1,'rgba(0,0,0,.4)');R(X+4,86,w-8,1,'rgba(0,0,0,.22)')}
+    else if(c.ph==='rest'||c.ph==='wait')R(X+5,CAT_FY,w-10,1,'rgba(0,0,0,.3)');
+    const sm=cx.imageSmoothingEnabled;cx.imageSmoothingEnabled=false;
+    cx.save();cx.shadowColor='rgba(255,236,190,.7)';cx.shadowBlur=2.5;cx.drawImage(sp,X,Y-h,w,h);cx.restore();cx.imageSmoothingEnabled=sm;
   }
   function drawScene(){
     if(!cv||!cv.isConnected)return;
@@ -9257,6 +9401,7 @@ function TwentyOne(box,joinCode){
     if(an&&an.who===1)shadowOver((now-an.t)/1000);
     roomTable(now/1000,fk);
     if(lz)cx.restore();
+    drawCat(now);
     roomVignette();
     if(flash>now)R(0,0,160,90,'rgba(178,42,31,.35)');
     drawAnim(now);
@@ -9449,11 +9594,14 @@ function TwentyOne(box,joinCode){
       b.append(document.createTextNode(TW_TR[id].n));
       if(TW_TR[id].n.length>12)b.style.fontSize='6.6px';
       if(cnt[id]>1)b.append(el('span','twx','x'+cnt[id]));
-      b.onclick=()=>{sel=sel===id?null:id;render()};elTr.append(b);
+      b.onclick=()=>{sel=sel===id?null:id;selPw=null;render()};elTr.append(b);
     });
+    const q0=S.pw[0]||{},pwOff={peek:!!q0.pk||!S.hand[1].some(c=>c.hid),charm:!!q0.pc||fcCd(q0)>0,eye:!!q0.ey||!S.deck.length,dagger:!!q0.dg||S.deck.length<2};
+    if(selPw&&(!my||S.over||pwOff[selPw]||!(((selPw==='peek'||selPw==='charm')&&kit(0))||((selPw==='eye'||selPw==='dagger')&&ownr(0)))))selPw=null;
     const sid=sel;
     elDesc.innerHTML='';
     if(sid){const b=document.createElement('b');b.textContent=TW_TR[sid].n+': ';elDesc.append(b,document.createTextNode(TW_TR[sid].d))}
+
     elMsg.innerHTML='';msgs.forEach(t=>{const d=document.createElement('div');d.textContent=t;elMsg.append(d)});
     elAct.innerHTML='';
     const row=el('div','dsrow');
@@ -9462,10 +9610,13 @@ function TwentyOne(box,joinCode){
     else{
       row.append(btn('Hit','',()=>pHit(),tot(0)>S.limit||!S.deck.length),btn('Stand','ghost',()=>pStand(),mustHit(0)));
       if(sid)row.append(btn('Pakai '+TW_TR[sid].n,'alt',()=>pTrump()));
-      if(kit(0)){const q=S.pw[0]||{};row.append(btn('Nyala Arwah','alt',()=>pPower('peek'),!!q.pk||!S.hand[1].some(c=>c.hid)),btn('Pesona Rubah','alt',()=>pPower('charm'),!!q.pc||fcCd(q)>0))}
-      if(ownr(0)){const q=S.pw[0]||{};row.append(btn('Mata Takdir','alt',()=>pPower('eye'),!!q.ey||!S.deck.length),btn('Belati Takdir','alt',()=>pPower('dagger'),!!q.dg||S.deck.length<2))}
+      const pb=w=>btn(TW_PW[w][0],'alt'+(selPw===w?' on':''),()=>{selPw=selPw===w?null:w;sel=null;render()},pwOff[w]);/* tekan = baca penjelasan dulu, belum terpakai */
+      if(kit(0))row.append(pb('peek'),pb('charm'));
+      if(ownr(0))row.append(pb('eye'),pb('dagger'));
+      if(selPw)row.append(btn('Pakai '+TW_PW[selPw][0],'',()=>{const w=selPw;selPw=null;pPower(w)}));
       if(!my)row.querySelectorAll('button').forEach(b=>b.disabled=true);
     }
+    if(selPw){const pd=el('div','twpd'),b=document.createElement('b');b.textContent=TW_PW[selPw][0]+': ';pd.append(b,document.createTextNode(TW_PW[selPw][1]));elAct.append(pd)}/* penjelasan kekuatan muncul tepat di atas tombol Pakai */
     elAct.append(row);
     if(kit(0)&&!S.over&&S.pw[0]){const q=S.pw[0],ps=el('div','twps');
       [['Sembilan Ekor',1],['Tipuan',q.pt||tpCd(q)],['Mutiara Rubah',q.pp],['Kembali ke Ekor',kbCd(q)],['Pesona Rubah',fcCd(q)]].forEach(([n,u])=>{const c=el('span','twp'+(u?' u':''));c.textContent=n+' · '+((n==='Kembali ke Ekor'||n==='Pesona Rubah')&&u||n==='Tipuan'&&u&&!q.pt?'CD '+u+' ronde':u?'Terpakai':'Siap');ps.append(c)});
