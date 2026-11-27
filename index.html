@@ -996,6 +996,7 @@ body.dsimm .top .btn,body.dsimm .ghead .back{background:#14110d;border-color:#3a
 .tw .twsc canvas{display:block;width:100%;height:auto;aspect-ratio:16/9;image-rendering:pixelated}
 .tw .twov{position:absolute;inset:0;pointer-events:none;line-height:1.2}
 .tw .twfl{position:absolute;left:5.5%;top:9%;display:flex;gap:5px}
+.tw .twfl,.tw .twmon{display:none!important}/* TV kuning (giliran) dan kotak Taruhan/Ronde disembunyikan supaya adegan tidak tertutup */
 .tw .twfl div{background:#0c0e12;border:2px solid #02060f;box-shadow:0 0 0 1px #3a2a1a;color:#e9e4d6;text-align:center;padding:2px 7px 3px}
 .tw .twfl b{display:block;font-size:clamp(15px,5.4vw,24px);font-weight:500;letter-spacing:.08em}
 .tw .twfl span{font-size:9px;color:#9a9482;letter-spacing:.06em}
@@ -1212,6 +1213,35 @@ background-image:linear-gradient(90deg,transparent calc(33.333% - .5px),rgba(233
 .lt.n.f .lgo{display:grid;place-items:center;position:absolute;right:16px;top:50%;margin-top:-20px;width:40px;height:40px;border-radius:50%;background:rgba(255,255,255,.14);box-shadow:inset 0 0 0 1px rgba(255,255,255,.14);color:#f3f8f5}
 @media(hover:hover){.lt.n:hover{border-color:rgba(255,255,255,.28)}}
 </style>
+<style id="twtable-v2">
+/* Twenty One v2: meja kartu = meja kamera yang sama (rim kayu, kain hijau, lampu dari atas, slot kartu) */
+.tw .twtb{position:relative;gap:0;padding:12px 10px 14px;border:8px solid transparent;
+ background:
+  radial-gradient(circle,#d9a441 0 1.6px,#6b4a2c 2px 3.4px,transparent 4px) left top/8px 8px no-repeat border-box,
+  radial-gradient(circle,#d9a441 0 1.6px,#6b4a2c 2px 3.4px,transparent 4px) right top/8px 8px no-repeat border-box,
+  radial-gradient(circle,#d9a441 0 1.6px,#6b4a2c 2px 3.4px,transparent 4px) left bottom/8px 8px no-repeat border-box,
+  radial-gradient(circle,#d9a441 0 1.6px,#6b4a2c 2px 3.4px,transparent 4px) right bottom/8px 8px no-repeat border-box,
+  url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='120'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 .3 0'/></filter><rect width='120' height='120' filter='url(%23n)'/></svg>") padding-box,
+  radial-gradient(ellipse 62% 46% at 50% 50%,rgba(225,235,150,.13),transparent 72%) padding-box,
+  repeating-linear-gradient(45deg,rgba(255,255,255,.022) 0 1px,transparent 1px 3px) padding-box,
+  linear-gradient(#123324,#0f2a1f) padding-box,
+  repeating-linear-gradient(90deg,#4a3120 0 7px,#44301e 7px 9px,#503622 9px 12px,#3e2a1a 12px 19px) border-box;
+ box-shadow:0 0 0 2px #02060f,inset 0 0 0 2px #140c07,inset 0 10px 22px -6px rgba(0,0,0,.6),inset 0 -10px 22px -8px rgba(0,0,0,.5),0 6px 0 -2px #02060f}
+.tw .twtb>*{position:relative}
+.tw .twrow{min-height:92px;gap:10px;padding:2px 0}
+.tw .twwho{width:88px;padding:6px 7px 7px;background:rgba(6,10,8,.5);border:2px solid #02060f;box-shadow:inset 0 0 0 1px #3a2a1a}
+.tw .twwho b{font-size:11px;letter-spacing:.02em}
+.tw .twcs{gap:6px;flex-wrap:nowrap;align-items:center}
+.tw .twc{width:40px;height:58px}
+.tw .twc.ph{background:rgba(0,0,0,.16);border:2px dashed rgba(233,228,214,.2);box-shadow:inset 0 2px 6px rgba(0,0,0,.45);color:transparent}
+.tw .twtot{width:64px;padding:6px 6px 5px;background:rgba(6,10,8,.5);border:2px solid #02060f;box-shadow:inset 0 0 0 1px #3a2a1a;text-align:center}
+.tw .twtot small{display:block;margin-top:1px}
+.tw .twdiv{height:14px;margin:4px 0;background:
+  linear-gradient(90deg,transparent 0,rgba(217,164,65,.5) 0) 0 50%/calc(50% - 16px) 1px no-repeat,
+  linear-gradient(90deg,rgba(217,164,65,.5),transparent) 100% 50%/calc(50% - 16px) 1px no-repeat;position:relative}
+.tw .twdiv::after{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;margin:-4px 0 0 -4px;transform:rotate(45deg);background:#142018;border:1px solid rgba(217,164,65,.7)}
+.tw .twtbl>div{background:#0c110f;border:2px solid #02060f;box-shadow:inset 0 0 0 1px #4a3120}
+</style>
 </head>
 <body>
 <div class="wrap">
@@ -1343,7 +1373,7 @@ function mk(list){const m=new Map();list.forEach(p=>{if(!m.has(p[0]))m.set(p[0],
 D1.push(["Taruhan lawan naik 1 selama kartu ini di meja.","The opponent's bet goes up by 1 while this card is on the table."],["Taruhan lawan naik 2 selama kartu ini di meja.","The opponent's bet goes up by 2 while this card is on the table."],["Selama di meja, taruhanmu turun 1.","While on the table, your bet goes down by 1."],["Selama di meja, taruhanmu turun 2.","While on the table, your bet goes down by 2."],["Selama di meja, kamu tidak mati walau kalah dan taruhanmu sama atau lebih besar dari poinmu. Poinmu tidak berkurang.","While on the table, you will not die even if you lose and your bet is equal to or higher than your points. You lose no points."],["Ambil 1 trump card. Taruhan lawan naik 1 selama kartu ini di meja.","Draw 1 trump card. The opponent's bet goes up by 1 while this card is on the table."],["Kartu terbuka terakhir lawan dikembalikan ke dek.","The opponent's last face-up card goes back to the deck."],["Taruhanmu naik ke","Your bet goes up to"],["Taruhan lawan naik ke","The opponent's bet goes up to"],["Taruhan lawan turun ke","The opponent's bet goes down to"],["Taruhanmu turun ke","Your bet goes down to"],["Meja lawan kosong. Tidak ada efek.","The opponent's table is empty. No effect."],["Dikembalikan ke dek dari","Returned to the deck from"],["Tidak ada kartu yang pas di dek.","No fitting card in the deck."],["Bless menyelamatkanmu. Tidak ada poin yang berpindah.","Bless saves you. No points change hands."],["Bless menyelamatkan lawan. Tidak ada poin yang berpindah.","Bless saves the opponent. No points change hands."],["Totalmu sudah lewat batas, tidak bisa Hit.","Your total is already over the limit, so you cannot Hit."],["Angka merah di samping poin (misalnya −3) adalah poin yang hilang kalau pemain itu kalah ronde ini. One-Up, Two-Up, dan Bloodshed menaikkan angka lawan, Shield dan Shield+ menurunkan angkamu.","The red number next to the points (for example −3) is how many points that player loses if they lose this round. One-Up, Two-Up, and Bloodshed raise the opponent's number; Shield and Shield+ lower yours."],["Bless mencegah kamu mati: kalau kalah dan angka merahmu sama atau lebih besar dari poinmu, tidak ada poin yang berpindah.","Bless keeps you alive: if you lose and your red number is equal to or higher than your points, no points change hands."],["Yang kalah ronde memberikan poin sebesar taruhannya ke pemenang.","The round's loser gives the winner points equal to their bet."],["Ronde berlanjut sampai kedua pemain Stand berurutan. Kalau totalmu sudah lewat batas, kamu tidak bisa Hit lagi.","The round goes on until both players Stand in a row. If your total is already over the limit, you cannot Hit again."],["Kalau lawan memakai trump yang mengubah meja setelah kamu Stand, Stand-mu dibatalkan dan kamu dapat giliran lagi. Ronde baru selesai kalau kedua pemain Stand tanpa ada perubahan di antaranya.","If the opponent plays a table-changing trump after you Stand, your Stand is cancelled and you get another turn. The round only ends when both players Stand with no change in between."],["Meja berubah. Stand-mu dibatalkan, kamu boleh bergerak lagi.","The table changed. Your Stand is cancelled, you can act again."],["Meja berubah. Stand lawan dibatalkan, dia boleh bergerak lagi.","The table changed. The opponent's Stand is cancelled, they can act again."],["Rangkuman Aturan Twenty One (21)","Twenty One (21) Rules Summary"],["Tujuan:","Goal:"],["Kumpulkan total kartu sedekat mungkin ke 21 tanpa melewatinya.","Get your card total as close to 21 as possible without going over."],["Cara menang:","How to win:"],["Total lebih dekat ke 21 (tanpa lewat) menang.","The total closer to 21 (without going over) wins."],["Kalau dua-duanya lewat 21, yang lebih dekat ke 21 menang.","If both go over 21, the one closer to 21 wins."],["Total sama berarti seri.","Equal totals mean a draw."],["Kartu:","Cards:"],["Dek berisi kartu 1 sampai 11, semuanya unik. Tidak ada kartu kembar, jadi kartu yang sudah ada di meja tidak akan muncul lagi.","The deck holds cards 1 to 11, all unique. There are no duplicates, so a card already on the table cannot appear again."],["Jalannya permainan:","How a round goes:"],["Di awal ronde, tiap pemain dapat 2 kartu acak. Kartu pertama tertutup, jadi lawan tidak bisa melihat angkanya. Kamu juga dapat trump card.","At the start of a round, each player gets 2 random cards. The first card is face-down, so the opponent cannot see its number. You also get trump cards."],["Di gilirannya, pemain bisa Hit (tarik kartu) atau Stand (pass).","On their turn, a player can Hit (draw a card) or Stand (pass)."],["Ronde berlanjut sampai kedua pemain Stand.","The round goes on until both players Stand."],["Setelah itu kartu dibuka dan pemenang ditentukan.","Then the cards are revealed and the winner is decided."],["Trump card:","Trump cards:"],["Kartu spesial yang mengubah jalannya game, misalnya menarik kartu tertentu atau mengubah taruhan.","Special cards that change the game, such as drawing a specific card or changing the bet."],["Boleh dipakai sebanyak apa pun selama giliranmu, dan tidak menghabiskan giliran. Trump yang sama menumpuk (x2, x3) tanpa batas.","Play as many as you like during your turn; it does not use up the turn. Identical trumps stack (x2, x3) with no limit."],["Kamu dapat 2 trump di awal tiap ronde, dan ada peluang dapat trump baru setiap kali Hit.","You get 2 trumps at the start of every round, and a chance at a new trump every time you Hit."],["Ada 25 trump dalam 4 kategori: Add Number, Go For, Bet, dan Deck. Trump baru memilih kategori dulu (masing-masing 25%), lalu kartu acak di dalam kategori itu.","There are 25 trumps in 4 categories: Add Number, Go For, Bet, and Deck. A new trump picks the category first (25% each), then a random card inside it."],["Go For, One-Up, Two-Up, Shield, Bless, dan Bloodshed tinggal di meja sampai ronde selesai. Destroy dan Reincarnation menghancurkan trump terakhir yang dipasang lawan.","Go For, One-Up, Two-Up, Shield, Bless, and Bloodshed stay on the table until the round ends. Destroy and Reincarnation destroy the last trump the opponent placed."],["Ketuk kartunya untuk membaca fungsinya, lalu tekan Pakai. Trump yang terpasang kelihatan di Mejamu dan Meja lawan.","Tap a card to read what it does, then press Use. Placed trumps show under Your table and Opponent\'s table."],["Taruhan dan poin:","Bet and points:"],["Tiap pemain mulai dengan 7 poin (total selalu 14).","Each player starts with 7 points (the total is always 14)."],["Yang kalah ronde memberikan poin sebesar taruhan (BET) ke pemenang.","The round\'s loser gives points equal to the bet (BET) to the winner."],["BET naik 1 setiap ronde berakhir, maksimal 5.","The BET goes up by 1 each time a round ends, up to 5."],["Di layar: Taruhan di pojok kiri atas adalah BET saat ini, dan angka di tiap baris adalah poin pemain itu.","On screen: Bet at the top left is the current BET, and the number on each row is that player\'s points."],["Poin habis (0) berarti kalah pertandingan.","Reaching 0 points means you lose the match."],["Tips:","Tip:"],["Karena kartu unik dan hanya 1 sampai 11, kamu bisa menghitung kartu mana yang masih tersisa untuk menebak risiko lewat batas saat Hit.","Because cards are unique and only 1 to 11, you can count which cards remain to estimate the risk of going over when you Hit."],["Menggantikan kartu Go For lain di meja.","Replaces other Go For cards on the table."],["Taruhan naik 1 selama kartu ini di meja.","Bet goes up by 1 while this card is on the table."],["Taruhan naik 2 selama kartu ini di meja.","Bet goes up by 2 while this card is on the table."],["Selama di meja, kerusakan yang kamu terima berkurang 1.","While on the table, damage you take is reduced by 1."],["Selama di meja, kerusakan yang kamu terima berkurang 2.","While on the table, damage you take is reduced by 2."],["Selama di meja, kamu tidak kehabisan poin di ronde ini.","While on the table, you cannot run out of points this round."],["Poinmu tersisa minimal 1.","You keep at least 1 point."],["Ambil 1 trump card.","Take 1 trump card."],["Hancurkan trump terakhir yang dipasang lawan di meja.","Destroy the last trump the opponent placed on the table."],["Kamu dan lawan masing-masing ambil 2 trump card.","You and the opponent each take 2 trump cards."],["Hancurkan trump terakhir lawan di meja, lalu ambil 1 trump card.","Destroy the opponent's last trump on the table, then take 1 trump card."],["Tanpa efek kalau meja lawan kosong.","No effect if the opponent's table is empty."],["Ambil kartu acak dari dek, tertutup.","Take a random card from the deck, face down."],["Lawan tidak melihat angkanya.","The opponent cannot see its number."],["Kembalikan semua kartumu ke dek, lalu ambil 2 kartu baru.","Return all your cards to the deck, then take 2 new cards."],["Lawan dipaksa ambil 1 kartu dari dek.","The opponent is forced to take 1 card from the deck."],["Bless aktif.","Bless active."],["Bless melindungi","Bless protects"],["Meja lawan kosong.","The opponent's table is empty."],["Masing-masing ambil 2 trump card.","Each takes 2 trump cards."],["Satu kartu diambil tanpa dilihat lawan.","One card taken, hidden from the opponent."],["Dipaksa ambil kartu","Forced to take card"],["Kartu baru diambil.","New cards taken."],["Meja lawan","Opponent's table"],["Mejamu","Your table"],["Peluang trump: 25% per kategori, lalu acak dalam kategori.","Trump odds: 25% per category, then random inside the category."],["Ada 25 trump card dalam 4 kategori: Add Number, Go For, Bet, dan Deck. Tiap trump card baru memilih kategori dulu (masing-masing 25%), lalu kartu acak di dalam kategori itu. Jumlah kartu tiap kategori beda, jadi peluang tiap kartu juga beda.","There are 25 trump cards in 4 categories: Add Number, Go For, Bet and Deck. Each new trump picks a category first (25% each), then a random card inside it. Categories hold different numbers of cards, so each card has a different chance."],["Go For, One-Up, Two-Up, Shield, Bless, dan Bloodshed tinggal di meja sampai ronde selesai. Destroy dan Reincarnation menghancurkan trump terakhir yang dipasang lawan.","Go For, One-Up, Two-Up, Shield, Bless and Bloodshed stay on the table until the round ends. Destroy and Reincarnation destroy the last trump the opponent placed."]);
 D1.push(["KAMU KALAH","YOU LOSE"],["KAMU MENANG","YOU WIN"]);
 /* Twenty One: kekuatan Kitsune Emas, nama karakter, layar room online */
-D1.push(["Main Twenty One bareng aku di Board Game Maroe. Buka link ini, langsung masuk:","Play Twenty One with me on Board Game Maroe. Open this link to join straight away:"],["Nyala Arwah","Spirit Flame"],["Tipuan","Deception"],["Pesona Rubah","Fox Charm"],["Pesona Rubah sudah dipakai ronde ini.","Fox Charm was already used this round."],["Pesona Rubah –","Fox Charm –"],["wajib Hit di giliran berikutnya.","must Hit on their next turn."],["Pesona Rubah! Kamu wajib Hit di giliran berikutnya.","Fox Charm! You must Hit on your next turn."],["Terpesona Pesona Rubah: kamu wajib Hit.","Charmed by Fox Charm: you must Hit."],["Tipuan (pasif): kartu terbuka pertamamu tampil palsu di layar lawan.","Deception (passive): your first face-up card shows a fake number on the opponent's screen."],["Terpakai","Used"],["Siap","Ready"],["Mutiara Rubah","Fox Pearl"],["Kembali ke Ekor","Return to Tail"],["Sembilan Ekor","Nine Tails"],["Kitsune Emas","Golden Kitsune"],["Kitsune Arwah","Spirit Kitsune"],["Baret Topeng","Masked Beret"],["Polisi","Police"],["Pesulap","Magician"],["Robot Kasino","Casino Robot"],["Badut","Clown"],["Rubah Topeng","Masked Fox"],["Nyala Arwah – kartu tertutup lawan:","Spirit Flame – opponent's hidden card:"],["Nyala Arwah dipakai oleh:","Spirit Flame used by:"],["Tipuan: kartu terbukamu tampil palsu di layar lawan.","Deception: your face-up card shows a fake number on the opponent's screen."],["Asli:","Real:"],["tampil:","shown:"],["Angkamu:","Your number:"],["Angka","Number"],["Angka:","Number:"],["Oleh:","By:"],["Trump hancur:","Trump destroyed:"],["· pemilik:","· owner:"],["Kembali ke Ekor: kartu terakhir dikembalikan ke dek.","Return to Tail: the last card goes back to the deck."],["Kembali ke Ekor: kartu terakhir dibuang.","Return to Tail: the last card is discarded."],["Kartu pengganti terbaik dari dek:","Best replacement card from the deck:"],["Tidak ada kartu pengganti yang muat.","No replacement card fits."],["Poin diambil oleh","Points taken by"],["Poin diambil dari","Points taken from"],["Mutiara Rubah menyelamatkanmu. Tidak ada poin yang berpindah.","Fox Pearl saves you. No points change hands."],["Mutiara Rubah menyelamatkan lawan. Tidak ada poin yang berpindah.","Fox Pearl saves the opponent. No points change hands."],["Nyala Arwah sudah dipakai ronde ini.","Spirit Flame was already used this round."],["Tipuan sudah dipakai ronde ini.","Deception was already used this round."],["Tidak ada kartu terbuka untuk ditipu.","No face-up card to deceive."],["Mutiara Rubah:","Fox Pearl:"],["Kembali ke Ekor:","Return to Tail:"],["siap","ready"],["terpakai","used"],["POIN AKHIR","FINAL POINTS"],["Kamu room master. Bagikan kode 8 huruf ke temanmu.","You're the room master. Share the 8-letter code with your friend."],["Berikan kode 8 huruf ini ke temanmu. Orang pertama yang gabung akan bermain denganmu.","Give this 8-letter code to your friend. The first person to join will play with you."],["Online tidak jalan kalau dibuka dari file. Upload ke hosting (misalnya GitHub Pages), lalu buka lewat link https.","Online doesn't work when opened from a file. Upload to hosting (for example GitHub Pages), then open the https link."],["Room sudah penuh.","The room is full."],["Menunggu temanmu bergabung…","Waiting for your friend to join…"],["Temanmu keluar dari room.","Your friend left the room."],["Room tidak ditemukan atau temanmu belum membuatnya. Periksa kodenya.","Room not found, or your friend hasn't created it yet. Check the code."],["Kodenya 8 huruf atau angka.","The code is 8 letters or digits."],["Mencari room…","Looking for room…"],["Main Twenty One bareng aku di Board Game Maroe. Gabung dengan kode:","Play Twenty One with me on Board Game Maroe. Join with code:"]);
+D1.push(["Main Twenty One bareng aku di Board Game Maroe. Buka link ini, langsung masuk:","Play Twenty One with me on Board Game Maroe. Open this link to join straight away:"],["Nyala Arwah","Spirit Flame"],["Tipuan","Deception"],["Pesona Rubah","Fox Charm"],["Pesona Rubah sudah dipakai ronde ini.","Fox Charm was already used this round."],["Pesona Rubah masih cooldown.","Fox Charm is still on cooldown."],["Pesona Rubah –","Fox Charm –"],["wajib Hit di giliran berikutnya.","must Hit on their next turn."],["Pesona Rubah! Kamu wajib Hit di giliran berikutnya.","Fox Charm! You must Hit on your next turn."],["Terpesona Pesona Rubah: kamu wajib Hit.","Charmed by Fox Charm: you must Hit."],["Tipuan (pasif): kartu terbuka pertamamu tampil palsu di layar lawan.","Deception (passive): your first face-up card shows a fake number on the opponent's screen."],["Terpakai","Used"],["Siap","Ready"],["Mutiara Rubah","Fox Pearl"],["Kembali ke Ekor","Return to Tail"],["Sembilan Ekor","Nine Tails"],["Kitsune Emas","Golden Kitsune"],["Kitsune Arwah","Spirit Kitsune"],["Baret Topeng","Masked Beret"],["Polisi","Police"],["Pesulap","Magician"],["Robot Kasino","Casino Robot"],["Badut","Clown"],["Rubah Topeng","Masked Fox"],["Nyala Arwah – kartu tertutup lawan:","Spirit Flame – opponent's hidden card:"],["Nyala Arwah dipakai oleh:","Spirit Flame used by:"],["Tipuan: kartu terbukamu tampil palsu di layar lawan.","Deception: your face-up card shows a fake number on the opponent's screen."],["Asli:","Real:"],["tampil:","shown:"],["Angkamu:","Your number:"],["Angka","Number"],["Angka:","Number:"],["Oleh:","By:"],["Trump hancur:","Trump destroyed:"],["· pemilik:","· owner:"],["Kembali ke Ekor: kartu terakhir dikembalikan ke dek.","Return to Tail: the last card goes back to the deck."],["Kembali ke Ekor: kartu terakhir dibuang.","Return to Tail: the last card is discarded."],["Kartu pengganti terbaik dari dek:","Best replacement card from the deck:"],["Tidak ada kartu pengganti yang muat.","No replacement card fits."],["Poin diambil oleh","Points taken by"],["Poin diambil dari","Points taken from"],["Mutiara Rubah menyelamatkanmu. Tidak ada poin yang berpindah.","Fox Pearl saves you. No points change hands."],["Mutiara Rubah menyelamatkan lawan. Tidak ada poin yang berpindah.","Fox Pearl saves the opponent. No points change hands."],["Nyala Arwah sudah dipakai ronde ini.","Spirit Flame was already used this round."],["Tipuan sudah dipakai ronde ini.","Deception was already used this round."],["Tidak ada kartu terbuka untuk ditipu.","No face-up card to deceive."],["Mutiara Rubah:","Fox Pearl:"],["Kembali ke Ekor:","Return to Tail:"],["siap","ready"],["terpakai","used"],["POIN AKHIR","FINAL POINTS"],["Kamu room master. Bagikan kode 8 huruf ke temanmu.","You're the room master. Share the 8-letter code with your friend."],["Berikan kode 8 huruf ini ke temanmu. Orang pertama yang gabung akan bermain denganmu.","Give this 8-letter code to your friend. The first person to join will play with you."],["Online tidak jalan kalau dibuka dari file. Upload ke hosting (misalnya GitHub Pages), lalu buka lewat link https.","Online doesn't work when opened from a file. Upload to hosting (for example GitHub Pages), then open the https link."],["Room sudah penuh.","The room is full."],["Menunggu temanmu bergabung…","Waiting for your friend to join…"],["Temanmu keluar dari room.","Your friend left the room."],["Room tidak ditemukan atau temanmu belum membuatnya. Periksa kodenya.","Room not found, or your friend hasn't created it yet. Check the code."],["Kodenya 8 huruf atau angka.","The code is 8 letters or digits."],["Mencari room…","Looking for room…"],["Main Twenty One bareng aku di Board Game Maroe. Gabung dengan kode:","Play Twenty One with me on Board Game Maroe. Join with code:"]);
 /* Twenty One: kekuatan Owner */
 D1.push(["Mata Takdir","Fate's Eye"],["Belati Takdir","Fate's Dagger"],["Mata Takdir sudah dipakai ronde ini.","Fate's Eye was already used this round."],["Belati Takdir sudah dipakai ronde ini.","Fate's Dagger was already used this round."],["Dek terlalu sedikit.","Too few cards in the deck."],["Mata Takdir – kartu teratas dek:","Fate's Eye – top card of the deck:"],["Mata Takdir dipakai oleh:","Fate's Eye used by:"],["Belati Takdir: kartu teratas dek dibuang.","Fate's Dagger: the top card of the deck is discarded."],["Kapten Menang Seri","Captain's Tiebreak"],["Kapten Menang Seri: imbang jadi menang.","Captain's Tiebreak: the draw becomes a win."],["Kulit Karang","Reef Hide"],["Kulit Karang: poin yang hilang berkurang 1.","Reef Hide: points lost reduced by 1."],["Tebasan Akhir","Final Slash"],["Tebasan Akhir: total pas, lawan kehilangan 1 poin tambahan.","Final Slash: exact total, the opponent loses 1 extra point."],["Pasang Balik","Tide Turn"],["Pasang Balik: trump tambahan.","Tide Turn: bonus trump."],["Poin >3","Points >3"]);
 const T={en:mk(D1),id:mk(D2)},cache=new Map();
@@ -4010,6 +4040,13 @@ function dsFig(c,type,ox,oy,u,st){
       else for(let x=-9;x<=9;x++){const y=30+Math.round((1-x*x/81)*3),c=Math.abs(x)<6;R(x,y,1,c?1:2,'#d8242b');if(c)R(x,y+1,1,1,'#fff')}
     }else if(type===8){
       /* rubah topeng: topeng kitsune putih bergaris merah, telinga runcing, nyala arwah biru */
+      const flm=()=>{
+      if(dead)return;for(const [bx,by,ph,sz] of [[27,30,0,1],[35,13,1.7,1],[24,-1,3.1,0],[-27,26,2.3,1],[-35,10,4.2,1],[-23,-2,5.5,0],[34,38,.9,0],[-34,36,3.8,0]]){
+        const fx=bx+Math.round(Math.sin(t/420+ph)*2),fy=by+Math.round(Math.sin(t/310+ph)*3),s=2+sz,fk=((t/110+ph*7)|0)%3;
+        E(fx,fy,s,s+1,'#3aa8e8');E(fx,fy+1,s-1,s,'#8ae0ff');R(fx,fy+1,1,s-1,'#fff');R(fx,fy-s-2-(fk===0?1:0),1,2+(fk===1?1:0),'#3aa8e8');R(fx+fk-1,fy-s-1,1,1,'#8ae0ff');
+        if(fk===2)R(fx+2,fy-s-4,1,1,'#8ae0ff')}
+      };/* nyala arwah biru: digambar terpisah, tidak ikut terpotong saat kepala terpenggal */
+      if(st.flamesonly){flm();return}
       body('#3a1a22','#5a2a36','#1c0c10');
       for(let i=0;i<13;i++){R(-12+i,44+i,3,1,'#ece4d2');R(10-i,44+i,3,1,'#ece4d2')}
       for(let i=0;i<13;i++){R(-14+i,43+i,2,1,'#b3202a');R(13-i,43+i,2,1,'#b3202a')}
@@ -4045,10 +4082,7 @@ function dsFig(c,type,ox,oy,u,st){
         else{R(sx-3,19,7,2,'#14100c');R(sx+(sx>0?4:-4),18,1,1,'#14100c');if(!dead)R(sx-1+lk,19,2,2,st.hit?'#ff6a5a':'#ffb02a')}
       }
       R(-2,33,5,3,'#14100c');R(-1,33,1,1,'#6b6b7a');if(!dead){E(-12,24,3,6,'rgba(120,200,255,.16)');E(12,24,3,6,'rgba(120,200,255,.16)');E(-5,20,4,2,'rgba(255,176,42,.14)');E(5,20,4,2,'rgba(255,176,42,.14)')}
-      if(!dead)for(const [bx,by,ph,sz] of [[27,30,0,1],[35,13,1.7,1],[24,-1,3.1,0],[-27,26,2.3,1],[-35,10,4.2,1],[-23,-2,5.5,0],[34,38,.9,0],[-34,36,3.8,0]]){
-        const fx=bx+Math.round(Math.sin(t/420+ph)*2),fy=by+Math.round(Math.sin(t/310+ph)*3),s=2+sz,fk=((t/110+ph*7)|0)%3;
-        E(fx,fy,s,s+1,'#3aa8e8');E(fx,fy+1,s-1,s,'#8ae0ff');R(fx,fy+1,1,s-1,'#fff');R(fx,fy-s-2-(fk===0?1:0),1,2+(fk===1?1:0),'#3aa8e8');R(fx+fk-1,fy-s-1,1,1,'#8ae0ff');
-        if(fk===2)R(fx+2,fy-s-4,1,1,'#8ae0ff')}
+      if(!st.noflame)flm();
     }else{
       /* kitsune emas (khusus owner): topeng rubah berbingkai emas, haori biru malam, sembilan ekor emas, nyala arwah keemasan */
       const GD='#e6b04a',GH='#fff1bd',RD='#b3261e',WH='#f6ecd8',IA='#1b2052',IB='#2c3478',IC='#0b0d2a';
@@ -8938,7 +8972,7 @@ function TwentyOne(box,joinCode){
   /* gambar hanya kepala (atas leher) atau hanya badan (bawah leher) dari karakter yang sama */
   function twSplit(c,ci,now,part,neck){
     c.save();c.beginPath();if(part==='head')c.rect(0,0,160,neck);else c.rect(0,neck,160,90-neck);c.clip();
-    twFig(c,ci,now,{notail:1});c.restore();
+    twFig(c,ci,now,{notail:1,noflame:1});c.restore();
   }
   function customize(){
     gen++;netLeave(true);stopLoop();S=null;root.innerHTML='';
@@ -8976,6 +9010,212 @@ function TwentyOne(box,joinCode){
   }
 
   /* ---------- adegan piksel ---------- */
+  /* ---------- ruang interogasi seram (dinding & rak digambar sekali ke kanvas cadangan, sisanya hidup tiap frame) ---------- */
+  const RR=(x,y,w,h,c)=>R(Math.round(x),Math.round(y),Math.max(1,Math.round(w)),Math.max(1,Math.round(h)),c);
+  let roomCv=null;
+  function roomBuild(){
+    const c=document.createElement('canvas');c.width=160;c.height=90;
+    const g=c.getContext('2d');g.imageSmoothingEnabled=false;
+    const R=(x,y,w,h,col)=>{g.fillStyle=col;g.fillRect(Math.round(x),Math.round(y),Math.max(1,Math.round(w)),Math.max(1,Math.round(h)))};
+    let sd=7;const rn=()=>{sd=(sd*16807)%2147483647;return sd/2147483647};
+  /* dinding batu lembap */
+  R(0,0,160,90,'#06080b');
+  const bc=['#0d1117','#0a0e13','#10151c','#0b0f14'];
+  for(let r=0;r*6<64;r++){let x=-((r%2)*6);while(x<160){const w=10+Math.floor(rn()*5);R(x,r*6,w-1,5,bc[Math.floor(rn()*4)]);R(x+1,r*6,w-3,1,'rgba(255,255,255,.025)');x+=w}}
+  for(let r=0;r*6<64;r++)R(0,r*6+5,160,1,'#05070a');
+  /* noda lembap & rembesan */
+  for(let i=0;i<9;i++){const x=Math.floor(rn()*150),h=14+Math.floor(rn()*30);R(x,0,2+Math.floor(rn()*3),h,'rgba(0,0,0,.30)');R(x+1,h,1,3,'rgba(20,40,50,.5)')}
+  R(0,52,160,12,'rgba(20,40,55,.10)');
+  /* retakan */
+  const cr=[[118,0],[120,5],[119,10],[123,16],[122,22],[126,28],[125,33],[129,38]];
+  for(let i=0;i<cr.length-1;i++){const [a,b]=cr[i],[c,d]=cr[i+1];for(let s=0;s<=6;s++)R(a+(c-a)*s/6,b+(d-b)*s/6,1,1,'#030406')}
+  R(123,16,5,1,'#030406');R(122,22,-4,1,'#030406');
+  /* jaring laba-laba */
+  for(const [ox,sx] of [[0,1],[160,-1]]){
+    for(let k=0;k<5;k++){const ang=k*0.34+0.1;for(let s=0;s<=22;s++)R(ox+sx*Math.cos(ang)*s,Math.sin(ang)*s,1,1,'rgba(210,210,215,.20)')}
+    for(const r of [8,14,20])for(let k=0;k<=16;k++){const ang=.1+k*(1.45/16);R(ox+sx*Math.cos(ang)*r*.98,Math.sin(ang)*r*.98,1,1,'rgba(210,210,215,.14)')}
+  }
+  /* rak kiri: toples, tengkorak, lilin */
+  R(6,16,38,48,'#0f0a07');R(6,16,2,48,'#1a120c');R(42,16,2,48,'#0a0705');
+  const shelfY=[30,44,58];
+  shelfY.forEach(by=>{R(6,by,38,2,'#2f2216');R(6,by+2,38,1,'#120c08')});
+  /* baris 1: buku */
+  const bk=['#4a2a22','#3a4a5a','#5a4a2a','#2a3a2a','#5a2a2a'];let x=9;for(let k=0;x<40;k++){const w=2+(k%3),h=8+(k*3%5);R(x,30-h,w,h,bk[k%5]);R(x,30-h,w,1,'rgba(255,255,255,.07)');x+=w+(k%2)}
+  /* baris 2: toples berisi mata */
+  [[10,0],[20,1],[30,2]].forEach(([jx,v])=>{
+    R(jx,35,8,9,'#14301f');R(jx+1,36,6,7,'rgba(120,200,150,.20)');R(jx,34,8,1,'#3a3f3a');R(jx+2,33,4,1,'#3a3f3a');
+    if(v!==1){R(jx+2,38,4,4,'#e8e4d0');R(jx+3,39,2,2,'#7a1010');R(jx+3,39,1,1,'#000')}
+    else{R(jx+2,38,5,4,'#a86a74');R(jx+3,39,3,1,'#7a3a44');R(jx+2,41,4,1,'#8a4a54')}
+  });
+  /* baris 3: tengkorak + lilin */
+  R(11,50,10,8,'#bdb7a6');R(12,49,8,1,'#bdb7a6');R(12,53,3,3,'#07090d');R(17,53,3,3,'#07090d');R(15,56,2,1,'#07090d');R(12,57,8,1,'#8f897a');
+  R(29,52,4,6,'#d6d0bd');R(29,52,4,1,'#efe9d6');R(32,54,1,5,'#d6d0bd');
+  /* jendela berjeruji + sinar bulan */
+  R(116,12,40,34,'#04060a');R(118,14,36,30,'#101a27');R(118,14,36,8,'#16253a');
+  R(118,14,36,1,'rgba(160,200,235,.25)');
+  for(let bx=120;bx<154;bx+=7)R(bx,12,2,34,'#030405');R(116,26,40,2,'#030405');R(116,38,40,2,'#030405');
+  R(116,44,40,2,'#1a1410');
+  for(let y=46;y<64;y++){const s=(y-46),x0=118-s*2.2,x1=154-s*1.6;R(x0,y,x1-x0,1,'rgba(150,185,220,'+(.05*(1-s/20)).toFixed(3)+')')}
+  /* rantai belenggu */
+  for(let y=46;y<64;y+=3){R(139,y,2,2,'#4a4e57');R(140,y+1,1,1,'#2a2d33')}
+  R(136,62,8,3,'#4a4e57');R(137,63,2,2,'#14161a');R(141,63,2,2,'#14161a');
+  /* cap tangan darah di dinding */
+  R(103,36,6,6,'#5a0a0d');R(102,34,1,3,'#5a0a0d');R(104,32,1,4,'#5a0a0d');R(106,32,1,4,'#5a0a0d');R(108,34,1,3,'#5a0a0d');R(109,38,2,2,'#5a0a0d');
+  R(104,42,1,9,'#4a080b');R(107,42,1,6,'#4a080b');R(105,51,1,2,'#7a0c10');
+  /* goresan hitungan */
+  for(let g=0;g<4;g++){const gx=56+g*10;for(let i=0;i<4;i++)R(gx+i*2,10,1,8,'rgba(150,150,150,.28)');R(gx-1,13,9,1,'rgba(150,150,150,.28)')}
+    roomCv=c;
+  }
+  function roomWall(t){
+    if(!roomCv)roomBuild();
+    cx.drawImage(roomCv,0,0);
+    const R=RR;
+  const fl=(Math.sin(t*19)>.7)?1:0;
+  R(30,49-fl,2,3+fl,'#ffb02a');R(30,48-fl,1,2,'#fff2a0');
+  for(let r=18;r>=6;r-=4){for(let d=-r;d<=r;d++){const w=Math.floor(Math.sqrt(r*r-d*d));R(31-w,51+d,w*2+1,1,'rgba(255,150,40,.035)')}}
+  /* tali jerat di pojok kanan: desain tipis awal, versi pendek; ayun pelan, serat terurai di atas */
+  {const sw=Math.sin(t*1.1),hang=24,KN=5,LC=21,LY=6,LX=4;
+   const rx=y=>145+Math.round(sw*Math.pow(y/hang,2)*2.2);
+   for(let y=0;y<KN;y++){R(rx(y),y,2,1,'#8a7048');R(rx(y)+1,y,1,1,'#4a3a22')}
+   for(let i=0;i<5;i++){const y=KN+i*2;R(rx(y)-1,y,4,2,i%2?'#6e5a38':'#9a8052');R(rx(y)+2,y,1,2,'#3a2c18')}
+   for(let a=0;a<24;a++){const th=a/24*6.2832,y=Math.round(LC+Math.sin(th)*LY),x=rx(y)+Math.round(Math.cos(th)*LX);R(x,y,2,2,a%3?'#8a7048':'#6e5a38')}
+   for(let a=0;a<24;a+=4){const th=a/24*6.2832,y=Math.round(LC+Math.sin(th)*LY),x=rx(y)+Math.round(Math.cos(th)*LX);R(x,y,1,1,'#b89a66')}
+   R(144,0,1,3,'#b89a66');R(147,0,1,2,'#b89a66');R(142,1,1,2,'#6e5a38')}
+  /* mata mengintai di kegelapan */
+  const bl=(Math.sin(t*2.1)>.93)?0:1;
+  if(bl){R(49,50,2,1,'#d9b81a');R(55,50,2,1,'#d9b81a');R(49,49,2,1,'rgba(217,184,26,.25)');R(55,49,2,1,'rgba(217,184,26,.25)')}
+  }
+  function roomLamp(t,fk){
+    const R=RR;
+  /* lampu telanjang berkedip, sinar kehijauan */
+  R(80,0,1,6,'#1a1510');R(77,6,7,2,'#2a2a22');R(78,8,5,3,'rgba(235,240,170,'+(.5+fk*.45)+')');R(79,9,3,2,'#f3f0b8');
+  for(let y=11;y<66;y++){const w=6+(y-11)*.9,a=.115*fk*(1-(y-11)/70);R(80-w/2,y,w,1,'rgba(225,235,150,'+a.toFixed(3)+')')}
+  /* debu melayang */
+  for(let i=0;i<16;i++){const dx=(i*53+t*5)%46-23,dy=14+((i*29+t*6)%48);R(80+dx*(.3+dy/70),dy,1,1,'rgba(235,235,190,'+(.25+.2*Math.sin(t*3+i)).toFixed(2)+')')}
+  }
+  /* meja kamera: kayu + kain hijau, digambar sekali ke kanvas cadangan; cahaya lampu, lilin, kabut, tetesan darah hidup tiap frame */
+  let tblCv=null;
+  const TW_Y0=62,twXl=y=>Math.round(3-(y-TW_Y0)*.5),twXr=y=>Math.round(157+(y-TW_Y0)*.5);
+  function tableBuild(){
+    const c=document.createElement('canvas');c.width=160;c.height=90;
+    const g=c.getContext('2d');g.imageSmoothingEnabled=false;
+    const R=(x,y,w,h,col)=>{g.fillStyle=col;g.fillRect(Math.round(x),Math.round(y),Math.max(1,Math.round(w)),Math.max(1,Math.round(h)))};
+    let sd=11;const rn=()=>{sd=(sd*16807)%2147483647;return sd/2147483647};
+    /* lantai gelap di kiri-kanan meja */
+    R(0,TW_Y0,160,26,'#06080b');
+    for(let y=TW_Y0+2;y<90;y+=5)R(0,y,160,1,'rgba(255,255,255,.014)');
+    for(let y=TW_Y0;y<90;y++){
+      const a=twXl(y),b=twXr(y),w=b-a;
+      if(y===TW_Y0){R(a+2,y,w-3,1,'#6b4a2c');continue}               /* bibir atas, kena cahaya */
+      if(y<=TW_Y0+2){R(a,y,w,1,y===TW_Y0+1?'#4f3421':'#3a2616');continue}
+      if(y===TW_Y0+3){R(a,y,w,1,'#140c07');continue}                   /* garis bayangan di bawah bibir */
+      if(y>=89){R(a,y,w,1,'#21150c');continue}
+      if(y>=88){R(a,y,w,1,y===88?'#5a3b22':'#3a2616');continue}        /* apron depan */
+      if(y===87){R(a,y,w,1,'#140c07');continue}
+      const k=(y-TW_Y0-4)/22;                                          /* kain: gelap di jauh, lebih terang di dekat */
+      const col=k<.3?'#13362a':k<.6?'#16402f':'#1a4936';
+      R(a+3,y,w-6,1,col);
+      R(a,y,3,1,'#3a2616');R(b-3,y,3,1,'#3a2616');                     /* rel kayu kiri-kanan */
+      R(a+3,y,1,1,'#140c07');R(b-4,y,1,1,'#140c07');
+    }
+    /* serat kain */
+    for(let i=0;i<260;i++){const y=TW_Y0+4+Math.floor(rn()*21),a=twXl(y)+4,b=twXr(y)-4,x=a+Math.floor(rn()*(b-a));R(x,y,1,1,rn()<.55?'rgba(255,255,255,.035)':'rgba(0,0,0,.22)')}
+    for(let y=TW_Y0+4;y<86;y+=2)R(twXl(y)+4,y,twXr(y)-twXl(y)-8,1,'rgba(0,0,0,.07)');
+    /* serat kayu di bibir dan apron */
+    for(let i=0;i<40;i++){const y=rn()<.5?TW_Y0+1+Math.floor(rn()*2):87+Math.floor(rn()*3),x=Math.floor(rn()*150)+4;R(x,y,3+Math.floor(rn()*6),1,'rgba(0,0,0,.28)')}
+    /* tanda area main: garis emas tipis (trapesium) + angka 21 */
+    const gold='rgba(217,164,65,.4)';
+    for(let x=24;x<=136;x++)R(x,67,1,1,gold);
+    for(let x=10;x<=150;x++)R(x,86,1,1,gold);
+    for(let s=0;s<=19;s++){R(24-Math.round(s*14/19),67+s,1,1,gold);R(136+Math.round(s*14/19),67+s,1,1,gold)}
+    [[' 1 ',1],['11 ',1],['  1',0]].length;
+    /* goresan, cincin gelas, bekas bakar */
+    [[18,72,9],[44,80,6],[112,71,8],[132,79,7],[60,84,5]].forEach(([x,y,w])=>{R(x,y,w,1,'rgba(0,0,0,.38)');R(x+1,y+1,w-2,1,'rgba(255,255,255,.04)')});
+    for(let a=0;a<20;a++){const th=a/20*6.2832;R(122+Math.cos(th)*5,81+Math.sin(th)*2.3,1,1,'rgba(0,0,0,.35)')}
+    R(120,80,3,1,'rgba(255,255,255,.07)');
+    R(34,76,3,2,'rgba(0,0,0,.5)');R(35,77,1,1,'rgba(90,40,10,.7)');
+    /* lilin di meja, lilin duduk di atas kain */
+    R(11,70,7,2,'rgba(0,0,0,.4)');
+    R(12,66,5,7,'#d6d0bd');R(12,66,5,1,'#efe9d6');R(16,68,1,5,'#a8a392');R(12,72,5,1,'#8f897a');
+    R(17,73,3,1,'rgba(214,208,189,.55)');
+    roomTblCv=c;
+  }
+  let roomTblCv=null;
+  /* kartu di atas meja kamera: digambar 4x lebih besar (tebal tepi, bayangan lembut, miring, perspektif), lalu diperkecil ke 160x90 supaya menyatu dengan adegan */
+  let cHi=null,cMid=null;
+  const TW_PAL=[['#8f897a','#ece7d9','#d6d0bd','#cfc8b4'],['#f2b632','#a6321c','#d0561e','#ffe7a6'],['#6a3dd8','#2a1250','#d9822a','#fff0b0'],['#2fd6c4','#0f6c78','#0b3f5c','#8ffff0'],['#c4501c','#2a110a','#b0540f','#ffb25a'],['#e0709a','#fbdce6','#f7c3d4','#d9457a'],['#1fe0a0','#06352a','#0a4a3a','#6bffd0'],['#2a62c0','#e6b878','#c4984b','#ec8f6a'],['#7fd8ff','#0a2a4a','#cfe9f2','#3dffb0'],['#d9a441','#2a2a4a','#4a3a2a','#ffe7a6'],['#e8742a','#2a1050','#d99a5a','#ffd6a0'],['#a89e9e','#4a0a10','#2a0a10','#eee9da']];
+  const twRR=(g,x,y,w,h,r)=>{g.beginPath();g.moveTo(x+r,y);g.arcTo(x+w,y,x+w,y+h,r);g.arcTo(x+w,y+h,x,y+h,r);g.arcTo(x,y+h,x,y,r);g.arcTo(x,y,x+w,y,r);g.closePath()};
+  const twDk=(h,f)=>'rgb('+[1,3,5].map(i=>Math.round(parseInt(h.substr(i,2),16)*f)).join(',')+')';
+  function twCard(g,x,y,w,sy,rot,P,hid){
+    const W=w*4,H=W*1.4,r=W*.09,th=Math.max(2,W*.07);
+    g.save();g.translate(x*4,y*4);
+    g.save();g.scale(1,sy);g.rotate(rot);                                  /* bayangan jatuh lembut, menjauh dari lampu */
+    g.shadowColor='rgba(0,0,0,.75)';g.shadowBlur=W*.55;g.shadowOffsetX=W*.1*(x<80?-1:1);g.shadowOffsetY=W*.3;
+    twRR(g,-W/2,-H/2,W,H,r);g.fillStyle='#000';g.fill();g.restore();
+    g.save();g.translate(0,th);g.scale(1,sy);g.rotate(rot);               /* tebal kartu: tepi di bawah muka kartu */
+    twRR(g,-W/2,-H/2,W,H,r);g.fillStyle=twDk(P[0],.55);g.fill();g.restore();
+    g.save();g.scale(1,sy);g.rotate(rot);
+    twRR(g,-W/2,-H/2,W,H,r);g.save();g.clip();
+    const gr=g.createLinearGradient(0,-H/2,0,H/2);gr.addColorStop(0,P[1]);gr.addColorStop(1,P[2]);g.fillStyle=gr;g.fillRect(-W,-H,W*2,H*2);
+    if(P!==TW_PAL[0]){g.strokeStyle=P[3];g.globalAlpha=.2;g.lineWidth=Math.max(1,W*.035);const st=W*.3;                   /* anyaman halus bermotif skin */
+      for(let k=-6;k<=6;k++){g.beginPath();g.moveTo(-W+k*st,-H);g.lineTo(W+k*st,H);g.stroke();g.beginPath();g.moveTo(W+k*st,-H);g.lineTo(-W+k*st,H);g.stroke()}
+      g.globalAlpha=.55;g.beginPath();g.ellipse(0,0,W*.2,H*.13,0,0,6.2832);g.stroke();g.globalAlpha=1}
+    const gl=g.createLinearGradient(-W/2,-H/2,W/2,H/2);gl.addColorStop(.3,'rgba(255,255,255,0)');gl.addColorStop(.48,'rgba(255,255,255,.26)');gl.addColorStop(.62,'rgba(255,255,255,0)');g.fillStyle=gl;g.fillRect(-W,-H,W*2,H*2);  /* kilau kertas */
+    if(hid){g.fillStyle='rgba(0,0,0,.6)';g.fillRect(-W,-H,W*2,H*2)}
+    g.restore();
+    twRR(g,-W/2+W*.05,-H/2+W*.05,W*.9,H-W*.1,r*.7);g.strokeStyle=P[0];g.lineWidth=W*.08;g.stroke();
+    twRR(g,-W/2,-H/2,W,H,r);g.strokeStyle='rgba(255,255,255,.35)';g.lineWidth=1.2;g.stroke();
+    g.restore();g.restore();
+  }
+  function drawCards(fk,t){
+    if(!S||!S.hand)return;
+    if(!cHi){cHi=document.createElement('canvas');cHi.width=640;cHi.height=360;cMid=document.createElement('canvas');cMid.width=320;cMid.height=180}
+    const g=cHi.getContext('2d');g.clearRect(0,0,640,360);
+    const L=[{w:8.5,cy:72.2,sy:.5,pitch:1.12,rot:[0,0,0,0,0],dy:[0,0,0,0,0]},{w:11.5,cy:80.4,sy:.6,pitch:1.1,rot:[0,0,0,0,0],dy:[0,0,0,0,0]}];
+    [1,0].forEach(i=>{
+      const h=S.hand[i],n=h.length;if(!n)return;
+      const l=L[i?0:1],P=TW_PAL[S.lk&&S.lk[i]&&S.lk[i].sk||0]||TW_PAL[0],pt=l.w*l.pitch,x0=80-((n-1)*pt)/2;
+      h.forEach((c,k)=>twCard(g,x0+k*pt,l.cy+l.dy[k%5],l.w,l.sy,l.rot[k%5],P,!!c.hid));
+    });
+    g.globalCompositeOperation='source-atop';                              /* cahaya: lampu di tengah, lilin hangat di kiri, tepi gelap */
+    let q=g.createRadialGradient(320,285,20,320,285,330);q.addColorStop(0,'rgba(235,240,170,'+(.1*fk).toFixed(3)+')');q.addColorStop(.5,'rgba(0,0,0,.05)');q.addColorStop(1,'rgba(0,0,0,.25)');g.fillStyle=q;g.fillRect(0,0,640,360);
+    q=g.createRadialGradient(112,264,4,112,264,240);q.addColorStop(0,'rgba(255,150,40,.22)');q.addColorStop(1,'rgba(255,150,40,0)');g.fillStyle=q;g.fillRect(0,0,640,360);
+    g.globalCompositeOperation='source-over';
+    const m=cMid.getContext('2d');m.clearRect(0,0,320,180);m.imageSmoothingEnabled=true;m.drawImage(cHi,0,0,320,180);
+    const was=cx.imageSmoothingEnabled;cx.imageSmoothingEnabled=true;cx.drawImage(cMid,0,0,160,90);cx.imageSmoothingEnabled=was;
+  }
+  function roomTable(t,fk){
+    const R=RR;
+    if(!roomTblCv)tableBuild();
+    cx.drawImage(roomTblCv,0,0);
+    /* kolam cahaya lampu di atas kain */
+    for(let y=67;y<=86;y++){
+      const k=1-Math.pow((y-76)/10,2);if(k<=0)continue;
+      const w=2*60*Math.sqrt(k),w2=w*.55;
+      R(80-w/2,y,w,1,'rgba(225,235,150,'+(.06*fk).toFixed(3)+')');
+      R(80-w2/2,y,w2,1,'rgba(235,240,170,'+(.07*fk).toFixed(3)+')');
+    }
+    drawCards(fk,t);
+    /* kilau lampu di bibir kayu */
+    R(66,TW_Y0,28,1,'rgba(255,240,180,'+(.22*fk).toFixed(3)+')');
+    /* api lilin + cahaya hangat di meja */
+    const fl=(Math.sin(t*17+2)>.6)?1:0;R(13,62-fl,2,4+fl,'#ffb02a');R(13,61-fl,1,2,'#fff2a0');
+    for(let r=22;r>=6;r-=4){for(let d=-r;d<=r;d++){const y=66+d;if(y<TW_Y0+1||y>86)continue;const w=Math.floor(Math.sqrt(r*r-d*d));R(14-w,y,w*2+1,1,'rgba(255,150,40,.04)')}}
+    /* kabut tipis di depan meja */
+    for(let b=0;b<3;b++){const y=72+b*7;for(let x=0;x<160;x+=2){const a=.03+.025*Math.sin(x*.07+b*2+t*.8);R(x,y,2,3,'rgba(160,180,200,'+Math.max(0,a).toFixed(3)+')')}}
+  }
+  function roomVignette(){
+    const R=RR;
+  /* vignette berat */
+  for(let i=0;i<34;i++){const a=(.62*(1-i/34)).toFixed(3);R(i,0,1,90,'rgba(0,0,0,'+a+')');R(159-i,0,1,90,'rgba(0,0,0,'+a+')')}
+  for(let i=0;i<14;i++)R(0,i,160,1,'rgba(0,0,0,'+(.5*(1-i/14)).toFixed(3)+')');
+  R(0,0,160,90,'rgba(8,14,30,.10)');
+  }
+  function shadowOver(t){
+    const R=RR;
+  const e=Math.min(1,t/1.9),ee=1-(1-e)*(1-e);
+  for(let x=54;x<108;x++){const a=.46*ee*Math.pow((x-54)/54,1.2);R(x,26,1,40,'rgba(0,0,0,'+a.toFixed(3)+')')}
+  }
   function drawScene(){
     if(!cv||!cv.isConnected)return;
     const now=Date.now(),fk=.55+.3*Math.sin(now/240)+(Math.random()<.05?-.3:0);
@@ -8983,18 +9223,9 @@ function TwentyOne(box,joinCode){
     let camOn=false;
     const cam=m=>{if(!lz)return;if(camOn)cx.restore();camOn=true;cx.save();cx.translate(80,45);cx.rotate(lz.ang);cx.translate(-80,-45+lz.py*m)};
     if(lz){cx.fillStyle='#05070a';cx.fillRect(0,0,160,90);cam(2.4);R(-80,-140,320,140,'#05070a')}
-    R(0,0,160,90,'#07090d');R(0,0,160,64,'#0b0e13');
-    const bk=['#6b4a2a','#8a6a3a','#3a4a5a','#5a2a22','#a08a5a','#4a3a2a'];
-    R(6,16,38,48,'#120e0a');
-    for(let s=0;s<3;s++){
-      const by=30+s*14;let x=8;
-      for(let k=0;x<42;k++){const w=2+((k*7+s*3)%3),h=6+((k*5+s*2)%5);R(x,by-h,w,h,bk[(k+s*2)%bk.length]);x+=w+((k+s)%2)}
-      R(6,by,38,2,'#3a2a1a');
-    }
-    R(118,22,36,40,'#0e1117');R(118,40,36,2,'#241a10');R(118,58,36,2,'#241a10');
+    roomWall(now/1000);
     cam(1);if(lz)R(80,-140,1,140,'#1a1510');/* lampu = lapisan jauh, bergerak lebih lambat dari bot, meja, rak */
-    R(80,0,1,6,'#1a1510');R(74,6,13,3,'#3a2a1a');R(78,9,5,2,'rgba(255,210,63,'+(.4+fk*.5)+')');
-    for(let y=11;y<66;y++){const w=6+(y-11)*.9,a=.12*fk*(1-(y-11)/70);cx.fillStyle='rgba(255,210,63,'+a.toFixed(3)+')';cx.fillRect(80-w/2,y,w,1)}
+    roomLamp(now/1000,fk);
     cam(2.4);
     const b=Math.floor(now/700)%2,an=S&&S.anim,hideC=false;
     if(an&&an.who===1)ownerBehind((now-an.t)/1000);
@@ -9014,6 +9245,7 @@ function TwentyOne(box,joinCode){
       R(46,60,20,5,tn[0]);R(46,60,20,1,tn[1]);R(94,60,20,5,tn[0]);R(94,60,20,1,tn[1]);
       R(40,61,7,4,'#d8bf9a');R(113,61,7,4,'#d8bf9a');R(40,61,7,1,'#f0dcb8');R(113,61,7,1,'#f0dcb8');
       twSplit(cx,lk.ch,now,'body',nk);
+      if(twCh(lk.ch).face===8)twFig(cx,lk.ch,now,{flamesonly:1});/* Rubah Topeng: api biru tidak ikut terpotong */
       R(72,nk-1,16,3,'#7a0c0e');R(75,nk-2,10,2,'#a31416');
       if(hf<1.6){const sp=Math.max(0,1-hf/1.6);for(let i=0;i<14;i++){const a=i*2.4+hf*3,r=(2+hf*14)*((i%4+1)/4);R(Math.round(80+Math.cos(a)*r*.9),Math.round(nk-1-Math.abs(Math.sin(a))*r*(1+sp)),2,2,i%2?'#a31416':'#7a0c0e')}}
       const dl=Math.min(14,hf*7);R(76,nk+2,2,Math.round(dl),'#7a0c0e');R(83,nk+2,2,Math.round(dl*.7),'#a31416');
@@ -9022,10 +9254,10 @@ function TwentyOne(box,joinCode){
     if(!cut&&!lk){R(71,36+b,18,16,'#e0c9a6');
     R(70,31+b,20,7,'#5a3a22');R(69,34+b,3,12,'#5a3a22');R(88,34+b,3,12,'#5a3a22');R(71,38+b,18,5,'#5a3a22');
     R(76,48+b,8,1,'#1b1200');R(75,47+b,1,1,'#1b1200');R(84,47+b,1,1,'#1b1200')}}
-    R(0,64,160,2,'#3a2a1a');R(0,66,160,24,'#142018');R(0,66,160,1,'#02060f');R(0,66,3,24,'#2a1e14');R(157,66,3,24,'#2a1e14');
-    for(let y=68;y<90;y+=2){const w=40+(y-68)*3;cx.fillStyle='rgba(255,210,63,'+(.05*fk).toFixed(3)+')';cx.fillRect(80-w/2,y,w,2)}
+    if(an&&an.who===1)shadowOver((now-an.t)/1000);
+    roomTable(now/1000,fk);
     if(lz)cx.restore();
-    R(0,0,14,90,'rgba(0,0,0,.4)');R(146,0,14,90,'rgba(0,0,0,.4)');R(0,0,160,6,'rgba(0,0,0,.4)');
+    roomVignette();
     if(flash>now)R(0,0,160,90,'rgba(178,42,31,.35)');
     drawAnim(now);
     post(now);
@@ -9033,14 +9265,43 @@ function TwentyOne(box,joinCode){
   }
   /* menang: Owner jalan ke belakang lawan, angkat pedang */
   function ownerBehind(t){
-    const e=Math.min(1,t/1.9),ee=1-(1-e)*(1-e),x=Math.round(-14+108*ee),y=24+(t<1.9?Math.floor(t*6)%2:0);
-    R(x-8,y+10,16,40,'#23272e');R(x-8,y+10,16,2,'#343a44');R(x-6,y+14,3,30,'#1a1d22');
-    R(x-6,y,12,12,'#2b3038');R(x-7,y+3,14,8,'#2b3038');R(x-5,y-1,10,2,'#343a44');
-    R(x-4,y+3,8,7,'#d9d6cc');R(x-3,y+10,6,2,'#c2beb2');
-    R(x-3,y+5,2,2,'#07090d');R(x+1,y+5,2,2,'#07090d');R(x,y+8,1,1,'#07090d');
-    const k=Math.max(0,Math.min(1,(t-1.9)/.8)),a=1.57-k*2.5,hx=x+8,hy=Math.round(y+26-k*14);
-    for(let i=0;i<=18;i++)R(Math.round(hx+Math.cos(a)*i),Math.round(hy+Math.sin(a)*i),2,2,i<3?'#5a3a22':'#c3c8cf');
-    R(hx-1,hy-1,3,3,'#d9d6cc');
+    const R=RR;
+  const e=Math.min(1,t/1.9),ee=1-(1-e)*(1-e),x=Math.round(-14+108*ee),y=24+(t<1.9?Math.floor(t*6)%2:0);
+  const k=Math.max(0,Math.min(1,(t-1.9)/.8)),ln=-Math.round(k*3),hx=x+ln;
+  const flick=(Math.sin(t*23)>.82)?.35:1,eyeA=Math.min(1,.35+t/1.6)*flick;
+  /* jubah compang-camping, bahu lebar */
+  R(x-10,y+12,20,56,'#0b0d11');R(x-13,y+13,26,4,'#0b0d11');R(x-12,y+17,24,3,'#0b0d11');
+  R(x-10,y+12,2,56,'#3a2a1a');R(x-13,y+13,2,4,'#3a2a1a');R(x+8,y+12,2,56,'#050608');
+  R(x-3,y+18,1,44,'#050608');R(x+4,y+20,1,40,'#050608');R(x-7,y+22,1,30,'#14161b');
+  /* kerudung */
+  R(hx-8,y-1,16,16,'#08090c');R(hx-6,y-4,12,4,'#08090c');R(hx-4,y-6,8,3,'#08090c');R(hx-8,y,1,12,'#3a2a1a');
+  R(hx-9,y+13,18,3,'#08090c');
+  /* wajah tengkorak dalam bayangan */
+  R(hx-5,y+3,10,10,'#000');
+  R(hx-4,y+10,8,3,'#bdb8aa');
+  for(let i=0;i<4;i++)R(hx-3+i*2,y+10,1,3,'#0a0a0a');
+  R(hx-5,y+9,1,1,'#bdb8aa');R(hx+4,y+9,1,1,'#bdb8aa');
+  R(hx,y+7,1,2,'#000');
+  /* mata merah menyala */
+  const A=eyeA.toFixed(2);
+  R(hx-6,y+3,6,6,'rgba(255,30,20,'+(.16*eyeA).toFixed(2)+')');R(hx,y+3,6,6,'rgba(255,30,20,'+(.16*eyeA).toFixed(2)+')');
+  R(hx-4,y+5,3,3,'#000');R(hx+1,y+5,3,3,'#000');
+  R(hx-3,y+6,2,2,'rgba(255,42,26,'+A+')');R(hx+2,y+6,2,2,'rgba(255,42,26,'+A+')');
+  R(hx-3,y+6,1,1,'rgba(255,200,170,'+A+')');R(hx+2,y+6,1,1,'rgba(255,200,170,'+A+')');
+  /* pedang + tangan tulang */
+  const a=1.57-k*2.5,gx=x+8,gy=Math.round(y+26-k*14),L=26;
+  for(let i=0;i<=L;i++){const px=Math.round(gx+Math.cos(a)*i),py=Math.round(gy+Math.sin(a)*i);
+    if(i<4)R(px,py,2,2,'#3a1f12');
+    else if(i===4)R(px-1,py-1,4,4,'#c9a24a');
+    else{R(px,py,2,2,'#aeb4bc');R(px,py,1,1,'#eef3f8');
+      if(i>12&&i%3===0)R(px,py,2,2,'#8a0f12');}
+  }
+  const tx=Math.round(gx+Math.cos(a)*L),ty=Math.round(gy+Math.sin(a)*L);
+  R(tx+1,ty-1,1,1,'#fff');
+  if(k>.9){const d=Math.floor((t*14)%9);R(tx,ty+2+d,1,2,'#a31416');R(tx-2,ty+6+((d+4)%7),1,2,'#7a0c0e')}
+  R(gx-1,gy-1,3,3,'#cfcabd');R(gx-2,gy+1,2,1,'#cfcabd');
+  /* asap merah tipis */
+  for(let i=0;i<7;i++)R(x-12+((i*9+t*8)%26),y+62-((t*13+i*13)%52),1,1,'rgba(150,10,16,.4)');
   }
   /* cipratan darah di lensa kamera (piksel, hanya efek di layar) */
   function blood(an,k){
@@ -9147,6 +9408,7 @@ function TwentyOne(box,joinCode){
       const d=el('div','twc'+(hide?' bk':'')+(i===0&&c.hid?' mh':'')+(c.fresh?' new':'')+(S.lk&&S.lk[i]&&S.lk[i].sk?' s'+S.lk[i].sk:''));
       d.textContent=hide?'♠︎':String(i===1&&c.fk!=null?c.fk:c.v);c.fresh=false;cs.append(d);
     });
+    for(let k=S.hand[i].length;k<3;k++)cs.append(el('div','twc ph'));
     const t=tot(i),shown=i===1&&S.hand[1].some(c=>c.hid)?'?+'+face(1).reduce((a,c)=>a+(c.fk!=null?c.fk:c.v),0):String(t);
     const tt=el('div','twtot'+(!(i===1&&S.hand[1].some(c=>c.hid))&&t>S.limit?' bust':''));
     tt.append(document.createTextNode(shown));tt.append(el('small','','/'+S.limit));
@@ -9200,13 +9462,13 @@ function TwentyOne(box,joinCode){
     else{
       row.append(btn('Hit','',()=>pHit(),tot(0)>S.limit||!S.deck.length),btn('Stand','ghost',()=>pStand(),mustHit(0)));
       if(sid)row.append(btn('Pakai '+TW_TR[sid].n,'alt',()=>pTrump()));
-      if(kit(0)){const q=S.pw[0]||{};row.append(btn('Nyala Arwah','alt',()=>pPower('peek'),!!q.pk||!S.hand[1].some(c=>c.hid)),btn('Pesona Rubah','alt',()=>pPower('charm'),!!q.pc))}
+      if(kit(0)){const q=S.pw[0]||{};row.append(btn('Nyala Arwah','alt',()=>pPower('peek'),!!q.pk||!S.hand[1].some(c=>c.hid)),btn('Pesona Rubah','alt',()=>pPower('charm'),!!q.pc||fcCd(q)>0))}
       if(ownr(0)){const q=S.pw[0]||{};row.append(btn('Mata Takdir','alt',()=>pPower('eye'),!!q.ey||!S.deck.length),btn('Belati Takdir','alt',()=>pPower('dagger'),!!q.dg||S.deck.length<2))}
       if(!my)row.querySelectorAll('button').forEach(b=>b.disabled=true);
     }
     elAct.append(row);
     if(kit(0)&&!S.over&&S.pw[0]){const q=S.pw[0],ps=el('div','twps');
-      [['Sembilan Ekor',1],['Tipuan',q.pt],['Mutiara Rubah',q.pp],['Kembali ke Ekor',kbCd(q)]].forEach(([n,u])=>{const c=el('span','twp'+(u?' u':''));c.textContent=n+' · '+(n==='Kembali ke Ekor'&&u?'CD '+u+' ronde':u?'Terpakai':'Siap');ps.append(c)});
+      [['Sembilan Ekor',1],['Tipuan',q.pt||tpCd(q)],['Mutiara Rubah',q.pp],['Kembali ke Ekor',kbCd(q)],['Pesona Rubah',fcCd(q)]].forEach(([n,u])=>{const c=el('span','twp'+(u?' u':''));c.textContent=n+' · '+((n==='Kembali ke Ekor'||n==='Pesona Rubah')&&u||n==='Tipuan'&&u&&!q.pt?'CD '+u+' ronde':u?'Terpakai':'Siap');ps.append(c)});
       elAct.append(ps)}
     if(ownr(0)&&!S.over&&S.pw[0]){const ps=el('div','twps');
       [['Kapten Menang Seri',0],['Kulit Karang',0],['Tebasan Akhir',0],['Pasang Balik',S.hp[0]>3]].forEach(([n,u])=>{const c=el('span','twp'+(u?' u':''));c.textContent=n+' · '+(u?'Poin >3':'Siap');ps.append(c)});
@@ -9468,6 +9730,10 @@ function TwentyOne(box,joinCode){
   const KIT=DS_CHARS.findIndex(c=>c.id==='kit');
   const KIT_CD=1;/* Kembali ke Ekor: setelah dipakai, tidak bisa dipakai lagi selama KIT_CD ronde (pb = ronde terakhir dipakai) */
   const kbCd=q=>q&&q.pb?Math.min(KIT_CD,Math.max(0,KIT_CD+1-(S.round-q.pb))):0;
+  const FC_CD=1;/* Pesona Rubah: setelah dipakai, tidak bisa dipakai lagi selama FC_CD ronde (pr = ronde terakhir dipakai) */
+  const fcCd=q=>q&&q.pr?Math.min(FC_CD,Math.max(0,FC_CD+1-(S.round-q.pr))):0;
+  const TP_CD=1;/* Tipuan: setelah aktif, ronde berikutnya istirahat TP_CD ronde (tr = ronde terakhir aktif) */
+  const tpCd=q=>q&&q.tr?Math.min(TP_CD,Math.max(0,TP_CD+1-(S.round-q.tr))):0;
   const kit=i=>KIT>=0&&!!S&&!!S.lk&&!!S.lk[i]&&S.lk[i].ch===KIT;
   /* kekuatan Owner (karakter 'may', khusus game 21). Aktif: Mata Takdir, Belati Takdir. Pasif: Kapten Menang Seri, Kulit Karang, Tebasan Akhir, Pasang Balik. Tamu online tidak bisa jadi Owner (lihat twPeer), jadi hanya host / lawan bot. */
   const MAY=DS_CHARS.findIndex(c=>c.id==='may');
@@ -9484,7 +9750,8 @@ function TwentyOne(box,joinCode){
       else{p.pk=1;sayV(x=>x===i?'Nyala Arwah – kartu tertutup lawan: '+c.v+'.':'Nyala Arwah dipakai oleh: '+pn(i)+'.')}
     }else if(K&&w==='charm'){
       if(p.pc)bad='Pesona Rubah sudah dipakai ronde ini.';
-      else{p.pc=1;S.pw[o].cm=1;sayV(x=>x===i?'Pesona Rubah – '+pn(o)+' wajib Hit di giliran berikutnya.':'Pesona Rubah! Kamu wajib Hit di giliran berikutnya.')}
+      else if(fcCd(p)>0)bad='Pesona Rubah masih cooldown.';
+      else{p.pc=1;p.pr=S.round;S.pw[o].cm=1;sayV(x=>x===i?'Pesona Rubah – '+pn(o)+' wajib Hit di giliran berikutnya.':'Pesona Rubah! Kamu wajib Hit di giliran berikutnya.')}
     }else if(M&&w==='eye'){
       if(p.ey)bad='Mata Takdir sudah dipakai ronde ini.';
       else if(!S.deck.length)bad='Dek habis.';
@@ -9500,8 +9767,9 @@ function TwentyOne(box,joinCode){
   }
   /* Tipuan (pasif): kartu terbuka pertama diberi angka palsu yang hanya terlihat lawan */
   function deceive(i){
+    if(tpCd(S.pw[i])>0)return;/* masih cooldown: ronde ini tanpa tipuan */
     const c=face(i)[0];if(!c)return;
-    let n;do n=rnd(11)+1;while(n===c.v);c.fk=n;S.pw[i].pt=1;
+    let n;do n=rnd(11)+1;while(n===c.v);c.fk=n;S.pw[i].pt=1;S.pw[i].tr=S.round;
     const t='Tipuan (pasif): kartu terbuka pertamamu tampil palsu di layar lawan. Asli: '+c.v+', tampil: '+n+'.';
     if(i===0)addMsg(t);else if(NET&&NET.role==='host')NET.out.push(t);
   }
