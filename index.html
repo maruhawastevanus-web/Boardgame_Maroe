@@ -544,6 +544,23 @@ html:not([lang="en"]) .ty .t-en{display:none}
 .chs .chsko{display:flex;flex-wrap:wrap;gap:6px}
 .chs .chskb{display:flex;align-items:center;gap:6px;font:inherit;font-size:13px;padding:5px 9px;border:1px solid var(--line);border-radius:6px;background:var(--bg);color:var(--fg);cursor:pointer}
 .chs .chskb.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.chs .chlv{text-align:left;display:block;padding:20px}
+.chs .chlvk{font-size:13px;opacity:.7}
+.chs .chlvh{margin:2px 0 14px;font-size:24px;font-weight:700;letter-spacing:-.01em}
+.chs .chlvl{display:flex;flex-direction:column;gap:10px;margin-bottom:16px}
+.chs .chlvc{display:flex;align-items:center;gap:14px;width:100%;text-align:left;font:inherit;color:inherit;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);border-radius:16px;padding:12px 14px;min-height:68px;cursor:pointer;touch-action:manipulation;transition:transform .3s cubic-bezier(.34,1.4,.64,1),border-color .15s,background .15s}
+.chs .chlvc:active{transform:scale(.98)}
+.chs .chlvc i{font-style:normal;flex:none;width:48px;height:48px;border-radius:13px;display:grid;place-items:center;font-size:26px}
+.chs .chlvc.e i{background:#12391a;color:#4cc86a}.chs .chlvc.m i{background:#3b2608;color:#eba73c}.chs .chlvc.i i{background:#3d1214;color:#ec5a60}
+.chs .chlvc span{display:flex;flex-direction:column;gap:2px;min-width:0}
+.chs .chlvc b{font-size:17px}.chs .chlvc small{font-size:13px;opacity:.72}
+.chs .chlvc em{margin-left:auto;flex:none;font-style:normal;font-size:12px;padding:4px 10px;border-radius:99px;background:#4a1a1d;color:#f29a9e}
+.chs .chlvc.on{border-color:var(--accent);background:rgba(255,255,255,.1);box-shadow:inset 0 0 0 1px var(--accent)}
+.chs .chside{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:16px}
+.chs .chside button{font:inherit;font-weight:600;font-size:15px;color:inherit;background:transparent;border:1px solid rgba(255,255,255,.2);border-radius:12px;min-height:46px;cursor:pointer;touch-action:manipulation}
+.chs .chside button.on{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:rgba(255,255,255,.1)}
+.chs .chlv .chgo{display:block;width:100%;min-height:52px;font-size:16px}
+.chs .chlv .chback{display:block;margin:6px auto 0;background:transparent;border-color:transparent;box-shadow:none;opacity:.75}
 .chs .chsw{display:inline-block;width:20px;height:20px;border-radius:4px;border:1px solid rgba(0,0,0,.35)}
 .chs .chpq{font-weight:600}
 .dsin{font-family:var(--body);font-size:16px;padding:10px 12px;border:3px solid #02060f;background:#16120d;color:#e9e4d6;border-radius:0;width:100%}
@@ -1314,7 +1331,7 @@ const D1=[
 ["Room tidak ditemukan atau room master belum membuatnya. Periksa kodenya.","Room not found or the room master hasn’t created it yet. Check the code."],["Room tidak ditemukan atau temanmu belum membuatnya. Periksa kodenya.","Room not found or your friend hasn’t created it yet. Check the code."],
 ["Room master keluar dari room.","The room master left the room."],["Temanmu keluar dari room.","Your friend left the room."],["Kamu dikeluarkan oleh room master.","You were removed by the room master."],["Kamu room master. 2 kursi.","You are the room master. 2 seats."],["Kamu room master. 4 kursi. Kursi kosong bisa diisi bot.","You are the room master. 4 seats. Empty seats can be filled by bots."],
 ["keluar atau koneksinya putus. Permainan dihentikan.","left or lost connection. The game was stopped."],["keluar. Bot mengambil alih.","left. A bot takes over."],
-["Nama kamu","Your name"],["Mau main sebagai apa?","Who do you want to play as?"],["Model bidak","Piece model"],["Warna bidak","Piece colour"],["Geometri","Geometric"],["Garis","Outline"],["Piksel","Pixel"],["Masuk dengan Google","Sign in with Google"],["Keluar","Exit"],["Simpan ke akun (opsional)","Save to account (optional)"],["Tersinkron ke akun Google","Synced to Google account"],["← Semua meja","← All tables"],["Profilku","My profile"],["Lihat statistikmu","See your stats"],["Statistikmu","Your stats"],["Nama panggilan","Nickname"],["Total main","Games played"],["Total menang","Total wins"],["Game dicoba","Games tried"],["Per game","Per game"],["Hapus statistik","Clear stats"],["Data tersimpan di browser ini saja, tanpa akun dan tanpa info pribadi.","Saved in this browser only. No account, no personal info."],["Belum ada permainan tercatat. Main satu ronde dan statistiknya muncul di sini.","No games recorded yet. Play a round and your stats show up here."],["Juara meja","Table champ"],["Bangkrut","Bust"],["Semua","All"],["Sendirian","Solo"],["Trivia","Trivia"],["Lanjut main","Continue"],["Vs 3 bot · 28 kartu","Vs 3 bots · 28 tiles"],["Vs 3 bot · 13 kartu","Vs 3 bots · 13 cards"],["Vs bandar · hit, stand, split","Vs dealer · hit, stand, split"],["1v1 atau free for all","1v1 or free for all"],["Lawan teman atau bot Lv 1–5","Vs a friend or bot Lv 1–5"],["Klondike · buka 1 atau 3","Klondike · draw 1 or 3"],["4 level · catatan & hint","4 levels · notes & hints"],["meja","tables"],["Lanjut main →","Continue →"],["Online","Online"],["Ornamen polos","Ornate plain"],["Ornamen garis","Ornate outline"],["Ornamen","Ornate"],["Kristal garis","Crystal outline"],["Kristal","Crystal"],["Chibi garis","Chibi outline"],["Chibi","Chibi"],["Rune","Rune"],["Neon","Neon"],["Level bot","Bot level"],["Pemula","Beginner"],["Mudah","Easy"],["Sedang","Medium"],["Sulit","Hard"],["Master","Master"],["Skin papan & bidak (hanya terlihat olehmu)","Board & piece skins (only visible to you)"],["Skin senapan","Shotgun skin"],["Ruangan","Room"],["Aksesoris kiri","Left accessory"],["Aksesoris kanan","Right accessory"],["Skin pedang","Sword skin"],["Keberuntungan di pihakmu.","Fortune on your side."],["Keberuntungan di pihakmu,","Fortune on your side,"],["Keberuntungan tidak di pihakmu,","Fortune not on your side,"],["tertebas!","got slashed!"],["tertebas.","got slashed."],["lanjut.","continues."],["tapi tidak terjadi apa-apa.","but nothing happens."],["Keberuntungan tidak di pihakmu, tebas!","Fortune not on your side, slash!"],["Keberuntungan di pihakmu, tebas","Fortune on your side, slash"],["Keberuntungan tidak di pihakmu.","Fortune not on your side."],["Keberuntungan di pihakmu, lanjut.","Fortune on your side, continue."],["menebas","slashes"],["gagal: keberuntungan tidak berpihak.","fails: fortune is not on their side."],["beruntung, lanjut.","is lucky and continues."],["Polos","Plain"],["Mata","Eye"],["Ledakan Emas","Golden Blast"],["Sabit Emas","Golden Sickle"],["Klasik","Classic"],["Emas","Gold"],["Obsidian Merah","Obsidian Red"],["Neon Cyber","Neon Cyber"],["Es Beku","Frost"],["Toxic","Toxic"],["Permen","Candy"],["Camo Militer","Military Camo"],["Tulang","Bone"],["Karat","Rust"],["Pelangi","Rainbow"],["Bunker","Bunker"],["Kasino","Casino"],["Ruang merah","Red Room"],["Freezer","Freezer"],["Neon","Neon"],["Cahaya lilin","Candlelight"],["Racun","Poison"],["Sepia","Sepia"],["Black putih","Black & White"],["Kosong","None"],["Tengkorak","Skull"],["Lilin","Candle"],["Dadu","Dice"],["Gelas wiski","Whiskey glass"],["Uang","Money"],["Peluru emas","Golden shell"],
+["Nama kamu","Your name"],["Mau main sebagai apa?","Who do you want to play as?"],["Model bidak","Piece model"],["Warna bidak","Piece colour"],["Geometri","Geometric"],["Garis","Outline"],["Piksel","Pixel"],["Masuk dengan Google","Sign in with Google"],["Keluar","Exit"],["Simpan ke akun (opsional)","Save to account (optional)"],["Tersinkron ke akun Google","Synced to Google account"],["← Semua meja","← All tables"],["Profilku","My profile"],["Lihat statistikmu","See your stats"],["Statistikmu","Your stats"],["Nama panggilan","Nickname"],["Total main","Games played"],["Total menang","Total wins"],["Game dicoba","Games tried"],["Per game","Per game"],["Hapus statistik","Clear stats"],["Data tersimpan di browser ini saja, tanpa akun dan tanpa info pribadi.","Saved in this browser only. No account, no personal info."],["Belum ada permainan tercatat. Main satu ronde dan statistiknya muncul di sini.","No games recorded yet. Play a round and your stats show up here."],["Juara meja","Table champ"],["Bangkrut","Bust"],["Semua","All"],["Sendirian","Solo"],["Trivia","Trivia"],["Lanjut main","Continue"],["Vs 3 bot · 28 kartu","Vs 3 bots · 28 tiles"],["Vs 3 bot · 13 kartu","Vs 3 bots · 13 cards"],["Vs bandar · hit, stand, split","Vs dealer · hit, stand, split"],["1v1 atau free for all","1v1 or free for all"],["Lawan teman atau bot 3 level","Vs a friend or bot, 3 levels"],["Klondike · buka 1 atau 3","Klondike · draw 1 or 3"],["4 level · catatan & hint","4 levels · notes & hints"],["meja","tables"],["Lanjut main →","Continue →"],["Online","Online"],["Ornamen polos","Ornate plain"],["Ornamen garis","Ornate outline"],["Ornamen","Ornate"],["Kristal garis","Crystal outline"],["Kristal","Crystal"],["Chibi garis","Chibi outline"],["Chibi","Chibi"],["Rune","Rune"],["Neon","Neon"],["Level bot","Bot level"],["Pemula","Beginner"],["Mudah","Easy"],["Sedang","Medium"],["Sulit","Hard"],["Master","Master"],["Skin papan & bidak (hanya terlihat olehmu)","Board & piece skins (only visible to you)"],["Skin senapan","Shotgun skin"],["Ruangan","Room"],["Aksesoris kiri","Left accessory"],["Aksesoris kanan","Right accessory"],["Skin pedang","Sword skin"],["Keberuntungan di pihakmu.","Fortune on your side."],["Keberuntungan di pihakmu,","Fortune on your side,"],["Keberuntungan tidak di pihakmu,","Fortune not on your side,"],["tertebas!","got slashed!"],["tertebas.","got slashed."],["lanjut.","continues."],["tapi tidak terjadi apa-apa.","but nothing happens."],["Keberuntungan tidak di pihakmu, tebas!","Fortune not on your side, slash!"],["Keberuntungan di pihakmu, tebas","Fortune on your side, slash"],["Keberuntungan tidak di pihakmu.","Fortune not on your side."],["Keberuntungan di pihakmu, lanjut.","Fortune on your side, continue."],["menebas","slashes"],["gagal: keberuntungan tidak berpihak.","fails: fortune is not on their side."],["beruntung, lanjut.","is lucky and continues."],["Polos","Plain"],["Mata","Eye"],["Ledakan Emas","Golden Blast"],["Sabit Emas","Golden Sickle"],["Klasik","Classic"],["Emas","Gold"],["Obsidian Merah","Obsidian Red"],["Neon Cyber","Neon Cyber"],["Es Beku","Frost"],["Toxic","Toxic"],["Permen","Candy"],["Camo Militer","Military Camo"],["Tulang","Bone"],["Karat","Rust"],["Pelangi","Rainbow"],["Bunker","Bunker"],["Kasino","Casino"],["Ruang merah","Red Room"],["Freezer","Freezer"],["Neon","Neon"],["Cahaya lilin","Candlelight"],["Racun","Poison"],["Sepia","Sepia"],["Black putih","Black & White"],["Kosong","None"],["Tengkorak","Skull"],["Lilin","Candle"],["Dadu","Dice"],["Gelas wiski","Whiskey glass"],["Uang","Money"],["Peluru emas","Golden shell"],
 ["Satu lawan satu, berhadapan di meja.","One on one, face to face at the table."],["Kamu lawan 3 bot. Bebas pilih target.","You vs 3 bots. Pick any target."],["Bareng teman lewat link atau kode room. 1 v 1 atau free for all, bot bisa mengisi kursi kosong.","With friends via link or room code. 1 v 1 or free for all, bots can fill empty seats."],["Kembali ke menu.","Back to the menu."],["Skin senapan, ruangan, aksesoris meja.","Gun skins, rooms, table accessories."],["Selesai","Done"],["Ganti mode","Change mode"],
 ["Pertandingan terdiri dari beberapa ronde. Pemenang ronde adalah pemain terakhir yang masih hidup. Yang lebih dulu menang 2 ronde, menang pertandingan.","A match has several rounds. The round winner is the last player alive. First to win 2 rounds wins the match."],
 ["Tiap isi ulang, jumlah peluru live (merah) dan blank (biru) ditunjukkan di meja, lalu dikocok dan disembunyikan.","On each reload, the number of live (red) and blank (blue) shells is shown on the table, then shuffled and hidden."],
@@ -1336,6 +1353,7 @@ const D1=[
 ["Kamu main putih.","You play white."],["Kamu lawan bot:","You vs bot:"],["Pilih warna, bot membalas langsung.","Pick a colour, the bot replies right away."],["Bergantian di layar yang sama.","Take turns on the same screen."],["Menunggu persetujuan undo…","Waiting for undo approval…"],["Menunggu jawaban remis…","Waiting for draw reply…"],["Undo disetujui.","Undo approved."],["Undo ditolak teman.","Undo declined by your friend."],["Remis ditolak teman.","Draw declined by your friend."],["Teman minta undo","Friend asks for undo"],["Teman menawarkan remis.","Friend offers a draw."],["Teman ingin main lagi. Ayo!","Friend wants to play again. Let’s go!"],["Teman belum merespons","Friend hasn’t responded"],
 ["Remis: bidak tersisa tidak cukup untuk skakmat.","Draw: not enough pieces left for checkmate."],["Remis: kedua pemain sepakat.","Draw: both players agreed."],["Remis: posisi yang sama muncul tiga kali.","Draw: the same position appeared three times."],["Remis: tidak ada langkah sah dan tidak sedang skak (stalemate).","Draw: no legal moves and not in check (stalemate)."],["Halo!","Hi!"],["Bagus!","Nice!"],["Aduh","Oops"],
 ["Main Buckshot bareng aku di Board Game Maroe. Buka link ini, langsung masuk:","Play Buckshot with me on Board Game Maroe. Open this link to jump right in:"],
+["Catur · lawan bot","Chess · vs bot"],["Pilih level","Choose level"],["Santai, sering salah langkah","Relaxed, makes frequent mistakes"],["Seimbang, taktik dasar","Balanced, basic tactics"],["Engine Stockfish, hampir tak terkalahkan","Stockfish engine, nearly unbeatable"],["Main sebagai","Play as"],["Acak","Random"],["Mulai main","Start game"],
 ["Klik.","Click."],["Memuat soal…","Loading questions…"],["Sisa:","Left:"],["Item","Items"],["geser","swipe"],["Kamu","You"],["kamu","you"],["Teman","Friend"],["teman","friend"],["bot","bot"],["main","play"],["Main","Play"]
 ];
 const D2=[
@@ -6991,7 +7009,7 @@ const CHE=(()=>{
     return best;
   }
   /* level bot 1-5: d=kedalaman, n=acak, r=peluang langkah asal, ms=batas waktu (iterative deepening), q=kedalaman tangkapan */
-  const LV=[null,{d:1,n:600,r:.5},{d:1,n:70},{d:2,n:14},{d:3,n:6},{d:7,n:2,ms:2000,q:3}];
+  const LV=[null,{d:1,n:600,r:.5},{d:1,n:70},{d:2,n:14},{d:3,n:6},{d:7,n:2,ms:2000,q:3},{d:1,n:260,r:.18}];
   function pick(st,lv){
     const c=LV[lv]||LV[3],L=legal(st);
     if(c.r&&Math.random()<c.r)return L[Math.random()*L.length|0];
@@ -7014,9 +7032,58 @@ const CHE=(()=>{
     }catch(x){if(x!==TO)throw x}
     dl=0;return best;
   }
-  return{init,legal,apply,inCheck,kingSq,status,san,pick,key,isW,sqn};
+  const UF='abcdefgh',usq=n=>UF[n&7]+(8-(n>>3));
+  function fen(st){
+    let o='';
+    for(let r=0;r<8;r++){let e=0;for(let c=0;c<8;c++){const p=st.b[r*8+c];if(!p)e++;else{if(e){o+=e;e=0}o+=p}}if(e)o+=e;if(r<7)o+='/'}
+    const ca=(st.cas.K?'K':'')+(st.cas.Q?'Q':'')+(st.cas.k?'k':'')+(st.cas.q?'q':'');
+    return o+' '+st.t+' '+(ca||'-')+' '+(epOk(st)?usq(st.ep):'-')+' '+st.hm+' '+st.fm;
+  }
+  function fromUci(st,u){
+    if(typeof u!=='string'||u.length<4)return null;
+    const f=UF.indexOf(u[0])+(8-(+u[1]))*8,t=UF.indexOf(u[2])+(8-(+u[3]))*8,p=u[4]?u[4].toUpperCase():undefined;
+    return legal(st).find(m=>m.f===f&&m.t===t&&(m.p||undefined)===p)||null;
+  }
+  return{init,legal,apply,inCheck,kingSq,status,san,pick,key,isW,sqn,fen,fromUci};
 })();
 /*CHE-END*/
+/* ---------- STOCKFISH (level Impossible) ----------
+   Butuh 2 file di folder yang sama dengan index.html: stockfish-19-lite-single.js dan stockfish-19-lite-single.wasm (versi single-thread, GitHub Pages aman).
+   Tidak ada fallback: kalau gagal dimuat, bot mencoba lagi sampai berhasil dan menampilkan catatan di papan. */
+const SF=(()=>{
+  const URL_='stockfish-19-lite-single.js';
+  let w=null,ready=null,cb=null,skip=0;
+  function kill(){if(w){try{w.terminate()}catch(e){}}w=null;ready=null;if(cb){const c=cb;cb=null;c.rej(new Error('sf'))}skip=0}
+  function boot(){
+    if(ready)return ready;
+    ready=new Promise((res,rej)=>{
+      let tm=setTimeout(()=>{tm=0;kill();rej(new Error('timeout'))},25000);
+      const bad=e=>{if(tm){clearTimeout(tm);tm=0}kill();rej(e||new Error('sf'))};
+      try{w=new Worker(URL_)}catch(e){bad(e);return}
+      w.onerror=bad;
+      w.onmessage=e=>{
+        const l=typeof e.data==='string'?e.data:'';
+        if(l==='uciok'){w.postMessage('setoption name Hash value 16');w.postMessage('isready')}
+        else if(l==='readyok'){if(tm){clearTimeout(tm);tm=0;res()}}
+        else if(l.startsWith('bestmove')){
+          if(skip>0){skip--;return}
+          if(cb){const c=cb;cb=null;c.res(l.split(' ')[1])}
+        }
+      };
+      w.postMessage('uci');
+    });
+    ready.catch(()=>{});
+    return ready;
+  }
+  function cancel(){if(cb&&w){const c=cb;cb=null;skip++;try{w.postMessage('stop')}catch(e){}c.rej(new Error('cancel'))}}
+  function go(fen,ms){
+    return boot().then(()=>new Promise((res,rej)=>{
+      cancel();cb={res,rej};
+      w.postMessage('position fen '+fen);w.postMessage('go movetime '+ms);
+    }));
+  }
+  return{boot,go,cancel};
+})();
 /* Relay online: Firestore (default) atau ntfy.sh (cadangan). Set window.MAROE_RELAY_FS=false sebelum script ini untuk balik ke ntfy. */
 const FS_RELAY=window.MAROE_RELAY_FS!==false;
 const Relay=(()=>{
@@ -7224,12 +7291,12 @@ const CH_PIECES=[
 function Chess(box,joinCode){
   const T=timers();
   const root=el('div','chs');box.appendChild(root);
-  let botLv=1,st,hist,keys,mode,me,sel=null,lm=[],last=null,over=null,busy=false,pend=null,rem=0,botName=null;
+  let botLv=2,botSide=store.get('ch-side','w'),st,hist,keys,mode,me,sel=null,lm=[],last=null,over=null,busy=false,pend=null,rem=0,botName=null;
   let dead=false,stale=false;
   const TCS=[{k:'1+0',m:1,i:0,n:'Bullet',d:'1 menit tiap pemain, tanpa tambahan'},{k:'2+1',m:2,i:1,n:'Bullet',d:'2 menit tiap pemain, +1 detik per langkah'},{k:'3+2',m:3,i:2,n:'Blitz',d:'3 menit tiap pemain, +2 detik per langkah'},{k:'10+0',m:10,i:0,n:'Rapid',d:'10 menit tiap pemain, tanpa tambahan'},{k:'∞',m:0,i:0,n:'Tanpa batas',d:'Tanpa batas waktu'}];
   let tci=2,tc=null,cl={w:0,b:0},clkT=null,lastTk=0;
   let sts=[],fv=false,pu=null,inU=null,pd=false,inD=false,cmsg='',note='';
-  botLv=Math.min(5,Math.max(1,store.get('ch-lv',3)|0||3));const look=Object.assign({b:0,p:0,m:0},store.get('ch-look',{}));if(!(look.m>=0&&look.m<CH_MODELS.length))look.m=0;CH_MI=look.m;
+  botLv=Math.min(3,Math.max(1,store.get('ch-lv3',2)|0||2));if(!/^[wbr]$/.test(botSide))botSide='w';const look=Object.assign({b:0,p:0,m:0},store.get('ch-look',{}));if(!(look.m>=0&&look.m<CH_MODELS.length))look.m=0;CH_MI=look.m;
   /* relay */
   let topic=null,es=null,uid=chRand(10),role=null,peer=null,lastT=0,seen=new Set(),seenAt=0,pingT=null,onNet=null,esTry=0;
   let elBoard,elTop,elBot,elSt,elMv,elAct;
@@ -7314,17 +7381,24 @@ function Chess(box,joinCode){
   }
   function botMenu(){
     root.innerHTML='';
-    const w=el('div','felt hubmenu');
-    const row=el('div','chsko');
-    ['Pemula','Mudah','Sedang','Sulit','Master'].forEach((n,i)=>{
-      const b=el('button','chskb'+(botLv===i+1?' on':''),'<span>'+n+'</span>');b.type='button';
-      b.onclick=()=>{botLv=i+1;store.set('ch-lv',botLv);[...row.children].forEach((c,j)=>c.classList.toggle('on',j===i))};
-      row.append(b);
+    const w=el('div','felt hubmenu chlv');
+    w.append(el('div','chlvk','Catur · lawan bot'),el('h3','chlvh','Pilih level'));
+    const L=[['Easy','♙\uFE0E','e'],['Medium','♗\uFE0E','m'],['Impossible','♕\uFE0E','i']];
+    const list=el('div','chlvl');
+    L.forEach((x,i)=>{
+      const b=el('button','chlvc '+x[2]+(botLv===i+1?' on':''),'<i>'+x[1]+'</i><span><b>'+x[0]+'</b></span>');b.type='button';
+      b.onclick=()=>{botLv=i+1;store.set('ch-lv3',botLv);[...list.children].forEach((c,j)=>c.classList.toggle('on',j===i));if(i===2)SF.boot().catch(()=>{})};
+      list.append(b);
     });
-    w.append(el('p','','Pilih level bot, lalu mau main sebagai apa?'),row);
-    const a=el('div','actions');
-    a.append(btn('Putih','primary',()=>begin('bot','w')),btn('Hitam','',()=>begin('bot','b')),btn('Kembali','',menu));
-    w.append(a);
+    if(botLv===3)SF.boot().catch(()=>{});
+    const side=el('div','chside');
+    [['w','Putih'],['r','Acak'],['b','Hitam']].forEach(([v,n])=>{
+      const b=el('button',botSide===v?'on':'',n);b.type='button';
+      b.onclick=()=>{botSide=v;store.set('ch-side',v);[...side.children].forEach(c=>c.classList.toggle('on',c===b))};
+      side.append(b);
+    });
+    const go=btn('Mulai main','primary chgo',()=>begin('bot',botSide==='r'?(Math.random()<.5?'w':'b'):botSide));
+    w.append(list,el('div','chskl','Main sebagai'),side,go,btn('Kembali','chback',menu));
     root.append(w);
   }
 
@@ -7494,9 +7568,20 @@ function Chess(box,joinCode){
   }
   function botMove(){
     busy=true;render();
+    const snap=st,fin=m=>{if(dead||over||st!==snap)return;busy=false;doMove(m,true)};
+    if(botLv===3){
+      const f=CHE.fen(st);
+      const tryGo=n=>SF.go(f,1200).then(u=>{const m=CHE.fromUci(snap,u);if(m){if(note){note='';if(root.contains(elBoard))render()}fin(m)}else throw new Error('uci')},()=>{
+        if(dead||over||st!==snap)return;
+        note='Stockfish belum bisa dimuat, mencoba lagi…';if(root.contains(elBoard))render();
+        T.after(()=>{if(!dead&&!over&&st===snap)tryGo(n+1)},Math.min(5000,1000+n*500));
+      });
+      tryGo(0);
+      return;
+    }
     T.after(()=>{
-      if(dead||over)return;
-      const m=CHE.pick(st,botLv);busy=false;doMove(m,true);
+      if(dead||over||st!==snap)return;
+      fin(CHE.pick(st,botLv===1?6:4));
     },450);
   }
   function undoTarget(){
@@ -10374,7 +10459,7 @@ function route(){
       holdem:{g:'Lawan bot',m:'Blind 10/20 · all-in',bg:fl('#3a1f23','#25131a'),art:'<svg width="90" height="50" viewBox="0 0 90 50" aria-hidden="true"><g stroke="#25131a" stroke-width="3"><circle cx="30" cy="28" r="16" fill="#cf3f3f"/><circle cx="52" cy="22" r="16" fill="#e0ad4c"/><circle cx="64" cy="32" r="12" fill="#e4eee9"/></g></svg>'},
       deadshell:{g:'Online',m:'1v1 atau free for all',bg:fl('#3b1a1a','#1f0e0e'),art:'<svg width="80" height="40" viewBox="0 0 80 40" aria-hidden="true"><rect x="6" y="10" width="46" height="20" rx="3" fill="#cf3f3f"/><rect x="48" y="10" width="12" height="20" fill="#e0ad4c"/><path d="M60 10h6a4 4 0 014 4v12a4 4 0 01-4 4h-6z" fill="#e0ad4c"/></svg>'},
       twentyone:{g:'Online',m:'Online 1v1 · atau lawan bot',bg:fl('#2a1e14','#0c0e12'),art:'<svg width="140" height="72" viewBox="0 0 140 72" aria-hidden="true" shape-rendering="crispEdges"><ellipse cx="38" cy="34" rx="40" ry="26" fill="#ffd23f" opacity=".1"/><g fill="none" stroke="#e9e4d6" stroke-opacity=".65" stroke-width="2"><path d="M3 18V3h15M137 18V3h-15M3 54v15h15M137 54v15h-15"/></g><g fill="#e9e4d6" opacity=".05"><rect x="0" y="18" width="140" height="1"/><rect x="0" y="30" width="140" height="1"/><rect x="0" y="42" width="140" height="1"/><rect x="0" y="54" width="140" height="1"/></g><circle cx="15" cy="13" r="3.2" fill="#d6402f"/><text x="21" y="16" font-size="9" font-family="DM Mono,monospace" fill="#e9e4d6" opacity=".8" letter-spacing="1">REC</text><text x="14" y="49" font-size="40" font-family="DM Mono,monospace" font-weight="700" fill="#02060f">21</text><text x="12" y="47" font-size="40" font-family="DM Mono,monospace" font-weight="700" fill="#ffd23f">21</text><rect x="12" y="53" width="5" height="5" fill="#d6402f"/><rect x="19" y="53" width="5" height="5" fill="#d6402f"/><rect x="26" y="53" width="5" height="5" fill="#d6402f"/><rect x="33" y="53" width="5" height="5" fill="#d6402f"/><rect x="40" y="53" width="5" height="5" fill="#d6402f"/><rect x="47" y="53" width="5" height="5" fill="#d6402f"/><rect x="54" y="53" width="5" height="5" fill="#d6402f"/><g transform="translate(-2 6) rotate(-12 82 36)"><rect x="68" y="12" width="30" height="42" fill="#02060f"/><rect x="66" y="10" width="30" height="42" fill="#e9e4d6" stroke="#02060f" stroke-width="2"/><text x="71" y="38" font-size="18" font-family="DM Mono,monospace" font-weight="700" fill="#1b1200">10</text></g><g transform="translate(-6 7) rotate(10 108 36)"><rect x="98" y="12" width="30" height="42" fill="#02060f"/><rect x="96" y="10" width="30" height="42" fill="#1a1612" stroke="#ffd23f" stroke-width="2"/><rect x="99" y="13" width="24" height="36" fill="none" stroke="#b22a1f" stroke-width="1" stroke-dasharray="3 2"/><text x="104" y="38" font-size="20" font-family="DM Mono,monospace" font-weight="700" fill="#ffd23f">?</text></g></svg>'},
-      chess:{g:'Online',m:'Lawan teman atau bot Lv 1–5',bg:fl('#2a2f3a','#161a22'),art:K},
+      chess:{g:'Online',m:'Lawan teman atau bot 3 level',bg:fl('#2a2f3a','#161a22'),art:K},
       poker:{g:'Lawan bot',m:'Vs 3 bot · 13 kartu',bg:fl('#3a1f23','#25131a'),art:'<svg width="90" height="54" viewBox="0 0 90 54" aria-hidden="true"><g transform="rotate(-10 30 28)"><rect x="12" y="5" width="32" height="44" rx="5" fill="#e4eee9"/><text x="18" y="30" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="22" fill="#25131a">2</text></g><g transform="rotate(8 62 28)"><rect x="46" y="5" width="32" height="44" rx="5" fill="#fff"/><text x="52" y="32" font-size="24" fill="#25131a">&#9824;</text></g></svg>'},
       kartu41:{g:'Lawan bot',m:'Vs 3 bot · 4 kartu',bg:fl('#17382d','#0f2a21'),art:'<svg width="90" height="54" viewBox="0 0 90 54" aria-hidden="true"><g transform="rotate(-30 45 56)"><rect x="31" y="2" width="28" height="40" rx="4" fill="#b9c9c1"/><text x="34" y="15" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="12" fill="#cf3f3f">J</text><text x="34" y="26" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="10" fill="#cf3f3f">♥︎</text></g><g transform="rotate(-10 45 56)"><rect x="31" y="2" width="28" height="40" rx="4" fill="#d3e0d9"/><text x="34" y="15" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="12" fill="#cf3f3f">Q</text><text x="34" y="26" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="10" fill="#cf3f3f">♥︎</text></g><g transform="rotate(10 45 56)"><rect x="31" y="2" width="28" height="40" rx="4" fill="#e4eee9"/><text x="34" y="15" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="12" fill="#cf3f3f">K</text><text x="34" y="26" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="10" fill="#cf3f3f">♥︎</text></g><g transform="rotate(30 45 56)"><rect x="31" y="2" width="28" height="40" rx="4" fill="#fff"/><text x="34" y="15" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="12" fill="#cf3f3f">A</text><text x="34" y="26" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="10" fill="#cf3f3f">♥︎</text></g><circle cx="45" cy="40" r="11.5" fill="#e0ad4c" stroke="#17382d" stroke-width="3"/><text x="45" y="44.6" text-anchor="middle" font-family="Bricolage Grotesque,sans-serif" font-weight="800" font-size="13" fill="#17382d">41</text></svg>'},
       tahun:{g:'Trivia',m:'',bg:'linear-gradient(#3a2450,#d98a5a)',wide:1,art:'<svg width=\"92\" height=\"100%\" viewBox=\"0 0 92 110\" preserveAspectRatio=\"xMidYMid slice\" aria-hidden=\"true\" style=\"position:absolute;inset:0\" shape-rendering=\"crispEdges\"><rect width=\"92\" height=\"40\" fill=\"#3a2450\"/><rect y=\"40\" width=\"92\" height=\"20\" fill=\"#8e4a6a\"/><rect y=\"60\" width=\"92\" height=\"30\" fill=\"#d98a5a\"/><rect x=\"62\" y=\"14\" width=\"14\" height=\"14\" fill=\"#ffe9a0\"/><path d=\"M20 90h54l-8-8h-6l-8-8h-6l-8-8h-6l-6-8z\" fill=\"#5a3040\"/><rect y=\"90\" width=\"92\" height=\"20\" fill=\"#3a2230\"/><rect x=\"10\" y=\"72\" width=\"10\" height=\"4\" fill=\"#ffcc33\"/><rect x=\"11\" y=\"76\" width=\"8\" height=\"10\" fill=\"#c9a86a\"/><rect x=\"12\" y=\"84\" width=\"2\" height=\"6\" fill=\"#2b3040\"/><rect x=\"16\" y=\"84\" width=\"2\" height=\"6\" fill=\"#2b3040\"/><rect x=\"6\" y=\"8\" width=\"2\" height=\"2\" fill=\"#fff\"/><rect x=\"30\" y=\"20\" width=\"2\" height=\"2\" fill=\"#fff\"/><rect x=\"48\" y=\"6\" width=\"2\" height=\"2\" fill=\"#fff\"/></svg>'},
